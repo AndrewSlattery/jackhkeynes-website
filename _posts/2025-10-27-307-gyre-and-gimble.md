@@ -6,5 +6,5 @@ puzzle_id: e4415816
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! A 15x15 grid with some thematically linked answers this week—good luck! (<a href="https://squares.io/info/9dv55g2p8s5qothj6qbb" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/307.txt)) Thank you to <a href="https://mycrossword.co.uk/Liari" target="_blank" rel="nofollow">Liari</a> and <a href="https://mycrossword.co.uk/Umpire" target="_blank" rel="nofollow">MP</a> for testing this puzzle.
+Hi all! A 15x15 grid with some thematically linked answers this week—good luck! ([squares.io](https://squares.io/info/9dv55g2p8s5qothj6qbb), [Parse](/assets/parses/307.txt)) Thank you to [Liari](https://mycrossword.co.uk/Liari) and [MP](https://mycrossword.co.uk/Umpire) for testing this puzzle.
 

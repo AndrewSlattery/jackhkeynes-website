@@ -6,6 +6,6 @@ puzzle_id: 52c0a9bf
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! An A-Z jigsaw this week, which as such will likely be better solved on squares.io—good luck! (<a href="https://squares.io/info/bcbbckn6ykm4krmv3x2o" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/176.txt))
+Hi all! An A-Z jigsaw this week, which as such will likely be better solved on squares.io—good luck! ([squares.io](https://squares.io/info/bcbbckn6ykm4krmv3x2o), [Parse](/assets/parses/176.txt))
 <br>
 

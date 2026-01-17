@@ -6,6 +6,6 @@ puzzle_id: c3e40b08
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! Another test of your trivia skills—good luck! (<a href="https://squares.io/info/j8d4bqzzjxfavf4ubeuj" target="_blank" rel="nofollow">squares.io</a>)
+Hi all! Another test of your trivia skills—good luck! ([squares.io](https://squares.io/info/j8d4bqzzjxfavf4ubeuj))
 <br>
 

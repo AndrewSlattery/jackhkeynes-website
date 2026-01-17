@@ -6,6 +6,6 @@ puzzle_id: efb6eb3c
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! Just a normal grid where every clue happens to have exactly five words—good luck! 😈5️⃣ (<a href="https://squares.io/info/h6uq3yvweemsu8k3ezop" target="_blank" rel="nofollow">squares.io</a>; [Parse](/assets/parses/162.txt))
+Hi all! Just a normal grid where every clue happens to have exactly five words—good luck! 😈5️⃣ ([squares.io](https://squares.io/info/h6uq3yvweemsu8k3ezop); [Parse](/assets/parses/162.txt))
 <br>
 

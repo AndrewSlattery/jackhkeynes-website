@@ -6,6 +6,6 @@ puzzle_id: aba2ef12
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! With a little clue help from many people, including the inestimable <a href="https://mpcryptics.blogspot.com/" target="_blank" rel="nofollow">MP</a> and <a href="https://juffscryptics.blogspot.com/" target="_blank" rel="nofollow">Juff</a>, an ordinary 15x15 this week—good luck! 🕷️🌼 (<a href="https://squares.io/info/uogtjcmgq38cadesrsjy" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/167.txt))
+Hi all! With a little clue help from many people, including the inestimable [MP](https://mpcryptics.blogspot.com/) and [Juff](https://juffscryptics.blogspot.com/), an ordinary 15x15 this week—good luck! 🕷️🌼 ([squares.io](https://squares.io/info/uogtjcmgq38cadesrsjy), [Parse](/assets/parses/167.txt))
 <br>
 

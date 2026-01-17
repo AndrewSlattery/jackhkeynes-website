@@ -6,6 +6,6 @@ puzzle_id: 615567b2
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! A slightly smaller 13x13 grid this week—good luck! (<a href="https://squares.io/info/7hqj2cpr6v5mw2efs9hy" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/172.txt))
+Hi all! A slightly smaller 13x13 grid this week—good luck! ([squares.io](https://squares.io/info/7hqj2cpr6v5mw2efs9hy), [Parse](/assets/parses/172.txt))
 <br>
 

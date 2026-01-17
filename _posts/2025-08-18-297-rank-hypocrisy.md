@@ -6,5 +6,5 @@ puzzle_id: cd850895
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! An ordinary 15x15 grid for you all this week—good luck! (<a href="https://squares.io/info/zubp3fowm97ytrprka2z" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/297.txt))
+Hi all! An ordinary 15x15 grid for you all this week—good luck! ([squares.io](https://squares.io/info/zubp3fowm97ytrprka2z), [Parse](/assets/parses/297.txt))
 

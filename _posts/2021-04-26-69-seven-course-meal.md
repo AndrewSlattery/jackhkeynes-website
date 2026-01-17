@@ -7,6 +7,6 @@ puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
 Nice.<p>
-<a href="https://amuselabs.com/pmm/crossword?id=89d82560&amp;set=fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508" target="_blank" rel="nofollow">Open in new tab</a>
+[Open in new tab](https://amuselabs.com/pmm/crossword?id=89d82560&amp;set=fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508)
 <hr>
 

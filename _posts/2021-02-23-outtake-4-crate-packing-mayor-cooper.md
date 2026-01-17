@@ -6,7 +6,7 @@ date: 2021-02-23T19:47:00.008Z
 
 EDIT: Clue (l) contains an error;  it should read "Model mooted by Galileo"
 <br>
-Hello everyone! For this outtake, a new style of puzzle I've seen called "Crate Packing", for example <a href="https://southerncrosswords.blogspot.com/2021/02/puzzle-48-packing-crates-3.html">here</a>. The rules are are follows:
+Hello everyone! For this outtake, a new style of puzzle I've seen called "Crate Packing", for example [here](https://southerncrosswords.blogspot.com/2021/02/puzzle-48-packing-crates-3.html). The rules are are follows:
 <br>
 1. each row (1-15) is a sequence of 2-4 words, as clued on the left.<br>
 2. each crate (a-y) contains a single word or phrase, clued alphabetically on the right.

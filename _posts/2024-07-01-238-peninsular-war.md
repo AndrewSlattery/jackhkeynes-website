@@ -6,5 +6,5 @@ puzzle_id: b96e209a
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! A smaller 13x13 grid for you all this week—see if you can work out where I've been while I constructed this one! (<a href="https://squares.io/info/odpkv9o7kjxuveag4ko9" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/238.txt)) Thank you to <a href="https://mycrossword.co.uk/Liari" target="_blank" rel="nofollow">Liari</a> and <a href="https://mycrossword.co.uk/Umpire" target="_blank" rel="nofollow">MP</a> for testing this puzzle.
+Hi all! A smaller 13x13 grid for you all this week—see if you can work out where I've been while I constructed this one! ([squares.io](https://squares.io/info/odpkv9o7kjxuveag4ko9), [Parse](/assets/parses/238.txt)) Thank you to [Liari](https://mycrossword.co.uk/Liari) and [MP](https://mycrossword.co.uk/Umpire) for testing this puzzle.
 
