@@ -1,6 +1,14 @@
 ---
 layout: default
 ---
+<style>
+  #cusdis_thread iframe {
+    min-height: 500px !important;
+    width: 100% !important;
+    border: none !important;
+  }
+</style>
+
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -49,36 +57,97 @@ layout: default
     {% endif %}
   </div>
 
-  <div class="blog-archives" style="margin-bottom: 40px; color: #000000;">
-    <h3 style="margin-top: 0; color: #000000;">Archives</h3>
-    {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-    {% for year in postsByYear %}
-      <details>
-        <summary style="cursor: pointer; font-weight: bold; padding: 5px 0; color: #000000;">{{ year.name }}</summary>
-        <ul style="margin-left: 20px;">
-          {% for post in year.items %}
-            <li>
-              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </details>
-    {% endfor %}
-  </div>
-
-  <div id="comments" style="margin-bottom: 50px;">
-    <h3 style="color: #000000;">Comments</h3>
-    <div id="cusdis_thread"
-      data-host="https://cusdis.com"
-      data-app-id="690eb3e2-a69f-4962-817f-0453f1917cba"
-      data-page-id="{{ page.id }}"
-      data-page-url="{{ page.url | absolute_url }}"
-      data-page-title="{{ page.title }}"
-      data-theme="auto"
-      style="width: 100%; min-height: 500px; overflow: visible;">
+  <details style="margin-bottom: 40px; color: #828282;">
+    <summary style="cursor: pointer; font-weight: bold; font-size: 1.2em; outline: none;">Archives</summary>
+    
+    <div style="margin-left: 20px; margin-top: 10px;">
+      {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+      {% for year in postsByYear %}
+        <details style="margin-bottom: 5px;">
+          <summary style="cursor: pointer; color: #828282;">{{ year.name }}</summary>
+          <ul style="margin-left: 20px;">
+            {% for post in year.items %}
+              <li>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </details>
+      {% endfor %}
     </div>
-    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-  </div>
+  </details>
+
+  <details id="comments-section" style="margin-bottom: 50px;">
+    <summary style="cursor: pointer; font-weight: bold; font-size: 1.2em; color: #828282; outline: none;">Comments</summary>
+    
+    <div style="background-color: #ffffff; padding: 20px; margin-top: 10px; border-radius: 5px; border: 1px solid #eee;">
+      <div id="cusdis_thread"
+        data-host="https://cusdis.com"
+        data-app-id="690eb3e2-a69f-4962-817f-0453f1917cba"
+        data-page-id="{{ page.id }}"
+        data-page-url="{{ page.url | absolute_url }}"
+        data-page-title="{{ page.title }}"
+        data-theme="light" 
+        style="width: 100%;">
+      </div>
+    </div>
+  </details>
+
+  <script>
+    const commentsDetails = document.getElementById('comments-section');
+    let commentsLoaded = false;
+
+    // Load the Cusdis script only when the details element is opened
+    commentsDetails.addEventListener('toggle', function() {
+      if (this.open && !commentsLoaded) {
+        let script = document.createElement('script');
+        script.src = "https://cusdis.com/js/cusdis.es.js";
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+        commentsLoaded = true;
+      }
+    });
+
+    // Resize handler for various Cusdis message formats
+    window.addEventListener('message', function (e) {
+      if (!e.data) return;
+      
+      let height = null;
+      
+      // Handle various Cusdis message formats
+      if (e.data.from === 'cusdis' && e.data.data) {
+        height = e.data.data;
+      } else if (e.data.event === 'resize' && e.data.height) {
+        height = e.data.height;
+      }
+      
+      if (height) {
+        const iframe = document.querySelector('#cusdis_thread iframe');
+        if (iframe) {
+          // Add generous buffer and enforce minimum height
+          iframe.style.setProperty('height', Math.max(height + 100, 500) + 'px', 'important');
+        }
+      }
+    });
+
+    // Fallback: use MutationObserver to catch iframe creation and set initial height
+    const cusdisContainer = document.getElementById('cusdis_thread');
+    const observer = new MutationObserver(function(mutations) {
+      const iframe = document.querySelector('#cusdis_thread iframe');
+      if (iframe) {
+        iframe.style.setProperty('min-height', '500px', 'important');
+        iframe.style.setProperty('height', '500px', 'important');
+        iframe.style.setProperty('max-height', 'none', 'important');
+        observer.disconnect();
+      }
+    });
+    
+    observer.observe(cusdisContainer, { 
+      childList: true, 
+      subtree: true 
+    });
+  </script>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
