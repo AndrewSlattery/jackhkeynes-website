@@ -6,6 +6,6 @@ puzzle_id: 3ac28d2a
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! An ordinary grid for you all this week—good luck! 🏇😋 (<a href="https://squares.io/info/smtbp6au3c66mkuy975c" target="_blank" rel="nofollow">squares.io</a>, <a href="https://drive.google.com/file/d/1E7T1THWyIBhLmomEj39xhp8wLHLeU670/view?usp=share_link" target="_blank" rel="nofollow">parses</a>)
+Hi all! An ordinary grid for you all this week—good luck! 🏇😋 (<a href="https://squares.io/info/smtbp6au3c66mkuy975c" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/165.txt))
 <br>
 

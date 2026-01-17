@@ -6,5 +6,5 @@ puzzle_id: 3a83f95c
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! An ordinary 15x15 grid for you all this week—good luck! (<a href="https://squares.io/info/9f8g7v4fxvnh7znx2mn9" target="_blank" rel="nofollow">squares.io</a>, <a href="https://drive.google.com/file/d/1VVs73NbIw7V-nXKLKFflOc6DjszxyKQp/view?usp=drive_link" target="_blank" rel="nofollow">parses</a>) Thank you to <a href="https://mycrossword.co.uk/Liari" target="_blank" rel="nofollow">Liari</a> and <a href="https://mycrossword.co.uk/Umpire" target="_blank" rel="nofollow">MP</a> for testing many of the clues in this puzzle.
+Hi all! An ordinary 15x15 grid for you all this week—good luck! (<a href="https://squares.io/info/9f8g7v4fxvnh7znx2mn9" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/268.txt)) Thank you to <a href="https://mycrossword.co.uk/Liari" target="_blank" rel="nofollow">Liari</a> and <a href="https://mycrossword.co.uk/Umpire" target="_blank" rel="nofollow">MP</a> for testing many of the clues in this puzzle.
 

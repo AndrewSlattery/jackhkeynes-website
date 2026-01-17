@@ -6,5 +6,5 @@ puzzle_id: 09249e9f
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! An ordinary 15x15 grid for you all this week—good luck! (<a href="https://squares.io/info/e3agxph475nhz8seg8ba" target="_blank" rel="nofollow">squares.io</a>, <a href="https://drive.google.com/file/d/129sdbU8j80NAY-T7dO2cB4Ht6KwVbhbk/view?usp=drive_link" target="_blank" rel="nofollow">parses</a>) Thank you to <a href="https://mycrossword.co.uk/Liari" target="_blank" rel="nofollow">Liari</a> and <a href="https://mycrossword.co.uk/Umpire" target="_blank" rel="nofollow">MP</a> for testing this puzzle.
+Hi all! An ordinary 15x15 grid for you all this week—good luck! (<a href="https://squares.io/info/e3agxph475nhz8seg8ba" target="_blank" rel="nofollow">squares.io</a>, [Parse](/assets/parses/261.txt)) Thank you to <a href="https://mycrossword.co.uk/Liari" target="_blank" rel="nofollow">Liari</a> and <a href="https://mycrossword.co.uk/Umpire" target="_blank" rel="nofollow">MP</a> for testing this puzzle.
 
