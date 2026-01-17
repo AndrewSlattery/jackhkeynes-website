@@ -3,7 +3,7 @@
 ---
 
 // ==========================================
-// 1. CUSTOM DARK MODE SCHEME
+// 1. CUSTOM DARK MODE SCHEME & LAYOUT
 // ==========================================
 
 // Your colors: Dark Grey BG, Light Text, Neon Green Accent
@@ -15,6 +15,10 @@ $brand-color:      #51fb44;
 $grey-color:       #828282;
 $grey-color-light: #424242; // Faint borders
 $grey-color-dark:  #eeeeee; // Strong borders
+
+// LAYOUT WIDTH OVERRIDE
+// Default is 800px. 1200px allows much more room for crosswords.
+$content-width:    1200px; 
 
 // ==========================================
 // 2. IMPORT THE THEME
@@ -51,4 +55,5 @@ pre, code {
 // Fix the table wrapper border
 .wrapper {
   background-color: $background-color; 
+  max-width: $content-width; /* Ensures wrapper respects the new width */
 }

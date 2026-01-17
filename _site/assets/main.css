@@ -146,8 +146,8 @@ pre > code {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
-  max-width: calc(800px - 30px * 2);
+  max-width: -webkit-calc(1200px - (30px * 2));
+  max-width: calc(1200px - 30px * 2);
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
@@ -155,8 +155,8 @@ pre > code {
 }
 @media screen and (max-width: 800px) {
   .wrapper {
-    max-width: -webkit-calc(800px - (30px));
-    max-width: calc(800px - (30px));
+    max-width: -webkit-calc(1200px - (30px));
+    max-width: calc(1200px - (30px));
     padding-right: 15px;
     padding-left: 15px;
   }
@@ -667,6 +667,7 @@ pre, code {
 
 .wrapper {
   background-color: #2b2b2b;
+  max-width: 1200px; /* Ensures wrapper respects the new width */
 }
 
 /*# sourceMappingURL=main.css.map */
