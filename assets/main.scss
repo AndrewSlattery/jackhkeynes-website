@@ -1,0 +1,54 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// ==========================================
+// 1. CUSTOM DARK MODE SCHEME
+// ==========================================
+
+// Your colors: Dark Grey BG, Light Text, Neon Green Accent
+$background-color: #2b2b2b;
+$text-color:       #e0e0e0;
+$brand-color:      #51fb44;
+
+// Adjust the border greys to be visible on dark mode
+$grey-color:       #828282;
+$grey-color-light: #424242; // Faint borders
+$grey-color-dark:  #eeeeee; // Strong borders
+
+// ==========================================
+// 2. IMPORT THE THEME
+// ==========================================
+@import "minima";
+
+// ==========================================
+// 3. FORCE OVERRIDES
+// ==========================================
+
+// Force all links to use your neon green
+a, a:visited {
+  color: $brand-color;
+}
+
+// Make hover slightly brighter
+a:hover {
+  color: lighten($brand-color, 20%);
+}
+
+// Fix the footer to match the dark background
+.site-footer {
+  background-color: $background-color;
+  border-top: 1px solid $grey-color-light;
+}
+
+// Fix code blocks to be dark
+pre, code {
+  border: 1px solid $grey-color-light;
+  background-color: #1a1a1a;
+  color: $text-color;
+}
+
+// Fix the table wrapper border
+.wrapper {
+  background-color: $background-color; 
+}
