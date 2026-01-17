@@ -13,6 +13,6 @@ The first grid I ever made, so be gentle lol 🕷️
 ---
 ### 💬 Archived Comments
 
-**Anonymous** *mapped on 2025-05-16*
+**Anonymous** *on 2025-05-16*
 > Good crossword
 

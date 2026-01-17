@@ -137,7 +137,7 @@ posts.each do |post_id, p_data|
       
       # Sort comments by date
       post_comments.sort_by { |c| c[:date] }.each do |c|
-        f.puts "**#{c[:author]}** *mapped on #{c[:date]}*"
+        f.puts "**#{c[:author]}** *on #{c[:date]}*"
         clean_comment = c[:content].gsub(/<[^>]+>/, '') # Strip HTML tags from comments
         f.puts "> #{clean_comment.strip.gsub(/\n/, "\n> ")}" 
         f.puts ""

@@ -13,9 +13,9 @@ Hi all! An ordinary 15x15 grid for you all this week—good luck! (<a href="http
 ---
 ### 💬 Archived Comments
 
-**Ganda** *mapped on 2023-11-20*
+**Ganda** *on 2023-11-20*
 > Enjoyed this especially 14a 6d 7d 17d; lots of fun fill
 
-**Jack H Keynes** *mapped on 2023-11-25*
+**Jack H Keynes** *on 2023-11-25*
 > Thank you! :D
 

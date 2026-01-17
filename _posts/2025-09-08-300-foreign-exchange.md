@@ -14,6 +14,6 @@ Hi all!
 ---
 ### 💬 Archived Comments
 
-**VPG** *mapped on 2025-09-08*
+**VPG** *on 2025-09-08*
 > Congratulations on grid 300!
 
