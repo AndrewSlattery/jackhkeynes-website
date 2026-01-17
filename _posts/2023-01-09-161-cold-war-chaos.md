@@ -6,6 +6,6 @@ puzzle_id: 4876aaf1
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! As we haven't had one in a while, here's an A-Z jigsaw—good luck! 🕵️ 🤡 ([squares.io](https://squares.io/info/y9qxook6wuwh68vprw7p); [Parse](/assets/parses/161.txt))
+Hi all! As we haven't had one in a while, here's an A-Z jigsaw—good luck! 🕵️ 🤡 (; [parses](/assets/parses/161.txt))
 <br>
 

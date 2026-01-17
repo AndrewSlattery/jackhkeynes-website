@@ -6,6 +6,6 @@ puzzle_id: c51e1c3d
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! A baby grid for you this week with some eclectic fill—good luck! 🧑‍🍳🧑‍🍳🧑‍🍳 ([squares.io](https://squares.io/info/puvkyo9qmj4t2adctd2o), [Parse](/assets/parses/168.txt))
+Hi all! A baby grid for you this week with some eclectic fill—good luck! 🧑‍🍳🧑‍🍳🧑‍🍳 ([parses](/assets/parses/168.txt))
 <br>
 

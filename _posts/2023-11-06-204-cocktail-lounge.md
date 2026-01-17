@@ -6,6 +6,6 @@ puzzle_id: c7662194
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! A baby 11x11 grid this week—good luck! ([squares.io](https://squares.io/s/75nv5f2j), [Parse](/assets/parses/204.txt))
+Hi all! A baby 11x11 grid this week—good luck! ([parses](/assets/parses/204.txt))
 <br>
 

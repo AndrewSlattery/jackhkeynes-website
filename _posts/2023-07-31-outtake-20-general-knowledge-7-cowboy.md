@@ -6,6 +6,6 @@ puzzle_id: e052b1cf
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! Another test of your trivia skills—good luck! ([squares.io](https://squares.io/info/323kt23y6garosy8wmk9)) Thanks to [MP](https://mycrossword.co.uk/Umpire) for the test.
+Hi all! Another test of your trivia skills—good luck!  Thanks to [MP](https://mycrossword.co.uk/Umpire) for the test.
 <br>
 

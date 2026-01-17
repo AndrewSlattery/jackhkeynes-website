@@ -6,7 +6,7 @@ puzzle_id: 57b83f19
 puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
 ---
 
-Hi all! To destress from last week's giant, here's a baby grid for you—good luck! 🐈‍⬛🧙 ([squares.io](https://squares.io/info/sxuk7a9yzvdkz37rdzjr) link)
+Hi all! To destress from last week's giant, here's a baby grid for you—good luck! 🐈‍⬛🧙 ( link)
 <br>
 
 
