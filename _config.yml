@@ -1,0 +1,17 @@
+# Site settings
+title: Keynesian Cryptics
+email: your-email@example.com
+description: >-
+  The archive of cryptic crosswords and puzzles by Jack H Keynes.
+  
+# URL Settings (Critical for your setup)
+baseurl: "" 
+url: "https://jackhkeynes.co.uk"
+
+# This forces all blog posts to appear under /cryptics/ instead of /year/month/...
+permalink: /cryptics/:year/:month/:day/:title/
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed

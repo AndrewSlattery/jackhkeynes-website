@@ -1,0 +1,11 @@
+---
+layout: post
+title: "#164: Main Characters"
+date: 2023-01-30T23:46:00.002Z
+puzzle_id: 006dadbd
+puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
+---
+
+Hi all! A 15x15 with rather tricky fill, but it's for a (hopefully) good cause—best of luck! 🥇🦸 (<a href="https://squares.io/info/tec3u57gsy63ayhv79kk" target="_blank" rel="nofollow">squares.io</a>, <a href="https://drive.google.com/file/d/1E8gw5LTxKwGWXT2jF-logVVvFp3m6Tqh/view?usp=share_link" target="_blank" rel="nofollow">parses</a>)
+<br>
+
