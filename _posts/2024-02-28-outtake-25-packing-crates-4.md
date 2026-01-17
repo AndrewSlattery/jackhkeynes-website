@@ -9,6 +9,6 @@ Hello everyone! For this outtake, another 'Crate Packing' puzzle! :D The rules a
 2. each crate (A-Ū) contains a single word, clued on the right alphabetically by answer.<br>
 Good luck!<br>
 <br>
-Spreadsheet version: <a href="https://docs.google.com/spreadsheets/d/1kRHGLkOo83y82GdrQOnAoKPOnok_TbUAo_vowBEK5Kw/edit?usp=drive_link" target="_blank" rel="nofollow">crates 4 sheet</a><br>
-Answers: <a href="https://drive.google.com/file/d/12qJRSfZtvj7Ic_HkgDP-Bymnp54Ugtkj/view?usp=drive_link" target="_blank" rel="nofollow">crates 4 solution</a><br>
+Spreadsheet version: [Download Spreadsheet](/assets/misc/outtake-25-packing-crates-4-1.xlsx)
+Answers: [Download Answers](/assets/misc/outtake-25-packing-crates-4-2.png)
 

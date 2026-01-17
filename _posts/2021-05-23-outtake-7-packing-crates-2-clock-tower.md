@@ -11,9 +11,9 @@ Hello everyone! For this outtake, another 'Crate Packing' puzzle—this time it'
 <br>
 Good luck!
 <br>
-Spreadsheet version: <a href="https://drive.google.com/file/d/1WLp_Ra40thrYRv7c44fFhC559-TSKiLe/view?usp=sharing" target="_blank" rel="nofollow">crates 2 sheet.ods</a> <br>
-Answers: <a href="https://drive.google.com/file/d/1KU-LCli7MlQ_BLRAwL7OqqRD7fIrJfBf/view?usp=sharing" target="_blank" rel="nofollow">crates 2 answers.png</a> <br>
-Full puzzle image: <a href="https://drive.google.com/file/d/1R8YVDFEuS2hGC4GHzfYVFPWHCM3HWRh1/view?usp=sharing" target="_blank" rel="nofollow">crates 2 puzzle.png</a>
+Spreadsheet version: <a href="/assets/misc/outtake-7-packing-crates-2-clock-tower-1.pdf" target="_blank" rel="nofollow">crates 2 sheet.ods</a> <br>
+Answers: <a href="/assets/misc/outtake-7-packing-crates-2-clock-tower-2.pdf" target="_blank" rel="nofollow">crates 2 answers.png</a> <br>
+Full puzzle image: <a href="/assets/misc/outtake-7-packing-crates-2-clock-tower-3.pdf" target="_blank" rel="nofollow">crates 2 puzzle.png</a>
 <br>
-<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-J1XL5sNbvIhUMMJOUYzat01hRy0ldAdA3hPlnMtTEUJotKdXWXNUcaC3tAZ4ef0sbTP4OhPo2E4TscNZE-68lmqfRnQas0H1BXIT_HAt370FNHke7c3S5VDfaqRWbDMfnerh5pvhKuU/s1838/crates+2+image.png" style="display: block; padding: 1em 0; text-align: center; clear: left; float: left;"><img alt="" border="0" width="400" data-original-height="644" data-original-width="1838" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-J1XL5sNbvIhUMMJOUYzat01hRy0ldAdA3hPlnMtTEUJotKdXWXNUcaC3tAZ4ef0sbTP4OhPo2E4TscNZE-68lmqfRnQas0H1BXIT_HAt370FNHke7c3S5VDfaqRWbDMfnerh5pvhKuU/s400/crates+2+image.png"/></a></div>
+<div class="separator" style="clear: both;"><a href="/assets/misc/outtake-7-packing-crates-2-clock-tower-4.png" style="display: block; padding: 1em 0; text-align: center; clear: left; float: left;"><img alt="" border="0" width="400" data-original-height="644" data-original-width="1838" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-J1XL5sNbvIhUMMJOUYzat01hRy0ldAdA3hPlnMtTEUJotKdXWXNUcaC3tAZ4ef0sbTP4OhPo2E4TscNZE-68lmqfRnQas0H1BXIT_HAt370FNHke7c3S5VDfaqRWbDMfnerh5pvhKuU/s400/crates+2+image.png"/></a></div>
 
