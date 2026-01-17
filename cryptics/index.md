@@ -1,5 +1,5 @@
 ---
 layout: home
-title: Blog & Archive
+title: Keynesian Cryptics
 permalink: /cryptics/
 ---
