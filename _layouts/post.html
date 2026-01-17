@@ -35,14 +35,50 @@ layout: default
     
   </div>
 
-  <div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="690eb3e2-a69f-4962-817f-0453f1917cba"
-  data-page-id="{{ PAGE_ID }}"
-  data-page-url="{{ PAGE_URL }}"
-  data-page-title="{{ PAGE_TITLE }}"
-></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  <hr style="margin: 40px 0;">
+
+  <div class="post-navigation" style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" style="text-decoration: none;">&larr; Previous: {{ page.previous.title }}</a>
+    {% else %}
+      <span></span>
+    {% endif %}
+
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" style="text-decoration: none;">Next: {{ page.next.title }} &rarr;</a>
+    {% endif %}
+  </div>
+
+  <div class="blog-archives" style="margin-bottom: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 5px;">
+    <h3 style="margin-top: 0;">Archives</h3>
+    {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% for year in postsByYear %}
+      <details>
+        <summary style="cursor: pointer; font-weight: bold; padding: 5px 0;">{{ year.name }}</summary>
+        <ul style="margin-left: 20px;">
+          {% for post in year.items %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endfor %}
+  </div>
+
+  <div id="comments">
+    <h3>Comments</h3>
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="690eb3e2-a69f-4962-817f-0453f1917cba"
+      data-page-id="{{ page.id }}"
+      data-page-url="{{ page.url | absolute_url }}"
+      data-page-title="{{ page.title }}"
+      data-theme="auto"
+      style="width: 100%">
+    </div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
