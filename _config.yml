@@ -9,7 +9,7 @@ baseurl: ""
 url: "https://jackhkeynes.co.uk"
 
 # This forces all blog posts to appear under /cryptics/ instead of /year/month/...
-permalink: /cryptics/:year/:month/:day/:title/
+permalink: /cryptics/:year/:month/:title.html
 
 # Build settings
 theme: minima
