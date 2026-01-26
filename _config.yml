@@ -2,16 +2,24 @@
 title: Jack Keynes
 email: jackhkeynes@gmail.com
 description: >-
-  The archive of cryptic crosswords and puzzles by Jack H Keynes.
+  An archive of cryptic crosswords and puzzles by Jack H Keynes.
   
 # URL Settings (Critical for your setup)
 baseurl: "" 
 url: "https://jackhkeynes.co.uk"
 
 # This forces all blog posts to appear under /cryptics/ instead of /year/month/...
-permalink: /cryptics/:year/:month/:title.html
+permalink: /cryptics/:year/:month/:title
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+# Add this to silence the deprecation warnings
+sass:
+  quiet_deps: true
+  silence_deprecations:
+    - import
+    - global-builtin
+    - color-functions
