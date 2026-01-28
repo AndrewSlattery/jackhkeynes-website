@@ -101,3 +101,5 @@ permalink: /cryptics/
     fuzzy: false
   });
 </script>
+
+[Clue Database](/cryptics/database)

@@ -1,0 +1,61 @@
+---
+layout: default
+---
+<style>
+  #cusdis_thread iframe {
+    min-height: 500px !important;
+    width: 100% !important;
+    border: none !important;
+  }
+</style>
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    
+    {{ content }}
+
+    {% if page.puzzle_id %}
+      <div style="margin-top: 30px;">
+        <iframe 
+          height="700px" 
+          width="100%" 
+          allow="web-share; fullscreen" 
+          style="border:none; width: 100% !important; position: static; display: block !important; margin: 0 !important;" 
+          src="https://puzzleme.amuselabs.com/pmm/crossword?id={{ page.puzzle_id }}&set={{ page.puzzle_set }}&embed=1" 
+          aria-label="Puzzle Me Game">
+        </iframe>
+      </div>
+    {% endif %}
+    
+  </div>
+
+  <hr style="margin: 40px 0;">
+
+  <div class="post-navigation" style="display: flex; justify-content: space-between; margin-bottom: 40px;">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" style="text-decoration: none;">&larr; {{ page.previous.title }}</a>
+    {% else %}
+      <span></span>
+    {% endif %}
+
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}" style="text-decoration: none;">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+  </div>
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
