@@ -270,21 +270,40 @@ description: A dictionary of the Borlish language
     });
   }
 
-  // 3. SEARCH
+  // 3. SEARCH (UPDATED WITH QUOTE LOGIC)
   function performSearch(query) {
     resultsDiv.innerHTML = '';
-    const q = query.toLowerCase().trim();
+    let q = query.toLowerCase().trim();
 
     if (!q) {
       statusDiv.textContent = "Type to search...";
       return;
     }
 
+    // --- Strict Match Logic Start ---
+    const strictStart = q.startsWith('"');
+    const strictEnd = q.endsWith('"');
+
+    // Remove quotes for the actual search term
+    if (strictStart) q = q.substring(1);
+    if (strictEnd && q.length > 0) q = q.substring(0, q.length - 1);
+    // --- Strict Match Logic End ---
+
     history.replaceState(null, null, '#' + query);
 
     if (currentMode === 'borlish') {
       const matches = dictionaryData.filter(entry => {
-        return entry.lx.toLowerCase().includes(q);
+        const term = entry.lx.toLowerCase();
+        
+        if (strictStart && strictEnd) {
+          return term === q; // Exact match
+        } else if (strictStart) {
+          return term.startsWith(q); // Starts with
+        } else if (strictEnd) {
+          return term.endsWith(q); // Ends with
+        } else {
+          return term.includes(q); // Standard loose search
+        }
       });
       
       if (matches.length === 0) {
@@ -295,7 +314,17 @@ description: A dictionary of the Borlish language
       }
 
     } else {
-      const matches = Object.keys(englishIndex).filter(enWord => enWord.includes(q)).sort();
+      const matches = Object.keys(englishIndex).filter(enWord => {
+        if (strictStart && strictEnd) {
+          return enWord === q;
+        } else if (strictStart) {
+          return enWord.startsWith(q);
+        } else if (strictEnd) {
+          return enWord.endsWith(q);
+        } else {
+          return enWord.includes(q);
+        }
+      }).sort();
       
       if (matches.length === 0) {
         statusDiv.textContent = 'No English matches found.';
@@ -377,10 +406,7 @@ description: A dictionary of the Borlish language
         link.className = 'mn-link';
         link.style.marginRight = '15px';
         link.textContent = entry.lx + (entry.hm ? ` ${entry.hm}` : '');
-        // FIX: Added data-ref so the main event listener can pick it up.
-        // Removed the inline click listener to prevent event conflicts.
         link.setAttribute('data-ref', entry.lx);
-        
         refsDiv.appendChild(link);
       });
 
