@@ -12,4 +12,4 @@ permalink: /
 
 ## Boralverse
 
-(under construction)
+[Borlish Dictionary](/boralverse/borlish-dictionary/)

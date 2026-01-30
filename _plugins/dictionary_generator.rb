@@ -14,7 +14,7 @@ module Jekyll
 
       # Output: Where you want the JSON file to appear
       output_dir = File.join(site.source, "assets", "boralverse")
-      output_file = File.join(output_dir, "dictionary.json")
+      output_file = File.join(output_dir, "borlish-dictionary.json")
       # ---------------------
 
       if File.exist?(db_path)
@@ -27,10 +27,23 @@ module Jekyll
         FileUtils.mkdir_p(output_dir)
 
         # 3. Write the JSON file to disk
-        File.write(output_file, JSON.pretty_generate(data))
+        new_content = JSON.pretty_generate(data)
+        
+        # Check if file exists and content is different
+        if !File.exist?(output_file) || File.read(output_file) != new_content
+          File.write(output_file, new_content)
+          puts "   Dictionary: Generated #{output_file} with #{data.length} entries."
+        else
+          puts "   Dictionary: No changes detected. Skipping write to prevent loop."
+        end
         
         # 4. Also make it available to Liquid (optional, but useful)
         site.data['boralverse'] = data
+		
+		# 5. Register the file so Jekyll copies it to _site
+        # This tells Jekyll: "I made a file at /assets/boralverse/borlish-dictionary.json, please serve it."
+        site.static_files << Jekyll::StaticFile.new(site, site.source, "/assets/boralverse", "borlish-dictionary.json")
+        # ----------------------------
 
         puts "   Dictionary: Generated #{output_file} with #{data.length} entries."
       else
