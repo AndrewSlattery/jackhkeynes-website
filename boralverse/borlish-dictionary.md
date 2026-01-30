@@ -2,7 +2,7 @@
 layout: page
 title: Borlish Dictionary
 permalink: /boralverse/borlish-dictionary/
-dictionary: A dictionary of the Borlish language
+description: A dictionary of the Borlish language
 ---
 
 <div id="borlish-dictionary" class="dict-container">
