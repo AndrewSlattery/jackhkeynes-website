@@ -1,8 +1,6 @@
 # Site settings
 title: Jack Keynes
 email: jackhkeynes@gmail.com
-description: >-
-  An archive of cryptic crosswords and puzzles by Jack H Keynes.
   
 # URL Settings (Critical for your setup)
 baseurl: "" 
