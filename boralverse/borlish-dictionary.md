@@ -302,7 +302,6 @@ description: A dictionary of the Borlish language
       if (matches.length === 0) {
         statusDiv.textContent = 'No matches found.';
       } else {
-        // FIXED: Singular/Plural grammar
         const noun = matches.length === 1 ? 'match' : 'matches';
         statusDiv.textContent = `Found ${matches.length} ${noun}.`;
         renderEntries(matches);
@@ -319,7 +318,6 @@ description: A dictionary of the Borlish language
       if (matches.length === 0) {
         statusDiv.textContent = 'No English matches found.';
       } else {
-        // FIXED: Singular/Plural grammar
         const noun = matches.length === 1 ? 'English term' : 'English terms';
         statusDiv.textContent = `Found ${matches.length} ${noun}.`;
         renderEnglishResults(matches);
@@ -341,7 +339,8 @@ description: A dictionary of the Borlish language
         let links = [];
         const mnArr = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
         mnArr.forEach(ref => {
-          links.push(`<a href="#${ref}" class="mn-link" data-ref="${ref}">${ref}</a>`);
+          // FIX: Added %22 quotes to href so "Open in new tab" loads with quotes
+          links.push(`<a href="#%22${ref}%22" class="mn-link" data-ref="${ref}">${ref}</a>`);
         });
         mnHtml = `<div class="dict-meta"><span class="dict-label">See also:</span> ${links.join(', ')}</div>`;
       }
@@ -394,11 +393,12 @@ description: A dictionary of the Borlish language
       const entries = englishIndex[word];
       entries.forEach(entry => {
         const link = document.createElement('a');
-        link.href = `#${entry.lx}`;
+        // FIX: Added %22 quotes to href so "Open in new tab" loads with quotes
+        link.href = `#%22${entry.lx}%22`;
         link.className = 'mn-link';
         link.style.marginRight = '15px';
         link.textContent = entry.lx + (entry.hm ? ` ${entry.hm}` : '');
-        // data-ref is essential for the click listener below
+        // data-ref stays CLEAN (no quotes) for the JS listener
         link.setAttribute('data-ref', entry.lx);
         refsDiv.appendChild(link);
       });
@@ -445,7 +445,7 @@ description: A dictionary of the Borlish language
         document.querySelector('input[value="borlish"]').click();
       }
       
-      // Wrap ref in quotes to force "Exact Match" logic
+      // Manually add quotes for same-tab clicks
       const exactQuery = `"${ref}"`;
       searchInput.value = exactQuery;
       performSearch(exactQuery);
