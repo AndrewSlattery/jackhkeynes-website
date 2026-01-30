@@ -270,7 +270,7 @@ description: A dictionary of the Borlish language
     });
   }
 
-  // 3. SEARCH (UPDATED WITH QUOTE LOGIC)
+  // 3. SEARCH
   function performSearch(query) {
     resultsDiv.innerHTML = '';
     let q = query.toLowerCase().trim();
@@ -280,14 +280,12 @@ description: A dictionary of the Borlish language
       return;
     }
 
-    // --- Strict Match Logic Start ---
+    // --- Strict Match Logic ---
     const strictStart = q.startsWith('"');
     const strictEnd = q.endsWith('"');
 
-    // Remove quotes for the actual search term
     if (strictStart) q = q.substring(1);
     if (strictEnd && q.length > 0) q = q.substring(0, q.length - 1);
-    // --- Strict Match Logic End ---
 
     history.replaceState(null, null, '#' + query);
 
@@ -295,41 +293,35 @@ description: A dictionary of the Borlish language
       const matches = dictionaryData.filter(entry => {
         const term = entry.lx.toLowerCase();
         
-        if (strictStart && strictEnd) {
-          return term === q; // Exact match
-        } else if (strictStart) {
-          return term.startsWith(q); // Starts with
-        } else if (strictEnd) {
-          return term.endsWith(q); // Ends with
-        } else {
-          return term.includes(q); // Standard loose search
-        }
+        if (strictStart && strictEnd) return term === q;
+        if (strictStart) return term.startsWith(q);
+        if (strictEnd) return term.endsWith(q);
+        return term.includes(q);
       });
       
       if (matches.length === 0) {
         statusDiv.textContent = 'No matches found.';
       } else {
-        statusDiv.textContent = `Found ${matches.length} matches.`;
+        // FIXED: Singular/Plural grammar
+        const noun = matches.length === 1 ? 'match' : 'matches';
+        statusDiv.textContent = `Found ${matches.length} ${noun}.`;
         renderEntries(matches);
       }
 
     } else {
       const matches = Object.keys(englishIndex).filter(enWord => {
-        if (strictStart && strictEnd) {
-          return enWord === q;
-        } else if (strictStart) {
-          return enWord.startsWith(q);
-        } else if (strictEnd) {
-          return enWord.endsWith(q);
-        } else {
-          return enWord.includes(q);
-        }
+        if (strictStart && strictEnd) return enWord === q;
+        if (strictStart) return enWord.startsWith(q);
+        if (strictEnd) return enWord.endsWith(q);
+        return enWord.includes(q);
       }).sort();
       
       if (matches.length === 0) {
         statusDiv.textContent = 'No English matches found.';
       } else {
-        statusDiv.textContent = `Found ${matches.length} English terms.`;
+        // FIXED: Singular/Plural grammar
+        const noun = matches.length === 1 ? 'English term' : 'English terms';
+        statusDiv.textContent = `Found ${matches.length} ${noun}.`;
         renderEnglishResults(matches);
       }
     }
@@ -406,6 +398,7 @@ description: A dictionary of the Borlish language
         link.className = 'mn-link';
         link.style.marginRight = '15px';
         link.textContent = entry.lx + (entry.hm ? ` ${entry.hm}` : '');
+        // data-ref is essential for the click listener below
         link.setAttribute('data-ref', entry.lx);
         refsDiv.appendChild(link);
       });
@@ -447,14 +440,16 @@ description: A dictionary of the Borlish language
     if (e.target.classList.contains('mn-link')) {
       e.preventDefault();
       const ref = e.target.getAttribute('data-ref');
+      
       if (currentMode === 'english') {
         document.querySelector('input[value="borlish"]').click();
       }
-      // Wrap the reference in quotes to force the "Exact Match" logic
+      
+      // Wrap ref in quotes to force "Exact Match" logic
       const exactQuery = `"${ref}"`;
       searchInput.value = exactQuery;
       performSearch(exactQuery);
-      // --- CHANGE END ---
+      
       window.scrollTo(0,0);
     }
   });
