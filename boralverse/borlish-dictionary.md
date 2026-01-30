@@ -450,8 +450,11 @@ description: A dictionary of the Borlish language
       if (currentMode === 'english') {
         document.querySelector('input[value="borlish"]').click();
       }
-      searchInput.value = ref;
-      performSearch(ref);
+      // Wrap the reference in quotes to force the "Exact Match" logic
+      const exactQuery = `"${ref}"`;
+      searchInput.value = exactQuery;
+      performSearch(exactQuery);
+      // --- CHANGE END ---
       window.scrollTo(0,0);
     }
   });
