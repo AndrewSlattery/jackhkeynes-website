@@ -377,12 +377,10 @@ description: A dictionary of the Borlish language
         link.className = 'mn-link';
         link.style.marginRight = '15px';
         link.textContent = entry.lx + (entry.hm ? ` ${entry.hm}` : '');
-        link.addEventListener('click', (e) => {
-           e.preventDefault();
-           document.querySelector('input[value="borlish"]').click();
-           searchInput.value = entry.lx;
-           performSearch(entry.lx);
-        });
+        // FIX: Added data-ref so the main event listener can pick it up.
+        // Removed the inline click listener to prevent event conflicts.
+        link.setAttribute('data-ref', entry.lx);
+        
         refsDiv.appendChild(link);
       });
 
