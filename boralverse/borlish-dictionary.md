@@ -25,7 +25,7 @@ description: A dictionary of the Borlish language
     </div>
   </div>
 
-  <div id="dict-status" class="dict-status">Loading dictionary data...</div>
+  <div id="dict-status" class="dict-status">Loading…</div>
 
   <div id="dict-results" class="dict-results"></div>
 
@@ -240,7 +240,7 @@ description: A dictionary of the Borlish language
         performSearch(query);
       } else {
         // Show nothing initially for a clean look
-        statusDiv.textContent = `Loaded ${dictionaryData.length} entries. Ready to search.`;
+        statusDiv.textContent = `${dictionaryData.length} entries.`;
       }
 
     } catch (e) {
