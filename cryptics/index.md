@@ -102,4 +102,4 @@ permalink: /cryptics/
   });
 </script>
 
-[Clue Database](/cryptics/database)
+[Clue Database](/cryptics/database) | [Cryptic Indicators](/cryptics/indicators)
