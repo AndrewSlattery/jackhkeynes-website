@@ -1,0 +1,94 @@
+---
+layout: null
+---
+[
+  {% comment %} =======================================================
+     GROUP 1: HIERARCHICAL FILES
+     (Letter Selection, Deletion, Containment, Reversal, Swap, Linking)
+     Structure: Category -> Subcategory -> List of Words
+     ======================================================= {% endcomment %}
+
+  {% assign hierarchical_files = "letter_selection,deletions,containment,reversals,swaps,linking" | split: "," %}
+  
+  {% for filename in hierarchical_files %}
+    {% assign file_data = site.data.indicators[filename] %}
+    {% if file_data %}
+      {% for top_category in file_data %}
+        {% assign main_label = top_category[0] %}
+        {% for sub_category in top_category[1] %}
+          {% assign sub_label = sub_category[0] %}
+          {% for word in sub_category[1] %}
+            {
+              "word": {{ word | jsonify }},
+              "category": "{{ filename | replace: '_', ' ' | capitalize }}",
+              "type": "{{ main_label }} - {{ sub_label }}",
+              "result": "{{ main_label }}"
+            },
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} =======================================================
+     GROUP 2: SIMPLE LIST FILES
+     (Anagrams, Homophones, Hidden)
+     Structure: Type -> List of Words
+     ======================================================= {% endcomment %}
+
+  {% assign simple_files = "anagrams,homophones,hidden" | split: "," %}
+
+  {% for filename in simple_files %}
+    {% assign file_data = site.data.indicators[filename] %}
+    {% if file_data %}
+      {% for group in file_data %}
+        {% assign type_label = group[0] %}
+        {% for word in group[1] %}
+          {
+            "word": {{ word | jsonify }},
+            "category": "{{ filename | replace: '_', ' ' | capitalize }}",
+            "type": "{{ type_label }}",
+            "result": "{{ filename | capitalize }}"
+          },
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} =======================================================
+     GROUP 3: CHARADES
+     Structure: Result -> List of Words
+     ======================================================= {% endcomment %}
+
+  {% comment %} --- 1 Charade --- {% endcomment %}
+  {% if site.data.indicators.charades_single %}
+    {% for group in site.data.indicators.charades_single %}
+      {% assign result_char = group[0] %}
+      {% for word in group[1] %}
+        {
+          "word": {{ word | jsonify }},
+          "category": "Charade (1)",
+          "type": "Single Letter",
+          "result": "{{ result_char }}"
+        },
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  {% comment %} --- 2 Charade --- {% endcomment %}
+  {% if site.data.indicators.charades_double %}
+    {% for group in site.data.indicators.charades_double %}
+      {% assign result_chars = group[0] %}
+      {% for word in group[1] %}
+        {
+          "word": {{ word | jsonify }},
+          "category": "Charade (2)",
+          "type": "Double Letter",
+          "result": "{{ result_chars }}"
+        },
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  { "word": null, "category": "spacer" }
+]
