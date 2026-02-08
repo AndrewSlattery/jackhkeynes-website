@@ -1,16 +1,16 @@
 ACROSS
  8. <drink> MOCHA = MO CHA
- 9. <farm> SHARECROP = HORSECRAP*
+ 9. <farm> SHARECROP = (HORSE CRAP)*
 11. <meant> DENOTED = NOT inside DEED
 12. MOR_ COIN* = MORONIC <foolish>
 13. <unexpected quality> SURPRISAL = S_U_R_ P_R_I_S _A_L
 15. HIDE F_ = HI-DEF <with little pixellation>
 16. <star> PROXIMA CENTAUTI = PRO XI + (TRUE MANIAC)*
-19. <Spanish card game> OMBRE = (.s)OMBRE(ro.)
+19. "HOMBRE" = OMBRÉ <using gradually changing tone>
 21. <prancing> CAVORTING = CA VOTING outside R
 23. MONET* outside DD = ODDMENT <curio>
 24. <space in front> LEGROOM = LE GROOM
-26. <pasta> ANGEL HAIR = ALGERIAN* outside H
+26. ALGERIAN* outside H = ANGEL HAIR <pasta>
 27. <French city> REIMS = RIMS outside E
 
 DOWN
@@ -18,12 +18,12 @@ DOWN
  2. <situation> SCENARIO = SCEN_ + A RIO
  3. <stag> HART = _ART_ after H
  4. <deep cuts> B-SIDES = B_S IDES
- 5. (KEY MURAL)* = YARMULKE <religious headgear>
- 6. DR ON + ED = DRONED <sounded monotonous>
+ 5. ←RAY← MULE outside K = YARMULKE <religious headgear>
+ 6. DR ON ED = DRONED <sounded monotonous>
  7. ((PIC OF GIL) + GAMES) inside EH = EPIC OF GILGAMES <old story>
 10. <mushroom> EARTHSTAR = HATERS* TAR
 14. (RALLIES HE)* = RAISE HELL <create disturbance>
-17. ALC _A_T_R + AZ = ALCATRAZ <prison>
+17. _A_L_C _A_T_R + AZ = ALCATRAZ <prison>
 18. <genuine> UNIRONIC = ←NU← IRON + I C
 20. BOA outside D EG_ = BODEGA <corner shop>
 22. <way of closing> VELCRO = (.e)VEL CRO(s.)
