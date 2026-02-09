@@ -37,13 +37,12 @@ module Jekyll
           puts "   Dictionary: No changes detected. Skipping write to prevent loop."
         end
         
-        # 4. Also make it available to Liquid (optional, but useful)
+        # 4. Also make it available to Liquid
         site.data['boralverse'] = data
-		
-		# 5. Register the file so Jekyll copies it to _site
-        # This tells Jekyll: "I made a file at /assets/boralverse/borlish-dictionary.json, please serve it."
+        
+        # 5. Register the file explicitly (REQUIRED because we excluded it in config)
+        # This ensures the file ends up in _site/, even though Jekyll ignores the source file.
         site.static_files << Jekyll::StaticFile.new(site, site.source, "/assets/boralverse", "borlish-dictionary.json")
-        # ----------------------------
 
         puts "   Dictionary: Generated #{output_file} with #{data.length} entries."
       else

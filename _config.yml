@@ -21,3 +21,6 @@ sass:
     - import
     - global-builtin
     - color-functions
+
+exclude:
+  - assets/boralverse/borlish-dictionary.json
