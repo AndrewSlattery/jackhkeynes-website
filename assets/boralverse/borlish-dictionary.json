@@ -1245,6 +1245,16 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1252,16 +1262,6 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -13007,7 +13007,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnar",
@@ -13016,18 +13017,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
-    "mn": "condamnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnment",
@@ -13037,6 +13027,16 @@
       "sentence"
     ],
     "et": "noun from condamnar \"condemn\"",
+    "mn": "condamnar"
+  },
+  {
+    "lx": "condamnment",
+    "ps": "n",
+    "ge": [
+      "condemnation",
+      "sentence"
+    ],
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -17686,20 +17686,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -20428,9 +20428,12 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "long-lasting"
+      "stiff",
+      "lasting",
+      "permanent",
+      "resilient"
     ],
-    "et": "Adjective from durar",
+    "et": "adjective from durar \"last\"",
     "mn": "durar"
   },
   {
@@ -20438,12 +20441,9 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "stiff",
-      "lasting",
-      "permanent",
-      "resilient"
+      "long-lasting"
     ],
-    "et": "adjective from durar \"last\"",
+    "et": "Adjective from durar",
     "mn": "durar"
   },
   {
@@ -25804,19 +25804,19 @@
     "ps": "n",
     "ge": [
       "outpost",
-      "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
+    "et": "Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossau",
     "ps": "n",
     "ge": [
       "outpost",
+      "outlying settlement",
       "colony"
     ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh"
   },
   {
     "lx": "fragossaveyaçon",
@@ -26178,6 +26178,12 @@
   },
   {
     "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26199,12 +26205,6 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -35577,6 +35577,16 @@
     "ps": "adj",
     "ge": "slow",
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "leon",
+    "ps": "n",
+    "ge": [
+      "lion",
+      "Leo",
+      "lionheart"
+    ],
+    "et": "Old Borlish < Latin leō"
   },
   {
     "lx": "lessy",
@@ -63746,10 +63756,11 @@
     "mn": "theatr"
   },
   {
-    "lx": "theatrfiour",
+    "lx": "theatrfeyour",
     "ps": "n",
     "ge": "theatregoer",
-    "et": "from theatrfiour"
+    "et": "from theatrfeyar",
+    "mn": "theatrfeyar"
   },
   {
     "lx": "thein",
