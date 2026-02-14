@@ -39,12 +39,6 @@ module Jekyll
         
         # 4. Also make it available to Liquid
         site.data['boralverse'] = data
-        
-        # 5. Register the file explicitly (REQUIRED because we excluded it in config)
-        # This ensures the file ends up in _site/, even though Jekyll ignores the source file.
-        site.static_files << Jekyll::StaticFile.new(site, site.source, "/assets/boralverse", "borlish-dictionary.json")
-
-        puts "   Dictionary: Generated #{output_file} with #{data.length} entries."
       else
         puts "   Dictionary: WARN - Could not find database at #{db_path}"
       end
