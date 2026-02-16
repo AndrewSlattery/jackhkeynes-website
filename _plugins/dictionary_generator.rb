@@ -58,6 +58,12 @@ module Jekyll
 
         # --- A. New Entry (\lx) ---
         if line =~ /^\\lx\s+(.+)/
+          # Save any pending example
+          if current_example
+            current_entry["examples"] << current_example
+            current_example = nil
+          end
+
           # Save the previous entry if it exists
           save_entry(entries, current_entry) unless current_entry.empty?
           
@@ -103,6 +109,12 @@ module Jekyll
         end
       end
       
+      # Save any pending example
+      if current_example
+        current_entry["examples"] << current_example
+        current_example = nil
+      end
+
       # Don't forget to save the very last entry in the file
       save_entry(entries, current_entry) unless current_entry.empty?
       
