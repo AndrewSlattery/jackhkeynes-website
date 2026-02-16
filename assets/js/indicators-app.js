@@ -42,15 +42,17 @@ function initApp() {
   var catContainer = document.getElementById('category-list');
   catContainer.innerHTML = "";
 
+  var fragment = document.createDocumentFragment();
   categories.forEach(function (cat, index) {
     var btn = document.createElement('button');
     btn.className = 'cat-btn';
     btn.textContent = cat;
     btn.onclick = function () { loadCategory(cat); };
-    catContainer.appendChild(btn);
+    fragment.appendChild(btn);
 
     if (index === 0) loadCategory(cat);
   });
+  catContainer.appendChild(fragment);
 }
 
 function setScope(scope) {
@@ -109,6 +111,7 @@ function renderCategory(items) {
     return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
   });
 
+  var fragment = document.createDocumentFragment();
   sortedKeys.forEach(function (key) {
     var groupDiv = document.createElement('div');
     groupDiv.className = 'ind-group collapsed';
@@ -126,8 +129,9 @@ function renderCategory(items) {
         '<span class="chevron">&#9660;</span>' +
       '</div>' +
       '<ul class="ind-list">' + listHtml + '</ul>';
-    display.appendChild(groupDiv);
+    fragment.appendChild(groupDiv);
   });
+  display.appendChild(fragment);
 }
 
 function renderGlobalResults(items) {
@@ -152,6 +156,7 @@ function renderGlobalResults(items) {
 
   var sortedCats = Object.keys(catGroups).sort();
 
+  var fragment = document.createDocumentFragment();
   sortedCats.forEach(function (cat) {
     var groups = catGroups[cat];
     var sortedKeys = Object.keys(groups).sort(function (a, b) {
@@ -177,9 +182,10 @@ function renderGlobalResults(items) {
           '<span class="chevron">&#9660;</span>' +
         '</div>' +
         '<ul class="ind-list">' + listHtml + '</ul>';
-      display.appendChild(groupDiv);
+      fragment.appendChild(groupDiv);
     });
   });
+  display.appendChild(fragment);
 }
 
 function toggleGroup(headerEl) {
