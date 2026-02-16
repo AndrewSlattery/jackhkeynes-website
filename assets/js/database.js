@@ -1,4 +1,44 @@
 // Clue database — DataTables with per-column wildcard search
+// 2. Convert user wildcards to regex
+//    .  = any single non-space character (for crossword patterns like P.PP.R)
+//    *  = any sequence of characters including spaces
+//    " at start = anchor to start of field (^)
+//    " at end   = anchor to end of field ($)
+//    All other regex metacharacters are escaped for safety.
+function wildcardToRegex(term) {
+  if (!term) return '';
+
+  // Detect edge-of-field anchors
+  var anchorStart = false;
+  var anchorEnd = false;
+
+  if (term.charAt(0) === '"') {
+    anchorStart = true;
+    term = term.substring(1);
+  }
+  if (term.length > 0 && term.charAt(term.length - 1) === '"') {
+    anchorEnd = true;
+    term = term.substring(0, term.length - 1);
+  }
+
+  // Escape regex metacharacters except . and *
+  var escaped = term.replace(/([\\^$|?+()[\]{}])/g, '\\$1');
+  // Convert wildcards
+  escaped = escaped.replace(/\./g, '[^ ]');
+  escaped = escaped.replace(/\*/g, '.*');
+
+  // Apply anchors
+  if (anchorStart) escaped = '^' + escaped;
+  if (anchorEnd) escaped = escaped + '$';
+
+  return escaped;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = wildcardToRegex;
+}
+
+if (typeof $ !== 'undefined') {
 $(document).ready(function () {
 
   // 1. Initialize DataTable (no default search box)
@@ -26,41 +66,6 @@ $(document).ready(function () {
     }
   });
 
-  // 2. Convert user wildcards to regex
-  //    .  = any single non-space character (for crossword patterns like P.PP.R)
-  //    *  = any sequence of characters including spaces
-  //    " at start = anchor to start of field (^)
-  //    " at end   = anchor to end of field ($)
-  //    All other regex metacharacters are escaped for safety.
-  function wildcardToRegex(term) {
-    if (!term) return '';
-
-    // Detect edge-of-field anchors
-    var anchorStart = false;
-    var anchorEnd = false;
-
-    if (term.charAt(0) === '"') {
-      anchorStart = true;
-      term = term.substring(1);
-    }
-    if (term.length > 0 && term.charAt(term.length - 1) === '"') {
-      anchorEnd = true;
-      term = term.substring(0, term.length - 1);
-    }
-
-    // Escape regex metacharacters except . and *
-    var escaped = term.replace(/([\\^$|?+()[\]{}])/g, '\\$1');
-    // Convert wildcards
-    escaped = escaped.replace(/\./g, '[^ ]');
-    escaped = escaped.replace(/\*/g, '.*');
-
-    // Apply anchors
-    if (anchorStart) escaped = '^' + escaped;
-    if (anchorEnd) escaped = escaped + '$';
-
-    return escaped;
-  }
-
   // 3. Bind per-column search inputs
   $('#cluesTable thead .search-row input').on('keyup change', function () {
     var col = table.column($(this).data('column'));
@@ -81,3 +86,4 @@ $(document).ready(function () {
     }
   });
 });
+}
