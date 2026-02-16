@@ -8,17 +8,34 @@ module Jekyll
 
     def generate(site)
       # --- CONFIGURATION ---
+      config = site.config['dictionary_generator'] || {}
+
       # Input: The .db file in your submodule
-      db_relative_path = "_data/external_dictionary/Borlish/Lexique Pro/Data/Borlish.db"
+      db_relative_path = config['db_path'] || "_data/external_dictionary/Borlish/Lexique Pro/Data/Borlish.db"
       db_path = File.join(site.source, db_relative_path)
 
       # Output: Where you want the JSON file to appear
-      output_dir = File.join(site.source, "assets", "boralverse")
-      output_file = File.join(output_dir, "borlish-dictionary.json")
+      output_relative_path = config['output_path'] || "assets/boralverse/borlish-dictionary.json"
+      output_file = File.join(site.source, output_relative_path)
+      output_dir = File.dirname(output_file)
       # ---------------------
 
       if File.exist?(db_path)
         puts "   Dictionary: Found DB at #{db_relative_path}. Processing..."
+
+        # Optimization: Try to load from cache if up-to-date
+        source_mtime = [File.mtime(db_path), File.mtime(__FILE__)].max
+        if File.exist?(output_file) && File.mtime(output_file) >= source_mtime
+          begin
+            data = JSON.parse(File.read(output_file))
+            site.data['boralverse'] = data
+            puts "   Dictionary: Loaded from cache #{output_file}. Skipping regeneration."
+            return
+          rescue JSON::ParserError
+            puts "   Dictionary: Cache corrupted. Regenerating."
+            File.delete(output_file) if File.exist?(output_file)
+          end
+        end
         
         # 1. Parse the Database
         data = parse_mdf(db_path)
@@ -30,11 +47,25 @@ module Jekyll
         new_content = JSON.pretty_generate(data)
         
         # Check if file exists and content is different
-        if !File.exist?(output_file) || File.read(output_file) != new_content
+        should_write = true
+        if File.exist?(output_file)
+          source_mtime = [File.mtime(db_path), File.mtime(__FILE__)].max
+          output_mtime = File.mtime(output_file)
+
+          # Optimization: Check mtime and size first to avoid reading file
+          if output_mtime >= source_mtime && File.size(output_file) == new_content.bytesize
+            should_write = false
+            puts "   Dictionary: No changes detected (mtime/size match). Skipping write."
+          elsif File.size(output_file) == new_content.bytesize && File.read(output_file) == new_content
+            should_write = false
+            FileUtils.touch(output_file)
+            puts "   Dictionary: No changes detected. Touched file to update mtime."
+          end
+        end
+
+        if should_write
           File.write(output_file, new_content)
           puts "   Dictionary: Generated #{output_file} with #{data.length} entries."
-        else
-          puts "   Dictionary: No changes detected. Skipping write to prevent loop."
         end
         
         # 4. Also make it available to Liquid
@@ -58,8 +89,11 @@ module Jekyll
 
         # --- A. New Entry (\lx) ---
         if line =~ /^\\lx\s+(.+)/
-          # If there's an unfinished example, save it
-          current_entry["examples"] << current_example if current_example
+          # Save any pending example
+          if current_example
+            current_entry["examples"] << current_example
+            current_example = nil
+          end
 
           # Save the previous entry if it exists
           save_entry(entries, current_entry) unless current_entry.empty?
@@ -106,8 +140,11 @@ module Jekyll
         end
       end
       
-      # If there's an unfinished example at EOF, save it
-      current_entry["examples"] << current_example if current_example
+      # Save any pending example
+      if current_example
+        current_entry["examples"] << current_example
+        current_example = nil
+      end
 
       # Don't forget to save the very last entry in the file
       save_entry(entries, current_entry) unless current_entry.empty?

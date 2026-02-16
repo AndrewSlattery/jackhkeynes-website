@@ -1,8 +1,9 @@
 // Borlish dictionary — search, render, and navigation logic
-(function () {
+var BorlishDictionary = (function () {
   // STATE
   var dictionaryData = [];
   var englishIndex = {};
+  var englishKeys = [];
   var currentMode = 'borlish';
 
   // DOM ELEMENTS
@@ -59,6 +60,8 @@
         });
       });
     });
+
+    englishKeys = Object.keys(englishIndex).sort();
   }
 
   // 3. SEARCH
@@ -99,12 +102,12 @@
       }
 
     } else {
-      var enMatches = Object.keys(englishIndex).filter(function (enWord) {
+      var enMatches = englishKeys.filter(function (enWord) {
         if (strictStart && strictEnd) return enWord === q;
         if (strictStart) return enWord.startsWith(q);
         if (strictEnd) return enWord.endsWith(q);
         return enWord.includes(q);
-      }).sort();
+      });
 
       if (enMatches.length === 0) {
         statusDiv.textContent = 'No English matches found.';
@@ -123,42 +126,106 @@
       var el = document.createElement('div');
       el.className = 'dict-entry';
 
-      var glossHtml = Array.isArray(entry.ge) ? entry.ge.join(', ') : entry.ge;
+      // 1. Headword Line
+      var headwordLine = document.createElement('div');
+      headwordLine.className = 'dict-headword-line';
 
-      var mnHtml = '';
+      var lxSpan = document.createElement('span');
+      lxSpan.className = 'dict-lx';
+      lxSpan.textContent = entry.lx;
+      headwordLine.appendChild(lxSpan);
+
+      if (entry.hm) {
+        var hmSpan = document.createElement('span');
+        hmSpan.className = 'dict-hm';
+        hmSpan.textContent = entry.hm;
+        headwordLine.appendChild(hmSpan);
+      }
+
+      var psSpan = document.createElement('span');
+      psSpan.className = 'dict-ps';
+      psSpan.textContent = entry.ps || '';
+      headwordLine.appendChild(psSpan);
+
+      el.appendChild(headwordLine);
+
+      // 2. Glosses
+      var geDiv = document.createElement('div');
+      geDiv.className = 'dict-ge';
+      var glossText = Array.isArray(entry.ge) ? entry.ge.join(', ') : entry.ge;
+      geDiv.textContent = glossText;
+      el.appendChild(geDiv);
+
+      // 3. Etymology
+      if (entry.et) {
+        var etDiv = document.createElement('div');
+        etDiv.className = 'dict-meta';
+
+        var etLabel = document.createElement('span');
+        etLabel.className = 'dict-label';
+        etLabel.textContent = 'Etymology:';
+        etDiv.appendChild(etLabel);
+
+        etDiv.appendChild(document.createTextNode(' ' + entry.et));
+        el.appendChild(etDiv);
+      }
+
+      // 4. See Also (mn)
       if (entry.mn) {
-        var links = [];
+        var mnDiv = document.createElement('div');
+        mnDiv.className = 'dict-meta';
+
+        var mnLabel = document.createElement('span');
+        mnLabel.className = 'dict-label';
+        mnLabel.textContent = 'See also:';
+        mnDiv.appendChild(mnLabel);
+        mnDiv.appendChild(document.createTextNode(' '));
+
         var mnArr = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
-        mnArr.forEach(function (ref) {
-          links.push('<a href="#%22' + ref + '%22" class="mn-link" data-ref="' + ref + '">' + ref + '</a>');
+        mnArr.forEach(function (ref, index) {
+          if (index > 0) {
+            mnDiv.appendChild(document.createTextNode(', '));
+          }
+          var link = document.createElement('a');
+          link.href = '#%22' + ref + '%22';
+          link.className = 'mn-link';
+          link.setAttribute('data-ref', ref);
+          link.textContent = ref;
+          mnDiv.appendChild(link);
         });
-        mnHtml = '<div class="dict-meta"><span class="dict-label">See also:</span> ' + links.join(', ') + '</div>';
+        el.appendChild(mnDiv);
       }
 
-      var etHtml = entry.et ? '<div class="dict-meta"><span class="dict-label">Etymology:</span> ' + entry.et + '</div>' : '';
-
-      var exHtml = '';
+      // 5. Examples
       if (entry.examples && entry.examples.length > 0) {
-        exHtml = '<div class="dict-meta"><span class="dict-label">Examples:</span>';
+        var exDiv = document.createElement('div');
+        exDiv.className = 'dict-meta';
+
+        var exLabel = document.createElement('span');
+        exLabel.className = 'dict-label';
+        exLabel.textContent = 'Examples:';
+        exDiv.appendChild(exLabel);
+
         entry.examples.forEach(function (ex) {
-          exHtml += '<div class="dict-example">' +
-            '<span class="dict-vernacular">' + ex.vernacular + '</span> ' +
-            '<span class="dict-translation">"' + ex.english + '"</span>' +
-            '</div>';
+          var exampleDiv = document.createElement('div');
+          exampleDiv.className = 'dict-example';
+
+          var vernSpan = document.createElement('span');
+          vernSpan.className = 'dict-vernacular';
+          vernSpan.textContent = ex.vernacular;
+
+          var transSpan = document.createElement('span');
+          transSpan.className = 'dict-translation';
+          transSpan.textContent = '"' + ex.english + '"';
+
+          exampleDiv.appendChild(vernSpan);
+          exampleDiv.appendChild(document.createTextNode(' '));
+          exampleDiv.appendChild(transSpan);
+          exDiv.appendChild(exampleDiv);
         });
-        exHtml += '</div>';
+        el.appendChild(exDiv);
       }
 
-      el.innerHTML =
-        '<div class="dict-headword-line">' +
-          '<span class="dict-lx">' + entry.lx + '</span>' +
-          (entry.hm ? '<span class="dict-hm">' + entry.hm + '</span>' : '') +
-          '<span class="dict-ps">' + (entry.ps || '') + '</span>' +
-        '</div>' +
-        '<div class="dict-ge">' + glossHtml + '</div>' +
-        etHtml +
-        mnHtml +
-        exHtml;
       fragment.appendChild(el);
     });
     resultsDiv.appendChild(fragment);
@@ -167,6 +234,7 @@
   function renderEnglishResults(englishWords) {
     var limit = 50;
     var list = englishWords.slice(0, limit);
+    var fragment = document.createDocumentFragment();
 
     list.forEach(function (word) {
       var containerEl = document.createElement('div');
@@ -192,8 +260,10 @@
 
       containerEl.appendChild(header);
       containerEl.appendChild(refsDiv);
-      resultsDiv.appendChild(containerEl);
+      fragment.appendChild(containerEl);
     });
+
+    resultsDiv.appendChild(fragment);
 
     if (englishWords.length > limit) {
       var more = document.createElement('div');
@@ -250,4 +320,13 @@
   });
 
   init();
+
+  return {
+    init: init,
+    performSearch: performSearch
+  };
 })();
+
+if (typeof module !== 'undefined') {
+  module.exports = BorlishDictionary;
+}
