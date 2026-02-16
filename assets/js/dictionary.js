@@ -1,5 +1,5 @@
 // Borlish dictionary — search, render, and navigation logic
-(function () {
+var BorlishDictionary = (function () {
   // STATE
   var dictionaryData = [];
   var englishIndex = {};
@@ -320,4 +320,13 @@
   });
 
   init();
+
+  return {
+    init: init,
+    performSearch: performSearch
+  };
 })();
+
+if (typeof module !== 'undefined') {
+  module.exports = BorlishDictionary;
+}
