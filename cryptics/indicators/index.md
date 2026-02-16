@@ -8,11 +8,11 @@ permalink: /cryptics/indicators/
   <div class="ind-tabbar" id="category-list"></div>
 
   <div class="ind-controls">
-    <input type="text" id="ind-search" placeholder="Search indicators across all categories..." oninput="handleSearch()">
+    <input type="text" id="ind-search" placeholder="Search indicators across all categories...">
     <div class="search-scope-toggle">
-      <button class="scope-btn active" onclick="setScope('global')" id="scope-global">All</button>
-      <button class="scope-btn" onclick="setScope('category')" id="scope-category">Category</button>
-      <button class="scope-btn" onclick="setScope('header')" id="scope-header">Headers</button>
+      <button class="scope-btn active" data-scope="global" id="scope-global">All</button>
+      <button class="scope-btn" data-scope="category" id="scope-category">Category</button>
+      <button class="scope-btn" data-scope="header" id="scope-header">Headers</button>
     </div>
   </div>
 
