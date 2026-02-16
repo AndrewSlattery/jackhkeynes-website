@@ -8,13 +8,16 @@ module Jekyll
 
     def generate(site)
       # --- CONFIGURATION ---
+      config = site.config['dictionary_generator'] || {}
+
       # Input: The .db file in your submodule
-      db_relative_path = "_data/external_dictionary/Borlish/Lexique Pro/Data/Borlish.db"
+      db_relative_path = config['db_path'] || "_data/external_dictionary/Borlish/Lexique Pro/Data/Borlish.db"
       db_path = File.join(site.source, db_relative_path)
 
       # Output: Where you want the JSON file to appear
-      output_dir = File.join(site.source, "assets", "boralverse")
-      output_file = File.join(output_dir, "borlish-dictionary.json")
+      output_relative_path = config['output_path'] || "assets/boralverse/borlish-dictionary.json"
+      output_file = File.join(site.source, output_relative_path)
+      output_dir = File.dirname(output_file)
       # ---------------------
 
       if File.exist?(db_path)
