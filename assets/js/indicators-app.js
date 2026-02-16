@@ -4,7 +4,7 @@ var currentCategory = "";
 var searchScope = "global"; // "global", "category", or "header"
 
 function initIndicatorApp(jsonUrl) {
-  fetch(jsonUrl)
+  return fetch(jsonUrl)
     .then(function (response) {
       if (!response.ok) {
         throw new Error('HTTP error! status: ' + response.status);
@@ -262,4 +262,18 @@ function filterByHeader(query) {
       group.style.display = 'none';
     }
   });
+}
+
+// Export for testing
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = {
+    initIndicatorApp: initIndicatorApp,
+    setScope: setScope,
+    loadCategory: loadCategory,
+    handleSearch: handleSearch,
+    toggleGroup: toggleGroup,
+    getAllData: function() { return allData; },
+    getCurrentCategory: function() { return currentCategory; },
+    getSearchScope: function() { return searchScope; }
+  };
 }
