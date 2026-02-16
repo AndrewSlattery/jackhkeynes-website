@@ -43534,6 +43534,11 @@
   },
   {
     "lx": "ollom",
+    "examples": [
+      {
+        "vernacular": "Val l'oc ollom se figr n'un reliquat."
+      }
+    ],
     "ps": "n",
     "ge": [
       "relic",
