@@ -62,13 +62,27 @@ $(document).ready(function () {
   }
 
   // 3. Bind per-column search inputs
-  $('#cluesTable thead .search-row input').on('keyup change', function () {
-    var col = table.column($(this).data('column'));
-    var regex = wildcardToRegex(this.value);
+  function debounce(func, wait) {
+    var timeout;
+    return function () {
+      var context = this;
+      var args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        func.apply(context, args);
+      }, wait);
+    };
+  }
 
-    if (col.search() !== regex) {
-      col.search(regex, true, false, true).draw();
-    }
+  $('#cluesTable thead .search-row input').each(function () {
+    $(this).on('keyup change', debounce(function () {
+      var col = table.column($(this).data('column'));
+      var regex = wildcardToRegex(this.value);
+
+      if (col.search() !== regex) {
+        col.search(regex, true, false, true).draw();
+      }
+    }, 300));
   });
 
   // 4. Enter moves focus to next input
