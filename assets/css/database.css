@@ -94,24 +94,9 @@ table.dataTable tbody tr:hover td {
   white-space: nowrap;
 }
 
-/* --- Controls (Search/Pagination) --- */
-.dataTables_filter input {
-  background: #2d2d2d;
-  border: 1px solid #424242;
-  border-radius: 4px;
-  color: #e8e8e8;
-  padding: 6px 10px;
-  margin-left: 8px;
-  outline: none;
-}
-
-.dataTables_filter input:focus {
-  border-color: #00ff00;
-}
-
+/* --- Controls (Length/Pagination) --- */
 .dataTables_wrapper .dataTables_length,
 .dataTables_wrapper .dataTables_length label,
-.dataTables_wrapper .dataTables_filter,
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_paginate {
   color: #828282 !important;
@@ -145,17 +130,46 @@ table.dataTable tbody tr:hover td {
   border: 1px solid #424242;
 }
 
-/* --- Regex Checkbox --- */
-.regex-control {
-  float: right;
-  margin-left: 15px;
-  color: #828282;
-  font-size: 0.9em;
-  padding-top: 6px;
-  cursor: pointer;
+/* --- Per-Column Search Inputs (tfoot) --- */
+#cluesTable tfoot th {
+  background-color: #2d2d2d;
+  padding: 8px 6px;
+  border-top: 2px solid #424242;
 }
 
-.regex-control input {
-  margin-right: 5px;
-  cursor: pointer;
+#cluesTable tfoot input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #1d1d1d;
+  border: 1px solid #424242;
+  border-radius: 4px;
+  color: #e8e8e8;
+  padding: 5px 8px;
+  font-size: 0.9em;
+  outline: none;
+  font-family: inherit;
+}
+
+#cluesTable tfoot input:focus {
+  border-color: #00ff00;
+}
+
+#cluesTable tfoot input::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+/* --- Search Help Text --- */
+#search-help {
+  color: #828282;
+  font-size: 0.85em;
+  margin-bottom: 12px;
+}
+
+#search-help code {
+  background: #2d2d2d;
+  color: #00ff00;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 1.05em;
 }

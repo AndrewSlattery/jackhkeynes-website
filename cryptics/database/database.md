@@ -10,11 +10,11 @@ permalink: /cryptics/database/
 <div id="loading-message">Loading Clue Database...</div>
 
 <div id="clue-db-wrapper">
-  <div id="regex-toggle-container" style="display:none;">
-    <label class="regex-control">
-      <input type="checkbox" id="regexCheckbox"> Regex
-    </label>
-  </div>
+  <p id="search-help">
+    Search tips: <code>.</code> = any single character,
+    <code>*</code> = any sequence of characters.
+    Searches are case-insensitive.
+  </p>
 
   <table id="cluesTable" class="display">
     <thead>
@@ -25,6 +25,14 @@ permalink: /cryptics/database/
         <th style="width: 15%;">Enum</th>
       </tr>
     </thead>
+    <tfoot>
+      <tr>
+        <th><input type="text" placeholder="Grid #" data-column="0" /></th>
+        <th><input type="text" placeholder="Clue" data-column="1" /></th>
+        <th><input type="text" placeholder="Answer" data-column="2" /></th>
+        <th><input type="text" placeholder="Enum" data-column="3" /></th>
+      </tr>
+    </tfoot>
     <tbody>
       {% for row in site.data.clues %}
         <tr>

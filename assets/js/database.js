@@ -1,12 +1,13 @@
-// Clue database — DataTables initialization with regex search support
+// Clue database — DataTables with per-column wildcard search
 $(document).ready(function () {
-  // 1. Initialize DataTable
+
+  // 1. Initialize DataTable (no default search box)
   var table = $('#cluesTable').DataTable({
+    "dom": "lrtip",
     "order": [[0, "desc"], [2, "asc"]],
     "pageLength": 25,
     "deferRender": true,
     "language": {
-      "search": "\uD83D\uDD0D Search Clues:",
       "lengthMenu": "Show _MENU_ entries",
       "zeroRecords": "No matching clues found",
       "info": "Showing _START_ to _END_ of _TOTAL_ clues",
@@ -14,51 +15,51 @@ $(document).ready(function () {
       "infoFiltered": "(filtered from _MAX_ total clues)"
     },
     "initComplete": function () {
-      // Move our custom checkbox into the DataTables filter div
-      var checkbox = $('#regex-toggle-container').children();
-      $('.dataTables_filter').prepend(checkbox);
+      // Move tfoot to sit directly below thead
+      var $tfoot = $('#cluesTable tfoot').detach();
+      $('#cluesTable thead').after($tfoot);
+
+      // Prevent clicks on tfoot cells from triggering sort
+      $('#cluesTable tfoot th').on('click', function (e) {
+        e.stopPropagation();
+      });
 
       $('#loading-message').hide();
       $('#clue-db-wrapper').fadeIn();
     }
   });
 
-  // 2. Custom Search Logic
-  var searchInputSelector = '.dataTables_filter input[type="search"]';
-  var regexBox = $('#regexCheckbox');
+  // 2. Convert user wildcards to regex
+  //    .  = any single non-space character (for crossword patterns like P.PP.R)
+  //    *  = any sequence of characters including spaces (for broad matching)
+  //    All other regex metacharacters are escaped for safety.
+  function wildcardToRegex(term) {
+    if (!term) return '';
+    // Escape regex metacharacters except . and *
+    var escaped = term.replace(/([\\^$|?+()[\]{}])/g, '\\$1');
+    // Convert wildcards
+    escaped = escaped.replace(/\./g, '[^ ]');
+    escaped = escaped.replace(/\*/g, '.*');
+    return escaped;
+  }
 
-  var doSearch = function () {
-    var searchTerm = $(searchInputSelector).val();
-    var isRegex = regexBox.is(':checked');
+  // 3. Bind per-column search inputs
+  $('#cluesTable tfoot input').on('keyup change', function () {
+    var col = table.column($(this).data('column'));
+    var regex = wildcardToRegex(this.value);
 
-    if (isRegex) {
-      // TRICK: We want '.' to match anything EXCEPT a space.
-      // But we must NOT change escaped dots (e.g. user typing "\.")
-
-      // 1. Hide escaped dots by replacing '\.' with a placeholder string
-      searchTerm = searchTerm.replace(/\\\./g, '__ESC_DOT__');
-
-      // 2. Replace all remaining 'wildcard' dots with '[^ ]' (Not Space)
-      searchTerm = searchTerm.replace(/\./g, '[^ ]');
-
-      // 3. Restore the escaped dots
-      searchTerm = searchTerm.replace(/__ESC_DOT__/g, '\\.');
+    if (col.search() !== regex) {
+      col.search(regex, true, false, true).draw();
     }
-
-    // table.search( input, regex, smart, caseInsen )
-    // Note: caseInsen is set to !isRegex.
-    // This means if Regex is ON, Case Insensitivity is OFF (Case Sensitive).
-    table.search(searchTerm, isRegex, !isRegex, !isRegex).draw();
-  };
-
-  // Trigger search on typing
-  $(document).on('keyup change', searchInputSelector, function () {
-    doSearch();
   });
 
-  // Trigger search when checkbox is toggled
-  regexBox.on('change', function () {
-    doSearch();
-    $(searchInputSelector).focus();
+  // 4. Enter moves focus to next input
+  $('#cluesTable tfoot input').on('keydown', function (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      var inputs = $('#cluesTable tfoot input');
+      var next = inputs.eq((inputs.index(this) + 1) % inputs.length);
+      next.focus().select();
+    }
   });
 });
