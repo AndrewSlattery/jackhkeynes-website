@@ -1,4 +1,7 @@
 // Clue database page — DataTables dark theme overrides
+// NOTE: This partial is NOT imported into main.scss. The database styles live
+// in assets/css/database.css (plain CSS) so they load AFTER the DataTables CSS.
+// This SCSS version is kept as a reference for variable-to-value mappings.
 
 // Loading state
 #loading-message {

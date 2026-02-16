@@ -67,6 +67,8 @@ pre, code {
 @import "cusdis";
 @import "post";
 @import "search";
-@import "database";
 @import "indicators";
 @import "dictionary";
+// NOTE: _database.scss is NOT imported here. It has its own standalone
+// stylesheet (assets/css/database.scss) loaded on the database page AFTER
+// the DataTables CSS, so our dark-theme overrides take priority.

@@ -1,0 +1,161 @@
+/* Clue database page — DataTables dark theme overrides.
+   This file must load AFTER the DataTables CSS to take priority. */
+
+/* --- Loading State --- */
+#loading-message {
+  text-align: center;
+  padding: 40px;
+  font-family: monospace;
+  color: #00ff00;
+  font-size: 1.2em;
+}
+
+#clue-db-wrapper {
+  display: none;
+  color: #e8e8e8;
+  margin-top: 20px;
+  font-size: 0.95em;
+}
+
+/* --- Dark Theme Table Overrides --- */
+table.dataTable {
+  background-color: #1d1d1d;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #424242;
+}
+
+table.dataTable thead th {
+  background-color: #2d2d2d;
+  color: #00ff00;
+  border-bottom: 2px solid #424242;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+table.dataTable tbody td {
+  border-bottom: 1px solid #333;
+  padding: 10px;
+  color: #e8e8e8;
+  background-color: #1d1d1d;
+  vertical-align: top;
+}
+
+/* --- Sorted Column Overrides --- */
+table.dataTable.display tbody tr.odd > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_1,
+table.dataTable.display tbody tr.odd > .sorting_2,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_2,
+table.dataTable.display tbody tr.odd > .sorting_3,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_3 {
+  background-color: #262626 !important;
+  box-shadow: none !important;
+  color: #e8e8e8 !important;
+}
+
+table.dataTable.display tbody tr.even > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_1,
+table.dataTable.display tbody tr.even > .sorting_2,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_2,
+table.dataTable.display tbody tr.even > .sorting_3,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_3 {
+  background-color: #2a2a2a !important;
+  box-shadow: none !important;
+  color: #e8e8e8 !important;
+}
+
+table.dataTable.display tbody tr:hover > .sorting_1,
+table.dataTable.order-column.stripe tbody tr:hover > .sorting_1,
+table.dataTable.display tbody tr:hover > .sorting_2,
+table.dataTable.order-column.stripe tbody tr:hover > .sorting_2,
+table.dataTable.display tbody tr:hover > .sorting_3,
+table.dataTable.order-column.stripe tbody tr:hover > .sorting_3 {
+  background-color: #333 !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+table.dataTable tbody tr:hover td {
+  background-color: #333 !important;
+  color: #fff;
+}
+
+/* --- Column Specifics --- */
+.answer-col {
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.enum-col {
+  font-size: 0.85em;
+  color: #828282 !important;
+  white-space: nowrap;
+}
+
+/* --- Controls (Search/Pagination) --- */
+.dataTables_filter input {
+  background: #2d2d2d;
+  border: 1px solid #424242;
+  border-radius: 4px;
+  color: #e8e8e8;
+  padding: 6px 10px;
+  margin-left: 8px;
+  outline: none;
+}
+
+.dataTables_filter input:focus {
+  border-color: #00ff00;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  color: #828282 !important;
+  margin-bottom: 15px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  background: #2d2d2d;
+  border: 1px solid #424242;
+  border-radius: 4px;
+  color: #e8e8e8;
+  padding: 4px;
+  margin: 0 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: #e8e8e8 !important;
+  border: 1px solid transparent;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: #2d2d2d;
+  border: 1px solid #424242;
+  color: #00ff00 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: #333;
+  color: #fff !important;
+  border: 1px solid #424242;
+}
+
+/* --- Regex Checkbox --- */
+.regex-control {
+  float: right;
+  margin-left: 15px;
+  color: #828282;
+  font-size: 0.9em;
+  padding-top: 6px;
+  cursor: pointer;
+}
+
+.regex-control input {
+  margin-right: 5px;
+  cursor: pointer;
+}

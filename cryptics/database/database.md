@@ -5,6 +5,7 @@ permalink: /cryptics/database/
 ---
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<link rel="stylesheet" href="{{ '/assets/css/database.css' | relative_url }}">
 
 <div id="loading-message">Loading Clue Database...</div>
 
