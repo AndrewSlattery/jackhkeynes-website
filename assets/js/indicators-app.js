@@ -115,17 +115,45 @@ function renderCategory(items) {
 
     groups[key].sort(function (a, b) { return a.localeCompare(b); });
 
-    var listHtml = groups[key].map(function (word) { return '<li>' + word + '</li>'; }).join('');
     var count = groups[key].length;
     var preview = groups[key].join(', ');
 
-    groupDiv.innerHTML =
-      '<div class="ind-group-header" onclick="toggleGroup(this)">' +
-        '<span class="header-label">' + key + ' <span class="count-badge">' + count + '</span></span>' +
-        '<span class="preview">' + preview + '</span>' +
-        '<span class="chevron">&#9660;</span>' +
-      '</div>' +
-      '<ul class="ind-list">' + listHtml + '</ul>';
+    var headerDiv = document.createElement('div');
+    headerDiv.className = 'ind-group-header';
+    headerDiv.onclick = function() { toggleGroup(this); };
+
+    var headerLabel = document.createElement('span');
+    headerLabel.className = 'header-label';
+    headerLabel.textContent = key + ' ';
+
+    var countBadge = document.createElement('span');
+    countBadge.className = 'count-badge';
+    countBadge.textContent = count;
+    headerLabel.appendChild(countBadge);
+
+    var previewSpan = document.createElement('span');
+    previewSpan.className = 'preview';
+    previewSpan.textContent = preview;
+
+    var chevron = document.createElement('span');
+    chevron.className = 'chevron';
+    chevron.innerHTML = '&#9660;';
+
+    headerDiv.appendChild(headerLabel);
+    headerDiv.appendChild(previewSpan);
+    headerDiv.appendChild(chevron);
+
+    var ul = document.createElement('ul');
+    ul.className = 'ind-list';
+
+    groups[key].forEach(function (word) {
+      var li = document.createElement('li');
+      li.textContent = word;
+      ul.appendChild(li);
+    });
+
+    groupDiv.appendChild(headerDiv);
+    groupDiv.appendChild(ul);
     display.appendChild(groupDiv);
   });
 }
@@ -166,17 +194,48 @@ function renderGlobalResults(items) {
       var count = groups[key].length;
       var preview = groups[key].join(', ');
 
-      var listHtml = groups[key].map(function (word) {
-        return '<li>' + word + ' <span class="cat-tag">' + cat + '</span></li>';
-      }).join('');
+      var headerDiv = document.createElement('div');
+      headerDiv.className = 'ind-group-header';
+      headerDiv.onclick = function() { toggleGroup(this); };
 
-      groupDiv.innerHTML =
-        '<div class="ind-group-header" onclick="toggleGroup(this)">' +
-          '<span class="header-label">' + key + ' <span class="count-badge">' + count + '</span></span>' +
-          '<span class="preview">' + preview + '</span>' +
-          '<span class="chevron">&#9660;</span>' +
-        '</div>' +
-        '<ul class="ind-list">' + listHtml + '</ul>';
+      var headerLabel = document.createElement('span');
+      headerLabel.className = 'header-label';
+      headerLabel.textContent = key + ' ';
+
+      var countBadge = document.createElement('span');
+      countBadge.className = 'count-badge';
+      countBadge.textContent = count;
+      headerLabel.appendChild(countBadge);
+
+      var previewSpan = document.createElement('span');
+      previewSpan.className = 'preview';
+      previewSpan.textContent = preview;
+
+      var chevron = document.createElement('span');
+      chevron.className = 'chevron';
+      chevron.innerHTML = '&#9660;';
+
+      headerDiv.appendChild(headerLabel);
+      headerDiv.appendChild(previewSpan);
+      headerDiv.appendChild(chevron);
+
+      var ul = document.createElement('ul');
+      ul.className = 'ind-list';
+
+      groups[key].forEach(function (word) {
+        var li = document.createElement('li');
+        li.textContent = word + ' ';
+
+        var catTag = document.createElement('span');
+        catTag.className = 'cat-tag';
+        catTag.textContent = cat;
+
+        li.appendChild(catTag);
+        ul.appendChild(li);
+      });
+
+      groupDiv.appendChild(headerDiv);
+      groupDiv.appendChild(ul);
       display.appendChild(groupDiv);
     });
   });
