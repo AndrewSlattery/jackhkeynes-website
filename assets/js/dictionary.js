@@ -3,6 +3,7 @@
   // STATE
   var dictionaryData = [];
   var englishIndex = {};
+  var englishKeys = [];
   var currentMode = 'borlish';
 
   // DOM ELEMENTS
@@ -59,6 +60,8 @@
         });
       });
     });
+
+    englishKeys = Object.keys(englishIndex).sort();
   }
 
   // 3. SEARCH
@@ -99,12 +102,12 @@
       }
 
     } else {
-      var enMatches = Object.keys(englishIndex).filter(function (enWord) {
+      var enMatches = englishKeys.filter(function (enWord) {
         if (strictStart && strictEnd) return enWord === q;
         if (strictStart) return enWord.startsWith(q);
         if (strictEnd) return enWord.endsWith(q);
         return enWord.includes(q);
-      }).sort();
+      });
 
       if (enMatches.length === 0) {
         statusDiv.textContent = 'No English matches found.';
