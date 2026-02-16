@@ -21,3 +21,8 @@ sass:
     - import
     - global-builtin
     - color-functions
+
+# Dictionary Generator Plugin Configuration
+dictionary_generator:
+  db_path: "_data/external_dictionary/Borlish/Lexique Pro/Data/Borlish.db"
+  output_path: "assets/boralverse/borlish-dictionary.json"
