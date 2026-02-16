@@ -231,6 +231,7 @@
   function renderEnglishResults(englishWords) {
     var limit = 50;
     var list = englishWords.slice(0, limit);
+    var fragment = document.createDocumentFragment();
 
     list.forEach(function (word) {
       var containerEl = document.createElement('div');
@@ -256,8 +257,10 @@
 
       containerEl.appendChild(header);
       containerEl.appendChild(refsDiv);
-      resultsDiv.appendChild(containerEl);
+      fragment.appendChild(containerEl);
     });
+
+    resultsDiv.appendChild(fragment);
 
     if (englishWords.length > limit) {
       var more = document.createElement('div');
