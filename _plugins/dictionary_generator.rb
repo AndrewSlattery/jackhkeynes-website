@@ -19,6 +19,20 @@ module Jekyll
 
       if File.exist?(db_path)
         puts "   Dictionary: Found DB at #{db_relative_path}. Processing..."
+
+        # Optimization: Try to load from cache if up-to-date
+        source_mtime = [File.mtime(db_path), File.mtime(__FILE__)].max
+        if File.exist?(output_file) && File.mtime(output_file) >= source_mtime
+          begin
+            data = JSON.parse(File.read(output_file))
+            site.data['boralverse'] = data
+            puts "   Dictionary: Loaded from cache #{output_file}. Skipping regeneration."
+            return
+          rescue JSON::ParserError
+            puts "   Dictionary: Cache corrupted. Regenerating."
+            File.delete(output_file) if File.exist?(output_file)
+          end
+        end
         
         # 1. Parse the Database
         data = parse_mdf(db_path)
@@ -30,11 +44,25 @@ module Jekyll
         new_content = JSON.pretty_generate(data)
         
         # Check if file exists and content is different
-        if !File.exist?(output_file) || File.read(output_file) != new_content
+        should_write = true
+        if File.exist?(output_file)
+          source_mtime = [File.mtime(db_path), File.mtime(__FILE__)].max
+          output_mtime = File.mtime(output_file)
+
+          # Optimization: Check mtime and size first to avoid reading file
+          if output_mtime >= source_mtime && File.size(output_file) == new_content.bytesize
+            should_write = false
+            puts "   Dictionary: No changes detected (mtime/size match). Skipping write."
+          elsif File.size(output_file) == new_content.bytesize && File.read(output_file) == new_content
+            should_write = false
+            FileUtils.touch(output_file)
+            puts "   Dictionary: No changes detected. Touched file to update mtime."
+          end
+        end
+
+        if should_write
           File.write(output_file, new_content)
           puts "   Dictionary: Generated #{output_file} with #{data.length} entries."
-        else
-          puts "   Dictionary: No changes detected. Skipping write to prevent loop."
         end
         
         # 4. Also make it available to Liquid
