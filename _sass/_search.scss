@@ -1,0 +1,71 @@
+// Cryptics index page — search input and results dropdown
+
+.search-container-row {
+  margin-bottom: 20px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 8px 12px;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  color: $color-text-alt;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: $color-accent-alt;
+  }
+}
+
+#results-container {
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  background: $color-bg-dropdown;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  z-index: 999;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+  &:empty {
+    display: none;
+  }
+
+  li {
+    padding: 12px;
+    border-bottom: 1px solid $color-border-faint;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  a {
+    color: $color-accent-alt;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.result-date {
+  display: block;
+  font-size: 0.8em;
+  color: $color-text-muted;
+  margin-bottom: 4px;
+}

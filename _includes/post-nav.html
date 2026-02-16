@@ -1,0 +1,11 @@
+<div class="post-navigation">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}">&larr; {{ page.previous.title }}</a>
+  {% else %}
+    <span></span>
+  {% endif %}
+
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}">{{ page.next.title }} &rarr;</a>
+  {% endif %}
+</div>

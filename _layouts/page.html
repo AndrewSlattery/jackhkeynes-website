@@ -1,13 +1,6 @@
 ---
 layout: default
 ---
-<style>
-  #cusdis_thread iframe {
-    min-height: 500px !important;
-    width: 100% !important;
-    border: none !important;
-  }
-</style>
 
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -25,37 +18,16 @@ layout: default
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    
+
     {{ content }}
 
-    {% if page.puzzle_id %}
-      <div style="margin-top: 30px;">
-        <iframe 
-          height="700px" 
-          width="100%" 
-          allow="web-share; fullscreen" 
-          style="border:none; width: 100% !important; position: static; display: block !important; margin: 0 !important;" 
-          src="https://puzzleme.amuselabs.com/pmm/crossword?id={{ page.puzzle_id }}&set={{ page.puzzle_set }}&embed=1" 
-          aria-label="Puzzle Me Game">
-        </iframe>
-      </div>
-    {% endif %}
-    
+    {% include puzzle-embed.html %}
+
   </div>
 
-  <hr style="margin: 40px 0;">
+  <hr class="post-divider">
 
-  <div class="post-navigation" style="display: flex; justify-content: space-between; margin-bottom: 40px;">
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}" style="text-decoration: none;">&larr; {{ page.previous.title }}</a>
-    {% else %}
-      <span></span>
-    {% endif %}
-
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}" style="text-decoration: none;">{{ page.next.title }} &rarr;</a>
-    {% endif %}
-  </div>
+  {% include post-nav.html %}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>

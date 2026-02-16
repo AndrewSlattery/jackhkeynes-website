@@ -6,19 +6,22 @@
 // 1. CUSTOM DARK MODE SCHEME & LAYOUT
 // ==========================================
 
+// Centralized color variables
+@import "variables";
+
 // Your colors: Dark Grey BG, Light Text, Neon Green Accent
-$background-color: #2b2b2b;
-$text-color:       #e0e0e0;
-$brand-color:      #51fb44;
+$background-color: $color-bg-body;
+$text-color:       $color-text;
+$brand-color:      $color-accent;
 
 // Adjust the border greys to be visible on dark mode
-$grey-color:       #828282;
-$grey-color-light: #424242; // Faint borders
+$grey-color:       $color-text-muted;
+$grey-color-light: $color-border; // Faint borders
 $grey-color-dark:  #eeeeee; // Strong borders
 
 // LAYOUT WIDTH OVERRIDE
 // Default is 800px. 1200px allows much more room for crosswords.
-$content-width:    1200px; 
+$content-width:    1200px;
 
 // ==========================================
 // 2. IMPORT THE THEME
@@ -48,12 +51,22 @@ a:hover {
 // Fix code blocks to be dark
 pre, code {
   border: 1px solid $grey-color-light;
-  background-color: #1a1a1a;
+  background-color: $color-bg-code;
   color: $text-color;
 }
 
 // Fix the table wrapper border
 .wrapper {
-  background-color: $background-color; 
+  background-color: $background-color;
   max-width: $content-width; /* Ensures wrapper respects the new width */
 }
+
+// ==========================================
+// 4. PAGE-SPECIFIC PARTIALS
+// ==========================================
+@import "cusdis";
+@import "post";
+@import "search";
+@import "database";
+@import "indicators";
+@import "dictionary";

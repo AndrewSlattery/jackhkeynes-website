@@ -1,0 +1,256 @@
+// Indicator database page styles
+
+#indicator-app {
+  margin-top: 20px;
+  min-height: 600px;
+}
+
+// Horizontal tab bar
+.ind-tabbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: $color-bg-dark;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+}
+
+.cat-btn {
+  background: none;
+  border: 1px solid $color-border;
+  color: $color-text;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 0.95em;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $color-border-faint;
+    color: $color-text-white;
+    border-color: $color-border-hover;
+  }
+
+  &.active {
+    background-color: rgba($color-accent, 0.15);
+    color: $color-accent;
+    font-weight: bold;
+    border-color: $color-accent;
+  }
+}
+
+// Search controls
+.ind-controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: $color-bg-darker;
+  padding: 10px 0;
+}
+
+#ind-search {
+  flex: 1;
+  padding: 10px;
+  background: $color-bg-dark;
+  border: 1px solid $color-text-muted;
+  color: $color-text;
+  border-radius: 4px;
+  font-size: 1em;
+
+  &:focus {
+    border-color: $color-accent;
+    outline: none;
+  }
+}
+
+.search-scope-toggle {
+  display: flex;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scope-btn {
+  background: $color-bg-dark;
+  border: none;
+  color: $color-text-muted;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.2s, color 0.2s;
+
+  &:not(:last-child) {
+    border-right: 1px solid $color-border;
+  }
+
+  &:hover {
+    background-color: $color-border-faint;
+    color: $color-text;
+  }
+
+  &.active {
+    background-color: rgba($color-accent, 0.15);
+    color: $color-accent;
+    font-weight: bold;
+  }
+}
+
+// Display grid
+#display-area {
+  columns: 2 350px;
+  column-gap: 12px;
+}
+
+// Groups/cards
+.ind-group {
+  margin-bottom: 12px;
+  border: 1px solid $color-border;
+  background-color: $color-bg-card;
+  border-radius: 4px;
+  overflow: hidden;
+  break-inside: avoid;
+}
+
+.ind-group-header {
+  background-color: $color-bg-dark;
+  padding: 10px 15px;
+  border-bottom: 1px solid $color-border;
+  font-weight: bold;
+  color: $color-accent;
+  font-size: 1.05em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  transition: background 0.15s;
+  gap: 10px;
+
+  &:hover {
+    background-color: #222;
+  }
+
+  .header-label {
+    flex-shrink: 0;
+  }
+
+  .count-badge {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: $color-text-muted;
+    background: $color-border-faint;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  .preview {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: 0.85em;
+    color: $color-text-muted;
+  }
+
+  .chevron {
+    font-size: 0.75em;
+    color: $color-text-muted;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+}
+
+// Hide preview when expanded
+.ind-group:not(.collapsed) .preview {
+  display: none;
+}
+
+.ind-group.collapsed {
+  .chevron {
+    transform: rotate(-90deg);
+  }
+
+  .ind-list {
+    display: none;
+  }
+
+  .ind-group-header {
+    border-bottom: none;
+  }
+}
+
+.ind-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  li {
+    background-color: $color-border-faint;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    color: $color-text;
+
+    .cat-tag {
+      font-size: 0.75em;
+      color: $color-accent;
+      margin-left: 6px;
+      opacity: 0.7;
+    }
+  }
+}
+
+// Result count summary
+.result-summary {
+  color: $color-text-muted;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .ind-tabbar {
+    gap: 6px;
+  }
+
+  .cat-btn {
+    padding: 5px 10px;
+    font-size: 0.85em;
+  }
+
+  .ind-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-scope-toggle {
+    justify-content: center;
+  }
+}
+
+// Status messages
+.loading-msg {
+  color: $color-text-muted;
+  font-style: italic;
+}
+
+.error-msg {
+  color: $color-error;
+  border: 1px solid $color-error;
+  padding: 10px;
+  border-radius: 4px;
+  background: rgba($color-error, 0.1);
+}

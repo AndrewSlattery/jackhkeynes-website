@@ -1,0 +1,11 @@
+{% if page.puzzle_id %}
+  <div class="puzzle-embed">
+    <iframe
+      height="700px"
+      width="100%"
+      allow="web-share; fullscreen"
+      src="https://puzzleme.amuselabs.com/pmm/crossword?id={{ page.puzzle_id }}&set={{ page.puzzle_set }}&embed=1"
+      aria-label="Puzzle Me Game">
+    </iframe>
+  </div>
+{% endif %}

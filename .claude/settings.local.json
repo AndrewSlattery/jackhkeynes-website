@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(bundle exec jekyll build:*)"
+      "Bash(bundle exec jekyll build:*)",
+      "Bash(tree:*)",
+      "Bash(cat:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)"
     ]
   }
 }

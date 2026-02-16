@@ -1,0 +1,169 @@
+// Borlish dictionary page styles
+
+.dict-container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: $color-text;
+}
+
+.dict-controls {
+  background: $color-bg-dark;
+  padding: 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  border: 1px solid $color-border;
+}
+
+.dict-search-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#dict-search {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: $color-bg-body;
+  border: 1px solid $color-border;
+  color: $color-text;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: inherit;
+
+  &:focus {
+    border-color: $color-accent;
+    outline: none;
+  }
+}
+
+#clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: $color-text-muted;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.dict-mode-toggle {
+  display: flex;
+  gap: 20px;
+
+  label {
+    cursor: pointer;
+    font-weight: 400;
+    color: $color-text;
+  }
+}
+
+.dict-status {
+  color: $color-text-muted;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+// Result entries
+.dict-entry {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $color-border;
+}
+
+.dict-headword-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.dict-lx {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $color-accent;
+}
+
+.dict-hm {
+  font-size: 0.8rem;
+  vertical-align: super;
+  color: $color-text-muted;
+}
+
+.dict-ps {
+  font-style: italic;
+  color: $color-text-muted;
+}
+
+.dict-ge {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: $color-text;
+}
+
+.dict-meta {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: $color-text;
+  background: $color-bg-dark;
+  padding: 12px;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+}
+
+.dict-label {
+  font-weight: bold;
+  color: $color-accent;
+  margin-right: 5px;
+}
+
+.dict-example {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid $color-border;
+}
+
+.dict-vernacular {
+  font-weight: bold;
+  color: $color-text-white;
+}
+
+.dict-translation {
+  color: $color-text-dim;
+}
+
+.mn-link {
+  color: $color-accent;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px dotted $color-accent;
+
+  &:hover {
+    color: rgb(173, 253, 167);
+    border-bottom-style: solid;
+  }
+}
+
+// English index
+.english-index-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $color-border-faint;
+  padding-bottom: 0.5rem;
+}
+
+.english-keyword {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: $color-text-white;
+}
+
+.english-refs {
+  margin-left: 0;
+  margin-top: 5px;
+}

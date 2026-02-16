@@ -1,0 +1,81 @@
+// Post layout styles (navigation, archives, comments section)
+
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.post-divider {
+  margin: 40px 0;
+}
+
+.puzzle-embed {
+  margin-top: 30px;
+
+  iframe {
+    border: none;
+    width: 100% !important;
+    position: static;
+    display: block !important;
+    margin: 0 !important;
+  }
+}
+
+// Archives collapsible
+.archives-section {
+  margin-bottom: 40px;
+  color: $color-text-muted;
+
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+    outline: none;
+  }
+
+  .archives-list {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .year-group {
+    margin-bottom: 5px;
+
+    summary {
+      cursor: pointer;
+      color: $color-text-muted;
+      font-size: 1em;
+      font-weight: normal;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+  }
+}
+
+// Comments collapsible
+.comments-section {
+  margin-bottom: 50px;
+
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: $color-text-muted;
+    outline: none;
+  }
+
+  .comments-wrapper {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+  }
+}

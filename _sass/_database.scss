@@ -1,0 +1,166 @@
+// Clue database page — DataTables dark theme overrides
+
+// Loading state
+#loading-message {
+  text-align: center;
+  padding: 40px;
+  font-family: monospace;
+  color: $color-accent-alt;
+  font-size: 1.2em;
+}
+
+#clue-db-wrapper {
+  display: none;
+  color: $color-text-alt;
+  margin-top: 20px;
+  font-size: 0.95em;
+}
+
+// Table base
+table.dataTable {
+  background-color: $color-bg-dropdown;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid $color-border;
+}
+
+// Header
+table.dataTable thead th {
+  background-color: $color-bg-input;
+  color: $color-accent-alt;
+  border-bottom: 2px solid $color-border;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+// Cells
+table.dataTable tbody td {
+  border-bottom: 1px solid $color-border-faint;
+  padding: 10px;
+  color: $color-text-alt;
+  background-color: $color-bg-dropdown;
+  vertical-align: top;
+}
+
+// Sorted column overrides (odd rows)
+table.dataTable.display tbody tr.odd > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_1,
+table.dataTable.display tbody tr.odd > .sorting_2,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_2,
+table.dataTable.display tbody tr.odd > .sorting_3,
+table.dataTable.order-column.stripe tbody tr.odd > .sorting_3 {
+  background-color: #262626 !important;
+  box-shadow: none !important;
+  color: $color-text-alt !important;
+}
+
+// Sorted column overrides (even rows)
+table.dataTable.display tbody tr.even > .sorting_1,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_1,
+table.dataTable.display tbody tr.even > .sorting_2,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_2,
+table.dataTable.display tbody tr.even > .sorting_3,
+table.dataTable.order-column.stripe tbody tr.even > .sorting_3 {
+  background-color: #2a2a2a !important;
+  box-shadow: none !important;
+  color: $color-text-alt !important;
+}
+
+// Sorted column overrides (hover)
+table.dataTable.display tbody tr:hover > .sorting_1,
+table.dataTable.order-column.stripe tbody tr:hover > .sorting_1,
+table.dataTable.display tbody tr:hover > .sorting_2,
+table.dataTable.order-column.stripe tbody tr:hover > .sorting_2,
+table.dataTable.display tbody tr:hover > .sorting_3,
+table.dataTable.order-column.stripe tbody tr:hover > .sorting_3 {
+  background-color: $color-border-faint !important;
+  box-shadow: none !important;
+  color: $color-text-white !important;
+}
+
+table.dataTable tbody tr:hover td {
+  background-color: $color-border-faint !important;
+  color: $color-text-white;
+}
+
+// Column specifics
+.answer-col {
+  font-family: monospace;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.enum-col {
+  font-size: 0.85em;
+  color: $color-text-muted !important;
+  white-space: nowrap;
+}
+
+// Controls (search, pagination)
+.dataTables_filter input {
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  color: $color-text-alt;
+  padding: 6px 10px;
+  margin-left: 8px;
+  outline: none;
+
+  &:focus {
+    border-color: $color-accent-alt;
+  }
+}
+
+.dataTables_wrapper {
+  .dataTables_length,
+  .dataTables_length label,
+  .dataTables_filter,
+  .dataTables_info,
+  .dataTables_paginate {
+    color: $color-text-muted !important;
+    margin-bottom: 15px;
+  }
+
+  .dataTables_length select {
+    background: $color-bg-input;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    color: $color-text-alt;
+    padding: 4px;
+    margin: 0 5px;
+  }
+
+  .dataTables_paginate .paginate_button {
+    color: $color-text-alt !important;
+    border: 1px solid transparent;
+
+    &.current,
+    &.current:hover {
+      background: $color-bg-input;
+      border: 1px solid $color-border;
+      color: $color-accent-alt !important;
+    }
+
+    &:hover {
+      background: $color-border-faint;
+      color: $color-text-white !important;
+      border: 1px solid $color-border;
+    }
+  }
+}
+
+// Regex checkbox
+.regex-control {
+  float: right;
+  margin-left: 15px;
+  color: $color-text-muted;
+  font-size: 0.9em;
+  padding-top: 6px;
+  cursor: pointer;
+
+  input {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+}
