@@ -16,3 +16,5 @@ permalink: /
 ## Boralverse
 
 [Borlish Dictionary](/boralverse/borlish-dictionary/)
+
+[Tumblr](https://tumblr.com/jackhkeynes)
