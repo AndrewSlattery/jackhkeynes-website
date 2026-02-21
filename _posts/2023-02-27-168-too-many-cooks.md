@@ -2,8 +2,7 @@
 layout: post
 title: "#168: Too Many Cooks"
 date: 2023-02-27T18:00:00.002Z
-puzzle_id: c51e1c3d
-puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
+puzzle_number: 168
 ---
 
 Hi all! A baby grid for you this week with some eclectic fill—good luck! 🧑‍🍳🧑‍🍳🧑‍🍳 ([parses](/assets/parses/168.txt))

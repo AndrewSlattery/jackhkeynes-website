@@ -1,0 +1,640 @@
+// Crossword widget styles
+// Uses CSS custom properties for light/dark theming;
+// default values are set to match the site's dark palette ($color-* variables).
+
+.xw-widget {
+  // ── Dark theme (default) ──────────────────────────────────────────
+  --xw-bg:              #{$color-bg-dark};
+  --xw-bg-cell:         #{$color-bg-card};
+  --xw-bg-black:        #{$color-bg-darker};
+  --xw-bg-controls:     #{$color-bg-dark};
+  --xw-bg-dropdown:     #{$color-bg-dropdown};
+
+  --xw-highlight:       #{rgba($color-accent, 0.13)};
+  --xw-selected:        #{rgba($color-accent, 0.32)};
+
+  --xw-text:            #{$color-text};
+  --xw-text-cell:       #{$color-text-white};
+  --xw-text-num:        #{$color-text-muted};
+  --xw-text-muted:      #{$color-text-muted};
+  --xw-accent:          #{$color-accent};
+
+  --xw-border:          #{$color-border};
+  --xw-border-outer:    #{$color-border-hover};
+
+  --xw-correct:         #{rgba($color-accent, 0.22)};
+  --xw-incorrect:       #{rgba($color-error, 0.30)};
+  --xw-revealed-bg:     #{rgba($color-accent, 0.10)};
+  --xw-revealed-text:   #{$color-accent};
+
+  --xw-btn-bg:          #{$color-bg-dark};
+  --xw-btn-hover:       #{$color-bg-input};
+  --xw-btn-border:      #{$color-border};
+
+  --xw-clue-active-bg:  #{rgba($color-accent, 0.08)};
+  --xw-clue-active-bar: #{$color-accent};
+
+  // ── Light theme override ──────────────────────────────────────────
+  &.xw-light {
+    --xw-bg:              #f0f0f0;
+    --xw-bg-cell:         #ffffff;
+    --xw-bg-black:        #1c1c1c;
+    --xw-bg-controls:     #e4e4e4;
+    --xw-bg-dropdown:     #f8f8f8;
+
+    --xw-highlight:       rgba(0, 140, 0, 0.14);
+    --xw-selected:        rgba(0, 140, 0, 0.32);
+
+    --xw-text:            #1a1a1a;
+    --xw-text-cell:       #1a1a1a;
+    --xw-text-num:        #666666;
+    --xw-text-muted:      #777777;
+    --xw-accent:          #1a7a00;
+
+    --xw-border:          #cccccc;
+    --xw-border-outer:    #888888;
+
+    --xw-correct:         rgba(0, 140, 0, 0.18);
+    --xw-incorrect:       rgba(200, 40, 40, 0.22);
+    --xw-revealed-bg:     rgba(0, 140, 0, 0.10);
+    --xw-revealed-text:   #1a7a00;
+
+    --xw-btn-bg:          #e4e4e4;
+    --xw-btn-hover:       #d4d4d4;
+    --xw-btn-border:      #bbbbbb;
+
+    --xw-clue-active-bg:  rgba(0, 140, 0, 0.08);
+    --xw-clue-active-bar: #1a7a00;
+  }
+
+  // ── Widget shell ──────────────────────────────────────────────────
+  position: relative;
+  background: var(--xw-bg);
+  border-radius: 4px;
+  padding: 16px;
+  font-family: inherit;
+  color: var(--xw-text);
+  margin-top: 20px;
+
+  // ── Paused state: blur the content beneath the overlay ───────────
+  &.xw-paused {
+    .xw-grid-wrap,
+    .xw-clue-panel {
+      filter: blur(7px);
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  // ── Hidden keyboard input (mobile support) ────────────────────────
+  .xw-hidden-input {
+    position: absolute;
+    top: 0; left: 0;
+    width: 1px; height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    border: none;
+    padding: 0;
+  }
+
+  // ── Controls bar ─────────────────────────────────────────────────
+  .xw-controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    background: var(--xw-bg-controls);
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--xw-border);
+  }
+
+  // ── Dropdowns ─────────────────────────────────────────────────────
+  .xw-dd-group {
+    position: relative;
+  }
+
+  .xw-ctrl-btn {
+    background: var(--xw-btn-bg);
+    border: 1px solid var(--xw-btn-border);
+    color: var(--xw-text);
+    padding: 5px 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.88em;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s;
+
+    &:hover {
+      background: var(--xw-btn-hover);
+      border-color: var(--xw-accent);
+    }
+  }
+
+  .xw-caret { font-size: 0.7em; opacity: 0.7; margin-left: 2px; }
+
+  .xw-dd-panel {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: var(--xw-bg-dropdown);
+    border: 1px solid var(--xw-btn-border);
+    border-radius: 4px;
+    z-index: 200;
+    min-width: 110px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+
+    &.xw-dd-open { display: block; }
+  }
+
+  .xw-dd-item {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--xw-text);
+    padding: 8px 14px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.88em;
+    font-family: inherit;
+
+    &:hover {
+      background: var(--xw-highlight);
+      color: var(--xw-accent);
+    }
+  }
+
+  // Settings panel (wider, label+checkbox rows)
+  .xw-settings-panel {
+    min-width: 200px;
+    padding: 4px 0;
+  }
+
+  .xw-setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    cursor: pointer;
+    gap: 16px;
+
+    &:hover { background: var(--xw-highlight); }
+
+    span { font-size: 0.88em; }
+
+    input[type="checkbox"] {
+      accent-color: var(--xw-accent);
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+  }
+
+  // Timer group (elapsed time + pause button)
+  .xw-timer-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+  }
+
+  .xw-timer {
+    font-family: monospace;
+    font-size: 0.95em;
+    color: var(--xw-text-muted);
+    min-width: 44px;
+    text-align: right;
+    user-select: none;
+  }
+
+  // Pause button — compact, icon-only
+  .xw-pause-btn {
+    padding: 5px 7px;
+    font-size: 0.8em;
+    line-height: 1;
+  }
+
+  // Fullscreen button
+  .xw-fs-btn {
+    font-size: 1em;
+    padding: 4px 8px;
+    line-height: 1;
+  }
+
+  // ── Active-clue bar ───────────────────────────────────────────────
+  .xw-active-clue-bar {
+    background: var(--xw-bg-cell);
+    border: 1px solid var(--xw-border);
+    padding: 7px 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    min-height: 34px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .xw-acb-label {
+    color: var(--xw-accent);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .xw-acb-clue { color: var(--xw-text); }
+
+  // ── Main body: grid + clue panel ──────────────────────────────────
+  .xw-body {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    position: relative;   // anchor for the pause overlay
+    overflow: hidden;     // clip blur so it doesn't bleed outside as a halo
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+  }
+
+  // ── Pause overlay ──────────────────────────────────────────────────
+  .xw-pause-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background: var(--xw-bg);
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &[hidden] { display: none; }
+  }
+
+  .xw-pause-message {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--xw-text-muted);
+    user-select: none;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  // ── Grid ──────────────────────────────────────────────────────────
+  .xw-grid-wrap {
+    flex-shrink: 0;
+    width: min(510px, 100%);
+    container-type: inline-size;
+  }
+
+  .xw-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--xw-cols, 15), 1fr);
+    border: 2px solid var(--xw-border-outer);
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1;
+  }
+
+  .xw-cell {
+    aspect-ratio: 1;
+    position: relative;
+    border: 1px solid var(--xw-border);
+    background: var(--xw-bg-cell);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: background 0.1s;
+
+    &.xw-black {
+      background: var(--xw-bg-black);
+      border-color: var(--xw-bg-black); // absorb borders so adjacent blacks merge seamlessly
+      cursor: default;
+    }
+
+    &.xw-highlighted:not(.xw-black) { background: var(--xw-highlight); }
+    &.xw-selected:not(.xw-black)    { background: var(--xw-selected);   }
+
+    // State classes (applied on top of highlight/selected)
+    &.xw-correct   { background: var(--xw-correct)   !important; }
+    &.xw-incorrect { background: var(--xw-incorrect) !important; }
+    &.xw-revealed  { background: var(--xw-revealed-bg); }
+
+    // Word separators — thicker border after the Nth letter
+    &.xw-sep-right-space  { border-right:  3px solid var(--xw-border-outer); }
+    &.xw-sep-right-hyphen { border-right:  3px dashed var(--xw-border-outer); }
+    &.xw-sep-bottom-space  { border-bottom: 3px solid var(--xw-border-outer); }
+    &.xw-sep-bottom-hyphen { border-bottom: 3px dashed var(--xw-border-outer); }
+  }
+
+  // Cell number (top-left superscript)
+  .xw-num {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    font-size: clamp(5px, 1.8cqw, 11px);
+    line-height: 1;
+    color: var(--xw-text-num);
+    pointer-events: none;
+  }
+
+  // Cell letter (centred)
+  .xw-letter {
+    font-size: clamp(9px, 3.2cqw, 20px);
+    font-weight: bold;
+    color: var(--xw-text-cell);
+    pointer-events: none;
+    text-transform: uppercase;
+
+    .xw-revealed & { color: var(--xw-revealed-text); }
+  }
+
+  // ── Clue panel ────────────────────────────────────────────────────
+  .xw-clue-panel {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    min-width: 0;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+  }
+
+  .xw-clue-section {
+    overflow-y: auto;
+    max-height: 510px;
+
+    @media (max-width: 700px) {
+      max-height: 260px;
+    }
+  }
+
+  .xw-clue-section-title {
+    font-weight: bold;
+    font-size: 0.95em;
+    color: var(--xw-accent);
+    padding: 6px 0 5px;
+    border-bottom: 1px solid var(--xw-border);
+    margin-bottom: 6px;
+    position: sticky;
+    top: 0;
+    background: var(--xw-bg);
+    z-index: 1;
+  }
+
+  .xw-clue {
+    display: flex;
+    gap: 5px;
+    padding: 4px 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.86em;
+    line-height: 1.45;
+    border-left: 2px solid transparent;
+    transition: background 0.1s;
+
+    &:hover { background: var(--xw-highlight); }
+
+    &.xw-clue-active {
+      background: var(--xw-clue-active-bg);
+      border-left-color: var(--xw-clue-active-bar);
+    }
+
+    &.xw-clue-done {
+      opacity: 0.45;
+    }
+  }
+
+  .xw-clue-num {
+    color: var(--xw-accent);
+    font-weight: bold;
+    flex-shrink: 0;
+    min-width: 22px;
+  }
+
+  .xw-clue-text { color: var(--xw-text); }
+
+  .xw-clue-enum {
+    color: var(--xw-text-muted);
+    font-size: 0.95em;
+  }
+
+  // ── Notes modal ───────────────────────────────────────────────────
+  .xw-notes-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[hidden] { display: none; }
+  }
+
+  .xw-notes-modal {
+    background: var(--xw-bg-dropdown);
+    border: 1px solid var(--xw-border);
+    border-radius: 6px;
+    padding: 20px 24px 16px;
+    max-width: min(520px, 90vw);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .xw-notes-body {
+    font-size: 0.92em;
+    line-height: 1.55;
+    color: var(--xw-text);
+    white-space: pre-wrap;
+  }
+
+  .xw-notes-close {
+    align-self: flex-end;
+  }
+
+  // ── Completion banner ─────────────────────────────────────────────
+  .xw-completion-banner {
+    margin-top: 14px;
+    padding: 12px 16px;
+    text-align: center;
+    border: 1px solid var(--xw-accent);
+    border-radius: 4px;
+    background: var(--xw-revealed-bg);
+    color: var(--xw-accent);
+    font-size: 1.05em;
+    font-weight: bold;
+
+    &[hidden] { display: none; }
+  }
+
+  // ── Error state ───────────────────────────────────────────────────
+  .xw-error {
+    color: #{$color-error};
+    border: 1px solid #{$color-error};
+    padding: 12px;
+    border-radius: 4px;
+    background: #{rgba($color-error, 0.08)};
+    margin: 0;
+  }
+
+  // ── Fullscreen ────────────────────────────────────────────────────
+  @mixin fullscreen-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 20px 24px;
+    overflow: hidden;
+    background: var(--xw-bg);
+
+    .xw-controls-bar,
+    .xw-active-clue-bar { flex-shrink: 0; }
+
+    .xw-body {
+      flex: 1;
+      min-height: 0;
+      height: 100%; 
+      align-items: stretch;
+      // Inherits flex-direction: column from the default .xw-body mobile styles
+    }
+
+    .xw-grid-wrap {
+      // Default desktop layout
+      width: min(calc(100vh - 180px), 65vw); 
+      flex-shrink: 0;
+      align-self: flex-start;
+
+      @media (min-width: 800px) {
+        // Wider screens get a larger grid proportion
+        width: min(calc(100vh - 200px), 75vw); 
+      }
+
+      @media (max-width: 700px) {
+        // Mobile portrait layout: 
+        // Center the grid and let it fill the width, but cap it so the 
+        // clue panel always gets at least ~250px of vertical scrolling space.
+        width: min(100%, calc(100vh - 250px));
+        align-self: center;
+      }
+    }
+
+    .xw-clue-panel {
+      flex: 1;
+      min-height: 0;
+      height: 100%;
+      display: flex; 
+      flex-direction: row; 
+      gap: 16px;
+
+      @media (max-width: 900px) {
+        // Stack the "Across" and "Down" sections vertically on smaller screens
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    .xw-clue-section {
+      // In mobile stacked view, both Across and Down will share the vertical space (50% each)
+      // and scroll independently!
+      flex: 1; 
+      max-height: 100%; 
+      min-height: 0; 
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+
+  // Apply the mixin to each selector independently to prevent browser invalidation
+  &:fullscreen {
+    @include fullscreen-layout;
+  }
+  
+  &:-webkit-full-screen {
+    @include fullscreen-layout;
+  }
+}
+
+// ── Print / save-as-PDF ────────────────────────────────────────────
+@media print {
+  // Hide everything on the page except the crossword widget
+  body > *:not(:has(.xw-widget)) { display: none !important; }
+
+  .xw-widget {
+    // Reset colours to print-friendly black-on-white
+    --xw-bg:          #ffffff;
+    --xw-bg-cell:     #ffffff;
+    --xw-bg-black:    #111111;
+    --xw-bg-controls: #f0f0f0;
+    --xw-text:        #111111;
+    --xw-text-cell:   #111111;
+    --xw-text-num:    #333333;
+    --xw-text-muted:  #444444;
+    --xw-accent:      #005500;
+    --xw-border:      #aaaaaa;
+    --xw-border-outer:#111111;
+    --xw-highlight:   transparent;
+    --xw-selected:    transparent;
+
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+
+    // Hide interactive controls and timer
+    .xw-controls-bar,
+    .xw-active-clue-bar,
+    .xw-completion-banner { display: none !important; }
+
+    // Remove hover/focus outlines
+    &:focus-within { outline: none; }
+
+    .xw-body {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .xw-grid-wrap {
+      width: 55%;
+      flex-shrink: 0;
+    }
+
+    .xw-clue-panel {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 0.78em;
+    }
+
+    .xw-clue-section { max-height: none; overflow: visible; }
+
+    .xw-pause-overlay { display: none !important; }
+
+    .xw-cell.xw-black {
+      background: #111111 !important;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+}

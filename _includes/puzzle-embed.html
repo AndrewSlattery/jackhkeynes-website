@@ -1,4 +1,9 @@
-{% if page.puzzle_id %}
+{% if page.puzzle_number %}
+  <div class="puzzle-embed">
+    <div id="crossword-embed" data-puzzle-number="{{ page.puzzle_number }}"></div>
+    <script src="{{ '/assets/js/crossword.js' | relative_url }}"></script>
+  </div>
+{% elsif page.puzzle_id %}
   <div class="puzzle-embed">
     <iframe
       height="700px"
