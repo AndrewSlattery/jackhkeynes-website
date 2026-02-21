@@ -10,6 +10,7 @@ The first grid I ever made, so be gentle lol 🕷️
 
 
 ---
+<!-- archived-comments -->
 ### 💬 Archived Comments
 
 **Anonymous** *on 2025-05-16*

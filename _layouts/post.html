@@ -19,9 +19,21 @@ layout: default
 
   <div class="post-content e-content" itemprop="articleBody">
 
-    {{ content }}
-
-    {% include puzzle-embed.html %}
+    {%- comment -%}
+      Posts with transferred comments contain an HTML comment marker
+      <!-- archived-comments --> that splits the intro text from the
+      archived comment block. We render the intro first, then the puzzle
+      embed, then the archived comments — so the grid sits between them.
+    {%- endcomment -%}
+    {%- if content contains '<!-- archived-comments -->' -%}
+      {%- assign ac_parts = content | split: '<!-- archived-comments -->' -%}
+      {{ ac_parts[0] }}
+      {% include puzzle-embed.html %}
+      {{ ac_parts[1] }}
+    {%- else -%}
+      {{ content }}
+      {% include puzzle-embed.html %}
+    {%- endif -%}
 
   </div>
 

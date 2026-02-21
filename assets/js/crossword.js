@@ -460,9 +460,17 @@
   // Apply word-separator CSS classes after the grid is in the DOM
   function applySeparators() {
     words.forEach(function (word) {
+      // A separator whose 1-based index equals the word's cell count sits on
+      // the very last cell — for a linked-clue primary word that position is
+      // the physical break between grid segments, not an in-answer word
+      // boundary, so we skip it (the grid layout already makes the split
+      // visible; the extra border would be misleading).
+      var isLinkedPrimary = !!(word.continuations && word.continuations.length);
+
       word.separators.forEach(function (sep) {
         var idx = sep.after - 1; // 0-indexed cell after which separator sits
         if (idx < 0 || idx >= word.cells.length) return;
+        if (isLinkedPrimary && idx === word.cells.length - 1) return;
         var wc  = word.cells[idx];
         var el  = getCellEl(wc.row, wc.col);
         if (!el) return;
@@ -862,6 +870,36 @@
     else if (key === 'ArrowUp')    { dr = -1; newDir = 'down';   }
     else if (key === 'ArrowDown')  { dr =  1; newDir = 'down';   }
 
+    // When the arrow is in the same direction as the currently highlighted word,
+    // check whether we are sitting at a linked-clue part boundary.  If so, step
+    // to the adjacent part of the linked answer rather than moving grid-wise.
+    // (If a different direction is highlighted — e.g. 5D while cursor sits in 1A
+    // — newDir !== state.direction, so we fall straight through to normal movement.)
+    if (newDir === state.direction) {
+      var word = getCurrentWord();
+      var idx  = getCurrentWordCellIndex();
+      if (word && idx >= 0) {
+        var dw    = getDisplayWord(word);             // primary word
+        var parts = [dw].concat(dw.continuations || []);
+        var pIdx  = parts.indexOf(word);              // index of current segment
+
+        // Forward (→ / ↓): last cell of this segment → first cell of next segment
+        if ((dc > 0 || dr > 0) && idx === word.cells.length - 1 && pIdx < parts.length - 1) {
+          var next = parts[pIdx + 1];
+          selectCell(next.cells[0].row, next.cells[0].col, next.direction);
+          return;
+        }
+
+        // Backward (← / ↑): first cell of this segment → last cell of previous segment
+        if ((dc < 0 || dr < 0) && idx === 0 && pIdx > 0) {
+          var prev     = parts[pIdx - 1];
+          var lastCell = prev.cells[prev.cells.length - 1];
+          selectCell(lastCell.row, lastCell.col, prev.direction);
+          return;
+        }
+      }
+    }
+
     var nr = r + dr, nc = c + dc;
 
     // Keep checking squares in the chosen direction until we hit the edge
@@ -871,13 +909,13 @@
         selectCell(nr, nc, newDir);
         return;
       }
-      
+
       // If it IS black, keep moving in the same direction
       nr += dr;
       nc += dc;
     }
-    
-    // If the loop finishes without returning, it means we hit the edge 
+
+    // If the loop finishes without returning, it means we hit the edge
     // of the board without finding a white square. Do nothing.
   }
 

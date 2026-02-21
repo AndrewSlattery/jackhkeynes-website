@@ -11,6 +11,7 @@ Hi all!
 
 
 ---
+<!-- archived-comments -->
 ### 💬 Archived Comments
 
 **VPG** *on 2025-09-08*
