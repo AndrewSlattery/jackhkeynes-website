@@ -46,7 +46,7 @@ if (typeof $ !== 'undefined') {
     // 1. Initialize DataTable (no default search box)
     var table = $('#cluesTable').DataTable({
       "dom": "lrtip",
-      "order": [[0, "desc"], [2, "asc"]],
+      "order": [[2, "asc"], [0, "asc"]],
       "pageLength": 25,
       "deferRender": true,
       "orderCellsTop": true,
