@@ -2,11 +2,9 @@
 layout: post
 title: "OUTTAKE 8: Spiral Puzzle 'Undertale & Minecraft'"
 date: 2021-06-22T12:42:00.001Z
+spiral_puzzle_number: 3
 ---
 
-Now with spreadsheet support! :) Good luck!
+Good luck!
 <hr>
-<a href="/assets/misc/outtake-8-spiral-puzzle-undertale-1.pdf" target="_blank" rel="nofollow">Spreadsheet</a><p>
-<a href="/assets/misc/outtake-8-spiral-puzzle-undertale-2.pdf" target="_blank" rel="nofollow">Image</a><p>
-<div class="separator" style="clear: both;"><a href="/assets/misc/outtake-8-spiral-puzzle-undertale-3.png" style="display: block; padding: 1em 0; text-align: center; clear: left; float: left;"><img alt="" border="0" width="320" data-original-height="521" data-original-width="1843" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-AFVsndgefwq3xg6YH70qpuwREO9_b6n1Q-cqlW3tdvuYUlEVK6wtXJnj1vAwfj1vPsZ3_9pbiMF-7KaVbbFdSgwtZE0A2Avmpgj4SD_lS_CNFNPSt1mEyAb9LSjSzvx-SH9iCwuPIOM/s320/spiral+puzzle+4.png"/></a></div>
 
