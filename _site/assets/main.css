@@ -979,6 +979,46 @@ pre, code {
 .xw-widget .xw-cell.xw-sep-bottom-hyphen {
   border-bottom: 3px dashed var(--xw-border-outer);
 }
+.xw-widget .xw-grid.xw-barred {
+  border: none;
+}
+.xw-widget .xw-outside {
+  aspect-ratio: 1;
+  background: transparent;
+  border: none;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+.xw-widget .xw-edge-top {
+  border-top: 2px solid var(--xw-border-outer);
+}
+.xw-widget .xw-edge-left {
+  border-left: 2px solid var(--xw-border-outer);
+}
+.xw-widget .xw-edge-right {
+  border-right: 2px solid var(--xw-border-outer);
+}
+.xw-widget .xw-edge-bottom {
+  border-bottom: 2px solid var(--xw-border-outer);
+}
+.xw-widget .xw-bar-top {
+  border-top: 3px solid var(--xw-border-outer);
+}
+.xw-widget .xw-bar-left {
+  border-left: 3px solid var(--xw-border-outer);
+}
+.xw-widget .xw-bar-right {
+  border-right: 3px solid var(--xw-border-outer);
+}
+.xw-widget .xw-bar-bottom {
+  border-bottom: 3px solid var(--xw-border-outer);
+}
+.xw-widget .xw-grid.xw-barred .xw-cell.xw-sep-right-space, .xw-widget .xw-grid.xw-barred .xw-cell.xw-sep-right-hyphen {
+  border-right: 1px solid var(--xw-border);
+}
+.xw-widget .xw-grid.xw-barred .xw-cell.xw-sep-bottom-space, .xw-widget .xw-grid.xw-barred .xw-cell.xw-sep-bottom-hyphen {
+  border-bottom: 1px solid var(--xw-border);
+}
 .xw-widget .xw-num {
   position: absolute;
   top: 1px;
@@ -1134,7 +1174,8 @@ pre, code {
   background: var(--xw-bg);
 }
 .xw-widget:fullscreen .xw-controls-bar,
-.xw-widget:fullscreen .xw-active-clue-bar {
+.xw-widget:fullscreen .xw-active-clue-bar,
+.xw-widget:fullscreen .xw-clue-az-row {
   flex-shrink: 0;
 }
 .xw-widget:fullscreen .xw-body {
@@ -1190,7 +1231,8 @@ pre, code {
   background: var(--xw-bg);
 }
 .xw-widget:-webkit-full-screen .xw-controls-bar,
-.xw-widget:-webkit-full-screen .xw-active-clue-bar {
+.xw-widget:-webkit-full-screen .xw-active-clue-bar,
+.xw-widget:-webkit-full-screen .xw-clue-az-row {
   flex-shrink: 0;
 }
 .xw-widget:-webkit-full-screen .xw-body {
@@ -1237,6 +1279,108 @@ pre, code {
   overflow-y: auto;
 }
 
+.xw-jigsaw .xw-clue-az-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.xw-jigsaw .xw-clue-az-row .xw-active-clue-bar {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.xw-jigsaw .xw-clue-az-row .xw-az-bar {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .xw-jigsaw .xw-clue-az-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .xw-jigsaw .xw-clue-az-row .xw-az-bar {
+    width: 100%;
+  }
+}
+.xw-jigsaw .xw-az-bar {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 2px 4px;
+  padding: 7px 10px;
+  background: var(--xw-bg-controls);
+  border: 1px solid var(--xw-border);
+  border-radius: 4px;
+  margin-bottom: 0;
+  user-select: none;
+  align-content: center;
+  min-width: 150px;
+}
+.xw-jigsaw .xw-az-letter {
+  font-size: 0.82em;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--xw-text);
+  text-align: center;
+  transition: opacity 0.2s, color 0.2s;
+}
+.xw-jigsaw .xw-az-letter.xw-az-used {
+  opacity: 0.28;
+  color: var(--xw-text-muted);
+}
+.xw-jigsaw .xw-clue-panel {
+  grid-template-columns: 1fr;
+}
+.xw-jigsaw .xw-clue {
+  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.xw-jigsaw .xw-clue:hover {
+  background: var(--xw-highlight);
+}
+.xw-jigsaw .xw-clue .xw-clue-num {
+  display: none;
+}
+.xw-jigsaw .xw-clue .xw-clue-text {
+  flex: 1;
+  min-width: 0;
+}
+.xw-jigsaw .xw-scratchpad {
+  display: block;
+  width: 120px;
+  flex-shrink: 0;
+  padding: 4px 7px;
+  background: var(--xw-bg);
+  border: 1px solid var(--xw-border);
+  border-radius: 3px;
+  color: var(--xw-text);
+  font-family: monospace;
+  font-size: 0.9em;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+.xw-jigsaw .xw-scratchpad::placeholder {
+  color: var(--xw-text-muted);
+  font-weight: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.xw-jigsaw .xw-scratchpad:focus {
+  outline: none;
+  border-color: var(--xw-accent);
+}
+.xw-jigsaw .xw-grid .xw-cell.xw-sep-right-space, .xw-jigsaw .xw-grid .xw-cell.xw-sep-right-hyphen {
+  border-right: 1px solid var(--xw-border);
+}
+.xw-jigsaw .xw-grid .xw-cell.xw-sep-bottom-space, .xw-jigsaw .xw-grid .xw-cell.xw-sep-bottom-hyphen {
+  border-bottom: 1px solid var(--xw-border);
+}
+
 @media print {
   body > *:not(:has(.xw-widget)) {
     display: none !important;
@@ -1264,6 +1408,7 @@ pre, code {
   }
   .xw-widget .xw-controls-bar,
   .xw-widget .xw-active-clue-bar,
+  .xw-widget .xw-clue-az-row,
   .xw-widget .xw-completion-banner {
     display: none !important;
   }
@@ -1293,6 +1438,14 @@ pre, code {
   }
   .xw-widget .xw-pause-overlay {
     display: none !important;
+  }
+  .xw-widget.xw-jigsaw .xw-az-bar {
+    display: none !important;
+  }
+  .xw-widget.xw-jigsaw .xw-scratchpad {
+    background: #ffffff;
+    border: 1px solid #aaaaaa;
+    color: #111111;
   }
   .xw-widget .xw-cell.xw-black {
     background: #111111 !important;

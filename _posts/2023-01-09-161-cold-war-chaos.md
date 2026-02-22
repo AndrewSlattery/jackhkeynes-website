@@ -2,8 +2,7 @@
 layout: post
 title: "#161: Cold War Chaos"
 date: 2023-01-09T18:00:00Z
-puzzle_id: 4876aaf1
-puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
+az_puzzle_number: 161
 ---
 
 Hi all! As we haven't had one in a while, here's an A-Z jigsaw—good luck! 🕵️ 🤡 (; [parses](/assets/parses/161.txt))

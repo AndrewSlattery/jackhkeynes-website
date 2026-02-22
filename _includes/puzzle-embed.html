@@ -3,6 +3,21 @@
     <div id="crossword-embed" data-puzzle-number="{{ page.puzzle_number }}"></div>
     <script src="{{ '/assets/js/crossword.js' | relative_url }}"></script>
   </div>
+{% elsif page.bar_puzzle_number %}
+  <div class="puzzle-embed">
+    <div id="barred-crossword-embed" data-bar-puzzle-number="{{ page.bar_puzzle_number }}"></div>
+    <script src="{{ '/assets/js/barred-crossword.js' | relative_url }}"></script>
+  </div>
+{% elsif page.az_puzzle_number %}
+  <div class="puzzle-embed">
+    <div id="az-jigsaw-embed" data-puzzle-number="{{ page.az_puzzle_number }}"></div>
+    <script src="{{ '/assets/js/az-jigsaw-crossword.js' | relative_url }}"></script>
+  </div>
+{% elsif page.za_puzzle_number %}
+  <div class="puzzle-embed">
+    <div id="az-jigsaw-embed" data-puzzle-number="{{ page.za_puzzle_number }}" data-letter-end="true"></div>
+    <script src="{{ '/assets/js/az-jigsaw-crossword.js' | relative_url }}"></script>
+  </div>
 {% elsif page.puzzle_id %}
   <div class="puzzle-embed">
     <iframe

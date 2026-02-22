@@ -335,6 +335,47 @@
     &.xw-sep-bottom-hyphen { border-bottom: 3px dashed var(--xw-border-outer); }
   }
 
+  // ── Barred grid ───────────────────────────────────────────────────
+  // The .xw-grid outer border is removed; instead each perimeter cell
+  // carries an explicit edge border via .xw-edge-* classes, which lets
+  // non-rectangular grids (diamonds, crosses, etc.) look correct.
+
+  .xw-grid.xw-barred {
+    border: none;
+  }
+
+  // Spacer cell — sits outside the playable boundary of a non-rectangular grid.
+  // It occupies the CSS grid slot but is entirely invisible and non-interactive.
+  .xw-outside {
+    aspect-ratio: 1;
+    background:   transparent;
+    border:       none;
+    pointer-events: none;
+    box-sizing:   border-box;
+  }
+
+  // Outer-edge borders: cells on the perimeter of the barred grid.
+  // 2px matches the weight of the .xw-grid border they replace.
+  .xw-edge-top    { border-top:    2px solid var(--xw-border-outer); }
+  .xw-edge-left   { border-left:   2px solid var(--xw-border-outer); }
+  .xw-edge-right  { border-right:  2px solid var(--xw-border-outer); }
+  .xw-edge-bottom { border-bottom: 2px solid var(--xw-border-outer); }
+
+  // Internal bar borders: word boundaries in barred grids.
+  // 3px keeps bars visually distinct from the lighter cell grid lines.
+  .xw-bar-top    { border-top:    3px solid var(--xw-border-outer); }
+  .xw-bar-left   { border-left:   3px solid var(--xw-border-outer); }
+  .xw-bar-right  { border-right:  3px solid var(--xw-border-outer); }
+  .xw-bar-bottom { border-bottom: 3px solid var(--xw-border-outer); }
+
+  // Word separators are hidden in barred grids to avoid confusion with bar borders.
+  .xw-grid.xw-barred .xw-cell {
+    &.xw-sep-right-space,
+    &.xw-sep-right-hyphen  { border-right:  1px solid var(--xw-border); }
+    &.xw-sep-bottom-space,
+    &.xw-sep-bottom-hyphen { border-bottom: 1px solid var(--xw-border); }
+  }
+
   // Cell number (top-left superscript)
   .xw-num {
     position: absolute;
@@ -505,7 +546,8 @@
     background: var(--xw-bg);
 
     .xw-controls-bar,
-    .xw-active-clue-bar { flex-shrink: 0; }
+    .xw-active-clue-bar,
+    .xw-clue-az-row { flex-shrink: 0; }
 
     .xw-body {
       flex: 1;
@@ -571,6 +613,135 @@
   }
 }
 
+// ── A-Z Jigsaw overrides ──────────────────────────────────────────
+// These rules apply only inside .xw-jigsaw, so they cannot affect
+// the standard blocked-grid or barred-grid widgets.
+
+.xw-jigsaw {
+
+  // Active-clue bar and A-Z tracker sit side-by-side.
+  // stretch makes both panels the same height; the AZ bar then centres its
+  // two rows of letters vertically with align-content: center.
+  .xw-clue-az-row {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 12px;
+
+    .xw-active-clue-bar {
+      flex: 1;
+      min-width: 0;
+      margin-bottom: 0;
+    }
+
+    .xw-az-bar {
+      // Fixed 13-column grid gives exactly A–M / N–Z regardless of width
+      flex: 0 0 auto;
+      margin-bottom: 0;
+    }
+
+    // Stack vertically on narrow screens
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      .xw-az-bar { width: 100%; }
+    }
+  }
+
+  // A-Z tracker bar — 13-column CSS grid so rows are always exactly 13 letters
+  .xw-az-bar {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 2px 4px;
+    padding: 7px 10px;
+    background: var(--xw-bg-controls);
+    border: 1px solid var(--xw-border);
+    border-radius: 4px;
+    margin-bottom: 0;   // margin is handled by .xw-clue-az-row
+    user-select: none;
+    align-content: center;  // centre the two rows when the bar is stretched taller
+    min-width: 150px;
+  }
+
+  .xw-az-letter {
+    font-size: 0.82em;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--xw-text);
+    text-align: center;
+    transition: opacity 0.2s, color 0.2s;
+
+    // A letter is "used" once it appears as the first letter of a
+    // scratchpad answer or of a filled grid-word start cell.
+    &.xw-az-used {
+      opacity: 0.28;
+      color: var(--xw-text-muted);
+    }
+  }
+
+  // Single clue column: override the default two-column Across/Down grid
+  .xw-clue-panel {
+    grid-template-columns: 1fr;
+  }
+
+  // Clue items — clickable for highlighting; scratchpad sits to the right
+  .xw-clue {
+    cursor: pointer;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    &:hover { background: var(--xw-highlight); }
+
+    // Clue numbers are not rendered, so hide the num span if it slips in
+    .xw-clue-num { display: none; }
+
+    .xw-clue-text {
+      flex: 1;
+      min-width: 0;  // allow the text to shrink inside the flex row
+    }
+  }
+
+  // Scratchpad text input — fixed width to the right of the clue text
+  .xw-scratchpad {
+    display: block;
+    width: 120px;
+    flex-shrink: 0;
+    padding: 4px 7px;
+    background: var(--xw-bg);
+    border: 1px solid var(--xw-border);
+    border-radius: 3px;
+    color: var(--xw-text);
+    font-family: monospace;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+
+    &::placeholder {
+      color: var(--xw-text-muted);
+      font-weight: normal;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--xw-accent);
+    }
+  }
+
+  // Suppress word-separator markers — they leak answer structure in jigsaw mode.
+  .xw-grid .xw-cell {
+    &.xw-sep-right-space,
+    &.xw-sep-right-hyphen  { border-right:  1px solid var(--xw-border); }
+    &.xw-sep-bottom-space,
+    &.xw-sep-bottom-hyphen { border-bottom: 1px solid var(--xw-border); }
+  }
+}
+
 // ── Print / save-as-PDF ────────────────────────────────────────────
 @media print {
   // Hide everything on the page except the crossword widget
@@ -602,6 +773,7 @@
     // Hide interactive controls and timer
     .xw-controls-bar,
     .xw-active-clue-bar,
+    .xw-clue-az-row,
     .xw-completion-banner { display: none !important; }
 
     // Remove hover/focus outlines
@@ -630,6 +802,18 @@
     .xw-clue-section { max-height: none; overflow: visible; }
 
     .xw-pause-overlay { display: none !important; }
+
+    // Jigsaw-specific print adjustments
+    &.xw-jigsaw {
+      .xw-az-bar { display: none !important; }
+
+      // Keep scratchpad inputs visible but render as plain text boxes
+      .xw-scratchpad {
+        background: #ffffff;
+        border: 1px solid #aaaaaa;
+        color: #111111;
+      }
+    }
 
     .xw-cell.xw-black {
       background: #111111 !important;
