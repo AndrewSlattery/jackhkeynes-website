@@ -108,7 +108,9 @@
         var rawSol = data.solution ? data.solution[r][c] : null;
 
         var isBlack = (raw === '#');
-        var number  = (typeof raw === 'number') ? raw : null;
+        var number  = (typeof raw === 'number') ? raw
+                    : (raw && typeof raw === 'object' && typeof raw.cell === 'number') ? raw.cell
+                    : null;
 
         var solution = null;
         if (!isBlack && rawSol) {
