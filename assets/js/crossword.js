@@ -390,12 +390,15 @@
         '</div>' +
       '</div>';
 
-    var pauseBtn = '<button class="xw-ctrl-btn xw-pause-btn" type="button" data-action="pause" title="Pause / resume">⏸</button>';
-    var fsBtn    = '<button class="xw-ctrl-btn xw-fs-btn"    type="button" data-action="fullscreen" title="Fullscreen">⛶</button>';
-    var pdfBtn   = '<button class="xw-ctrl-btn"              type="button" data-action="print" title="Save as PDF">PDF</button>';
-    var timer    = '<div class="xw-timer-group"><div class="xw-timer" role="timer" aria-label="Time elapsed">0:00</div>' + pauseBtn + '</div>';
+    var pauseBtn  = '<button class="xw-ctrl-btn xw-pause-btn" type="button" data-action="pause" title="Pause / resume">⏸</button>';
+    var fsBtn     = '<button class="xw-ctrl-btn xw-fs-btn"    type="button" data-action="fullscreen" title="Fullscreen">⛶</button>';
+    var pdfBtn    = '<button class="xw-ctrl-btn"              type="button" data-action="print" title="Save as PDF">PDF</button>';
+    var notesBtn  = puzzle.notes
+      ? '<button class="xw-ctrl-btn" type="button" data-action="notes" title="Puzzle notes">ℹ</button>'
+      : '';
+    var timer     = '<div class="xw-timer-group"><div class="xw-timer" role="timer" aria-label="Time elapsed">0:00</div>' + pauseBtn + '</div>';
 
-    return checkDd + revealDd + clearDd + settingsDd + timer + fsBtn + pdfBtn;
+    return checkDd + revealDd + clearDd + settingsDd + notesBtn + timer + fsBtn + pdfBtn;
   }
 
   function settingRow(key, label) {
@@ -1008,6 +1011,7 @@
       case 'pause':       togglePause();                       break;
       case 'fullscreen':  toggleFullscreen();                  break;
       case 'print':       printPDF();                          break;
+      case 'notes':       showNotes();                         break;
     }
   }
 
@@ -1103,6 +1107,12 @@
     }
   }
 
+  function showNotes() {
+    var widget   = getWidget();
+    var backdrop = widget && widget.querySelector('.xw-notes-backdrop');
+    if (backdrop) backdrop.removeAttribute('hidden');
+  }
+
   function toggleFullscreen() {
     var widget = getWidget();
     if (!widget) return;
@@ -1114,6 +1124,41 @@
   }
 
   function printPDF() {
+    var widget = getWidget();
+    if (!widget) { window.print(); return; }
+
+    // Walk from the widget up to <body>, temporarily hiding every sibling of
+    // each ancestor.  This isolates just the widget in the printed output
+    // without any knowledge of the surrounding page structure (post header,
+    // archive list, nav, footer, etc. all disappear automatically).
+    var hidden = [];
+    var node = widget;
+    while (node && node !== document.body) {
+      var parent = node.parentElement;
+      if (!parent) break;
+      Array.from(parent.children).forEach(function (sib) {
+        if (sib !== node) {
+          sib.style.setProperty('display', 'none', 'important');
+          hidden.push(sib);
+        }
+      });
+      node = parent;
+    }
+
+    function restore() {
+      // splice(0) drains the array so double-calls (afterprint + setTimeout) are safe
+      hidden.splice(0).forEach(function (el) {
+        el.style.removeProperty('display');
+      });
+    }
+
+    window.addEventListener('afterprint', function onAfter() {
+      window.removeEventListener('afterprint', onAfter);
+      restore();
+    });
+    // Fallback in case afterprint doesn't fire (print cancelled silently, etc.)
+    setTimeout(restore, 30000);
+
     window.print();
   }
 
