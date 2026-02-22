@@ -2,8 +2,7 @@
 layout: post
 title: "OUTTAKE 28: General Knowledge 13 \"Unbeatable Enemies\""
 date: 2024-10-02T11:00:00.001Z
-puzzle_id: c72d0e6c
-puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
+puzzle_number: General Knowledge 13
 ---
 
 Hi all! A trivia grid for the week—good luck!  Thanks to [MP](https://mycrossword.co.uk/Umpire) and [Liari](https://mycrossword.co.uk/Liari) for testing.

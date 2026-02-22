@@ -52,7 +52,7 @@
 
     loadSettings();
 
-    var url = '/assets/ipuz/' + puzzleNumber + '.ipuz';
+    var url = '/assets/ipuz/' + encodeURIComponent(puzzleNumber) + '.ipuz';
     fetch(url)
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
