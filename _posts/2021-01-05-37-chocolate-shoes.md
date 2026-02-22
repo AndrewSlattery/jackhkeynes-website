@@ -2,8 +2,7 @@
 layout: post
 title: "#37: Chocolate Shoes"
 date: 2021-01-05T14:28:00.003Z
-puzzle_id: ea746f21
-puzzle_set: fc50118bfbe2dc16baca094dcb2bffca0a3de0510213524681c2ff01f5355508
+puzzle_number: 37
 ---
 
 A new themed grid, since we haven't had one of those in a while! 🍫👟
