@@ -622,7 +622,7 @@
     var numStr  = word.label || String(word.number);
     label.textContent = numStr + (word.direction === 'across' ? 'A' : 'D') + '. ';
     var enumStr = (puzzle.showEnumerations && word.enumeration) ? ' (' + fmtEnum(word.enumeration) + ')' : '';
-    clueEl.textContent = word.clue + enumStr;
+    clueEl.innerHTML = word.clue + enumStr;
   }
 
   function getCurrentWord() {
