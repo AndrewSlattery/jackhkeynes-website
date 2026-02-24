@@ -501,6 +501,22 @@
     return container.querySelector('.xw-clue[data-num="' + num + '"][data-dir="' + dir.toLowerCase() + '"]');
   }
 
+  // Scroll a clue element into view within its .xw-clue-section only,
+  // without scrolling the page viewport (avoids mobile judder).
+  function scrollClueIntoView(clueEl) {
+    var section = clueEl.closest('.xw-clue-section');
+    if (!section) return;
+    var st = section.scrollTop;
+    var sh = section.clientHeight;
+    var ct = clueEl.offsetTop - section.offsetTop;
+    var ch = clueEl.offsetHeight;
+    if (ct < st) {
+      section.scrollTop = ct;
+    } else if (ct + ch > st + sh) {
+      section.scrollTop = ct + ch - sh;
+    }
+  }
+
   function updateCellDisplay(r, c) {
     var el   = getCellEl(r, c);
     if (!el) return;
@@ -578,7 +594,7 @@
       var clueEl = getClueEl(displayWord.number, displayWord.direction);
       if (clueEl) {
         clueEl.classList.add('xw-clue-active');
-        clueEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        scrollClueIntoView(clueEl);
       }
     }
 
