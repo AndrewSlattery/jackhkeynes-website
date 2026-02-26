@@ -61,7 +61,7 @@
   function updateAZBar(engine) {
     var used = {};
     Object.keys(scratchpad).forEach(function (key) {
-      var letters = (scratchpad[key] || '').replace(/[^A-Z]/g, '');
+      var letters = (scratchpad[key] || '').replace(/[^A-Z?]/g, '');
       if (letters) used[trackLastLetter ? letters[letters.length - 1] : letters[0]] = true;
     });
 
@@ -87,7 +87,7 @@
     engine.words.forEach(function (w) {
       if (w.isContinuation) return;
       var key       = w.number + '_' + w.direction;
-      var spLetters = (scratchpad[key] || '').replace(/[^A-Z]/g, '');
+      var spLetters = (scratchpad[key] || '').replace(/[^A-Z?]/g, '');
       var isDone    = spLetters.length > 0 && !!placedEntries[spLetters];
       var clueEl    = engine.container.querySelector(
         '.xw-clue[data-num="' + w.number + '"][data-dir="' + w.direction + '"]'
@@ -259,7 +259,7 @@
         var sp = e.target.closest('.xw-scratchpad');
         if (!sp) return;
         if (!engine.state.timer.running && !engine.state.completed) engine.startTimer();
-        var val = sp.value.toUpperCase().replace(/[^A-Z\-' ]/g, '');
+        var val = sp.value.toUpperCase().replace(/[^A-Z\-' ?]/g, '');
         sp.value = val;
         var key = sp.dataset.spNum + '_' + sp.dataset.spDir;
         scratchpad[key] = val;
@@ -299,6 +299,25 @@
             acbClue.textContent = hcWord.clue + hcEnum;
           }
         }
+      });
+
+      // Ensure the grid's hidden input regains focus when clicking an already-highlighted cell
+      ['mousedown', 'touchstart'].forEach(function(evt) {
+        widget.addEventListener(evt, function (e) {
+          // Ignore interactions inside the clue list or A-Z bar
+          if (e.target.closest('.xw-clue-section') || e.target.closest('.xw-clue-az-row')) {
+            return;
+          }
+          
+          // Find the core engine's hidden input (the only input that isn't a scratchpad)
+          var hiddenInput = widget.querySelector('input:not(.xw-scratchpad)');
+          if (hiddenInput) {
+            // Push focus to the end of the event loop to let the core engine finish its own click handling first
+            setTimeout(function() {
+              hiddenInput.focus();
+            }, 10);
+          }
+        });
       });
     },
 
