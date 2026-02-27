@@ -1,7 +1,7 @@
 // Indicator database — category tabs, search, and display logic
 var allData = [];
 var currentCategory = "";
-var searchScope = "global"; // "global", "category", or "header"
+var searchScope = "header"; // Default to searching headers in the current tab
 
 function initIndicatorApp(jsonUrl) {
   fetch(jsonUrl)
@@ -112,6 +112,7 @@ function renderCategory(items) {
   sortedKeys.forEach(function (key) {
     var groupDiv = document.createElement('div');
     groupDiv.className = 'ind-group collapsed';
+    groupDiv.setAttribute('data-group-key', key); // Store the clean header name!
 
     groups[key].sort(function (a, b) { return a.localeCompare(b); });
 
@@ -189,6 +190,7 @@ function renderGlobalResults(items) {
     sortedKeys.forEach(function (key) {
       var groupDiv = document.createElement('div');
       groupDiv.className = 'ind-group collapsed';
+      groupDiv.setAttribute('data-group-key', key); // Store the clean header name!
 
       groups[key].sort(function (a, b) { return a.localeCompare(b); });
       var count = groups[key].length;
@@ -290,19 +292,32 @@ function handleSearch() {
 
 function filterWithinCategory(query) {
   var groups = document.querySelectorAll('.ind-group');
+  
+  // Attempt to parse the user's search as a Regular Expression
+  var regex;
+  try {
+    regex = new RegExp(query, 'i'); // 'i' makes it case-insensitive
+  } catch (e) {
+    // Fallback to literal text if they typed an incomplete/invalid regex
+    regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+  }
+
   groups.forEach(function (group) {
     var listItems = group.querySelectorAll('li');
     var hasVisible = false;
+    
     listItems.forEach(function (li) {
-      var text = li.textContent.toLowerCase();
-      if (text.includes(query)) {
+      // Check the text content of the list item against the regex
+      if (regex.test(li.textContent)) {
         li.style.display = '';
         hasVisible = true;
       } else {
         li.style.display = 'none';
       }
     });
+    
     group.style.display = hasVisible ? '' : 'none';
+    
     // Auto-expand groups that have matches
     if (hasVisible) group.classList.remove('collapsed');
   });
@@ -310,12 +325,24 @@ function filterWithinCategory(query) {
 
 function filterByHeader(query) {
   var groups = document.querySelectorAll('.ind-group');
+  
+  // Attempt to parse the user's search as a Regular Expression
+  var regex;
+  try {
+    regex = new RegExp(query, 'i'); // 'i' makes it case-insensitive
+  } catch (e) {
+    // Fallback to literal text if they typed an incomplete/invalid regex (like a stray '[')
+    regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+  }
+
   groups.forEach(function (group) {
-    var header = group.querySelector('.ind-group-header').textContent.toLowerCase();
+    // Read the clean header name we stored
+    var headerKey = group.getAttribute('data-group-key');
     var listItems = group.querySelectorAll('li');
-    if (header.includes(query)) {
+    
+    if (headerKey && regex.test(headerKey)) {
       group.style.display = '';
-      group.classList.remove('collapsed');
+      group.classList.remove('collapsed'); // Auto-expand matching groups
       listItems.forEach(function (li) { li.style.display = ''; });
     } else {
       group.style.display = 'none';
