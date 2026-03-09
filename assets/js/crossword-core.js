@@ -709,7 +709,9 @@
 
       updateActiveClueBar();
       if (hiddenInput && document.activeElement !== hiddenInput) {
+        var _sx = window.pageXOffset, _sy = window.pageYOffset;
         hiddenInput.focus({ preventScroll: true });
+        window.scrollTo(_sx, _sy);
       }
     }
 
