@@ -427,6 +427,7 @@
 
       container.appendChild(widget);
       hiddenInput = widget.querySelector('.xw-hidden-input');
+      hiddenInput.value = ' '; // sentinel keeps mobile autocorrect from chaining letters
       bindEvents(widget);
     }
 
@@ -812,12 +813,20 @@
       var cur = getCurrentWord();
       var idx = getWordListIndex(cur);
       var n   = words.length;
+      // Prefer words that still have empty cells (skip already-solved words)
       for (var i = 1; i <= n; i++) {
         var next = words[(idx + i) % n];
         if (next.isContinuation) continue;
-        var target = firstEmptyInWord(next) || next.cells[0];
-        selectCell(target.row, target.col, next.direction);
-        return;
+        var target = firstEmptyInWord(next);
+        if (target) { selectCell(target.row, target.col, next.direction); return; }
+      }
+      // All words filled: fall back to the next word in list order
+      for (var i = 1; i <= n; i++) {
+        var next = words[(idx + i) % n];
+        if (!next.isContinuation) {
+          selectCell(next.cells[0].row, next.cells[0].col, next.direction);
+          return;
+        }
       }
     }
 
@@ -825,12 +834,21 @@
       var cur = getCurrentWord();
       var idx = getWordListIndex(cur);
       var n   = words.length;
+      // Prefer words that still have empty cells (skip already-solved words)
       for (var i = 1; i <= n; i++) {
         var prev = words[(idx - i + n) % n];
         if (prev.isContinuation) continue;
-        var target = prev.cells[prev.cells.length - 1];
-        selectCell(target.row, target.col, prev.direction);
-        return;
+        var target = firstEmptyInWord(prev);
+        if (target) { selectCell(target.row, target.col, prev.direction); return; }
+      }
+      // All words filled: fall back to the previous word in list order
+      for (var i = 1; i <= n; i++) {
+        var prev = words[(idx - i + n) % n];
+        if (!prev.isContinuation) {
+          var lastCell = prev.cells[prev.cells.length - 1];
+          selectCell(lastCell.row, lastCell.col, prev.direction);
+          return;
+        }
       }
     }
 
@@ -969,13 +987,18 @@
         hiddenInput.addEventListener('input', function () {
           if (!state.focused) return;
           var val = hiddenInput.value;
-          hiddenInput.value = '';
-          if (!val) return;
-          var ch = val.slice(-1).toUpperCase();
-          if (/^[A-Z]$/.test(ch)) handleLetter(ch);
+          hiddenInput.value = ' '; // reset to sentinel
+          // Extract any typed letters (ignores sentinel space and autocorrect noise)
+          var letters = val.replace(/[^A-Za-z]/g, '');
+          if (letters) {
+            handleLetter(letters.slice(-1).toUpperCase());
+          } else if (!val) {
+            // Mobile on-screen keyboard backspace deleted the sentinel
+            handleBackspace();
+          }
         });
 
-        hiddenInput.addEventListener('focus', function () { state.focused = true; });
+        hiddenInput.addEventListener('focus', function () { state.focused = true; hiddenInput.value = ' '; });
         hiddenInput.addEventListener('blur',  function (e) {
           if (widget && !widget.contains(e.relatedTarget)) state.focused = false;
         });
