@@ -35,18 +35,43 @@ function wildcardToRegex(term) {
   return escaped;
 }
 
+// Natural sort: splits values into alternating text/number chunks and compares
+// digit runs numerically, so "Indy2" < "Indy11" and "81" < "123".
+function naturalCompare(a, b) {
+  var re = /(\d+)|(\D+)/g;
+  var aParts = String(a).match(re) || [];
+  var bParts = String(b).match(re) || [];
+  for (var i = 0; i < Math.max(aParts.length, bParts.length); i++) {
+    if (i >= aParts.length) return -1;
+    if (i >= bParts.length) return 1;
+    var aPart = aParts[i], bPart = bParts[i];
+    var aNum = parseInt(aPart, 10), bNum = parseInt(bPart, 10);
+    if (!isNaN(aNum) && !isNaN(bNum)) {
+      if (aNum !== bNum) return aNum - bNum;
+    } else {
+      var cmp = aPart.localeCompare(bPart);
+      if (cmp !== 0) return cmp;
+    }
+  }
+  return 0;
+}
+
 // Export for Node.js
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { wildcardToRegex };
+  module.exports = { wildcardToRegex, naturalCompare };
 }
 
 if (typeof $ !== 'undefined') {
+  // Register natural sort type with DataTables
+  $.fn.dataTable.ext.type.order['natural-asc']  = function(a, b) { return naturalCompare(a, b); };
+  $.fn.dataTable.ext.type.order['natural-desc'] = function(a, b) { return naturalCompare(b, a); };
+
   $(document).ready(function () {
 
     // 1. Initialize DataTable (no default search box)
     var table = $('#cluesTable').DataTable({
       "dom": "lrtip",
-      "columnDefs": [{ "type": "num", "targets": 0 }],
+      "columnDefs": [{ "type": "natural", "targets": 0 }],
       "order": [[2, "asc"], [0, "asc"]],
       "pageLength": 25,
       "deferRender": true,
