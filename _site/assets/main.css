@@ -682,24 +682,25 @@ pre, code {
   --xw-bg-black: #0d1117;
   --xw-bg-controls: #1a1a1a;
   --xw-bg-dropdown: #1d1d1d;
-  --xw-highlight: rgba(81, 251, 68, 0.13);
-  --xw-selected: rgba(81, 251, 68, 0.32);
+  --xw-hue: 116;
+  --xw-accent: hsl(var(--xw-hue) 96% 62%);
+  --xw-highlight: hsl(var(--xw-hue) 96% 62% / 0.18);
+  --xw-selected: hsl(var(--xw-hue) 96% 62% / 0.40);
   --xw-text: #e0e0e0;
   --xw-text-cell: #fff;
-  --xw-text-num: #828282;
-  --xw-text-muted: #828282;
-  --xw-accent: #51fb44;
+  --xw-text-num: #a8a8a8;
+  --xw-text-muted: #a8a8a8;
   --xw-border: #424242;
   --xw-border-outer: #666;
-  --xw-correct: rgba(81, 251, 68, 0.22);
+  --xw-correct: hsl(var(--xw-hue) 96% 62% / 0.22);
   --xw-incorrect: rgba(255, 107, 107, 0.3);
-  --xw-revealed-bg: rgba(81, 251, 68, 0.1);
-  --xw-revealed-text: #51fb44;
+  --xw-revealed-bg: hsl(var(--xw-hue) 96% 62% / 0.10);
+  --xw-revealed-text: hsl(var(--xw-hue) 96% 62%);
   --xw-btn-bg: #1a1a1a;
   --xw-btn-hover: #2d2d2d;
   --xw-btn-border: #424242;
-  --xw-clue-active-bg: rgba(81, 251, 68, 0.08);
-  --xw-clue-active-bar: #51fb44;
+  --xw-clue-active-bg: hsl(var(--xw-hue) 96% 62% / 0.08);
+  --xw-clue-active-bar: hsl(var(--xw-hue) 96% 62%);
 }
 .xw-widget.xw-light {
   --xw-bg: #f0f0f0;
@@ -707,24 +708,24 @@ pre, code {
   --xw-bg-black: #1c1c1c;
   --xw-bg-controls: #e4e4e4;
   --xw-bg-dropdown: #f8f8f8;
-  --xw-highlight: rgba(0, 140, 0, 0.14);
-  --xw-selected: rgba(0, 140, 0, 0.32);
+  --xw-accent: hsl(var(--xw-hue) 100% 24%);
+  --xw-highlight: hsl(var(--xw-hue) 100% 35% / 0.20);
+  --xw-selected: hsl(var(--xw-hue) 100% 35% / 0.42);
   --xw-text: #1a1a1a;
   --xw-text-cell: #1a1a1a;
-  --xw-text-num: #666666;
-  --xw-text-muted: #777777;
-  --xw-accent: #1a7a00;
+  --xw-text-num: #4a4a4a;
+  --xw-text-muted: #555555;
   --xw-border: #cccccc;
   --xw-border-outer: #888888;
-  --xw-correct: rgba(0, 140, 0, 0.18);
+  --xw-correct: hsl(var(--xw-hue) 100% 35% / 0.18);
   --xw-incorrect: rgba(200, 40, 40, 0.22);
-  --xw-revealed-bg: rgba(0, 140, 0, 0.10);
-  --xw-revealed-text: #1a7a00;
+  --xw-revealed-bg: hsl(var(--xw-hue) 100% 35% / 0.10);
+  --xw-revealed-text: hsl(var(--xw-hue) 100% 24%);
   --xw-btn-bg: #e4e4e4;
   --xw-btn-hover: #d4d4d4;
   --xw-btn-border: #bbbbbb;
-  --xw-clue-active-bg: rgba(0, 140, 0, 0.08);
-  --xw-clue-active-bar: #1a7a00;
+  --xw-clue-active-bg: hsl(var(--xw-hue) 100% 35% / 0.08);
+  --xw-clue-active-bar: hsl(var(--xw-hue) 100% 24%);
 }
 .xw-widget {
   position: relative;
@@ -841,6 +842,39 @@ pre, code {
   height: 15px;
   cursor: pointer;
   flex-shrink: 0;
+}
+.xw-widget .xw-hue-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  gap: 10px;
+}
+.xw-widget .xw-hue-row span {
+  font-size: 0.88em;
+  flex-shrink: 0;
+}
+.xw-widget .xw-hue-swatches {
+  display: flex;
+  gap: 5px;
+}
+.xw-widget .xw-hue-swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: hsl(var(--swatch-hue), 80%, 55%);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: transform 0.12s, border-color 0.12s;
+  outline-offset: 1px;
+}
+.xw-widget .xw-hue-swatch:hover {
+  transform: scale(1.2);
+}
+.xw-widget .xw-hue-swatch.xw-hue-active {
+  border-color: var(--xw-text);
 }
 .xw-widget .xw-timer-group {
   display: flex;
@@ -1087,9 +1121,6 @@ pre, code {
   border-left: 2px solid transparent;
   transition: background 0.1s;
 }
-.xw-widget .xw-clue:hover {
-  background: var(--xw-highlight);
-}
 .xw-widget .xw-clue.xw-clue-active {
   background: var(--xw-clue-active-bg);
   border-left-color: var(--xw-clue-active-bar);
@@ -1111,9 +1142,10 @@ pre, code {
   font-size: 0.95em;
 }
 .xw-widget .xw-notes-backdrop {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 500;
+  border-radius: 4px;
   background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
@@ -1127,7 +1159,7 @@ pre, code {
   border: 1px solid var(--xw-border);
   border-radius: 6px;
   padding: 20px 24px 16px;
-  max-width: min(520px, 90vw);
+  max-width: min(500px, 100% - 32px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
   display: flex;
   flex-direction: column;
@@ -1337,9 +1369,6 @@ pre, code {
   align-items: center;
   gap: 8px;
 }
-.xw-jigsaw .xw-clue:hover {
-  background: var(--xw-highlight);
-}
 .xw-jigsaw .xw-clue .xw-clue-num {
   display: none;
 }
@@ -1394,7 +1423,7 @@ pre, code {
     --xw-text-cell: #111111;
     --xw-text-num: #333333;
     --xw-text-muted: #444444;
-    --xw-accent: #005500;
+    --xw-accent: hsl(var(--xw-hue) 100% 17%);
     --xw-border: #aaaaaa;
     --xw-border-outer:#111111;
     --xw-highlight: transparent;

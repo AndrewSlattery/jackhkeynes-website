@@ -5,7 +5,7 @@ date: 2022-12-19T18:00:00Z
 puzzle_number: 158
 ---
 
-Hi all! To destress from last week's giant, here's a baby grid for you—good luck! 🐈‍⬛🧙 ( link)
+Hi all! To destress from last week's giant, here's a baby grid for you—good luck! 🐈‍⬛🧙 ([parses](/assets/parses/158.txt))
 <br>
 
 

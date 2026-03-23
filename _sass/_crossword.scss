@@ -10,29 +10,32 @@
   --xw-bg-controls:     #{$color-bg-dark};
   --xw-bg-dropdown:     #{$color-bg-dropdown};
 
-  --xw-highlight:       #{rgba($color-accent, 0.13)};
-  --xw-selected:        #{rgba($color-accent, 0.32)};
+  // Accent hue (0–360). Override per-puzzle via data-hue on the container.
+  // Default 116 = the site's lime-green.
+  --xw-hue:             116;
+  --xw-accent:          hsl(var(--xw-hue) 96% 62%);
+  --xw-highlight:       hsl(var(--xw-hue) 96% 62% / 0.18);
+  --xw-selected:        hsl(var(--xw-hue) 96% 62% / 0.40);
 
   --xw-text:            #{$color-text};
   --xw-text-cell:       #{$color-text-white};
-  --xw-text-num:        #{$color-text-muted};
-  --xw-text-muted:      #{$color-text-muted};
-  --xw-accent:          #{$color-accent};
+  --xw-text-num:        #a8a8a8;
+  --xw-text-muted:      #a8a8a8;
 
   --xw-border:          #{$color-border};
   --xw-border-outer:    #{$color-border-hover};
 
-  --xw-correct:         #{rgba($color-accent, 0.22)};
+  --xw-correct:         hsl(var(--xw-hue) 96% 62% / 0.22);
   --xw-incorrect:       #{rgba($color-error, 0.30)};
-  --xw-revealed-bg:     #{rgba($color-accent, 0.10)};
-  --xw-revealed-text:   #{$color-accent};
+  --xw-revealed-bg:     hsl(var(--xw-hue) 96% 62% / 0.10);
+  --xw-revealed-text:   hsl(var(--xw-hue) 96% 62%);
 
   --xw-btn-bg:          #{$color-bg-dark};
   --xw-btn-hover:       #{$color-bg-input};
   --xw-btn-border:      #{$color-border};
 
-  --xw-clue-active-bg:  #{rgba($color-accent, 0.08)};
-  --xw-clue-active-bar: #{$color-accent};
+  --xw-clue-active-bg:  hsl(var(--xw-hue) 96% 62% / 0.08);
+  --xw-clue-active-bar: hsl(var(--xw-hue) 96% 62%);
 
   // ── Light theme override ──────────────────────────────────────────
   &.xw-light {
@@ -42,29 +45,29 @@
     --xw-bg-controls:     #e4e4e4;
     --xw-bg-dropdown:     #f8f8f8;
 
-    --xw-highlight:       rgba(0, 140, 0, 0.14);
-    --xw-selected:        rgba(0, 140, 0, 0.32);
+    --xw-accent:          hsl(var(--xw-hue) 100% 24%);
+    --xw-highlight:       hsl(var(--xw-hue) 100% 35% / 0.20);
+    --xw-selected:        hsl(var(--xw-hue) 100% 35% / 0.42);
 
     --xw-text:            #1a1a1a;
     --xw-text-cell:       #1a1a1a;
-    --xw-text-num:        #666666;
-    --xw-text-muted:      #777777;
-    --xw-accent:          #1a7a00;
+    --xw-text-num:        #4a4a4a;
+    --xw-text-muted:      #555555;
 
     --xw-border:          #cccccc;
     --xw-border-outer:    #888888;
 
-    --xw-correct:         rgba(0, 140, 0, 0.18);
+    --xw-correct:         hsl(var(--xw-hue) 100% 35% / 0.18);
     --xw-incorrect:       rgba(200, 40, 40, 0.22);
-    --xw-revealed-bg:     rgba(0, 140, 0, 0.10);
-    --xw-revealed-text:   #1a7a00;
+    --xw-revealed-bg:     hsl(var(--xw-hue) 100% 35% / 0.10);
+    --xw-revealed-text:   hsl(var(--xw-hue) 100% 24%);
 
     --xw-btn-bg:          #e4e4e4;
     --xw-btn-hover:       #d4d4d4;
     --xw-btn-border:      #bbbbbb;
 
-    --xw-clue-active-bg:  rgba(0, 140, 0, 0.08);
-    --xw-clue-active-bar: #1a7a00;
+    --xw-clue-active-bg:  hsl(var(--xw-hue) 100% 35% / 0.08);
+    --xw-clue-active-bar: hsl(var(--xw-hue) 100% 24%);
   }
 
   // ── Widget shell ──────────────────────────────────────────────────
@@ -192,6 +195,35 @@
       cursor: pointer;
       flex-shrink: 0;
     }
+  }
+
+  // Accent-colour hue picker (inside settings panel)
+  .xw-hue-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    gap: 10px;
+
+    span { font-size: 0.88em; flex-shrink: 0; }
+  }
+
+  .xw-hue-swatches { display: flex; gap: 5px; }
+
+  .xw-hue-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    background: hsl(var(--swatch-hue) 80% 55%);
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: transform 0.12s, border-color 0.12s;
+    outline-offset: 1px;
+
+    &:hover { transform: scale(1.2); }
+    &.xw-hue-active { border-color: var(--xw-text); }
   }
 
   // Timer group (elapsed time + pause button)
@@ -448,8 +480,6 @@
     border-left: 2px solid transparent;
     transition: background 0.1s;
 
-    &:hover { background: var(--xw-highlight); }
-
     &.xw-clue-active {
       background: var(--xw-clue-active-bg);
       border-left-color: var(--xw-clue-active-bar);
@@ -476,9 +506,10 @@
 
   // ── Notes modal ───────────────────────────────────────────────────
   .xw-notes-backdrop {
-    position: fixed;
+    position: absolute;
     inset: 0;
     z-index: 500;
+    border-radius: 4px;
     background: rgba(0, 0, 0, 0.55);
     display: flex;
     align-items: center;
@@ -492,7 +523,7 @@
     border: 1px solid var(--xw-border);
     border-radius: 6px;
     padding: 20px 24px 16px;
-    max-width: min(520px, 90vw);
+    max-width: min(500px, calc(100% - 32px));
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
     display: flex;
     flex-direction: column;
@@ -691,8 +722,6 @@
     align-items: center;
     gap: 8px;
 
-    &:hover { background: var(--xw-highlight); }
-
     // Clue numbers are not rendered, so hide the num span if it slips in
     .xw-clue-num { display: none; }
 
@@ -757,7 +786,7 @@
     --xw-text-cell:   #111111;
     --xw-text-num:    #333333;
     --xw-text-muted:  #444444;
-    --xw-accent:      #005500;
+    --xw-accent:      hsl(var(--xw-hue) 100% 17%);
     --xw-border:      #aaaaaa;
     --xw-border-outer:#111111;
     --xw-highlight:   transparent;

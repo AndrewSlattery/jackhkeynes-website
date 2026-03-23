@@ -264,7 +264,8 @@
     var defaultSettings = {
       lightMode:    false,
       skipFilled:   false,
-      autoNextWord: true
+      autoNextWord: true,
+      accentHue:    116
     };
     if (opts.defaultSettings) {
       var ds = opts.defaultSettings;
@@ -389,6 +390,7 @@
       widget.className = cls;
       widget.style.setProperty('--xw-cols', puzzle.width);
       widget.style.setProperty('--xw-rows', puzzle.height);
+      widget.style.setProperty('--xw-hue', state.settings.accentHue);
       widget.setAttribute('tabindex', '0');
 
       var aboveBody = _renderAboveBody
@@ -488,6 +490,7 @@
             settingRow('lightMode',    'Light mode')           +
             settingRow('skipFilled',   'Skip filled letters')  +
             settingRow('autoNextWord', 'Jump to next word')    +
+            renderHuePickerRow()                               +
           '</div>' +
         '</div>';
 
@@ -500,6 +503,30 @@
       var timer = '<div class="xw-timer-group"><div class="xw-timer" role="timer" aria-label="Time elapsed">0:00</div>' + pauseBtn + '</div>';
 
       return checkDd + revealDd + clearDd + settingsDd + notesBtn + timer + fsBtn + pdfBtn;
+    }
+
+    function renderHuePickerRow() {
+      var presets = [
+        { hue: 116, label: 'Green'  },
+        { hue: 170, label: 'Teal'   },
+        { hue: 220, label: 'Blue'   },
+        { hue: 270, label: 'Purple' },
+        { hue: 330, label: 'Pink'   },
+        { hue:   0, label: 'Red'    },
+        { hue:  30, label: 'Orange' }
+      ];
+      var swatches = presets.map(function (p) {
+        var active = (state.settings.accentHue === p.hue) ? ' xw-hue-active' : '';
+        return '<button class="xw-hue-swatch' + active + '"' +
+          ' data-hue-preset="' + p.hue + '"' +
+          ' title="' + p.label + '"' +
+          ' style="--swatch-hue:' + p.hue + '"' +
+          ' type="button" aria-label="' + p.label + ' accent colour"></button>';
+      }).join('');
+      return '<div class="xw-hue-row">' +
+        '<span>Accent colour</span>' +
+        '<div class="xw-hue-swatches">' + swatches + '</div>' +
+      '</div>';
     }
 
     function settingRow(key, label) {
@@ -866,6 +893,21 @@
     function bindEvents(widget) {
       // ---- Mouse / touch ----
       widget.addEventListener('click', function (e) {
+        // Hue preset swatch
+        var swatchEl = e.target.closest('[data-hue-preset]');
+        if (swatchEl) {
+          var hue = parseInt(swatchEl.dataset.huePreset, 10);
+          state.settings.accentHue = hue;
+          saveSettings();
+          var w = getWidget();
+          if (w) w.style.setProperty('--xw-hue', hue);
+          widget.querySelectorAll('[data-hue-preset]').forEach(function (s) {
+            s.classList.toggle('xw-hue-active', parseInt(s.dataset.huePreset, 10) === hue);
+          });
+          e.stopPropagation(); // keep settings panel open
+          return;
+        }
+
         // Cell click
         var cellEl = e.target.closest('.xw-cell');
         if (cellEl) {
