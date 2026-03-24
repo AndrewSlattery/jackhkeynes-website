@@ -5,6 +5,6 @@ date: 2022-12-05T18:00:00.003Z
 puzzle_number: 156
 ---
 
-Hi all! We haven't had a themed grid in a while here, so here you go—good luck!
+Hi all! We haven't had a themed grid in a while here, so here you go—good luck! ([parses](/assets/parses/156.txt))
 <br>
 
