@@ -200,12 +200,12 @@
   // Accent-colour hue picker (inside settings panel)
   .xw-hue-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 8px 14px;
-    gap: 10px;
+    gap: 6px;
 
-    span { font-size: 0.88em; flex-shrink: 0; }
+    span { font-size: 0.88em; }
   }
 
   .xw-hue-swatches { display: flex; gap: 5px; }
