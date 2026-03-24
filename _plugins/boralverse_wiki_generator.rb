@@ -48,6 +48,7 @@ module Jekyll
       # Second pass: render content to HTML
       entries = raw.map do |meta|
         content = File.read(meta[:path], encoding: 'UTF-8')
+        content = strip_front_matter(content)
         content = strip_block_ids(content)
         content = process_wikilinks(content, title_to_slug)
         html = Kramdown::Document.new(content).to_html
@@ -74,6 +75,11 @@ module Jekyll
       cat   = parts.length > 1 ? parts[0] : ''
       sub   = parts.length > 2 ? parts[1..-2].join('/') : nil
       { title: title, slug: slugify(title), key: title.downcase, category: cat, subcategory: sub, path: path }
+    end
+
+    # Remove YAML front matter (used by some Obsidian plugins, e.g. Fantasy Calendar)
+    def strip_front_matter(text)
+      text.sub(/\A---\r?\n.*?---\r?\n/m, '')
     end
 
     # Remove Obsidian block ID markers (^abcdef at end of line)
