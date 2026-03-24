@@ -8,7 +8,9 @@
       "Bash(ls:*)",
       "Bash(bundle exec jekyll:*)",
       "Bash(curl:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(find /c/Users/Andrew/Documents/GitHub/jackhkeynes-website -name *crossword* -o -name *puzzle*)",
+      "Bash(find /c/Users/Andrew/Documents/GitHub/jackhkeynes-website/_data/external_dictionary/Borlish/Obsidian/Boralverse -name *.md)"
     ]
   }
 }

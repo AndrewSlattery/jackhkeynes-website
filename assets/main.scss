@@ -70,6 +70,7 @@ pre, code {
 @import "search";
 @import "indicators";
 @import "dictionary";
+@import "boralverse-wiki";
 // NOTE: _database.scss is NOT imported here. It has its own standalone
 // stylesheet (assets/css/database.scss) loaded on the database page AFTER
 // the DataTables CSS, so our dark-theme overrides take priority.
