@@ -13,8 +13,10 @@ permalink: /
 [Cryptic Indicators](/cryptics/indicators/)
 
 
-## Boralverse
+## Boralverse - Alternate History Setting
 
-[Borlish Dictionary](/boralverse/borlish-dictionary/)
+[Borlish Language - Dictionary](/boralverse/borlish-dictionary/)
+
+[Worldbuilding Wiki](/boralverse/wiki/)
 
 [Tumblr](https://tumblr.com/jackhkeynes)

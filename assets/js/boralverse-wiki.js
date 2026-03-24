@@ -41,9 +41,122 @@ var BoralverseWiki = (function () {
   }
 
   function findDefaultSlug() {
-    // Prefer the root-level overview entry (category === '')
     var overview = entries.find(function (e) { return e.category === ''; });
     return overview ? overview.slug : (entries[0] ? entries[0].slug : null);
+  }
+
+  // ── Tree helpers ───────────────────────────────────────────────────────────
+
+  // Build a recursive directory tree from a flat entry list.
+  // Each node: { _entries: [...direct entries...], childName: <node>, … }
+  function buildSubtree(items) {
+    var root = { _entries: [] };
+    items.forEach(function (e) {
+      if (!e.subcategory) {
+        root._entries.push(e);
+      } else {
+        var parts = e.subcategory.split('/');
+        var node = root;
+        parts.forEach(function (part) {
+          if (!node[part]) node[part] = { _entries: [] };
+          node = node[part];
+        });
+        node._entries.push(e);
+      }
+    });
+    return root;
+  }
+
+  // Return all entries anywhere inside a tree node (including nested).
+  function flattenEntries(node) {
+    var result = node._entries.slice();
+    Object.keys(node).filter(function (k) { return k !== '_entries'; }).forEach(function (k) {
+      result = result.concat(flattenEntries(node[k]));
+    });
+    return result;
+  }
+
+  // ── Sidebar entry link ─────────────────────────────────────────────────────
+  function makeEntryLi(e) {
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.href = '#' + e.slug;
+    a.className = 'bv-entry-link' + (e.slug === currentSlug ? ' active' : '');
+    a.setAttribute('data-slug', e.slug);
+    a.textContent = e.title;
+    li.appendChild(a);
+    return li;
+  }
+
+  // ── Recursive tree rendering ───────────────────────────────────────────────
+  // depth: 0 = directly inside a category body; increases with each subdir level.
+  // Entry lists get extra left padding proportional to depth so text aligns under
+  // the arrow of the containing header.
+  //   header  paddingLeft = 16 + depth * 10  px
+  //   ul      paddingLeft = depth * 10        px  (bv-entry-link itself adds 26px)
+
+  function renderTreeNode(node, container, depth) {
+    var sorted = node._entries.slice().sort(function (a, b) {
+      return a.title.localeCompare(b.title);
+    });
+
+    if (sorted.length) {
+      var list = document.createElement('ul');
+      list.className = 'bv-cat-list';
+      if (depth > 0) list.style.paddingLeft = (depth * 10) + 'px';
+      sorted.forEach(function (e) { list.appendChild(makeEntryLi(e)); });
+      container.appendChild(list);
+    }
+
+    var childKeys = Object.keys(node).filter(function (k) { return k !== '_entries'; }).sort();
+    childKeys.forEach(function (key) {
+      container.appendChild(makeSubcatNode(key, node[key], depth));
+    });
+  }
+
+  function makeSubcatNode(name, node, depth) {
+    var allEntries    = flattenEntries(node);
+    var containsActive = allEntries.some(function (e) { return e.slug === currentSlug; });
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'bv-subcat-section';
+
+    var hdr = document.createElement('div');
+    hdr.className = 'bv-subcat-header';
+    hdr.style.paddingLeft = (16 + depth * 10) + 'px';
+
+    var arrow = document.createElement('span');
+    arrow.className = 'bv-subcat-arrow';
+
+    var nameSpan = document.createElement('span');
+    nameSpan.className = 'bv-subcat-name';
+    nameSpan.textContent = name;
+
+    hdr.appendChild(arrow);
+    hdr.appendChild(nameSpan);
+
+    var body = document.createElement('div');
+    body.className = 'bv-subcat-body';
+    renderTreeNode(node, body, depth + 1);
+
+    if (containsActive) {
+      arrow.textContent = '\u25bc'; // ▼
+    } else {
+      arrow.textContent = '\u25b6'; // ▶
+      body.style.display = 'none';
+      hdr.classList.add('collapsed');
+    }
+
+    hdr.addEventListener('click', function () {
+      var open = body.style.display !== 'none';
+      body.style.display = open ? 'none' : 'block';
+      arrow.textContent = open ? '\u25b6' : '\u25bc';
+      hdr.classList.toggle('collapsed', open);
+    });
+
+    wrapper.appendChild(hdr);
+    wrapper.appendChild(body);
+    return wrapper;
   }
 
   // ── Sidebar rendering ──────────────────────────────────────────────────────
@@ -66,10 +179,7 @@ var BoralverseWiki = (function () {
     });
 
     keys.forEach(function (cat) {
-      var items = groups[cat].slice().sort(function (a, b) {
-        return a.title.localeCompare(b.title);
-      });
-
+      var items = groups[cat];
       var isRoot = cat === '';
       var displayCat = isRoot ? 'Overview' : cat;
 
@@ -95,20 +205,10 @@ var BoralverseWiki = (function () {
       header.appendChild(nameSpan);
       header.appendChild(countSpan);
 
-      // Entry list
-      var list = document.createElement('ul');
-      list.className = 'bv-cat-list';
-
-      items.forEach(function (e) {
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.href = '#' + e.slug;
-        a.className = 'bv-entry-link' + (e.slug === currentSlug ? ' active' : '');
-        a.setAttribute('data-slug', e.slug);
-        a.textContent = e.title;
-        li.appendChild(a);
-        list.appendChild(li);
-      });
+      // Collapsible body: built from a recursive directory tree
+      var body = document.createElement('div');
+      body.className = 'bv-cat-body';
+      renderTreeNode(buildSubtree(items), body, 0);
 
       // Decide initial collapsed state
       var containsActive = items.some(function (e) { return e.slug === currentSlug; });
@@ -117,19 +217,19 @@ var BoralverseWiki = (function () {
         arrow.textContent = '\u25bc'; // ▼
       } else {
         arrow.textContent = '\u25b6'; // ▶
-        list.style.display = 'none';
+        body.style.display = 'none';
         header.classList.add('collapsed');
       }
 
       header.addEventListener('click', function () {
-        var open = list.style.display !== 'none';
-        list.style.display = open ? 'none' : 'block';
+        var open = body.style.display !== 'none';
+        body.style.display = open ? 'none' : 'block';
         arrow.textContent = open ? '\u25b6' : '\u25bc';
         header.classList.toggle('collapsed', open);
       });
 
       section.appendChild(header);
-      section.appendChild(list);
+      section.appendChild(body);
       indexDiv.appendChild(section);
     });
   }
@@ -150,18 +250,35 @@ var BoralverseWiki = (function () {
       a.classList.toggle('active', a.getAttribute('data-slug') === slug);
     });
 
-    // Ensure the category section containing this article is expanded
+    // Ensure the category body and every nested subcat body on the path to the
+    // active article are expanded — walk up the DOM from the active link.
     indexDiv.querySelectorAll('.bv-cat-section').forEach(function (section) {
       var activeLink = section.querySelector('.bv-entry-link.active');
-      if (activeLink) {
-        var list = section.querySelector('.bv-cat-list');
-        var hdr  = section.querySelector('.bv-cat-header');
-        var arw  = section.querySelector('.bv-cat-arrow');
-        if (list && list.style.display === 'none') {
-          list.style.display = 'block';
-          hdr.classList.remove('collapsed');
-          arw.textContent = '\u25bc';
+      if (!activeLink) return;
+
+      // Expand top-level category body
+      var catBody = section.querySelector('.bv-cat-body');
+      var catHdr  = section.querySelector('.bv-cat-header');
+      var catArw  = catHdr && catHdr.querySelector('.bv-cat-arrow');
+      if (catBody && catBody.style.display === 'none') {
+        catBody.style.display = 'block';
+        if (catHdr) catHdr.classList.remove('collapsed');
+        if (catArw) catArw.textContent = '\u25bc';
+      }
+
+      // Walk up from the link, expanding any hidden subcat bodies along the way
+      var el = activeLink.parentElement;
+      while (el && el !== section) {
+        if (el.classList.contains('bv-subcat-body') && el.style.display === 'none') {
+          el.style.display = 'block';
+          var subHdr = el.previousElementSibling;
+          if (subHdr && subHdr.classList.contains('bv-subcat-header')) {
+            subHdr.classList.remove('collapsed');
+            var subArw = subHdr.querySelector('.bv-subcat-arrow');
+            if (subArw) subArw.textContent = '\u25bc';
+          }
         }
+        el = el.parentElement;
       }
     });
 
@@ -169,7 +286,7 @@ var BoralverseWiki = (function () {
     var breadcrumb = '';
     if (entry.category) {
       breadcrumb = entry.subcategory
-        ? entry.category + ' \u203a ' + entry.subcategory
+        ? entry.category + ' \u203a ' + entry.subcategory.replace(/\//g, ' \u203a ')
         : entry.category;
     }
 
@@ -200,14 +317,14 @@ var BoralverseWiki = (function () {
         })
       : entries;
     renderIndex(filtered);
-    // Auto-expand all categories in search mode
+    // Auto-expand everything in search mode
     if (q) {
-      indexDiv.querySelectorAll('.bv-cat-list').forEach(function (l) {
-        l.style.display = 'block';
+      indexDiv.querySelectorAll('.bv-cat-body, .bv-subcat-body').forEach(function (el) {
+        el.style.display = 'block';
       });
-      indexDiv.querySelectorAll('.bv-cat-header').forEach(function (h) {
+      indexDiv.querySelectorAll('.bv-cat-header, .bv-subcat-header').forEach(function (h) {
         h.classList.remove('collapsed');
-        var arw = h.querySelector('.bv-cat-arrow');
+        var arw = h.querySelector('.bv-cat-arrow') || h.querySelector('.bv-subcat-arrow');
         if (arw) arw.textContent = '\u25bc';
       });
     }

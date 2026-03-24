@@ -50,6 +50,7 @@ module Jekyll
         content = File.read(meta[:path], encoding: 'UTF-8')
         content = strip_front_matter(content)
         content = strip_block_ids(content)
+        content = fix_block_spacing(content)
         content = process_wikilinks(content, title_to_slug)
         html = Kramdown::Document.new(content).to_html
         {
@@ -79,7 +80,38 @@ module Jekyll
 
     # Remove YAML front matter (used by some Obsidian plugins, e.g. Fantasy Calendar)
     def strip_front_matter(text)
-      text.sub(/\A---\r?\n.*?---\r?\n/m, '')
+      text.sub(/\A---\r?\n.*?---\r?\n?/m, '')
+    end
+
+    # Ensure block-level elements (headings, bullet lists, ordered lists) that
+    # follow a non-blank line are preceded by a blank line — Kramdown requires
+    # this gap to recognise them as distinct block elements.
+    #
+    # Rules:
+    #   • Headings always get a blank line before them if the previous line is
+    #     non-blank (headings can follow list items, prose, or other headings).
+    #   • List items get a blank line before them only when the previous line is
+    #     not itself a list item (so consecutive list items stay together).
+    def fix_block_spacing(text)
+      lines = text.split("\n", -1)
+      result = []
+      lines.each_with_index do |line, _i|
+        prev         = result.last.to_s
+        prev_blank   = prev.empty? || prev.match?(/\A[ \t]*$/)
+        is_heading   = line.match?(/\A\#{1,6} /)
+        is_list_item = line.match?(/\A[ \t]*[-*+] /) || line.match?(/\A[ \t]*\d+\. /)
+        prev_is_list = prev.match?(/\A[ \t]*[-*+] /) || prev.match?(/\A[ \t]*\d+\. /)
+
+        unless prev_blank
+          if is_heading
+            result << ''                          # headings always need a gap
+          elsif is_list_item && !prev_is_list
+            result << ''                          # list after prose needs a gap
+          end
+        end
+        result << line
+      end
+      result.join("\n")
     end
 
     # Remove Obsidian block ID markers (^abcdef at end of line)

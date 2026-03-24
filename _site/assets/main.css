@@ -2105,6 +2105,39 @@ pre, code {
   padding: 0;
 }
 
+.bv-subcat-section {
+  border-top: 1px solid #333;
+  margin: 2px 0;
+}
+
+.bv-subcat-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px 5px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.bv-subcat-header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bv-subcat-arrow {
+  font-size: 0.6rem;
+  color: #828282;
+  flex-shrink: 0;
+  width: 10px;
+}
+
+.bv-subcat-name {
+  flex: 1;
+  color: #828282;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+
 .bv-entry-link {
   display: block;
   padding: 4px 12px 4px 26px;
@@ -2156,6 +2189,9 @@ pre, code {
   font-style: italic;
 }
 
+.bv-content {
+  max-width: 68ch;
+}
 .bv-content a.wiki-link {
   color: #51fb44;
   text-decoration: none;

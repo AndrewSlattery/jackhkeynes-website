@@ -113,6 +113,45 @@
   }
 }
 
+// ── Subcategory groups (nested within a category section) ────────────────────
+
+.bv-subcat-section {
+  border-top: 1px solid $color-border-faint;
+  margin: 2px 0;
+}
+
+.bv-subcat-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px 5px 16px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+.bv-subcat-arrow {
+  font-size: 0.6rem;
+  color: $color-text-muted;
+  flex-shrink: 0;
+  width: 10px;
+}
+
+.bv-subcat-name {
+  flex: 1;
+  color: $color-text-muted;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  font-style: italic;
+}
+
+// bv-subcat-body needs no extra padding — indentation is handled inline by JS
+// based on nesting depth, keeping entry text aligned under the arrow above it.
+
 .bv-entry-link {
   display: block;
   padding: 4px 12px 4px 26px;
@@ -174,6 +213,7 @@
 // ── Article content ───────────────────────────────────────────────────────────
 
 .bv-content {
+  max-width: 68ch;
   // Wikilinks
   a.wiki-link {
     color: $color-accent;
