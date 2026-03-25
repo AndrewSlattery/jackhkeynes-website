@@ -1245,16 +1245,6 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1262,6 +1252,16 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -2351,7 +2351,7 @@
       "alternatively",
       "actually"
     ],
-    "et": "Old Borlish < Latin"
+    "et": "Old Borlish, from Latin aliunde \"from elsewhere\"."
   },
   {
     "lx": "agnel",
@@ -5849,6 +5849,26 @@
     "et": "via Parisian from Tuscan avventoresco."
   },
   {
+    "lx": "aventur",
+    "ps": "n",
+    "ge": [
+      "adventure",
+      "quest",
+      "affair"
+    ],
+    "et": "Vulgar Latin adventūra < advenió"
+  },
+  {
+    "lx": "aventurer",
+    "ps": "n",
+    "ge": [
+      "adventurer",
+      "explorer"
+    ],
+    "et": "Latin adventurarius, cf. aventur \"adventure\".",
+    "mn": "aventur"
+  },
+  {
     "lx": "averjon",
     "examples": [
       {
@@ -6614,6 +6634,16 @@
       "hazing"
     ],
     "et": "Old Borlish < Medieval Latin < Greek"
+  },
+  {
+    "lx": "bateyar",
+    "ps": "ar v",
+    "ge": [
+      "baptise",
+      "christen",
+      "name"
+    ],
+    "et": "from Medieval Latin baptidiō \"I baptise\", itself via Late Latin baptizō \"I dip into water\" from Greek βαπτίζω • (baptízō) \"I immerse, plunge\"."
   },
   {
     "lx": "batman",
@@ -9254,6 +9284,13 @@
     "et": "Latin canālis"
   },
   {
+    "lx": "canalfeyar",
+    "ps": "ar v",
+    "ge": "canalise",
+    "et": "causative derivative of canal \"canal\".",
+    "mn": "canal"
+  },
+  {
     "lx": "canç",
     "ps": "n",
     "ge": [
@@ -10647,6 +10684,18 @@
       "cent",
       "murðon"
     ]
+  },
+  {
+    "lx": "centessem",
+    "ps": "n",
+    "ge": [
+      "hundredth",
+      "in a hundred",
+      "per cent",
+      "percent"
+    ],
+    "et": "from cent \"hundred\" and the ordinal suffix -essem.",
+    "mn": "cent"
   },
   {
     "lx": "centr",
@@ -13007,8 +13056,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnar",
@@ -13017,17 +13065,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "noun from condamnar \"condemn\"",
-    "mn": "condamnar"
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnment",
@@ -13037,6 +13076,16 @@
       "sentence"
     ],
     "et": "Latin condemnatio, noun from condamnar \"condemn\"",
+    "mn": "condamnar"
+  },
+  {
+    "lx": "condamnment",
+    "ps": "n",
+    "ge": [
+      "condemnation",
+      "sentence"
+    ],
+    "et": "noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -15453,7 +15502,29 @@
     "lx": "creir",
     "ps": "r v",
     "ge": "believe",
-    "et": "Old Borlish < Latin"
+    "et": "Old Borlish, directly from Latin crēdō \"I believe\""
+  },
+  {
+    "lx": "creir n'aglon",
+    "examples": [
+      {
+        "vernacular": "Jo's creint n'aglon ig sy fraðr vel reapparir.",
+        "english": "I'm holding out hope that her brother turns up."
+      }
+    ],
+    "ps": "r v",
+    "ge": [
+      "disagree",
+      "dissent",
+      "think otherwise",
+      "hold out hope",
+      "have hope"
+    ],
+    "et": "idiom meaning \"believe in [a different thing] instead\" attested from the eighteenth century.",
+    "mn": [
+      "creir",
+      "aglon"
+    ]
   },
   {
     "lx": "crem",
@@ -16750,6 +16821,13 @@
     ]
   },
   {
+    "lx": "defensibr",
+    "ps": "adj",
+    "ge": "defensible",
+    "et": "from defendr \"defend\".",
+    "mn": "defendr"
+  },
+  {
     "lx": "defey",
     "ps": "n",
     "ge": [
@@ -17218,6 +17296,12 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "demeg",
+    "ps": "n",
+    "ge": "half",
+    "et": "Old Borlish < Latin"
+  },
+  {
     "lx": "democratic",
     "ps": "adj",
     "ge": [
@@ -17269,12 +17353,6 @@
       "governmental"
     ],
     "et": "Middle Borlish < Scholastic Latin < Greek"
-  },
-  {
-    "lx": "demy",
-    "ps": "n",
-    "ge": "half",
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "den",
@@ -20168,6 +20246,18 @@
     "et": "Middle Borlish < Italian"
   },
   {
+    "lx": "drastic",
+    "ps": "adj",
+    "ge": [
+      "major",
+      "efficient",
+      "thorough",
+      "drastic",
+      "rapid"
+    ],
+    "et": "Scholastic Latin < Greek δρᾱστῐκός"
+  },
+  {
     "lx": "dreçar",
     "ps": "ar v",
     "ge": [
@@ -20428,12 +20518,9 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "stiff",
-      "lasting",
-      "permanent",
-      "resilient"
+      "long-lasting"
     ],
-    "et": "adjective from durar \"last\"",
+    "et": "Adjective from durar",
     "mn": "durar"
   },
   {
@@ -20441,9 +20528,12 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "long-lasting"
+      "stiff",
+      "lasting",
+      "permanent",
+      "resilient"
     ],
-    "et": "Adjective from durar",
+    "et": "adjective from durar \"last\"",
     "mn": "durar"
   },
   {
@@ -21647,6 +21737,29 @@
       "inhabit"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "enhautir",
+    "examples": [
+      {
+        "vernacular": "Pharmac foncçon enhautiscent son valent nell'oc cors.",
+        "english": "This competition allows performance-enhancing drugs."
+      }
+    ],
+    "ps": "ir2 v",
+    "ge": [
+      "raise",
+      "lift",
+      "heave",
+      "upheave",
+      "hoist",
+      "elevate",
+      "enhance",
+      "boost",
+      "heighten"
+    ],
+    "et": "Middle Borlish, a verbal derivation from haut \"high\" influenced by Old French enhaucier \"elevate, enhance\". This latter term descends from Vulgar Latin inaltiō \"I raise\" with unetymological -h- taken from Frankish hauh \"high\". The Latin verb is a derivative of the root altus \"high, tall\". Metaphorical use is seen from the earliest attestations.",
+    "mn": "haut"
   },
   {
     "lx": "enigma",
@@ -24958,19 +25071,12 @@
     "ge": [
       "performance",
       "execution",
-      "functioning"
-    ],
-    "et": "Latin"
-  },
-  {
-    "lx": "foncçon",
-    "ps": "n",
-    "ge": [
+      "functioning",
       "function",
       "purpose",
       "use"
     ],
-    "et": "Latin functio"
+    "et": "Latin functiō"
   },
   {
     "lx": "foncçondry",
@@ -26034,6 +26140,15 @@
       "jerk"
     ],
     "et": "Old Borlish < Late Latin"
+  },
+  {
+    "lx": "frige",
+    "ps": "adj",
+    "ge": [
+      "chilly",
+      "frigid"
+    ],
+    "et": "Scholastic Latin frigeus, from Latin frigidus"
   },
   {
     "lx": "frigsað",
@@ -27869,7 +27984,7 @@
       "severe",
       "grave"
     ],
-    "et": "Old Borlish < Latin"
+    "et": "Old Borlish gra \"level, sake, weight\", which conflates the reflex of Latin gravis \"heavy\" with that of Latin gradus \"step, rank, position\"."
   },
   {
     "lx": "gra de sey",
@@ -35315,6 +35430,18 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "laur cavir",
+    "ps": "ir1 v",
+    "ge": [
+      "be hired",
+      "get a job"
+    ],
+    "mn": [
+      "laur",
+      "cavir"
+    ]
+  },
+  {
     "lx": "laur d'asn",
     "ps": "n",
     "ge": [
@@ -37241,6 +37368,27 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "madrugoir",
+    "examples": [
+      {
+        "vernacular": "Val la jolley ag madrugoir.",
+        "english": "She should be at the club."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "nightclub",
+      "night club",
+      "nightspot",
+      "club",
+      "nightlife",
+      "clubland",
+      "night out",
+      "bender"
+    ],
+    "et": "early 20C, place derivation from verb madrugar \"to stay up late at night, (strictly) to pull an all-nighter\". This was borrowed from Portingale madrugar, the root also of that language's madrugada \"the small hours, the period between midnight and dawn\". These descend metathetically via Old Portingale  madurgar \"to rise early\" from Vulgar Larin mātūricō \"I hurry, make haste; (literally) I ripen\", itself a derivative of mātūrus \"ripe\". Seen in extended use from the 1940s."
+  },
+  {
     "lx": "maður",
     "examples": [
       {
@@ -39119,7 +39267,10 @@
   },
   {
     "lx": "mersc",
-    "ps": "n",
+    "ps": [
+      "n",
+      "n"
+    ],
     "ge": [
       "marsh",
       "fen",
@@ -39127,9 +39278,23 @@
       "marshland",
       "fens",
       "bog",
-      "swamp"
+      "swamp",
+      "marshland",
+      "fenland"
     ],
-    "et": "Old Borlish < Old English mersc"
+    "et": "Old Borlish < Old English mersc",
+    "se": "merscaç"
+  },
+  {
+    "lx": "merscous",
+    "ps": "adj",
+    "ge": [
+      "marshy",
+      "boggy",
+      "squishy"
+    ],
+    "et": "adjectival derivation from mersc \"marsh\"",
+    "mn": "mersc"
   },
   {
     "lx": "mert",
@@ -40234,6 +40399,17 @@
     "ps": "n",
     "ge": "mountain",
     "et": "Old Borlish < Vulgar Latin"
+  },
+  {
+    "lx": "montagnous",
+    "ps": "adj",
+    "ge": [
+      "mountainous",
+      "lofty",
+      "rugged"
+    ],
+    "et": "from montagn \"mountain\"",
+    "mn": "montagn"
   },
   {
     "lx": "montar",
@@ -42257,6 +42433,18 @@
     ]
   },
   {
+    "lx": "nomad",
+    "ps": "n",
+    "ge": [
+      "nomad",
+      "wanderer",
+      "wayfarer",
+      "traveller",
+      "itinerant"
+    ],
+    "et": "Latin Nomas \"wandering shepherd\""
+  },
+  {
     "lx": "nombr",
     "ps": "n",
     "ge": "number",
@@ -42828,6 +43016,23 @@
       "behave"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "obeïscenç",
+    "ps": [
+      "n",
+      "ar v"
+    ],
+    "ge": [
+      "obedience",
+      "compliance",
+      "service",
+      "do a service",
+      "obey"
+    ],
+    "et": "noun from obeïr \"obey\"",
+    "mn": "obeïr",
+    "se": "obeïscenç dar"
   },
   {
     "lx": "object",
@@ -43437,9 +43642,17 @@
   },
   {
     "lx": "ogtoç",
-    "ps": "num",
-    "ge": "eighteen",
-    "et": "Old Borlish < Vulgar Latin"
+    "ps": [
+      "num",
+      "n"
+    ],
+    "ge": [
+      "eighteen",
+      "eighteensome",
+      "group of eighteen"
+    ],
+    "et": "Old Borlish < Vulgar Latin",
+    "se": "ogtoçad"
   },
   {
     "lx": "oïr",
@@ -44445,6 +44658,28 @@
     ]
   },
   {
+    "lx": "ou sunt ou soluð",
+    "examples": [
+      {
+        "vernacular": "Jo vos parsourray 50⍚ ou sunt ou soluð.",
+        "english": "I'll pay you 50⍚, take it or leave it."
+      }
+    ],
+    "ps": "adv",
+    "ge": [
+      "take it or leave it",
+      "either way",
+      "no matter what",
+      "regardless"
+    ],
+    "et": "idiom attested from the seventeenth century, literally \"whether used or discarded\".",
+    "mn": [
+      "ou",
+      "sumir",
+      "souvr"
+    ]
+  },
+  {
     "lx": "ouç",
     "examples": [
       {
@@ -44918,6 +45153,15 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "pænultem",
+    "ps": "n",
+    "ge": [
+      "second last",
+      "penultimate"
+    ],
+    "et": "Latin paenultimus"
+  },
+  {
     "lx": "pagin",
     "ps": "n",
     "ge": [
@@ -45229,9 +45473,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -45242,11 +45488,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -45553,6 +45797,18 @@
       "skirting"
     ],
     "et": "Middle Borlish < Old Borlish"
+  },
+  {
+    "lx": "parenç",
+    "ps": "n",
+    "ge": [
+      "kinship",
+      "relationship",
+      "relatedness",
+      "parenthood",
+      "ancestry"
+    ],
+    "et": "Scholastic Latin parentia, from parens \"parent\""
   },
   {
     "lx": "parent",
@@ -46413,6 +46669,16 @@
   },
   {
     "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -46421,16 +46687,6 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
-  },
-  {
-    "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -46555,6 +46811,33 @@
       "ask"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "pedisecq",
+    "examples": [
+      {
+        "vernacular": "L'aye un pedisecq offiçað a y roum costojar.",
+        "english": "He had set a lackey to guard the room."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "attendant",
+      "servant",
+      "page",
+      "valet",
+      "goon",
+      "henchperson",
+      "henchman",
+      "henchwoman",
+      "thug",
+      "lackey",
+      "toady",
+      "follower",
+      "sycophant",
+      "yes-man"
+    ],
+    "et": "early modern period as a direct borrowing from Latin pedisequus \"attendant\", used as a general term encompassing the pre-existent specific terms for various types of personal servant. The Latin term literally means \"following on foot\", from pēs \"foot\" and sequor \"I follow\". The word had gained generally pejorative connotations by the twentieth century, reinforced by its use in media depicting gangs and similar groups."
   },
   {
     "lx": "peðrour",
@@ -46835,7 +47118,9 @@
     "ge": [
       "schedule",
       "itinerary",
-      "timetable"
+      "timetable",
+      "period",
+      "timespan"
     ],
     "et": "Middle Borlish < Latin < Ancient Greek"
   },
@@ -46856,6 +47141,24 @@
       "period",
       "trevagl"
     ]
+  },
+  {
+    "lx": "periodeyar",
+    "ps": [
+      "ar v",
+      "n"
+    ],
+    "ge": [
+      "schedule",
+      "timetable",
+      "periodise",
+      "scheduling",
+      "timetabling",
+      "periodisation"
+    ],
+    "et": "from period \"period\"",
+    "mn": "period",
+    "se": "periodeyaçon"
   },
   {
     "lx": "peripaton",
@@ -51980,6 +52283,56 @@
     "et": "Old Borlish"
   },
   {
+    "lx": "rebateyaçon",
+    "ps": "n",
+    "ge": [
+      "carte blanche",
+      "free rein",
+      "do-over",
+      "clean slate"
+    ],
+    "et": "noun from rebateyar \"rebaptise\".",
+    "mn": "rebateyar"
+  },
+  {
+    "lx": "rebateyað",
+    "examples": [
+      {
+        "vernacular": "Jo faïsce l'azig original sull'ec rebateyað.",
+        "english": "I preferred the shoes before the rebrand."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "rebaptised",
+      "born again",
+      "rechristened",
+      "renamed",
+      "reborn",
+      "zealous",
+      "fervent",
+      "revamped",
+      "rebranded",
+      "relaunched"
+    ],
+    "et": "past participle of rebateyar \"rebaptise, rename\".",
+    "mn": "rebateyar"
+  },
+  {
+    "lx": "rebateyar",
+    "ps": "ar v",
+    "ge": [
+      "rebaptise",
+      "rechristen",
+      "rename",
+      "revamp",
+      "rebrand",
+      "relaunch"
+    ],
+    "et": "a derivative of bateyar \"baptise, christen\". Metaphorical extension outside religious contexts is seen from the eighteenth century; use for things as well as people is attested from the twentieth century.",
+    "mn": "bateyar"
+  },
+  {
     "lx": "rebondir",
     "ps": "ir2 v",
     "ge": [
@@ -53707,6 +54060,15 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "reyaltað",
+    "ps": "n",
+    "ge": [
+      "royalty",
+      "majesty"
+    ],
+    "et": "akin to Latin regalitas \"royalty\""
+  },
+  {
     "lx": "reyaum",
     "ps": "n",
     "ge": [
@@ -54626,6 +54988,35 @@
     "et": "from Old Borlish rustre \"rural\", either directly from Latin rūsticus \"rural\" or via synonymous rustre in Old French. The insulting senses date as far back as Classical times, and may have been reintroduced during the Middle Borlish period."
   },
   {
+    "lx": "sabler",
+    "ps": "n",
+    "ge": [
+      "hourglass",
+      "sand timer"
+    ],
+    "et": "I'll pay you 50⍚, take it or leave it."
+  },
+  {
+    "lx": "sabler reuvr",
+    "examples": [
+      {
+        "vernacular": "La peðeu a sabler reuvr dy scitaçon.",
+        "english": "She asked to resit the exam."
+      }
+    ],
+    "ps": "r v",
+    "ge": [
+      "turn back time",
+      "try again",
+      "resit",
+      "have a do-over",
+      "get a second chance",
+      "live in the past",
+      "reset"
+    ],
+    "et": "idiom attested from the nineteenth century, literally \"to flip (an) hourglass\". Originally restricted to metaphor, the phrase is attested in literal use from the late nineteenth century in parachthon [sci-fi, fantasy] works of writing."
+  },
+  {
     "lx": "sabr",
     "ps": "n",
     "ge": "sand",
@@ -55097,17 +55488,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -56112,6 +56503,15 @@
       "document"
     ],
     "et": "Middle Borlish"
+  },
+  {
+    "lx": "scaunç historic",
+    "ps": "n",
+    "ge": "historiography",
+    "mn": [
+      "scaunç",
+      "historic"
+    ]
   },
   {
     "lx": "scaur",
@@ -58918,15 +59318,6 @@
       "peak"
     ],
     "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "somnifer",
-    "ps": "n",
-    "ge": [
-      "sleeping pill",
-      "sleep drug"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "somnifer",
@@ -63504,6 +63895,17 @@
     "et": "Middle Borlish < Larin terrenus"
   },
   {
+    "lx": "terrentað",
+    "ps": "n",
+    "ge": [
+      "terrain",
+      "landscape",
+      "outlook"
+    ],
+    "et": "noun from terren \"earthly\"",
+    "mn": "terren"
+  },
+  {
     "lx": "tersur",
     "examples": [
       {
@@ -63653,7 +64055,10 @@
         "english": "A moorland frolic has got my clothes dirty."
       }
     ],
-    "ps": "ar v",
+    "ps": [
+      "ar v",
+      "n"
+    ],
     "ge": [
       "tar",
       "blacken",
@@ -63665,9 +64070,13 @@
       "tarnish",
       "smear",
       "besmirch",
-      "slander"
+      "slander",
+      "slanderer",
+      "detractor"
     ],
-    "et": "Middle Borlish derivation from noun teur \"tar\" with the suffix -feyar (< Latin -ficō) which forms verbs meaning \"to make/render _\". The noun teur is an Old Borlish borrowing from Old English teoru \"tar, resin, earwax\", which is related to \"tree\". Almost immediately we see use of the verb, particularly in contemporary legal cases."
+    "et": "Middle Borlish derivation from noun teur \"tar\" with the suffix -feyar (< Latin -ficō) which forms verbs meaning \"to make/render _\". The noun teur is an Old Borlish borrowing from Old English teoru \"tar, resin, earwax\", which is related to \"tree\". Almost immediately we see use of the verb, particularly in contemporary legal cases.",
+    "mn": "teur",
+    "se": "teurfeyour"
   },
   {
     "lx": "tey",
@@ -65835,6 +66244,16 @@
     "et": "Old Borlish < Old English < Latin"
   },
   {
+    "lx": "ultem",
+    "ps": "adj",
+    "ge": [
+      "ultimate",
+      "final",
+      "last"
+    ],
+    "et": "Latin ultimus"
+  },
+  {
     "lx": "un",
     "ps": [
       "num",
@@ -66541,7 +66960,7 @@
       "be permitted",
       "be allowed"
     ],
-    "et": "Old Borlish < Latin"
+    "et": "Old Borlish, directly from Latin valeō \"I have power, I am well\"."
   },
   {
     "lx": "valour",
@@ -66755,6 +67174,39 @@
       "eagerness"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "varen",
+    "ps": "n",
+    "ge": [
+      "warren",
+      "burrow",
+      "lair",
+      "den",
+      "sett",
+      "slum",
+      "favela",
+      "shantytown"
+    ],
+    "et": "borrowed in the early Middle Borlish period from Norman warenne (compare Parisian guerenne \"hunting ground, public park\"). This comes either via Frankish from Classical German variō \"I defend from, I ward against\", or via Gaulish varrennā \"fenced area\" from Classical Kelt varrā \"fencepost\" (whence modern Welsh guar \"neck\")."
+  },
+  {
+    "lx": "varennastr",
+    "examples": [
+      {
+        "vernacular": "Ðe dein moneð an demeg dy varennastr.",
+        "english": "They owe money to half the underworld."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "underworld",
+      "demimonde",
+      "black market",
+      "underbelly"
+    ],
+    "et": "19th century, pejorative derivation from varen \"burrow, warren, lair, sett (underground animal dwelling); slum, favela, shantytown\".",
+    "mn": "varen"
   },
   {
     "lx": "variaçon",
@@ -67918,6 +68370,16 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "victour",
+    "ps": "n",
+    "ge": [
+      "victor",
+      "winner",
+      "champion"
+    ],
+    "et": "Latin victor"
+  },
+  {
     "lx": "við",
     "ps": "n",
     "ge": "life",
@@ -68330,6 +68792,44 @@
       "downtime"
     ],
     "et": "Middle Borlish < Old Dutch"
+  },
+  {
+    "lx": "vivotar",
+    "examples": [
+      {
+        "vernacular": "L'autour vivota com inconnuð prell'oc livr.",
+        "english": "L'autour vivota com inconnuð prell'oc livr."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "languish",
+      "rot",
+      "pine away",
+      "get by",
+      "struggle",
+      "make ends meet"
+    ],
+    "et": "early Modern Borlish, borrowed from contemporary French vivoter \"to be ill; to languish\". This is a diminutive formation from vivre \"live\", from Latin vīvō \"I live\".",
+    "mn": "veur"
+  },
+  {
+    "lx": "vlangr",
+    "examples": [
+      {
+        "vernacular": "Sy vlangr porra noc y diamant vendr pre annað.",
+        "english": "Her fence won't be able to sell the diamonds for years."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "fence",
+      "receiver",
+      "middleman",
+      "accessory",
+      "abettor"
+    ],
+    "et": "mid-19C in underworld slang, imported from the slightly earlier British form recorded in the Glamour of Deganny. This in turn reflects Suahile [Swahili] valanguri, plural of mlanguri \"healer\", used in Ongutian [Zanzibari] argot to mean \"profiteer, black marketeer\". The Borlish term was popularised outside criminal circles by its use in a series of high-profile mob trials in the first decade of the twentieth century."
   },
   {
     "lx": "vleutaç",
@@ -69334,6 +69834,32 @@
     "mn": [
       "gas",
       "jogndr"
+    ]
+  },
+  {
+    "lx": "y gra valir",
+    "examples": [
+      {
+        "vernacular": "L'ec corrovað valeurn y gra vraseyant alcot?",
+        "english": "How well did the novices rise to the occasion?"
+      }
+    ],
+    "ps": "ir1 v",
+    "ge": [
+      "measure up",
+      "be up to the challenge",
+      "hold one's own",
+      "rise to the occasion",
+      "have the balls",
+      "dare",
+      "matter",
+      "count for something",
+      "be worth it"
+    ],
+    "et": "idiom attested from as early as the fifteenth century in Kigman's poetry, literally \"to be worth (the) importance\".",
+    "mn": [
+      "gra",
+      "valir"
     ]
   },
   {
