@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -i '1685,1688d' \"C:\\\\Users\\\\Andrew\\\\Documents\\\\GitHub\\\\jackhkeynes-website\\\\_data\\\\indicators\\\\charades_double.yml\")",
+      "Bash(sed -i '1685a - zettalitre\\\\n- zettalitre\\\\n- zloty' \"C:\\\\Users\\\\Andrew\\\\Documents\\\\GitHub\\\\jackhkeynes-website\\\\_data\\\\indicators\\\\charades_double.yml\")",
+      "Bash(python3 -c \"import yaml; data = yaml.safe_load\\(open\\('C:/Users/Andrew/Documents/GitHub/jackhkeynes-website/_data/indicators/charades_double.yml'\\)\\); print\\(f'Valid YAML. Keys: {len\\(data\\)}. Sample MC: {data[\\\\\"MC\\\\\"]}'\\)\")",
+      "Bash(python3 -c ':*)"
+    ]
+  }
+}
