@@ -13,7 +13,7 @@ permalink: /cryptics/:year/:month/:title
 collections:
   bluejacket:
     output: true
-    permalink: /bluejacket/:title/
+    permalink: /cryptics/bluejacket/:title/
 
 defaults:
   - scope:

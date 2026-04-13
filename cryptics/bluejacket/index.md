@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Bluejacket
-permalink: /bluejacket/
+permalink: /cryptics/bluejacket/
 ---
 
 <div class="home">
   <h1 class="page-heading">Bluejacket</h1>
 
-  <p>Crosswords published in the <em>Independent</em> under the pseudonym Bluejacket.</p>
+  <p>Crosswords published under the pseudonym Bluejacket.</p>
 
   {%- assign sorted = site.bluejacket | sort: "bluejacket_number" | reverse -%}
   {%- assign latest = sorted | first -%}
