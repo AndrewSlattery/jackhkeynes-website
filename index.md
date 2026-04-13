@@ -8,12 +8,11 @@ permalink: /
 
 [Blog](/cryptics/)
 
+[Bluejacket](/cryptics/bluejacket/) — Crosswords published under the pseudonym *Bluejacket*.
+
 [Clue Database](/cryptics/database/)
 
 [Cryptic Indicators](/cryptics/indicators/)
-
-[Bluejacket](/cryptics/bluejacket/) — Crosswords published in the *Independent*
-
 
 ## Boralverse - Alternate History Setting
 
