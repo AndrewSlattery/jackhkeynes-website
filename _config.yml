@@ -9,6 +9,18 @@ url: "https://jackhkeynes.co.uk"
 # This forces all blog posts to appear under /cryptics/ instead of /year/month/...
 permalink: /cryptics/:year/:month/:title
 
+# Collections
+collections:
+  bluejacket:
+    output: true
+    permalink: /bluejacket/:title/
+
+defaults:
+  - scope:
+      type: bluejacket
+    values:
+      layout: bluejacket-post
+
 # Build settings
 theme: minima
 plugins:

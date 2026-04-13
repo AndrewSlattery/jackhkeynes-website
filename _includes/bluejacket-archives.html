@@ -1,0 +1,33 @@
+{%- assign sorted = site.bluejacket | sort: "bluejacket_number" -%}
+{%- assign latest = sorted | last -%}
+{%- assign latest_num = latest.bluejacket_number -%}
+
+{%- comment -%}
+  Build a list excluding the embargoed (latest) puzzle.
+{%- endcomment -%}
+{%- assign visible = "" | split: "" -%}
+{%- for item in sorted -%}
+  {%- if item.bluejacket_number != latest_num -%}
+    {%- assign visible = visible | push: item -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<details class="archives-section">
+  <summary>Bluejacket Archives</summary>
+
+  <div class="archives-list">
+    {%- assign byYear = visible | group_by_exp: "item", "item.date | date: '%Y'" -%}
+    {%- for year in byYear reversed -%}
+      <details class="year-group">
+        <summary>{{ year.name }}</summary>
+        <ul>
+          {%- for puzzle in year.items reversed -%}
+            <li>
+              <a href="{{ puzzle.url | relative_url }}">{{ puzzle.title }}</a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </details>
+    {%- endfor -%}
+  </div>
+</details>

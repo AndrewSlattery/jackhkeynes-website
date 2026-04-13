@@ -1,0 +1,39 @@
+{%- comment -%}
+  Prev/next navigation within the Bluejacket collection.
+  The latest puzzle (highest bluejacket_number) is embargoed,
+  so we never link TO it — the second-latest has no "next" link.
+{%- endcomment -%}
+
+{%- assign sorted = site.bluejacket | sort: "bluejacket_number" -%}
+{%- assign latest = sorted | last -%}
+{%- assign latest_num = latest.bluejacket_number -%}
+
+{%- assign prev = nil -%}
+{%- assign next = nil -%}
+{%- assign found = false -%}
+
+{%- for item in sorted -%}
+  {%- if found and item.bluejacket_number != latest_num -%}
+    {%- assign next = item -%}
+    {%- break -%}
+  {%- endif -%}
+  {%- if item.url == page.url -%}
+    {%- assign found = true -%}
+  {%- else -%}
+    {%- unless found -%}
+      {%- assign prev = item -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<div class="post-navigation">
+  {% if prev %}
+    <a href="{{ prev.url | relative_url }}">&larr; {{ prev.title }}</a>
+  {% else %}
+    <span></span>
+  {% endif %}
+
+  {% if next %}
+    <a href="{{ next.url | relative_url }}">{{ next.title }} &rarr;</a>
+  {% endif %}
+</div>

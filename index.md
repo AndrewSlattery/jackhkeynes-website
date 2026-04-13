@@ -12,6 +12,8 @@ permalink: /
 
 [Cryptic Indicators](/cryptics/indicators/)
 
+[Bluejacket](/bluejacket/) — Crosswords published in the *Independent*
+
 
 ## Boralverse - Alternate History Setting
 
