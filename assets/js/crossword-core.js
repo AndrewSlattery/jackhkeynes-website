@@ -980,6 +980,20 @@
         }
       });
 
+      // Prevent page scroll when wheeling inside the widget
+      widget.addEventListener('wheel', function (e) {
+        var section = e.target.closest('.xw-clue-section');
+        if (section) {
+          var atTop    = section.scrollTop <= 0;
+          var atBottom = section.scrollTop + section.clientHeight >= section.scrollHeight - 1;
+          if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
+            e.preventDefault();
+          }
+        } else {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
       // Pause overlay
       widget.addEventListener('click', function (e) {
         if (e.target.closest('.xw-pause-overlay')) togglePause();
