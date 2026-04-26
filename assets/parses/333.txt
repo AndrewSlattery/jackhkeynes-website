@@ -1,16 +1,16 @@
 ACROSS
  1. <leave in> STAYCATION = →"K STATION"←
- 6. <pole> MAST <dropped fruit>
+ 6. <pole> MAST = MA + ST
  8. I DIM outside 0 = IDIOM <artistic style>
  9. <concerning smell> OLFACTORY = O_L FACTORY
 11. (HELD PERSIA)* = LEADERSHIP <skill in governance>
 13. A_ S_ I_ A_ = ASIA <land>
 14. VILE D outside I_ = VEILED <hidden>
 16. ←AID← BETS outside E = DIABETES <medical condition>
-19. R (I'M + BENIN)* = RENMINBI <currency>
-22. <dress formally> TOG OUT = TOGO UT
+19. <currency> RENMINBI = RE N + B inside MINI
+22. <dress formally> TOG OUT = TOGO U_T
 24. <monarch> KING = KIN + G_
-25. MIN DREADER = MIND READER <telepath>
+25. DREADER after MIN = MIND READER <telepath>
 27. <versemonger> POETASTER = OPERETTAS*
 29. <states> AVERS = AVERSE - E_
 30. <Swiss city> BERN = "BURN"
@@ -23,11 +23,11 @@ DOWN
  4. <what e.g. cobbler applies> TOOLS = TOO + L_S_
  5. <cancelled> OFF = OF outside F
  6. <fuel> METHANE = M_E + THANE
- 7. DINE after SAR_ = SARDINE <fish>
+ 7. SAR_ DINE = SARDINE <fish>
 10. AS P HALT = ASPHALT <pitch>
 12. <emperor> HADRIAN = HAD RAN outside I
 15. <hardworking people> DYNAMOS = MONDAYS*
-17. (I'M THRONED)* = TRONDHEIM <Norwegian city>
+17. _OND_ HE inside TRIM = TRONDHEIM <city in Norway>
 18. <takes off> SATIRISES = S AT_ IRISES
 20. <example> EPITOME = I inside EP TOME
 21. <heavy weight> MEGATON = ←NOT A GEM←
