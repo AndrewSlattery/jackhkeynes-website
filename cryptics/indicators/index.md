@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Indicator Database
+title: Cryptic Indicators
 permalink: /cryptics/indicators/
 ---
 
