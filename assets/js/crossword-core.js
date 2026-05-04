@@ -407,6 +407,7 @@
       widget.innerHTML = [
         renderHiddenInput(),
         puzzle.notes ? renderNotesModal(puzzle.notes) : '',
+        renderCompletionModal(),
         '<div class="xw-controls-bar">',
           renderControls(),
         '</div>',
@@ -449,6 +450,16 @@
         '<div class="xw-notes-modal" role="dialog" aria-modal="true" aria-label="Puzzle notes">' +
           '<div class="xw-notes-body">' + safe + '</div>' +
           '<button class="xw-notes-close xw-ctrl-btn" type="button">Got it</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function renderCompletionModal() {
+      return '<div class="xw-completion-backdrop" hidden>' +
+        '<div class="xw-completion-modal" role="dialog" aria-modal="true" aria-label="Puzzle complete">' +
+          '<div class="xw-completion-title">🎉 Puzzle complete!</div>' +
+          '<div class="xw-completion-time"></div>' +
+          '<button class="xw-completion-close xw-ctrl-btn" type="button">View grid</button>' +
         '</div>' +
       '</div>';
     }
@@ -720,6 +731,11 @@
       var selEl = getCellEl(r, c);
       if (selEl) selEl.classList.add('xw-selected');
 
+      // Park the hidden input over the selected cell. Safari otherwise
+      // scrolls the page to keep the input's caret in view on each input
+      // event, yanking users back to the top of the widget while typing.
+      positionHiddenInput(selEl);
+
       // Variant-specific clue panel behaviour
       if (_onSelectCell) {
         _onSelectCell(displayWord, engine);
@@ -741,6 +757,18 @@
         hiddenInput.focus({ preventScroll: true });
         window.scrollTo(_sx, _sy);
       }
+    }
+
+    function positionHiddenInput(selEl) {
+      if (!hiddenInput || !selEl) return;
+      var widget = getWidget();
+      if (!widget) return;
+      var cellRect   = selEl.getBoundingClientRect();
+      var widgetRect = widget.getBoundingClientRect();
+      hiddenInput.style.top  = (cellRect.top  - widgetRect.top)  + 'px';
+      hiddenInput.style.left = (cellRect.left - widgetRect.left) + 'px';
+      hiddenInput.style.width  = cellRect.width  + 'px';
+      hiddenInput.style.height = cellRect.height + 'px';
     }
 
     function clearHighlights() {
@@ -976,6 +1004,16 @@
         if (!backdrop) return;
         if (e.target.classList.contains('xw-notes-close') ||
             e.target.classList.contains('xw-notes-backdrop')) {
+          backdrop.setAttribute('hidden', '');
+        }
+      });
+
+      // Completion modal close
+      widget.addEventListener('click', function (e) {
+        var backdrop = e.target.closest('.xw-completion-backdrop');
+        if (!backdrop) return;
+        if (e.target.classList.contains('xw-completion-close') ||
+            e.target.classList.contains('xw-completion-backdrop')) {
           backdrop.setAttribute('hidden', '');
         }
       });
@@ -1277,11 +1315,23 @@
           if (cell.entry !== cell.solution) return;
         }
       }
+      var wasCompleted = state.completed;
       state.completed = true;
       stopTimer();
       var banner = container.querySelector('.xw-completion-banner');
       if (banner) banner.removeAttribute('hidden');
+      // Only pop the modal on the moment of completion, not on later
+      // re-triggers (e.g. reveal-grid after the puzzle was already done).
+      if (!wasCompleted) showCompletionModal();
       saveProgress();
+    }
+
+    function showCompletionModal() {
+      var modal = container.querySelector('.xw-completion-backdrop');
+      if (!modal) return;
+      var timeEl = modal.querySelector('.xw-completion-time');
+      if (timeEl) timeEl.textContent = 'Your time: ' + formatTime(state.timer.elapsed);
+      modal.removeAttribute('hidden');
     }
 
     // ================================================================

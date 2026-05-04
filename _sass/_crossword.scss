@@ -556,6 +556,49 @@
     &[hidden] { display: none; }
   }
 
+  // ── Completion modal ──────────────────────────────────────────────
+  .xw-completion-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 600;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &[hidden] { display: none; }
+  }
+
+  .xw-completion-modal {
+    background: var(--xw-bg-dropdown);
+    border: 1px solid var(--xw-accent);
+    border-radius: 6px;
+    padding: 24px 28px 20px;
+    max-width: min(420px, calc(100% - 32px));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .xw-completion-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: var(--xw-accent);
+  }
+
+  .xw-completion-time {
+    font-size: 1.05em;
+    color: var(--xw-text);
+  }
+
+  .xw-completion-close {
+    margin-top: 4px;
+  }
+
   // ── Error state ───────────────────────────────────────────────────
   .xw-error {
     color: #{$color-error};
