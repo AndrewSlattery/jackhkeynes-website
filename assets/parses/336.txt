@@ -11,7 +11,7 @@ ACROSS
 20. <restaurant course> STARTER = S_ + TARTER
 22. <novelist> LE CARRE = ←ERR + ACE L←
 24. HE CATCH EIRE'S outside ON = HECATONCHEIRES <towering figures>
-26. <holiday> STAY = S TAY
+26. <sojourn> STAY = S TAY
 27. <diametric opposites> ANTIPODES = AS outside POINTED*
 
 DOWN
@@ -28,6 +28,6 @@ DOWN
 15. ←RID← + HEPCAT* = DIRT CHEAP <a bargain>
 17. <character> PERSONA = PER SON A_
 18. SO LICIT = SOLICIT <to go door-to-door>
-21. <sad> TEARY = TEA + RY
+21. <visibly sad> TEARY = TEA + RY
 23. ←SEE← outside AS = EASES <moderates>
 25. R ←DO← = ROD <gun> 
