@@ -32,19 +32,10 @@ permalink: /cryptics/database/
         <th><input type="text" placeholder="Enum" data-column="3" /></th>
       </tr>
     </thead>
-    <tbody>
-      {% for row in site.data.clues %}
-        <tr>
-          <td>{{ row['Grid Number'] }}</td>
-          <td>{{ row['Clue'] }}</td>
-          <td class="answer-col"><span>{{ row['Answer'] }}</span></td>
-          <td class="enum-col">({{ row['Enumeration'] }})</td>
-        </tr>
-      {% endfor %}
-    </tbody>
+    <tbody></tbody>
   </table>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-<script src="{{ '/assets/js/database.js' | relative_url }}"></script>
+<script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script defer type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script defer src="{{ '/assets/js/database.js' | relative_url }}"></script>

@@ -1,6 +1,6 @@
 // Clue database — DataTables with per-column wildcard search
 
-// 2. Convert user wildcards to regex
+// Convert user wildcards to regex
 //    .  = any single non-space character (for crossword patterns like P.PP.R)
 //    *  = any sequence of characters including spaces
 //    " at start = anchor to start of field (^)
@@ -9,7 +9,6 @@
 function wildcardToRegex(term) {
   if (!term) return '';
 
-  // Detect edge-of-field anchors
   var anchorStart = false;
   var anchorEnd = false;
 
@@ -22,13 +21,10 @@ function wildcardToRegex(term) {
     term = term.substring(0, term.length - 1);
   }
 
-  // Escape regex metacharacters except . and *
   var escaped = term.replace(/([\\^$|?+()[\]{}])/g, '\\$1');
-  // Convert wildcards
   escaped = escaped.replace(/\./g, '[^ ]');
   escaped = escaped.replace(/\*/g, '.*');
 
-  // Apply anchors
   if (anchorStart) escaped = '^' + escaped;
   if (anchorEnd) escaped = escaped + '$';
 
@@ -56,21 +52,47 @@ function naturalCompare(a, b) {
   return 0;
 }
 
+function debounce(fn, delay) {
+  var timer;
+  return function () {
+    var args = arguments;
+    var ctx = this;
+    clearTimeout(timer);
+    timer = setTimeout(function () { fn.apply(ctx, args); }, delay);
+  };
+}
+
 // Export for Node.js
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { wildcardToRegex, naturalCompare };
 }
 
 if (typeof $ !== 'undefined') {
-  // Register natural sort type with DataTables
   $.fn.dataTable.ext.type.order['natural-asc']  = function(a, b) { return naturalCompare(a, b); };
   $.fn.dataTable.ext.type.order['natural-desc'] = function(a, b) { return naturalCompare(b, a); };
 
   $(document).ready(function () {
 
-    // 1. Initialize DataTable (no default search box)
     var table = $('#cluesTable').DataTable({
       "dom": "lrtip",
+      "ajax": {
+        "url": "/assets/data/clues.json",
+        "dataSrc": ""
+      },
+      "columns": [
+        { "data": "Grid Number" },
+        { "data": "Clue" },
+        {
+          "data": "Answer",
+          "render": function (data) { return '<span>' + data + '</span>'; },
+          "className": "answer-col"
+        },
+        {
+          "data": "Enumeration",
+          "render": function (data) { return '(' + data + ')'; },
+          "className": "enum-col"
+        }
+      ],
       "columnDefs": [{ "type": "natural", "targets": 0 }],
       "order": [[2, "asc"], [0, "asc"]],
       "pageLength": 25,
@@ -81,10 +103,10 @@ if (typeof $ !== 'undefined') {
         "zeroRecords": "No matching clues found",
         "info": "Showing _START_ to _END_ of _TOTAL_ clues",
         "infoEmpty": "No clues available",
-        "infoFiltered": "(filtered from _MAX_ total clues)"
+        "infoFiltered": "(filtered from _MAX_ total clues)",
+        "loadingRecords": "Loading..."
       },
       "initComplete": function () {
-        // Prevent clicks on search-row cells from triggering column sort
         $('#cluesTable thead .search-row th').on('click', function (e) {
           e.stopPropagation();
         });
@@ -94,17 +116,18 @@ if (typeof $ !== 'undefined') {
       }
     });
 
-    // 3. Bind per-column search inputs
-    $('#cluesTable thead .search-row input').on('keyup change', function () {
-      var col = table.column($(this).data('column'));
-      var regex = wildcardToRegex(this.value);
-
+    var debouncedSearch = debounce(function (col, regex) {
       if (col.search() !== regex) {
         col.search(regex, true, false, true).draw();
       }
+    }, 200);
+
+    $('#cluesTable thead .search-row input').on('keyup change', function () {
+      var col = table.column($(this).data('column'));
+      var regex = wildcardToRegex(this.value);
+      debouncedSearch(col, regex);
     });
 
-    // 4. Enter moves focus to next input
     $('#cluesTable thead .search-row input').on('keydown', function (e) {
       if (e.key === 'Enter') {
         e.preventDefault();
