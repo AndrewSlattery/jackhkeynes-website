@@ -5,4 +5,4 @@ date: 2026-05-11T11:00:00.000Z
 puzzle_number: 335
 ---
 
-Hi all! An ordinary 15x15 grid for you all this week—good luck! ([parses](/assets/parses/335.txt))
+Hi all! An ordinary 15x15 grid for you all this week—good luck! ([parses](/assets/parses/335.txt)) Thank you to [Liari](https://mycrossword.co.uk/Liari), who was my test-solver for this puzzle.
