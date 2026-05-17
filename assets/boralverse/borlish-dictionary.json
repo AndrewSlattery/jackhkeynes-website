@@ -944,7 +944,7 @@
   },
   {
     "lx": "ac vespr",
-    "ps": "exc",
+    "ps": "interj",
     "ge": "good evening",
     "mn": "vespr"
   },
@@ -1245,6 +1245,16 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1252,16 +1262,6 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -2584,13 +2584,36 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "akirtanç",
+    "examples": [
+      {
+        "vernacular": "Caye un akirtanç de pennachet a Novembr.",
+        "english": "There was a cholera outbreak in November."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "sparking",
+      "ignition",
+      "flare-up",
+      "outbreak",
+      "outburst",
+      "eruption",
+      "hit",
+      "breakout success"
+    ],
+    "et": "Etymology: Middle Borlish, noun derivation from akirtar \"spark, kindle, ignite\". The word has been used of diseases both within an individual and across a population since the seventeenth century, and in the last senses it first appeared in the Good Game period of the late nineteenth century.",
+    "mn": "akirtar"
+  },
+  {
     "lx": "akirtar",
     "ps": "ar v",
     "ge": [
       "spark",
       "ignite"
     ],
-    "et": "Old Borlish"
+    "et": "Old Borlish, from kirt \"spark\".",
+    "mn": "kirt"
   },
   {
     "lx": "al",
@@ -3552,6 +3575,20 @@
       "refine"
     ],
     "et": "Middle Borlish < Scholastic Latin < Latin"
+  },
+  {
+    "lx": "annexment",
+    "ps": "n",
+    "ge": [
+      "extension",
+      "boost",
+      "enhancement",
+      "addition",
+      "supplement",
+      "refinement"
+    ],
+    "et": "noun from annexar \"boost\"",
+    "mn": "annexar"
   },
   {
     "lx": "anneyant",
@@ -5242,6 +5279,19 @@
     "et": "Old Borlish < Vulgar Latin"
   },
   {
+    "lx": "aucoum forcer",
+    "ps": "n",
+    "ge": [
+      "powerhouse",
+      "hotbed",
+      "dynamo"
+    ],
+    "mn": [
+      "aucoum",
+      "forç"
+    ]
+  },
+  {
     "lx": "audaç",
     "ps": [
       "n",
@@ -6887,6 +6937,32 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "bel declar",
+    "examples": [
+      {
+        "vernacular": "Orruð y reverend parol for ne bel declar.",
+        "english": "The minister seems to speak in clichés."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "words of wisdom",
+      "adage",
+      "proverb",
+      "saying",
+      "maxim",
+      "cliché",
+      "saw",
+      "chestnut",
+      "platitude"
+    ],
+    "et": "early modern idiom, literally \"beautiful claim\". The phrase was potentially influenced by earlier parol de beldomn \"gentlewomen's words\". Negative or derisory usagee is attested from the nineteenth century.",
+    "mn": [
+      "bel",
+      "declar"
+    ]
+  },
+  {
     "lx": "bel min a menaç",
     "ps": "n",
     "ge": "brave face",
@@ -7851,7 +7927,7 @@
   },
   {
     "lx": "bonjorn",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "greeting",
       "hello",
@@ -8019,6 +8095,28 @@
       "sir"
     ],
     "et": "Old Borlish"
+  },
+  {
+    "lx": "bosty",
+    "examples": [
+      {
+        "vernacular": "Y sleut hamta mout y bosty.",
+        "english": "The politician frequented the brothel."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "brothel",
+      "bordello",
+      "whorehouse",
+      "mess",
+      "shambles",
+      "jumble",
+      "disorder",
+      "what the hell",
+      "what the fuck"
+    ],
+    "et": "from Middle Borlish bosty \"brothel\", further origin disputed. Possibly from an unattested northern dialect *bosteul, *bostib, which would reflect Latin prostibulum \"prostitute, brothel\". Alternatively from an unattested southern dialect *bosty borrowed from a contemporary Welsh compound of bos \"lump, knob; (poss.) penis?\" and ty \"house\", the former element itself coming via Old French boce \"lump\". Metaphorical extension to situations considered similar to a notional brothel is attested from the seventeenth century."
   },
   {
     "lx": "bot",
@@ -8435,6 +8533,17 @@
       "get cold feet"
     ],
     "et": "from Old Borlish broncar \"stumble, misstep\", cognate with synonymous bronchier in Old French but of unknown further origin. Perhaps connected to Latin broccus \"buck-toothed\" or truncus \"docked, cut off\", but neither is particularly semantically tempting. Unhelpful also are the equally unsourceable examples of Lombard bronco \"thorny branch\" and Barcelon bronc \"knot in wood\"."
+  },
+  {
+    "lx": "broucanç",
+    "ps": "n",
+    "ge": [
+      "enjoyment",
+      "indulgence",
+      "use"
+    ],
+    "et": "noun from broucar \"enjoy\"",
+    "mn": "broucar"
   },
   {
     "lx": "broucar",
@@ -9062,6 +9171,28 @@
       "ordeal"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "cambir",
+    "examples": [
+      {
+        "vernacular": "Ðe son cuidant vars tostrman cambir.",
+        "english": "They're thinking of changing barber."
+      }
+    ],
+    "ps": "ir2 v",
+    "ge": [
+      "exchange",
+      "switch",
+      "swap",
+      "permute",
+      "rearrange",
+      "reorder",
+      "change",
+      "replace",
+      "substitute"
+    ],
+    "et": "from Old Borlish cambir \"exchange\", itself descending from Vulgar Latin cambiō \"I change, exchange\" (in a regionally retained fourth conjugation). Along with contemporaneous cambium \"a change\" this was borrowed from a Gaulish descendant of Classical Kelt cambos \"twisted, crooked\". Formerly used also to mean \"barter, trade\", it was supplanted in these senses by trocar, from French."
   },
   {
     "lx": "cambovart",
@@ -11016,18 +11147,6 @@
     "se": "cinquantein"
   },
   {
-    "lx": "cinqueç",
-    "ps": "num",
-    "ge": "fifteen",
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "cint",
-    "ps": "adj",
-    "ge": "fifth",
-    "et": "Old Borlish < Latin"
-  },
-  {
     "lx": "circol",
     "ps": "n",
     "ge": [
@@ -12213,7 +12332,7 @@
   },
   {
     "lx": "com dig jo !",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "Listen!",
       "Obey!",
@@ -12884,7 +13003,7 @@
   },
   {
     "lx": "con plagsur",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "you're welcome",
       "no problem"
@@ -13931,7 +14050,7 @@
       "humiliation"
     ],
     "et": "noun derivation from the verb contrdontar \"foil, stymie, thwart\".",
-    "mn": "contrdontaçon"
+    "mn": "contrdontar"
   },
   {
     "lx": "contrdontar",
@@ -16693,7 +16812,7 @@
   },
   {
     "lx": "deð apar",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "come on!",
       "expression of encouragement",
@@ -17764,20 +17883,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -21711,6 +21830,30 @@
     "et": "Middle Borlish < Old Borlish"
   },
   {
+    "lx": "engin",
+    "examples": [
+      {
+        "vernacular": "Sy vray engin quonda sou y sboc ligs.",
+        "english": "The easy smile belied his true nature."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "nature",
+      "character",
+      "disposition",
+      "inclination",
+      "habit",
+      "talent",
+      "ability",
+      "skill",
+      "onager",
+      "catapult",
+      "battering ram"
+    ],
+    "et": "from Old Borlish engeȝn \"talent; siege machine\", inherited in the first sense from Latin ingenium \"nature, cleverness\" and borrowed from Old French cognate engin \"cleverness; siege machine\" (from the same Latin word) in the second sense. The historical use is based on first-millennium writers such as the younger Isidore, who copied it from late Classical authors. The sense \"nature\" was reinforced by theological writing in the Second Tetrarchy period (1028–c.1200) which contrasted ingenium \"nature\" with accidentia \"happenstance\"."
+  },
+  {
     "lx": "engollir",
     "ps": "ir2 v",
     "ge": [
@@ -21798,6 +21941,26 @@
     "ps": "n",
     "ge": "enemy",
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "enmigtað",
+    "examples": [
+      {
+        "vernacular": "L'accommission se cof interront par y sounç d'enmigtað.",
+        "english": "The project was interrupted by the outbreak of hostilities."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "enmity",
+      "hostility",
+      "rivalry",
+      "competitiveness",
+      "rancour",
+      "animosity"
+    ],
+    "et": "Middle Borlish, noun derivation from enmig \"enemy, rival\". For the sense developments, compare parallel constructions in other Romance languages such as Portingale nemizade or Norman enmisté \"rivalry\".",
+    "mn": "enmig"
   },
   {
     "lx": "ennoyar",
@@ -22757,7 +22920,7 @@
   {
     "lx": "es",
     "hm": "1",
-    "ps": "v",
+    "ps": "ar v",
     "ge": [
       "is",
       "are"
@@ -24956,6 +25119,47 @@
     "et": "Middle Borlish < Scholastic Latin"
   },
   {
+    "lx": "focar",
+    "examples": [
+      {
+        "vernacular": "Y focment d'ollom ny relicquat m'ajoutaç.",
+        "english": "I appreciate the museum's relic curation."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "breed",
+      "husband",
+      "curate",
+      "select",
+      "shortlist",
+      "rear",
+      "raise"
+    ],
+    "et": "a Middle Borlish borrowing from contemporary Willem focken \"breed (animals)\". This descends, possibly via Norse, from Classical German fuccō \"I strike, hit; I have sex with\"."
+  },
+  {
+    "lx": "focment",
+    "examples": [
+      {
+        "vernacular": "Y focment d'ollom ny relicquat m'ajoutaç.",
+        "english": "I appreciate the museum's relic curation."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "breeding",
+      "husbandry",
+      "animal husbandry",
+      "curation",
+      "selection",
+      "nurture",
+      "upbringing"
+    ],
+    "et": "noun derivative of focar \"breed\". Extension to other winnowing processes is seen from the sixteenth century; in the last senses it is contrasted with engin \"nature, innate character\".",
+    "mn": "focar"
+  },
+  {
     "lx": "fojon",
     "ps": "n",
     "ge": [
@@ -25353,7 +25557,7 @@
   },
   {
     "lx": "forig",
-    "ps": "conjugation",
+    "ps": "conj",
     "ue": "archaic",
     "ge": [
       "unless",
@@ -25427,7 +25631,7 @@
         "english": "Ow, I've got pins and needles – I must have slept on my arm!"
       }
     ],
-    "ps": "r v1",
+    "ps": "ir1 v",
     "ge": "have pins and needles",
     "et": "literally “to get ants (on yourself)”; the first word either from Vulgar Latin formīcus, or directly from Latin formīca “ant”. The verb from capiō “I seize, take”.",
     "mn": [
@@ -26293,12 +26497,6 @@
   },
   {
     "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
-  },
-  {
-    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26320,6 +26518,12 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
+  },
+  {
+    "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -27994,7 +28198,7 @@
   },
   {
     "lx": "gra divin",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "for God's sake",
       "for Christ's sake"
@@ -28128,6 +28332,18 @@
     "ps": "n",
     "ge": "volunteer",
     "et": "from Old Borlish (a) grad liure “freely, voluntarily”, literally “with free will”, from Latin grātus “will” and līber “free, unrestricted”."
+  },
+  {
+    "lx": "gradual",
+    "ps": "adj",
+    "ge": [
+      "titular",
+      "entitled",
+      "aristocratic",
+      "hierarchical"
+    ],
+    "et": "adjective from grad \"rank, title\", from Latin graduālis",
+    "mn": "grad"
   },
   {
     "lx": "graivet",
@@ -29200,7 +29416,7 @@
         "english": "\"Hi, everyone,\" said the hurried guide."
       }
     ],
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "hey",
       "hi",
@@ -30813,7 +31029,7 @@
     "lx": "ig",
     "ps": [
       "adv",
-      "part"
+      "conj"
     ],
     "ge": [
       "there",
@@ -31774,7 +31990,7 @@
   },
   {
     "lx": "indagar",
-    "ps": "v",
+    "ps": "ar v",
     "ge": [
       "investigate",
       "track",
@@ -32963,7 +33179,7 @@
   },
   {
     "lx": "ja oc eus",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "just as well",
       "all for the best",
@@ -33607,7 +33823,7 @@
   },
   {
     "lx": "jo pieð",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "please",
       "I pray"
@@ -35497,7 +35713,7 @@
   },
   {
     "lx": "lausc",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "see?",
       "I told you so!"
@@ -38532,6 +38748,23 @@
     "et": "Middle Borlish < Dutch < Classical German"
   },
   {
+    "lx": "masmorrat",
+    "examples": [
+      {
+        "vernacular": "Rumorað es ig l'oç prinç sey zamicað an masmorrat.",
+        "english": "That prince is rumoured to be locked in a dungeon."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "cellar",
+      "basement",
+      "dungeon",
+      "bunker"
+    ],
+    "et": "Middle Borlish, via a Spanish language (e.g. Barcelon adjective masmorrat \"stored underground\") from Morrove [Maghrebi] Arabic مَطْمُورة • mathmūra \"underground granary\". Doublet of mathmoir \"refrigerator\". Military use is attested from the nineteenth century."
+  },
+  {
     "lx": "masq",
     "ps": "n",
     "ge": [
@@ -39959,6 +40192,25 @@
     "et": "Latin"
   },
   {
+    "lx": "mixallar",
+    "examples": [
+      {
+        "vernacular": "Y regnanç er ec hom mixallant a casc jorn.",
+        "english": "The regime was beheading people every day."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "guillotine",
+      "behead",
+      "decapitate",
+      "disable",
+      "neutralise",
+      "incapacitate"
+    ],
+    "et": "19th century, borrowed via Vascon from Mashick [Mexican] Arabic مِقْصَلَة • miẋ-ala \"guillotine\", literally \"severer\", from the verb قَصَلَ • ċas-ala \"cut off, sever\". Extension to metaphorical heads, either leaders or critical components, is seen from the mid-19th century."
+  },
+  {
     "lx": "moçon",
     "ps": "n",
     "ge": [
@@ -40086,7 +40338,7 @@
       "lachrymose"
     ],
     "et": "derivative of moglar \"to wet, dampen, moisten\" with the pejorative suffix -astr < Latin -aster \"resembling, quasi-\".",
-    "mn": "moglastr"
+    "mn": "moglar"
   },
   {
     "lx": "mogn",
@@ -40132,7 +40384,26 @@
       "origin",
       "variable"
     ],
-    "et": "Old Borlish < Latin. In the computing sense, partly from Arabic مَجْهُول • majhūl \"unknown\"."
+    "et": "Old Borlish < Latin modiolus \"small cup, hub of a wheel\", diminutive of modius, a unit of dry volume. In the computing sense, partly from Arabic مَجْهُول • majhūl \"unknown\"."
+  },
+  {
+    "lx": "mojolon",
+    "examples": [
+      {
+        "vernacular": "Scerra un trasson de deg minut ag mojolon.",
+        "english": "There's a ten-minute layover at the interchange."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "nexus",
+      "hub",
+      "interchange",
+      "destination",
+      "attraction"
+    ],
+    "et": "18th century, augmentative derivative of mojol \"hub of a wheel, centrepoint\". Originally a term of art in cartographic circles, it entered common use with the spread of convoy [rail] networks.",
+    "mn": "mojol"
   },
   {
     "lx": "mol",
@@ -41385,7 +41656,7 @@
   },
   {
     "lx": "nafrað",
-    "ps": "exc",
+    "ps": "interj",
     "ge": "sorry",
     "et": "Old Borlish"
   },
@@ -41428,6 +41699,25 @@
     "ps": "n",
     "ge": "boat",
     "et": "Old Borlish < Medieval Latin"
+  },
+  {
+    "lx": "nancir",
+    "examples": [
+      {
+        "vernacular": "Sell'heir a sculd demay nancið.",
+        "english": "Her son's incurred too much debt."
+      }
+    ],
+    "ps": "ir2 v",
+    "ge": [
+      "contract",
+      "catch",
+      "incur",
+      "bring on",
+      "meet with",
+      "be saddled with"
+    ],
+    "et": "Middle Borlish, borrowed from medical Latin nancīscō \"I contract (an illness)\", a non-deponent variant of Classical nancīscor \"I encounter, stumble on\". The word is seen in non-medical contexts from the eighteenth century."
   },
   {
     "lx": "nargel",
@@ -42217,7 +42507,7 @@
   },
   {
     "lx": "no spou",
-    "ps": "exc",
+    "ps": "interj",
     "ue": "archaic",
     "ge": "surely not",
     "et": "contracted form of i no se poð \"it isn't possible\" popular in the late eighteenth century, with a revival in the early twentieth."
@@ -42980,7 +43270,7 @@
   {
     "lx": "o",
     "hm": "1",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "yes",
       "indeed"
@@ -45379,6 +45669,27 @@
     "et": "from Old Borlish panel \"swatch of fabric, rectangle of wood\", descending via a Vulgar Latin diminutive from Latin pannus \"cloth, rag\"."
   },
   {
+    "lx": "panelleyar",
+    "examples": [
+      {
+        "vernacular": "Feir panelleyað dell'ec stoir hamtn y hamblot.",
+        "english": "The village has fetes themed around these tales."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "tessellate",
+      "pattern",
+      "copy",
+      "replicate",
+      "imitate",
+      "repeat",
+      "theme"
+    ],
+    "et": "Middle Borlish, verbal derivation from panel \"panel; motif, template\", originally \"swatch of fabric, panel of wood\".",
+    "mn": "panel"
+  },
+  {
     "lx": "pantheon",
     "ps": "n",
     "ge": "pantheon",
@@ -45473,11 +45784,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -45488,9 +45797,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -46669,16 +46980,6 @@
   },
   {
     "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -46687,6 +46988,16 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
+  },
+  {
+    "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -47517,6 +47828,31 @@
     "et": "Middle Borlish < Latin < Ancient Greek"
   },
   {
+    "lx": "pharmac",
+    "examples": [
+      {
+        "vernacular": "Jo suim un pharmac contr cauvanç.",
+        "english": "I take a hair loss medication."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "medication",
+      "pharmaceutical",
+      "drug",
+      "medicine",
+      "charm",
+      "talisman",
+      "amulet",
+      "fetish",
+      "remedy",
+      "fix",
+      "solution",
+      "silver bullet"
+    ],
+    "et": "Medieval Borlish, borrowed from Latin pharmacum \"drug; poison\", from Greek φάρμακον • phármakon \"drug; potion; dye\". The historical use persists in parachthon writing, having fallen into disuse in post-Arnoutszen medicine; the metaphorical extension is attested from as early as the sixteenth century."
+  },
+  {
     "lx": "phasm",
     "ps": "n",
     "ge": [
@@ -47899,7 +48235,7 @@
       "encumbrance"
     ],
     "et": "noun from pisant \"weighty\"",
-    "mn": "pisantour"
+    "mn": "pisant"
   },
   {
     "lx": "pisar",
@@ -51203,6 +51539,24 @@
     "et": "Old Borlish < Old English"
   },
   {
+    "lx": "quid",
+    "examples": [
+      {
+        "vernacular": "Y xiphar accataurn bos por tre quid a cascun.",
+        "english": "The mercs bought guns for three credits each."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "credits",
+      "dosh",
+      "quid",
+      "greens",
+      "dough"
+    ],
+    "et": "late nineteenth century, introduced by Borlish author Hadassa Docquerl in her 1872 trevold An Incomplete Dictionary of the New London (a Futurist work touring a rebuilt London decades after a war). This book also contains the first attestation of ardois \"slate\" for a large screen displaying digital information."
+  },
+  {
     "lx": "quïð",
     "ps": "adj",
     "ge": [
@@ -51318,6 +51672,18 @@
       "bump into",
       "chisel"
     ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "quinç",
+    "ps": "num",
+    "ge": "fifteen",
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "quint",
+    "ps": "adj",
+    "ge": "fifth",
     "et": "Old Borlish < Latin"
   },
   {
@@ -53030,6 +53396,26 @@
       "holy"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "reliquy",
+    "examples": [
+      {
+        "vernacular": "La trovau doçan de reliquy sur y play.",
+        "english": "She found dozens of fossils on the beach."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "relic",
+      "remainder",
+      "fossil",
+      "throwback",
+      "holdover",
+      "atavism",
+      "skeuomorph"
+    ],
+    "et": "Middle Borlish, reclassicised form of Old Borlish relic after the Latin reliquiae \"remains, leftovers, survivors\", from relinquō \"I leave behind\". The term has been used in mathematics since the fifteenth century, in geology since the seventeenth, and in product design since the late nineteenth."
   },
   {
     "lx": "reloð",
@@ -55403,7 +55789,7 @@
   },
   {
     "lx": "saluð",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "greeting",
       "welcome"
@@ -55488,17 +55874,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -57108,6 +57494,28 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "scouðir",
+    "examples": [
+      {
+        "vernacular": "Scouð tey den neðan un hom caif oundr.",
+        "english": "Snap out of it before someone gets hurt."
+      }
+    ],
+    "ps": "ir1 v",
+    "ge": [
+      "rescue",
+      "save",
+      "deliver",
+      "redeem",
+      "buy back",
+      "bail out",
+      "pull out",
+      "snap out of",
+      "jolt out of"
+    ],
+    "et": "via Old Borlish directly from Latin excutio \"I drive out, throw off\" (via the notion of causing someone to leave their current circumstances). In modern use the word usually implies that the rescuee either got themselves into trouble or that they were unfairly tricked into a bad situation."
+  },
+  {
     "lx": "scoul",
     "hm": "1",
     "ps": "n",
@@ -57220,6 +57628,27 @@
       "scrap",
       "cyclar"
     ]
+  },
+  {
+    "lx": "scrim",
+    "examples": [
+      {
+        "vernacular": "Y dottr dy marchis er sy scrim parcorrent.",
+        "english": "The marquess's daughter did fencing practice."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "fencing",
+      "swordplay",
+      "scuffle",
+      "skirmish",
+      "clash",
+      "banter",
+      "repartee",
+      "persiflage"
+    ],
+    "et": "early modern borrowing from Tuscan scrima \"swordplay\", a deverbal from scrimire (also schermire) \"fence, fight with swords\". This itself was borrowed from Lombard Dutch skirmen or Frankish skirmian \"protect, shield\", both from Classical German scirmis \"pelt; covering, shelter\". Extension to verbal sparring is seen from the late eighteenth century."
   },
   {
     "lx": "scrit",
@@ -58448,6 +58877,25 @@
       "older"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "sine sanguine",
+    "examples": [
+      {
+        "vernacular": "Y nobr sine sanguine intermainn noc un clou innað.",
+        "english": "The life peers don't constitute a natural voting bloc."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "morganatic",
+      "life",
+      "for life",
+      "second-rate",
+      "second-class",
+      "B-tier"
+    ],
+    "et": "Middle Borlish, legal jargon from Latin from sine sanguine \"morganatic\", literally \"without blood\". The ablative sanguine is a byform of sanguis \"blood\", which via a Vulgar accusative sanguem gave Borlish sanc \"blood\". In extended use the phrase is seen from the nineteenth century."
   },
   {
     "lx": "sinoc",
@@ -63424,7 +63872,7 @@
   },
   {
     "lx": "taur fair",
-    "ps": "-r v",
+    "ps": "r v",
     "ge": [
       "be eager",
       "be up for"
@@ -63583,6 +64031,33 @@
       "metre"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "teisment",
+    "examples": [
+      {
+        "vernacular": "Victour portaraun teisment laureller.",
+        "english": "Champions will wear laurel wreaths."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "braid",
+      "plait",
+      "wreath",
+      "device",
+      "stratagem",
+      "scheme",
+      "deduction",
+      "inference",
+      "narrative",
+      "story",
+      "plot",
+      "project",
+      "undertaking"
+    ],
+    "et": "Old Borlish, a nominalisation in all senses of the verb teissir \"weave; concoct; infer; narrate\".",
+    "mn": "teissir"
   },
   {
     "lx": "teissir",
@@ -63811,7 +64286,7 @@
     "lx": "tenir",
     "ps": [
       "ir1 v",
-      "rfl v"
+      "v rfl"
     ],
     "ge": [
       "hold",
@@ -64164,7 +64639,7 @@
   },
   {
     "lx": "theatrfeyar",
-    "ps": "-ar v",
+    "ps": "ar v",
     "ge": "attend the theatre",
     "et": "from theatr",
     "mn": "theatr"
@@ -64188,7 +64663,7 @@
   },
   {
     "lx": "thein vostr",
-    "ps": "exc",
+    "ps": "interj",
     "ge": "at your service",
     "mn": [
       "thein",
@@ -66258,7 +66733,7 @@
     "ps": [
       "num",
       "article",
-      "determiner"
+      "det"
     ],
     "ge": [
       "one",
@@ -66850,7 +67325,7 @@
   },
   {
     "lx": "val pog",
-    "ps": "exc",
+    "ps": "interj",
     "ge": [
       "never mind",
       "oh well"
@@ -67430,7 +67905,7 @@
   },
   {
     "lx": "vazdara",
-    "ps": "exc",
+    "ps": "interj",
     "ue": "vulgar",
     "ge": [
       "fuck off",
@@ -69044,17 +69519,17 @@
   {
     "lx": "volcan",
     "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
@@ -70045,7 +70520,7 @@
   },
   {
     "lx": "y vertað suraðoir",
-    "ps": "verb, -ir",
+    "ps": "r v",
     "ge": [
       "exaggerate",
       "stretch the truth",
@@ -70498,6 +70973,26 @@
     "et": "Middle Borlish < Mostara < Arabic"
   },
   {
+    "lx": "zaloc",
+    "examples": [
+      {
+        "vernacular": "Y lettr volað interman nossell'un soul zaloc.",
+        "english": "The stolen letter is our only bargaining chip."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "pawn",
+      "hock",
+      "collateral",
+      "security",
+      "bail",
+      "leverage",
+      "bargaining chip"
+    ],
+    "et": "18th century in underworld slang, borrowed from Willem Dutch zalock, zalogh \"pawn\". This and related terms originate in zaloh \"pawn\" in Bohamer [Czech], a descendant of a synonymous zalogo in Classical Slavone. By the twentieth century the term had displaced the offical legalese vad \"bail\" in all but the most rarefied settings."
+  },
+  {
     "lx": "zamic",
     "ps": "n",
     "ge": [
@@ -70653,7 +71148,7 @@
         "english": "Yeah, things're looking up."
       }
     ],
-    "ps": "exc",
+    "ps": "interj",
     "ue": "colloquial",
     "ge": [
       "yeah",
