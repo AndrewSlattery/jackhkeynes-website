@@ -116,7 +116,8 @@
   flex-wrap: wrap;
   gap: 4px;
 
-  .az-letter {
+  .az-letter,
+  .az-all {
     background: $color-bg-input;
     color: $color-text;
     border: 1px solid $color-border;
@@ -126,12 +127,28 @@
     font-family: inherit;
     font-size: 0.9rem;
     cursor: pointer;
-    text-transform: uppercase;
 
     &:hover {
       border-color: $color-accent;
       color: $color-accent;
     }
+
+    &.az-active {
+      background: $color-accent;
+      color: $color-bg-darker;
+      border-color: $color-accent;
+      font-weight: bold;
+    }
+  }
+
+  .az-letter {
+    text-transform: uppercase;
+  }
+
+  // Slight visual separator after the "All" button
+  .az-all {
+    margin-right: 4px;
+    font-style: italic;
   }
 }
 

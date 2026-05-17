@@ -1988,7 +1988,8 @@ pre, code {
   flex-wrap: wrap;
   gap: 4px;
 }
-.dict-az-strip .az-letter {
+.dict-az-strip .az-letter,
+.dict-az-strip .az-all {
   background: #2d2d2d;
   color: #e0e0e0;
   border: 1px solid #424242;
@@ -1998,11 +1999,25 @@ pre, code {
   font-family: inherit;
   font-size: 0.9rem;
   cursor: pointer;
-  text-transform: uppercase;
 }
-.dict-az-strip .az-letter:hover {
+.dict-az-strip .az-letter:hover,
+.dict-az-strip .az-all:hover {
   border-color: #51fb44;
   color: #51fb44;
+}
+.dict-az-strip .az-letter.az-active,
+.dict-az-strip .az-all.az-active {
+  background: #51fb44;
+  color: #0d1117;
+  border-color: #51fb44;
+  font-weight: bold;
+}
+.dict-az-strip .az-letter {
+  text-transform: uppercase;
+}
+.dict-az-strip .az-all {
+  margin-right: 4px;
+  font-style: italic;
 }
 
 .dict-status {

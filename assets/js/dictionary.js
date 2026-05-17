@@ -56,6 +56,51 @@ var BorlishDictionary = (function () {
     return { folded: folded.join(''), map: map };
   }
 
+  // ----- SORT / COLLATION -----
+  // Each standard letter maps to a char code spaced 4 apart (×4 leaves room to insert).
+  // ç = 0x0d (between c=0x0c and d=0x10), ð = 0x11 (between d=0x10 and e=0x14).
+  // æ expands to 'ae', œ expands to 'oe' (user-requested sort-as-sequence behaviour).
+  var _SORT_BASE = (function () {
+    var t = {};
+    var alpha = 'abcdefghijklmnopqrstuvwxyz';
+    for (var i = 0; i < alpha.length; i++) {
+      t[alpha[i]] = String.fromCharCode(4 + i * 4);
+    }
+    return t;
+  })();
+
+  function sortKey(str) {
+    var s = str ? str.toLowerCase() : '';
+    var out = '';
+    for (var i = 0; i < s.length; i++) {
+      var ch = s[i];
+      if (ch === 'æ') { out += _SORT_BASE['a'] + _SORT_BASE['e']; }
+      else if (ch === 'œ') { out += _SORT_BASE['o'] + _SORT_BASE['e']; }
+      else if (ch === 'ç') { out += '\x0d'; }
+      else if (ch === 'ð') { out += '\x11'; }
+      else {
+        var f = fold(ch);
+        out += (f && _SORT_BASE[f[0]]) ? _SORT_BASE[f[0]] : ch;
+      }
+    }
+    return out;
+  }
+
+  function cmpSort(a, b) {
+    var ka = sortKey(a.lx), kb = sortKey(b.lx);
+    return ka < kb ? -1 : ka > kb ? 1 : 0;
+  }
+
+  // Returns the collation "strip character" for the first letter of lx.
+  // ç stays 'ç' (fold() maps it to 'c', so we must special-case it).
+  // ð, æ, œ survive fold() unchanged, so no special case needed for them.
+  function stripChar(lx) {
+    if (!lx) return '';
+    var ch = lx[0].toLowerCase();
+    if (ch === 'ç') return 'ç';
+    return fold(ch)[0] || ch;
+  }
+
   function escapeHtml(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -142,6 +187,7 @@ var BorlishDictionary = (function () {
     for (var i = 0; i < dictionaryData.length; i++) {
       var entry = dictionaryData[i];
       entry._lxFold = fold(entry.lx);
+      entry._stripChar = stripChar(entry.lx);
       if (!lxLookup[entry._lxFold]) lxLookup[entry._lxFold] = entry;
       if (entry.ps) posSet[entry.ps] = true;
 
@@ -167,6 +213,42 @@ var BorlishDictionary = (function () {
     }
     englishKeys = Object.keys(englishIndex).sort();
     posList = Object.keys(posSet).sort();
+
+    // Auto-assign display homonym numbers for entries sharing lx without hm markers.
+    var byLx = {};
+    for (var ii = 0; ii < dictionaryData.length; ii++) {
+      var e = dictionaryData[ii];
+      if (!byLx[e.lx]) byLx[e.lx] = [];
+      byLx[e.lx].push(e);
+    }
+    for (var lxKey in byLx) {
+      var group = byLx[lxKey];
+      if (group.length <= 1) continue;
+      // Skip groups where every entry already has a hm value
+      var allHaveHm = true;
+      for (var gi = 0; gi < group.length; gi++) {
+        if (group[gi].hm == null) { allHaveHm = false; break; }
+      }
+      if (allHaveHm) continue;
+      // Collect hm values already in use
+      var usedHm = {};
+      for (var gi2 = 0; gi2 < group.length; gi2++) {
+        if (group[gi2].hm != null) usedHm[String(group[gi2].hm)] = true;
+      }
+      // Assign _displayHm: keep existing hm; fill gaps for those without
+      var nextNum = 1;
+      for (var gi3 = 0; gi3 < group.length; gi3++) {
+        var ge = group[gi3];
+        if (ge.hm != null) {
+          ge._displayHm = ge.hm;
+        } else {
+          while (usedHm[String(nextNum)]) nextNum++;
+          ge._displayHm = String(nextNum);
+          usedHm[String(nextNum)] = true;
+          nextNum++;
+        }
+      }
+    }
   }
 
   function buildPosFilter() {
@@ -186,11 +268,22 @@ var BorlishDictionary = (function () {
     if (!azStrip) return;
     var letters = {};
     for (var i = 0; i < dictionaryData.length; i++) {
-      var f = dictionaryData[i]._lxFold;
-      if (f) letters[f[0]] = true;
+      var sc = dictionaryData[i]._stripChar;
+      if (sc) letters[sc] = true;
     }
-    var sorted = Object.keys(letters).sort();
+    // Sort using the custom collation order
+    var sorted = Object.keys(letters).sort(function (a, b) {
+      var ka = sortKey(a), kb = sortKey(b);
+      return ka < kb ? -1 : ka > kb ? 1 : 0;
+    });
     azStrip.innerHTML = '';
+    // "All" reset button at start
+    var allBtn = document.createElement('button');
+    allBtn.className = 'az-all';
+    allBtn.type = 'button';
+    allBtn.textContent = 'All';
+    allBtn.title = 'Exit letter browse';
+    azStrip.appendChild(allBtn);
     for (var j = 0; j < sorted.length; j++) {
       var btn = document.createElement('button');
       btn.className = 'az-letter';
@@ -199,6 +292,17 @@ var BorlishDictionary = (function () {
       btn.textContent = sorted[j].toUpperCase();
       azStrip.appendChild(btn);
     }
+  }
+
+  function updateAzActive() {
+    if (!azStrip) return;
+    var buttons = azStrip.querySelectorAll('.az-letter');
+    for (var i = 0; i < buttons.length; i++) {
+      var active = buttons[i].getAttribute('data-letter') === currentBrowseLetter;
+      buttons[i].classList.toggle('az-active', active);
+    }
+    var allBtn = azStrip.querySelector('.az-all');
+    if (allBtn) allBtn.classList.toggle('az-active', !currentBrowseLetter);
   }
 
   function validateCrossRefs() {
@@ -285,6 +389,7 @@ var BorlishDictionary = (function () {
       searchInput.value = '';
       statusDiv.textContent = dictionaryData.length + ' entries.';
       resultsDiv.innerHTML = '';
+      updateAzActive();
     }
   }
 
@@ -304,6 +409,7 @@ var BorlishDictionary = (function () {
 
   function performSearch(query) {
     currentBrowseLetter = '';
+    updateAzActive();
     resultsDiv.innerHTML = '';
 
     if (!query || !query.trim()) {
@@ -342,7 +448,7 @@ var BorlishDictionary = (function () {
       if (r !== -1) matches.push({ entry: entry, rank: r });
     }
     matches.sort(function (a, b) {
-      return a.rank - b.rank || a.entry._lxFold.localeCompare(b.entry._lxFold);
+      return a.rank - b.rank || cmpSort(a.entry, b.entry);
     });
 
     if (matches.length === 0) {
@@ -409,17 +515,24 @@ var BorlishDictionary = (function () {
   }
 
   // ----- BROWSE -----
+  function exitBrowse() {
+    currentBrowseLetter = '';
+    resultsDiv.innerHTML = '';
+    statusDiv.textContent = dictionaryData.length + ' entries.';
+    writeHash();
+    updateAzActive();
+  }
+
   function renderBrowse(letter) {
     resultsDiv.innerHTML = '';
-    var lf = fold(letter);
     var matches = [];
     for (var i = 0; i < dictionaryData.length; i++) {
       var e = dictionaryData[i];
-      if (e._lxFold.indexOf(lf) !== 0) continue;
+      if (e._stripChar !== letter) continue;
       if (currentPos && e.ps !== currentPos) continue;
       matches.push(e);
     }
-    matches.sort(function (a, b) { return a._lxFold.localeCompare(b._lxFold); });
+    matches.sort(cmpSort);
     if (matches.length === 0) {
       statusDiv.textContent = 'No entries start with "' + letter.toUpperCase() + '".';
       writeHash();
@@ -432,6 +545,7 @@ var BorlishDictionary = (function () {
       appendShowMore(matches.slice(BORLISH_RESULT_CAP), '', false, false);
     }
     writeHash();
+    updateAzActive();
   }
 
   // ----- RENDER -----
@@ -500,7 +614,8 @@ var BorlishDictionary = (function () {
       var lxHtml = (currentMode === 'borlish' && qFold)
         ? highlight(entry.lx, qFold, lxMode)
         : escapeHtml(entry.lx);
-      var hmHtml = entry.hm ? '<span class="dict-hm">' + escapeHtml(entry.hm) + '</span>' : '';
+      var hm = (entry._displayHm !== undefined) ? entry._displayHm : entry.hm;
+      var hmHtml = hm ? '<span class="dict-hm">' + escapeHtml(hm) + '</span>' : '';
 
       var html =
         '<div class="dict-headword-line">'
@@ -639,12 +754,23 @@ var BorlishDictionary = (function () {
   }
   if (azStrip) {
     azStrip.addEventListener('click', function (e) {
+      // "All" reset button
+      if (e.target.closest && e.target.closest('.az-all')) {
+        exitBrowse();
+        return;
+      }
       var t = e.target.closest ? e.target.closest('.az-letter') : null;
       if (!t) return;
+      var letter = t.getAttribute('data-letter');
+      if (currentBrowseLetter === letter) {
+        // Clicking the active letter again exits browse
+        exitBrowse();
+        return;
+      }
       setMode('borlish');
       searchInput.value = '';
-      currentBrowseLetter = t.getAttribute('data-letter');
-      renderBrowse(currentBrowseLetter);
+      currentBrowseLetter = letter;
+      renderBrowse(letter);
     });
   }
   if (randomBtn) {
