@@ -563,7 +563,7 @@ var BorlishDictionary = (function () {
     var parts = [];
     for (var i = 0; i < entry._glossChips.length; i++) {
       var g = entry._glossChips[i];
-      var hl = (currentMode === 'english' && qFold) ? highlight(g, qFold, mode) : escapeHtml(g);
+      var hl = escapeHtml(g);
       parts.push('<a class="gloss-link" data-gloss="' + escapeHtml(g) + '" title="Search English for &quot;' + escapeHtml(g) + '&quot;">' + hl + '</a>');
     }
     return parts.join(', ');
@@ -611,9 +611,7 @@ var BorlishDictionary = (function () {
       var article = document.createElement('article');
       article.className = 'dict-entry';
 
-      var lxHtml = (currentMode === 'borlish' && qFold)
-        ? highlight(entry.lx, qFold, lxMode)
-        : escapeHtml(entry.lx);
+      var lxHtml = escapeHtml(entry.lx);
       var hm = (entry._displayHm !== undefined) ? entry._displayHm : entry.hm;
       var hmHtml = hm ? '<span class="dict-hm">' + escapeHtml(hm) + '</span>' : '';
 
@@ -674,7 +672,7 @@ var BorlishDictionary = (function () {
       var m = matches[i];
       var wrap = document.createElement('div');
       wrap.className = 'english-index-item';
-      var kwHtml = qFold ? highlight(m.display, qFold, mode) : escapeHtml(m.display);
+      var kwHtml = escapeHtml(m.display);
       var entries = englishIndex[m.key].entries;
       var refParts = [];
       for (var e = 0; e < entries.length; e++) {
