@@ -31,7 +31,9 @@ var BorlishDictionary = (function () {
     return (s == null ? '' : String(s))
       .normalize('NFD')
       .replace(DIACRITIC_RE, '')
-      .toLowerCase();
+      .toLowerCase()
+      .replace(/æ/g, 'ae')
+      .replace(/œ/g, 'oe');
   }
 
   // Fold a string while building a folded-index -> original-index map.
@@ -41,7 +43,8 @@ var BorlishDictionary = (function () {
     var map = [];
     for (var i = 0; i < s.length; i++) {
       var ch = s[i];
-      var f = ch.normalize('NFD').replace(DIACRITIC_RE, '').toLowerCase();
+      var f = ch.normalize('NFD').replace(DIACRITIC_RE, '').toLowerCase()
+        .replace(/æ/g, 'ae').replace(/œ/g, 'oe');
       for (var j = 0; j < f.length; j++) {
         folded.push(f[j]);
         map.push(i);
@@ -86,12 +89,15 @@ var BorlishDictionary = (function () {
   }
 
   // Returns the collation "strip character" for the first letter of lx.
-  // ç stays 'ç' (fold() maps it to 'c', so we must special-case it).
-  // ð, æ, œ survive fold() unchanged, so no special case needed for them.
+  // ç, æ, œ all need explicit guards: fold() maps ç→'c', æ→'ae', œ→'oe',
+  // which would lose them into the wrong A-Z bucket.
+  // ð folds to itself so no special case is needed for it.
   function stripChar(lx) {
     if (!lx) return '';
     var ch = lx[0].toLowerCase();
     if (ch === 'ç') return 'ç';
+    if (ch === 'æ') return 'æ';
+    if (ch === 'œ') return 'œ';
     return fold(ch)[0] || ch;
   }
 
