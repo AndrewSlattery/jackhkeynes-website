@@ -1,14 +1,14 @@
 ACROSS
- 7. DEA DET outside S_ = DEAD SET <bent>
- 9. <style> HAIRCUT = ↺CHAIR↺ U _T
+ 8. DEA DET outside S_ = DEAD SET <bent>
+10. <style> HAIRCUT = ↺CHAIR↺ U _T
 11. <formality> STATELINESS = (STATE LINES) + _S_
-12. <sign of victory> VEE = V _E _E
+12. DICE - D = ICE <diamonds>
 13. A_ I_ O_ L_ I_ = AIOLI <dip>
 14. <flip> GO BANANAS = ←BOG← + ANANAS
-16. <archipelago> SHETLAND ISLANDS = ((TIDAL-NESS)* outside _H_) LANDS
+16. <archipelago> SHETLAND ISLANDS = H inside TIDALNESS* LANDS
 18. G LANE outside DO outside ST = GLADSTONE <PM>
 20. ←SON ON← = NO-NOS <unacceptable behaviours>
-22. <bed> COT = CO[-o]T
+22. <each potter need this> CUE = CU _E
 23. <device for signalling> TRANSCEIVER = (SERVER CAN IT)*
 25. <amphibian> TADPOLE = TAD POLE
 26. INSUL[-t] IN = INSULIN <medication>
@@ -19,12 +19,12 @@ DOWN
  3. <played increasingly fast> STRINGENDO = STRING END O
  4. <archaic pronoun> THEE = THE + _E
  5. <kilted soldiers> PIGS IN BLANKETS = (SAS BELT PINK GIN)*
- 6. <people not believing> ATHEISTS = [-g]AT HEISTS
- 8. <expertise> SPECIALISATION = CIALIS inside (TO A PENIS)*
-10. COVE N = COVEN <charming company?>
+ 6. (ACT 1) ON = ACTION <battle>
+ 7. <people not believing> ATHEISTS = [-g]AT HEISTS
+ 9. <expertise> SPECIALISATION = CIALIS inside (TO A PENIS)*
 15. →"SOILER BOOT"← = BOILERSUIT <overalls>
 16. <wisdom> SAGACITY = SAGA C I T Y
 17. (TV ON LOAN)* = NANOVOLT <barely any potential>
-19. <performed> ACTED = AC TED
+19. <fixes> AMENDS = ADS outside MEN
 21. <maroon> STRAND <thread>
 24. <collude with> ABET = ABE T_

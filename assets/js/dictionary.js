@@ -11,6 +11,7 @@ var BorlishDictionary = (function () {
     'ar v': 'verb (-ar)',
     'ir1 v': 'verb (-ir, group 1)',
     'ir2 v': 'verb (-ir, group 2)',
+    'v rfl': 'reflexive verb',
     'adj': 'adjective',
     'adv': 'adverb',
     'prep': 'preposition',
@@ -23,6 +24,16 @@ var BorlishDictionary = (function () {
     'num': 'numeral',
     'question word': 'question word'
   };
+
+  // Split a ps field on commas so that "adj, prep" yields ['adj', 'prep'].
+  function psTokens(ps) {
+    if (!ps) return [];
+    return ps.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  function psMatchesFilter(ps, filter) {
+    return psTokens(ps).indexOf(filter) !== -1;
+  }
 
   // ----- HELPERS -----
   var DIACRITIC_RE = new RegExp('[\\u0300-\\u036f]', 'g');
@@ -189,7 +200,8 @@ var BorlishDictionary = (function () {
       entry._lxFold = fold(entry.lx);
       entry._stripChar = stripChar(entry.lx);
       if (!lxLookup[entry._lxFold]) lxLookup[entry._lxFold] = entry;
-      if (entry.ps) posSet[entry.ps] = true;
+      var pst = psTokens(entry.ps);
+      for (var pt = 0; pt < pst.length; pt++) posSet[pst[pt]] = true;
 
       var glosses;
       if (Array.isArray(entry.ge)) glosses = entry.ge;
@@ -347,7 +359,7 @@ var BorlishDictionary = (function () {
     return params;
   }
 
-  function writeHash() {
+  function writeHash(push) {
     var parts = [];
     if (currentMode && currentMode !== 'borlish') parts.push('mode=' + encodeURIComponent(currentMode));
     if (currentBrowseLetter) {
@@ -357,12 +369,11 @@ var BorlishDictionary = (function () {
     }
     if (currentPos) parts.push('pos=' + encodeURIComponent(currentPos));
     var hash = parts.length ? '#' + parts.join('&') : '';
+    var target = hash || (window.location.hash ? window.location.pathname + window.location.search : null);
+    if (!target) return;
     try {
-      if (hash) {
-        history.replaceState(null, '', hash);
-      } else if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
+      if (push) history.pushState(null, '', target);
+      else history.replaceState(null, '', target);
     } catch (e) { /* jsdom or restricted env */ }
   }
 
@@ -379,12 +390,12 @@ var BorlishDictionary = (function () {
     if (p.browse) {
       currentBrowseLetter = p.browse;
       searchInput.value = '';
-      renderBrowse(p.browse);
+      renderBrowse(p.browse, false);
       return;
     }
     if (p.q) {
       searchInput.value = p.q;
-      performSearch(p.q);
+      performSearch(p.q, false);
     } else {
       searchInput.value = '';
       statusDiv.textContent = dictionaryData.length + ' entries.';
@@ -407,14 +418,14 @@ var BorlishDictionary = (function () {
     return -1;
   }
 
-  function performSearch(query) {
+  function performSearch(query, push) {
     currentBrowseLetter = '';
     updateAzActive();
     resultsDiv.innerHTML = '';
 
     if (!query || !query.trim()) {
       statusDiv.textContent = 'Type to search...';
-      writeHash();
+      writeHash(push);
       return;
     }
 
@@ -425,7 +436,7 @@ var BorlishDictionary = (function () {
     if (strictEnd) q = q.substring(0, q.length - 1);
     var qFold = fold(q);
 
-    writeHash();
+    writeHash(push);
 
     if (!qFold) {
       statusDiv.textContent = 'Type to search...';
@@ -443,7 +454,7 @@ var BorlishDictionary = (function () {
     var matches = [];
     for (var i = 0; i < dictionaryData.length; i++) {
       var entry = dictionaryData[i];
-      if (currentPos && entry.ps !== currentPos) continue;
+      if (currentPos && !psMatchesFilter(entry.ps, currentPos)) continue;
       var r = rankMatch(entry._lxFold, qFold, strictStart, strictEnd);
       if (r !== -1) matches.push({ entry: entry, rank: r });
     }
@@ -476,7 +487,7 @@ var BorlishDictionary = (function () {
         var hasPosEntry = false;
         var es = englishIndex[key].entries;
         for (var j = 0; j < es.length; j++) {
-          if (es[j].ps === currentPos) { hasPosEntry = true; break; }
+          if (psMatchesFilter(es[j].ps, currentPos)) { hasPosEntry = true; break; }
         }
         if (!hasPosEntry) continue;
       }
@@ -519,23 +530,23 @@ var BorlishDictionary = (function () {
     currentBrowseLetter = '';
     resultsDiv.innerHTML = '';
     statusDiv.textContent = dictionaryData.length + ' entries.';
-    writeHash();
+    writeHash(true);
     updateAzActive();
   }
 
-  function renderBrowse(letter) {
+  function renderBrowse(letter, push) {
     resultsDiv.innerHTML = '';
     var matches = [];
     for (var i = 0; i < dictionaryData.length; i++) {
       var e = dictionaryData[i];
       if (e._stripChar !== letter) continue;
-      if (currentPos && e.ps !== currentPos) continue;
+      if (currentPos && !psMatchesFilter(e.ps, currentPos)) continue;
       matches.push(e);
     }
     matches.sort(cmpSort);
     if (matches.length === 0) {
       statusDiv.textContent = 'No entries start with "' + letter.toUpperCase() + '".';
-      writeHash();
+      writeHash(push);
       return;
     }
     statusDiv.textContent = 'Browsing ' + matches.length + ' entries starting with "' + letter.toUpperCase() + '".';
@@ -544,7 +555,7 @@ var BorlishDictionary = (function () {
     if (matches.length > BORLISH_RESULT_CAP) {
       appendShowMore(matches.slice(BORLISH_RESULT_CAP), '', false, false);
     }
-    writeHash();
+    writeHash(push);
     updateAzActive();
   }
 
@@ -704,7 +715,7 @@ var BorlishDictionary = (function () {
     var q = '"' + ref + '"';
     searchInput.value = q;
     currentBrowseLetter = '';
-    performSearch(q);
+    performSearch(q, true);
     window.scrollTo(0, 0);
   }
   function jumpToEnglish(gloss) {
@@ -712,21 +723,21 @@ var BorlishDictionary = (function () {
     var q = '"' + gloss + '"';
     searchInput.value = q;
     currentBrowseLetter = '';
-    performSearch(q);
+    performSearch(q, true);
     window.scrollTo(0, 0);
   }
 
   // ----- EVENT WIRING -----
   if (searchInput) {
     searchInput.addEventListener('input', function (e) {
-      performSearch(e.target.value);
+      performSearch(e.target.value, false);  // replaceState while typing
     });
   }
   if (clearBtn) {
     clearBtn.addEventListener('click', function () {
       searchInput.value = '';
       currentBrowseLetter = '';
-      performSearch('');
+      performSearch('', true);
       searchInput.focus();
     });
   }
@@ -735,7 +746,7 @@ var BorlishDictionary = (function () {
       radio.addEventListener('change', function (e) {
         currentMode = e.target.value;
         currentBrowseLetter = '';
-        performSearch(searchInput.value);
+        performSearch(searchInput.value, true);
       });
     });
   }
@@ -743,10 +754,9 @@ var BorlishDictionary = (function () {
     posFilter.addEventListener('change', function (e) {
       currentPos = e.target.value;
       if (currentBrowseLetter) {
-        renderBrowse(currentBrowseLetter);
+        renderBrowse(currentBrowseLetter, true);
       } else {
-        performSearch(searchInput.value);
-        writeHash();
+        performSearch(searchInput.value, true);
       }
     });
   }
@@ -768,7 +778,7 @@ var BorlishDictionary = (function () {
       setMode('borlish');
       searchInput.value = '';
       currentBrowseLetter = letter;
-      renderBrowse(letter);
+      renderBrowse(letter, true);
     });
   }
   if (randomBtn) {
