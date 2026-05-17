@@ -272,10 +272,11 @@ var BorlishDictionary = (function () {
     posFilter.innerHTML = '<option value="">All parts of speech</option>';
     for (var i = 0; i < posList.length; i++) {
       var ps = posList[i];
+      if (!PS_LABELS.hasOwnProperty(ps)) continue; // omit unrecognised / legacy values
       var opt = document.createElement('option');
       opt.value = ps;
-      var label = PS_LABELS[ps] || ps;
-      opt.textContent = label === ps ? ps : (label + ' (' + ps + ')');
+      var label = PS_LABELS[ps];
+      opt.textContent = label + ' (' + ps + ')';
       posFilter.appendChild(opt);
     }
   }
