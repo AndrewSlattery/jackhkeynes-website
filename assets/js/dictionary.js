@@ -7,27 +7,21 @@ var BorlishDictionary = (function () {
   var ENGLISH_RESULT_CAP = 80;
   var PS_LABELS = {
     'n': 'noun',
-    'v': 'verb',
-    'r v': 'regular verb',
-    'r v1': 'regular verb (first conjugation)',
-    'ar v': 'regular verb (-ar)',
-    '-ar v': 'regular verb (-ar)',
-    '-r v': 'regular verb (-r)',
-    'ir1 v': 'irregular verb (group 1)',
-    'ir2 v': 'irregular verb (group 2)',
+    'r v': 'verb (-r)',
+    'ar v': 'verb (-ar)',
+    'ir1 v': 'verb (-ir, group 1)',
+    'ir2 v': 'verb (-ir, group 2)',
     'adj': 'adjective',
     'adv': 'adverb',
     'prep': 'preposition',
     'conj': 'conjunction',
-    'conjugation': 'conjugation',
     'det': 'determiner',
     'exc': 'exclamation',
     'interj': 'interjection',
     'pron': 'pronoun',
     'article': 'article',
     'num': 'numeral',
-    'question word': 'question word',
-    'verb, -ir': 'verb (-ir)'
+    'question word': 'question word'
   };
 
   // ----- HELPERS -----
