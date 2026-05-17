@@ -276,7 +276,7 @@ var BorlishDictionary = (function () {
       var opt = document.createElement('option');
       opt.value = ps;
       var label = PS_LABELS[ps];
-      opt.textContent = label + ' (' + ps + ')';
+      opt.textContent = label;
       posFilter.appendChild(opt);
     }
   }
