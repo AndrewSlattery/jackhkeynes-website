@@ -25,10 +25,14 @@ var BorlishDictionary = (function () {
     'question word': 'question word'
   };
 
-  // Split a ps field on commas so that "adj, prep" yields ['adj', 'prep'].
+  // Normalise a ps field (string or array) into an array of trimmed tokens.
+  // Handles: "adj", "adj, prep", ["adj", "prep"], ["adj", "prep"].
   function psTokens(ps) {
     if (!ps) return [];
-    return ps.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+    if (Array.isArray(ps)) {
+      return ps.map(function (s) { return String(s).trim(); }).filter(Boolean);
+    }
+    return String(ps).split(',').map(function (s) { return s.trim(); }).filter(Boolean);
   }
 
   function psMatchesFilter(ps, filter) {
@@ -561,9 +565,11 @@ var BorlishDictionary = (function () {
 
   // ----- RENDER -----
   function psHtml(ps) {
-    if (!ps) return '';
-    var title = PS_LABELS[ps] || ps;
-    return '<span class="dict-ps" title="' + escapeHtml(title) + '">' + escapeHtml(ps) + '</span>';
+    var tokens = psTokens(ps);
+    if (!tokens.length) return '';
+    var display = tokens.join(', ');
+    var title = tokens.map(function (t) { return PS_LABELS[t] || t; }).join(', ');
+    return '<span class="dict-ps" title="' + escapeHtml(title) + '">' + escapeHtml(display) + '</span>';
   }
 
   function glossesHtml(entry, qFold, strictStart, strictEnd) {
@@ -688,9 +694,10 @@ var BorlishDictionary = (function () {
       var refParts = [];
       for (var e = 0; e < entries.length; e++) {
         var ent = entries[e];
-        if (currentPos && ent.ps !== currentPos) continue;
+        if (currentPos && !psMatchesFilter(ent.ps, currentPos)) continue;
         var hm = ent.hm ? ' <sup>' + escapeHtml(ent.hm) + '</sup>' : '';
-        var ps = ent.ps ? ' <span class="ref-ps">(' + escapeHtml(ent.ps) + ')</span>' : '';
+        var psToks = psTokens(ent.ps);
+        var ps = psToks.length ? ' <span class="ref-ps">(' + escapeHtml(psToks.join(', ')) + ')</span>' : '';
         refParts.push(
           '<a class="mn-link" data-ref="' + escapeHtml(ent.lx) + '">'
             + escapeHtml(ent.lx) + hm
