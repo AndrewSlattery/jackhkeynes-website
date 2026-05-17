@@ -228,7 +228,11 @@ var BorlishDictionary = (function () {
       }
     }
     englishKeys = Object.keys(englishIndex).sort();
-    posList = Object.keys(posSet).sort();
+    posList = Object.keys(posSet).sort(function (a, b) {
+      var la = PS_LABELS[a] || a;
+      var lb = PS_LABELS[b] || b;
+      return la < lb ? -1 : la > lb ? 1 : 0;
+    });
 
     // Auto-assign display homonym numbers for entries sharing lx without hm markers.
     var byLx = {};
