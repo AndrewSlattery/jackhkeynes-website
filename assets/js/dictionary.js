@@ -1,330 +1,690 @@
-// Borlish dictionary — search, render, and navigation logic
+// Borlish dictionary - search, render, and navigation logic
 var BorlishDictionary = (function () {
-  // STATE
-  var dictionaryData = [];
-  var englishIndex = {};
-  var englishKeys = [];
-  var currentMode = 'borlish';
+  'use strict';
 
-  // DOM ELEMENTS
+  // ----- CONFIG -----
+  var BORLISH_RESULT_CAP = 100;
+  var ENGLISH_RESULT_CAP = 80;
+  var PS_LABELS = {
+    'n': 'noun',
+    'v': 'verb',
+    'r v': 'regular verb',
+    'r v1': 'regular verb (first conjugation)',
+    'ar v': 'regular verb (-ar)',
+    '-ar v': 'regular verb (-ar)',
+    '-r v': 'regular verb (-r)',
+    'ir1 v': 'irregular verb (group 1)',
+    'ir2 v': 'irregular verb (group 2)',
+    'adj': 'adjective',
+    'adv': 'adverb',
+    'prep': 'preposition',
+    'conj': 'conjunction',
+    'conjugation': 'conjugation',
+    'det': 'determiner',
+    'exc': 'exclamation',
+    'interj': 'interjection',
+    'pron': 'pronoun',
+    'article': 'article',
+    'num': 'numeral',
+    'question word': 'question word',
+    'verb, -ir': 'verb (-ir)'
+  };
+
+  // ----- HELPERS -----
+  var DIACRITIC_RE = new RegExp('[\\u0300-\\u036f]', 'g');
+
+  function fold(s) {
+    return (s == null ? '' : String(s))
+      .normalize('NFD')
+      .replace(DIACRITIC_RE, '')
+      .toLowerCase();
+  }
+
+  // Fold a string while building a folded-index -> original-index map.
+  // Lets us highlight diacritic-insensitive matches in the original string.
+  function foldWithMap(s) {
+    var folded = [];
+    var map = [];
+    for (var i = 0; i < s.length; i++) {
+      var ch = s[i];
+      var f = ch.normalize('NFD').replace(DIACRITIC_RE, '').toLowerCase();
+      for (var j = 0; j < f.length; j++) {
+        folded.push(f[j]);
+        map.push(i);
+      }
+    }
+    return { folded: folded.join(''), map: map };
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function highlight(orig, qFold, mode) {
+    if (!orig) return '';
+    if (!qFold) return escapeHtml(orig);
+    var fm = foldWithMap(orig);
+    var idx = -1;
+    if (mode === 'exact') {
+      if (fm.folded === qFold) return '<mark>' + escapeHtml(orig) + '</mark>';
+      return escapeHtml(orig);
+    } else if (mode === 'prefix') {
+      idx = fm.folded.indexOf(qFold) === 0 ? 0 : -1;
+    } else if (mode === 'suffix') {
+      idx = fm.folded.length >= qFold.length
+        && fm.folded.lastIndexOf(qFold) === fm.folded.length - qFold.length
+        ? fm.folded.length - qFold.length : -1;
+    } else {
+      idx = fm.folded.indexOf(qFold);
+    }
+    if (idx === -1) return escapeHtml(orig);
+    var startOrig = fm.map[idx];
+    var endOrig;
+    if (idx + qFold.length >= fm.map.length) {
+      endOrig = orig.length;
+    } else {
+      endOrig = fm.map[idx + qFold.length];
+    }
+    return escapeHtml(orig.slice(0, startOrig))
+      + '<mark>' + escapeHtml(orig.slice(startOrig, endOrig)) + '</mark>'
+      + escapeHtml(orig.slice(endOrig));
+  }
+
+  // ----- STATE -----
+  var dictionaryData = [];
+  var englishIndex = {};      // foldedKey -> { display, entries: [] }
+  var englishKeys = [];       // sorted folded keys
+  var lxLookup = {};          // foldedLx -> first entry with that headword
+  var posList = [];           // unique parts of speech (sorted)
+  var currentMode = 'borlish';
+  var currentPos = '';
+  var currentBrowseLetter = '';
+
+  // ----- DOM -----
+  var container = document.getElementById('borlish-dictionary');
   var searchInput = document.getElementById('dict-search');
   var resultsDiv = document.getElementById('dict-results');
   var statusDiv = document.getElementById('dict-status');
   var modeRadios = document.querySelectorAll('input[name="dict-mode"]');
   var clearBtn = document.getElementById('clear-search');
+  var posFilter = document.getElementById('dict-pos-filter');
+  var azStrip = document.getElementById('dict-az-strip');
+  var randomBtn = document.getElementById('dict-random');
 
-  // Read fetch URL from data attribute on the container
-  var container = document.getElementById('borlish-dictionary');
-  var fetchUrl = container ? container.getAttribute('data-fetch-url') : '/assets/boralverse/borlish-dictionary.json';
+  var fetchUrl = container
+    ? container.getAttribute('data-fetch-url')
+    : '/assets/boralverse/borlish-dictionary.json';
 
-  // 1. INITIALIZATION
+  // ----- INIT -----
   async function init() {
     try {
       var response = await fetch(fetchUrl);
       if (!response.ok) throw new Error('HTTP error! status: ' + response.status);
       dictionaryData = await response.json();
-
-      buildEnglishIndex();
-
-      if (window.location.hash) {
-        var query = decodeURIComponent(window.location.hash.substring(1));
-        searchInput.value = query;
-        performSearch(query);
-      } else {
-        // Show nothing initially for a clean look
-        statusDiv.textContent = dictionaryData.length + ' entries.';
-      }
-
+      buildIndices();
+      buildPosFilter();
+      buildAzStrip();
+      validateCrossRefs();
+      applyStateFromHash(true);
     } catch (e) {
       statusDiv.textContent = 'Error loading dictionary: ' + e.message;
       console.error(e);
     }
   }
 
-  // 2. INDEXING
-  function buildEnglishIndex() {
-    dictionaryData.forEach(function (entry) {
-      var glosses = [];
-      if (Array.isArray(entry.ge)) {
-        glosses = entry.ge;
-      } else if (typeof entry.ge === 'string') {
-        glosses = [entry.ge];
+  // ----- INDEXING -----
+  function buildIndices() {
+    englishIndex = {};
+    lxLookup = {};
+    var posSet = {};
+    for (var i = 0; i < dictionaryData.length; i++) {
+      var entry = dictionaryData[i];
+      entry._lxFold = fold(entry.lx);
+      if (!lxLookup[entry._lxFold]) lxLookup[entry._lxFold] = entry;
+      if (entry.ps) posSet[entry.ps] = true;
+
+      var glosses;
+      if (Array.isArray(entry.ge)) glosses = entry.ge;
+      else if (typeof entry.ge === 'string') glosses = [entry.ge];
+      else glosses = [];
+
+      entry._glossChips = [];
+      for (var g = 0; g < glosses.length; g++) {
+        var parts = glosses[g].split(/[,;]/);
+        for (var p = 0; p < parts.length; p++) {
+          var part = parts[p].trim();
+          if (!part) continue;
+          if (entry._glossChips.indexOf(part) === -1) entry._glossChips.push(part);
+          var k = fold(part);
+          if (!englishIndex[k]) englishIndex[k] = { display: part, entries: [] };
+          if (englishIndex[k].entries.indexOf(entry) === -1) {
+            englishIndex[k].entries.push(entry);
+          }
+        }
       }
-
-      glosses.forEach(function (gloss) {
-        var keywords = gloss.split(/[,;]/).map(function (s) { return s.trim().toLowerCase(); });
-        keywords.forEach(function (word) {
-          if (!word) return;
-          if (!englishIndex[word]) englishIndex[word] = [];
-          englishIndex[word].push(entry);
-        });
-      });
-    });
-
+    }
     englishKeys = Object.keys(englishIndex).sort();
+    posList = Object.keys(posSet).sort();
   }
 
-  // 3. SEARCH
-  function performSearch(query) {
-    resultsDiv.innerHTML = '';
-    var q = query.toLowerCase().trim();
+  function buildPosFilter() {
+    if (!posFilter) return;
+    posFilter.innerHTML = '<option value="">All parts of speech</option>';
+    for (var i = 0; i < posList.length; i++) {
+      var ps = posList[i];
+      var opt = document.createElement('option');
+      opt.value = ps;
+      var label = PS_LABELS[ps] || ps;
+      opt.textContent = label === ps ? ps : (label + ' (' + ps + ')');
+      posFilter.appendChild(opt);
+    }
+  }
 
-    if (!q) {
-      statusDiv.textContent = "Type to search...";
+  function buildAzStrip() {
+    if (!azStrip) return;
+    var letters = {};
+    for (var i = 0; i < dictionaryData.length; i++) {
+      var f = dictionaryData[i]._lxFold;
+      if (f) letters[f[0]] = true;
+    }
+    var sorted = Object.keys(letters).sort();
+    azStrip.innerHTML = '';
+    for (var j = 0; j < sorted.length; j++) {
+      var btn = document.createElement('button');
+      btn.className = 'az-letter';
+      btn.type = 'button';
+      btn.setAttribute('data-letter', sorted[j]);
+      btn.textContent = sorted[j].toUpperCase();
+      azStrip.appendChild(btn);
+    }
+  }
+
+  function validateCrossRefs() {
+    var seen = {};
+    var dead = 0;
+    for (var i = 0; i < dictionaryData.length; i++) {
+      var entry = dictionaryData[i];
+      if (!entry.mn) continue;
+      var refs = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
+      for (var r = 0; r < refs.length; r++) {
+        var ref = refs[r];
+        if (seen[ref]) continue;
+        seen[ref] = true;
+        if (!lxLookup[fold(ref)]) {
+          dead++;
+          console.warn('[dictionary] dead cross-ref "' + ref + '" (referenced from "' + entry.lx + '")');
+        }
+      }
+    }
+    if (dead > 0) console.warn('[dictionary] ' + dead + ' dead cross-ref(s) total');
+  }
+
+  // ----- HASH STATE -----
+  function parseHash() {
+    var raw = window.location.hash.replace(/^#/, '');
+    if (!raw) return {};
+    // Legacy: hash without '=' is a plain Borlish query
+    if (raw.indexOf('=') === -1) {
+      try { return { mode: 'borlish', q: decodeURIComponent(raw) }; }
+      catch (e) { return { mode: 'borlish', q: raw }; }
+    }
+    var params = {};
+    var pairs = raw.split('&');
+    for (var i = 0; i < pairs.length; i++) {
+      var eq = pairs[i].indexOf('=');
+      var k = eq === -1 ? pairs[i] : pairs[i].slice(0, eq);
+      var v = eq === -1 ? '' : pairs[i].slice(eq + 1);
+      if (!k) continue;
+      try { params[k] = decodeURIComponent(v.replace(/\+/g, ' ')); }
+      catch (e) { params[k] = v; }
+    }
+    return params;
+  }
+
+  function writeHash() {
+    var parts = [];
+    if (currentMode && currentMode !== 'borlish') parts.push('mode=' + encodeURIComponent(currentMode));
+    if (currentBrowseLetter) {
+      parts.push('browse=' + encodeURIComponent(currentBrowseLetter));
+    } else if (searchInput && searchInput.value) {
+      parts.push('q=' + encodeURIComponent(searchInput.value));
+    }
+    if (currentPos) parts.push('pos=' + encodeURIComponent(currentPos));
+    var hash = parts.length ? '#' + parts.join('&') : '';
+    try {
+      if (hash) {
+        history.replaceState(null, '', hash);
+      } else if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    } catch (e) { /* jsdom or restricted env */ }
+  }
+
+  function applyStateFromHash(updateMode) {
+    var p = parseHash();
+    if (updateMode && p.mode) {
+      currentMode = p.mode;
+      var radio = document.querySelector('input[name="dict-mode"][value="' + p.mode + '"]');
+      if (radio) radio.checked = true;
+    }
+    currentPos = p.pos || '';
+    if (posFilter) posFilter.value = currentPos;
+    currentBrowseLetter = '';
+    if (p.browse) {
+      currentBrowseLetter = p.browse;
+      searchInput.value = '';
+      renderBrowse(p.browse);
+      return;
+    }
+    if (p.q) {
+      searchInput.value = p.q;
+      performSearch(p.q);
+    } else {
+      searchInput.value = '';
+      statusDiv.textContent = dictionaryData.length + ' entries.';
+      resultsDiv.innerHTML = '';
+    }
+  }
+
+  // ----- SEARCH -----
+  function rankMatch(haystackFold, qFold, strictStart, strictEnd) {
+    if (strictStart && strictEnd) return haystackFold === qFold ? 0 : -1;
+    if (strictStart) return haystackFold.indexOf(qFold) === 0 ? 0 : -1;
+    if (strictEnd) {
+      var n = haystackFold.length - qFold.length;
+      return n >= 0 && haystackFold.indexOf(qFold, n) === n ? 0 : -1;
+    }
+    if (haystackFold === qFold) return 0;
+    if (haystackFold.indexOf(qFold) === 0) return 1;
+    if (haystackFold.indexOf(qFold) !== -1) return 2;
+    return -1;
+  }
+
+  function performSearch(query) {
+    currentBrowseLetter = '';
+    resultsDiv.innerHTML = '';
+
+    if (!query || !query.trim()) {
+      statusDiv.textContent = 'Type to search...';
+      writeHash();
       return;
     }
 
-    // --- Strict Match Logic ---
-    var strictStart = q.startsWith('"');
-    var strictEnd = q.endsWith('"');
-
+    var q = query.trim();
+    var strictStart = q.charAt(0) === '"';
+    var strictEnd = q.length > 1 && q.charAt(q.length - 1) === '"';
     if (strictStart) q = q.substring(1);
-    if (strictEnd && q.length > 0) q = q.substring(0, q.length - 1);
+    if (strictEnd) q = q.substring(0, q.length - 1);
+    var qFold = fold(q);
 
-    history.replaceState(null, null, '#' + query);
+    writeHash();
+
+    if (!qFold) {
+      statusDiv.textContent = 'Type to search...';
+      return;
+    }
 
     if (currentMode === 'borlish') {
-      var matches = dictionaryData.filter(function (entry) {
-        var term = entry.lx.toLowerCase();
-
-        if (strictStart && strictEnd) return term === q;
-        if (strictStart) return term.startsWith(q);
-        if (strictEnd) return term.endsWith(q);
-        return term.includes(q);
-      });
-
-      if (matches.length === 0) {
-        statusDiv.textContent = 'No matches found.';
-      } else {
-        var noun = matches.length === 1 ? 'match' : 'matches';
-        statusDiv.textContent = 'Found ' + matches.length + ' ' + noun + '.';
-        renderEntries(matches);
-      }
-
+      searchBorlish(qFold, strictStart, strictEnd);
     } else {
-      var enMatches = englishKeys.filter(function (enWord) {
-        if (strictStart && strictEnd) return enWord === q;
-        if (strictStart) return enWord.startsWith(q);
-        if (strictEnd) return enWord.endsWith(q);
-        return enWord.includes(q);
-      });
-
-      if (enMatches.length === 0) {
-        statusDiv.textContent = 'No English matches found.';
-      } else {
-        var enNoun = enMatches.length === 1 ? 'English term' : 'English terms';
-        statusDiv.textContent = 'Found ' + enMatches.length + ' ' + enNoun + '.';
-        renderEnglishResults(enMatches);
-      }
+      searchEnglish(qFold, strictStart, strictEnd);
     }
   }
 
-  // 4. RENDERING
-  function renderEntries(entries) {
-    var fragment = document.createDocumentFragment();
-    entries.forEach(function (entry) {
-      var el = document.createElement('div');
-      el.className = 'dict-entry';
-
-      // 1. Headword Line
-      var headwordLine = document.createElement('div');
-      headwordLine.className = 'dict-headword-line';
-
-      var lxSpan = document.createElement('span');
-      lxSpan.className = 'dict-lx';
-      lxSpan.textContent = entry.lx;
-      headwordLine.appendChild(lxSpan);
-
-      if (entry.hm) {
-        var hmSpan = document.createElement('span');
-        hmSpan.className = 'dict-hm';
-        hmSpan.textContent = entry.hm;
-        headwordLine.appendChild(hmSpan);
-      }
-
-      var psSpan = document.createElement('span');
-      psSpan.className = 'dict-ps';
-      psSpan.textContent = entry.ps || '';
-      headwordLine.appendChild(psSpan);
-
-      el.appendChild(headwordLine);
-
-      // 2. Glosses
-      var geDiv = document.createElement('div');
-      geDiv.className = 'dict-ge';
-      var glossText = Array.isArray(entry.ge) ? entry.ge.join(', ') : entry.ge;
-      geDiv.textContent = glossText;
-      el.appendChild(geDiv);
-
-      // 3. Etymology
-      if (entry.et) {
-        var etDiv = document.createElement('div');
-        etDiv.className = 'dict-meta';
-
-        var etLabel = document.createElement('span');
-        etLabel.className = 'dict-label';
-        etLabel.textContent = 'Etymology:';
-        etDiv.appendChild(etLabel);
-
-        etDiv.appendChild(document.createTextNode(' ' + entry.et));
-        el.appendChild(etDiv);
-      }
-
-      // 4. See Also (mn)
-      if (entry.mn) {
-        var mnDiv = document.createElement('div');
-        mnDiv.className = 'dict-meta';
-
-        var mnLabel = document.createElement('span');
-        mnLabel.className = 'dict-label';
-        mnLabel.textContent = 'See also:';
-        mnDiv.appendChild(mnLabel);
-        mnDiv.appendChild(document.createTextNode(' '));
-
-        var mnArr = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
-        mnArr.forEach(function (ref, index) {
-          if (index > 0) {
-            mnDiv.appendChild(document.createTextNode(', '));
-          }
-          var link = document.createElement('a');
-          link.href = '#%22' + ref + '%22';
-          link.className = 'mn-link';
-          link.setAttribute('data-ref', ref);
-          link.textContent = ref;
-          mnDiv.appendChild(link);
-        });
-        el.appendChild(mnDiv);
-      }
-
-      // 5. Examples
-      if (entry.examples && entry.examples.length > 0) {
-        var exDiv = document.createElement('div');
-        exDiv.className = 'dict-meta';
-
-        var exLabel = document.createElement('span');
-        exLabel.className = 'dict-label';
-        exLabel.textContent = 'Examples:';
-        exDiv.appendChild(exLabel);
-
-        entry.examples.forEach(function (ex) {
-          var exampleDiv = document.createElement('div');
-          exampleDiv.className = 'dict-example';
-
-          var vernSpan = document.createElement('span');
-          vernSpan.className = 'dict-vernacular';
-          vernSpan.textContent = ex.vernacular;
-
-          var transSpan = document.createElement('span');
-          transSpan.className = 'dict-translation';
-          transSpan.textContent = '"' + ex.english + '"';
-
-          exampleDiv.appendChild(vernSpan);
-          exampleDiv.appendChild(document.createTextNode(' '));
-          exampleDiv.appendChild(transSpan);
-          exDiv.appendChild(exampleDiv);
-        });
-        el.appendChild(exDiv);
-      }
-
-      fragment.appendChild(el);
+  function searchBorlish(qFold, strictStart, strictEnd) {
+    var matches = [];
+    for (var i = 0; i < dictionaryData.length; i++) {
+      var entry = dictionaryData[i];
+      if (currentPos && entry.ps !== currentPos) continue;
+      var r = rankMatch(entry._lxFold, qFold, strictStart, strictEnd);
+      if (r !== -1) matches.push({ entry: entry, rank: r });
+    }
+    matches.sort(function (a, b) {
+      return a.rank - b.rank || a.entry._lxFold.localeCompare(b.entry._lxFold);
     });
-    resultsDiv.appendChild(fragment);
+
+    if (matches.length === 0) {
+      statusDiv.textContent = 'No matches found.';
+      return;
+    }
+    var noun = matches.length === 1 ? 'match' : 'matches';
+    statusDiv.textContent = 'Found ' + matches.length + ' ' + noun + '.';
+
+    var visible = matches.slice(0, BORLISH_RESULT_CAP).map(function (m) { return m.entry; });
+    renderEntries(visible, qFold, strictStart, strictEnd);
+    if (matches.length > BORLISH_RESULT_CAP) {
+      appendShowMore(matches.slice(BORLISH_RESULT_CAP).map(function (m) { return m.entry; }),
+        qFold, strictStart, strictEnd);
+    }
   }
 
-  function renderEnglishResults(englishWords) {
-    var limit = 50;
-    var list = englishWords.slice(0, limit);
-    var fragment = document.createDocumentFragment();
-
-    list.forEach(function (word) {
-      var containerEl = document.createElement('div');
-      containerEl.className = 'english-index-item';
-
-      var header = document.createElement('div');
-      header.className = 'english-keyword';
-      header.textContent = word;
-
-      var refsDiv = document.createElement('div');
-      refsDiv.className = 'english-refs';
-
-      var entries = englishIndex[word];
-      entries.forEach(function (entry) {
-        var link = document.createElement('a');
-        link.href = '#%22' + entry.lx + '%22';
-        link.className = 'mn-link';
-        link.style.marginRight = '15px';
-        link.textContent = entry.lx + (entry.hm ? ' ' + entry.hm : '');
-        link.setAttribute('data-ref', entry.lx);
-        refsDiv.appendChild(link);
-      });
-
-      containerEl.appendChild(header);
-      containerEl.appendChild(refsDiv);
-      fragment.appendChild(containerEl);
+  function searchEnglish(qFold, strictStart, strictEnd) {
+    var matches = [];
+    for (var i = 0; i < englishKeys.length; i++) {
+      var key = englishKeys[i];
+      var r = rankMatch(key, qFold, strictStart, strictEnd);
+      if (r === -1) continue;
+      if (currentPos) {
+        var hasPosEntry = false;
+        var es = englishIndex[key].entries;
+        for (var j = 0; j < es.length; j++) {
+          if (es[j].ps === currentPos) { hasPosEntry = true; break; }
+        }
+        if (!hasPosEntry) continue;
+      }
+      matches.push({ key: key, display: englishIndex[key].display, rank: r });
+    }
+    matches.sort(function (a, b) {
+      return a.rank - b.rank || a.key.localeCompare(b.key);
     });
 
-    resultsDiv.appendChild(fragment);
+    if (matches.length === 0) {
+      statusDiv.textContent = 'No English matches found.';
+      return;
+    }
+    var noun = matches.length === 1 ? 'English term' : 'English terms';
+    statusDiv.textContent = 'Found ' + matches.length + ' ' + noun + '.';
 
-    if (englishWords.length > limit) {
+    renderEnglishResults(matches.slice(0, ENGLISH_RESULT_CAP), qFold, strictStart, strictEnd);
+    if (matches.length > ENGLISH_RESULT_CAP) {
       var more = document.createElement('div');
-      more.style.color = '#828282';
-      more.style.fontStyle = 'italic';
-      more.style.marginTop = '10px';
-      more.textContent = '...and ' + (englishWords.length - limit) + ' more.';
+      more.className = 'dict-more-note';
+      more.textContent = '…and ' + (matches.length - ENGLISH_RESULT_CAP) + ' more.';
       resultsDiv.appendChild(more);
     }
   }
 
-  // 5. EVENT LISTENERS
-  searchInput.addEventListener('input', function (e) {
-    performSearch(e.target.value);
-  });
-
-  clearBtn.addEventListener('click', function () {
-    searchInput.value = '';
-    performSearch('');
-    searchInput.focus();
-  });
-
-  modeRadios.forEach(function (radio) {
-    radio.addEventListener('change', function (e) {
-      currentMode = e.target.value;
-      performSearch(searchInput.value);
+  function appendShowMore(remainingEntries, qFold, strictStart, strictEnd) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'dict-show-more';
+    btn.textContent = 'Show ' + remainingEntries.length + ' more';
+    btn.addEventListener('click', function () {
+      btn.remove();
+      renderEntries(remainingEntries, qFold, strictStart, strictEnd);
     });
-  });
+    resultsDiv.appendChild(btn);
+  }
 
-  resultsDiv.addEventListener('click', function (e) {
-    if (e.target.classList.contains('mn-link')) {
-      e.preventDefault();
-      var ref = e.target.getAttribute('data-ref');
+  // ----- BROWSE -----
+  function renderBrowse(letter) {
+    resultsDiv.innerHTML = '';
+    var lf = fold(letter);
+    var matches = [];
+    for (var i = 0; i < dictionaryData.length; i++) {
+      var e = dictionaryData[i];
+      if (e._lxFold.indexOf(lf) !== 0) continue;
+      if (currentPos && e.ps !== currentPos) continue;
+      matches.push(e);
+    }
+    matches.sort(function (a, b) { return a._lxFold.localeCompare(b._lxFold); });
+    if (matches.length === 0) {
+      statusDiv.textContent = 'No entries start with "' + letter.toUpperCase() + '".';
+      writeHash();
+      return;
+    }
+    statusDiv.textContent = 'Browsing ' + matches.length + ' entries starting with "' + letter.toUpperCase() + '".';
+    var visible = matches.slice(0, BORLISH_RESULT_CAP);
+    renderEntries(visible, '', false, false);
+    if (matches.length > BORLISH_RESULT_CAP) {
+      appendShowMore(matches.slice(BORLISH_RESULT_CAP), '', false, false);
+    }
+    writeHash();
+  }
 
-      if (currentMode === 'english') {
-        document.querySelector('input[value="borlish"]').click();
+  // ----- RENDER -----
+  function psHtml(ps) {
+    if (!ps) return '';
+    var title = PS_LABELS[ps] || ps;
+    return '<span class="dict-ps" title="' + escapeHtml(title) + '">' + escapeHtml(ps) + '</span>';
+  }
+
+  function glossesHtml(entry, qFold, strictStart, strictEnd) {
+    if (!entry._glossChips || entry._glossChips.length === 0) return '';
+    var mode = (currentMode === 'english')
+      ? (strictStart && strictEnd ? 'exact' : (strictStart ? 'prefix' : (strictEnd ? 'suffix' : 'contains')))
+      : 'contains';
+    var parts = [];
+    for (var i = 0; i < entry._glossChips.length; i++) {
+      var g = entry._glossChips[i];
+      var hl = (currentMode === 'english' && qFold) ? highlight(g, qFold, mode) : escapeHtml(g);
+      parts.push('<a class="gloss-link" data-gloss="' + escapeHtml(g) + '" title="Search English for &quot;' + escapeHtml(g) + '&quot;">' + hl + '</a>');
+    }
+    return parts.join(', ');
+  }
+
+  function tokeniseAndLink(text) {
+    if (!text) return '';
+    var out = [];
+    var buf = '';
+    var wordRe;
+    try { wordRe = new RegExp("[\\p{L}'-]", 'u'); }
+    catch (e) { wordRe = /[A-Za-z'\-À-ɏ]/; }
+
+    function flush() {
+      if (!buf) return;
+      var k = fold(buf);
+      if (lxLookup[k]) {
+        out.push('<a class="ex-link" data-ref="' + escapeHtml(lxLookup[k].lx) + '">' + escapeHtml(buf) + '</a>');
+      } else {
+        out.push(escapeHtml(buf));
+      }
+      buf = '';
+    }
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i];
+      if (wordRe.test(ch)) {
+        buf += ch;
+      } else {
+        flush();
+        out.push(escapeHtml(ch));
+      }
+    }
+    flush();
+    return out.join('');
+  }
+
+  function renderEntries(entries, qFold, strictStart, strictEnd) {
+    var frag = document.createDocumentFragment();
+    var lxMode = (strictStart && strictEnd) ? 'exact'
+      : strictStart ? 'prefix'
+      : strictEnd ? 'suffix'
+      : 'contains';
+    for (var i = 0; i < entries.length; i++) {
+      var entry = entries[i];
+      var article = document.createElement('article');
+      article.className = 'dict-entry';
+
+      var lxHtml = (currentMode === 'borlish' && qFold)
+        ? highlight(entry.lx, qFold, lxMode)
+        : escapeHtml(entry.lx);
+      var hmHtml = entry.hm ? '<span class="dict-hm">' + escapeHtml(entry.hm) + '</span>' : '';
+
+      var html =
+        '<div class="dict-headword-line">'
+          + '<span class="dict-lx">' + lxHtml + '</span>'
+          + hmHtml
+          + psHtml(entry.ps)
+        + '</div>'
+        + '<div class="dict-ge">' + glossesHtml(entry, qFold, strictStart, strictEnd) + '</div>';
+
+      if (entry.et) {
+        html += '<div class="dict-meta"><span class="dict-label">Etymology:</span> '
+          + escapeHtml(entry.et) + '</div>';
       }
 
-      // Manually add quotes for same-tab clicks
-      var exactQuery = '"' + ref + '"';
-      searchInput.value = exactQuery;
-      performSearch(exactQuery);
+      if (entry.mn) {
+        var refs = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
+        var linkParts = [];
+        for (var r = 0; r < refs.length; r++) {
+          var ref = refs[r];
+          var deadRef = !lxLookup[fold(ref)];
+          var cls = 'mn-link' + (deadRef ? ' mn-dead' : '');
+          linkParts.push(
+            '<a class="' + cls + '" data-ref="' + escapeHtml(ref) + '"'
+            + (deadRef ? ' title="No entry found for this cross-reference"' : '')
+            + '>' + escapeHtml(ref) + '</a>'
+          );
+        }
+        html += '<div class="dict-meta"><span class="dict-label">See also:</span> ' + linkParts.join(', ') + '</div>';
+      }
 
-      window.scrollTo(0, 0);
+      if (entry.examples && entry.examples.length) {
+        html += '<div class="dict-meta"><span class="dict-label">Examples:</span>';
+        for (var ex = 0; ex < entry.examples.length; ex++) {
+          var e = entry.examples[ex];
+          html += '<div class="dict-example">'
+            + '<span class="dict-vernacular">' + tokeniseAndLink(e.vernacular) + '</span> '
+            + '<span class="dict-translation">"' + escapeHtml(e.english) + '"</span>'
+            + '</div>';
+        }
+        html += '</div>';
+      }
+
+      article.innerHTML = html;
+      frag.appendChild(article);
     }
-  });
+    resultsDiv.appendChild(frag);
+  }
 
+  function renderEnglishResults(matches, qFold, strictStart, strictEnd) {
+    var frag = document.createDocumentFragment();
+    var mode = (strictStart && strictEnd) ? 'exact'
+      : strictStart ? 'prefix'
+      : strictEnd ? 'suffix'
+      : 'contains';
+    for (var i = 0; i < matches.length; i++) {
+      var m = matches[i];
+      var wrap = document.createElement('div');
+      wrap.className = 'english-index-item';
+      var kwHtml = qFold ? highlight(m.display, qFold, mode) : escapeHtml(m.display);
+      var entries = englishIndex[m.key].entries;
+      var refParts = [];
+      for (var e = 0; e < entries.length; e++) {
+        var ent = entries[e];
+        if (currentPos && ent.ps !== currentPos) continue;
+        var hm = ent.hm ? ' <sup>' + escapeHtml(ent.hm) + '</sup>' : '';
+        var ps = ent.ps ? ' <span class="ref-ps">(' + escapeHtml(ent.ps) + ')</span>' : '';
+        refParts.push(
+          '<a class="mn-link" data-ref="' + escapeHtml(ent.lx) + '">'
+            + escapeHtml(ent.lx) + hm
+          + '</a>' + ps
+        );
+      }
+      wrap.innerHTML = '<div class="english-keyword">' + kwHtml + '</div>'
+        + '<div class="english-refs">' + refParts.join('  ') + '</div>';
+      frag.appendChild(wrap);
+    }
+    resultsDiv.appendChild(frag);
+  }
+
+  // ----- NAV HELPERS -----
+  function setMode(m) {
+    var r = document.querySelector('input[name="dict-mode"][value="' + m + '"]');
+    if (r && !r.checked) r.checked = true;
+    currentMode = m;
+  }
+  function jumpToBorlish(ref) {
+    setMode('borlish');
+    var q = '"' + ref + '"';
+    searchInput.value = q;
+    currentBrowseLetter = '';
+    performSearch(q);
+    window.scrollTo(0, 0);
+  }
+  function jumpToEnglish(gloss) {
+    setMode('english');
+    var q = '"' + gloss + '"';
+    searchInput.value = q;
+    currentBrowseLetter = '';
+    performSearch(q);
+    window.scrollTo(0, 0);
+  }
+
+  // ----- EVENT WIRING -----
+  if (searchInput) {
+    searchInput.addEventListener('input', function (e) {
+      performSearch(e.target.value);
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      currentBrowseLetter = '';
+      performSearch('');
+      searchInput.focus();
+    });
+  }
+  if (modeRadios) {
+    modeRadios.forEach(function (radio) {
+      radio.addEventListener('change', function (e) {
+        currentMode = e.target.value;
+        currentBrowseLetter = '';
+        performSearch(searchInput.value);
+      });
+    });
+  }
+  if (posFilter) {
+    posFilter.addEventListener('change', function (e) {
+      currentPos = e.target.value;
+      if (currentBrowseLetter) {
+        renderBrowse(currentBrowseLetter);
+      } else {
+        performSearch(searchInput.value);
+        writeHash();
+      }
+    });
+  }
+  if (azStrip) {
+    azStrip.addEventListener('click', function (e) {
+      var t = e.target.closest ? e.target.closest('.az-letter') : null;
+      if (!t) return;
+      setMode('borlish');
+      searchInput.value = '';
+      currentBrowseLetter = t.getAttribute('data-letter');
+      renderBrowse(currentBrowseLetter);
+    });
+  }
+  if (randomBtn) {
+    randomBtn.addEventListener('click', function () {
+      if (!dictionaryData.length) return;
+      var r = dictionaryData[Math.floor(Math.random() * dictionaryData.length)];
+      jumpToBorlish(r.lx);
+    });
+  }
+  if (resultsDiv) {
+    resultsDiv.addEventListener('click', function (e) {
+      var t = e.target;
+      var mnLink = t.closest ? t.closest('.mn-link') : null;
+      if (mnLink) {
+        e.preventDefault();
+        if (mnLink.classList.contains('mn-dead')) return;
+        jumpToBorlish(mnLink.getAttribute('data-ref'));
+        return;
+      }
+      var exLink = t.closest ? t.closest('.ex-link') : null;
+      if (exLink) {
+        e.preventDefault();
+        jumpToBorlish(exLink.getAttribute('data-ref'));
+        return;
+      }
+      var glossLink = t.closest ? t.closest('.gloss-link') : null;
+      if (glossLink) {
+        e.preventDefault();
+        jumpToEnglish(glossLink.getAttribute('data-gloss'));
+        return;
+      }
+    });
+  }
   window.addEventListener('hashchange', function () {
-    var query = decodeURIComponent(window.location.hash.substring(1));
-    if (query !== searchInput.value) {
-      searchInput.value = query;
-      performSearch(query);
-    }
+    applyStateFromHash(true);
   });
 
   init();
 
-  return {
-    init: init,
-    performSearch: performSearch
-  };
+  return { init: init, performSearch: performSearch };
 })();
 
 if (typeof module !== 'undefined') {

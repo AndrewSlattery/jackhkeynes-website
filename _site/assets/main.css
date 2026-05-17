@@ -1928,6 +1928,14 @@ pre, code {
   color: #e0e0e0;
 }
 
+.dict-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
 .dict-mode-toggle {
   display: flex;
   gap: 20px;
@@ -1936,6 +1944,65 @@ pre, code {
   cursor: pointer;
   font-weight: 400;
   color: #e0e0e0;
+}
+
+.dict-pos-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #828282;
+  font-size: 0.95rem;
+}
+.dict-pos-label select {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.dict-pos-label select:focus {
+  border-color: #51fb44;
+  outline: none;
+}
+
+.dict-random-btn {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  padding: 5px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+.dict-random-btn:hover {
+  border-color: #51fb44;
+  color: #51fb44;
+}
+
+.dict-az-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.dict-az-strip .az-letter {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  padding: 3px 8px;
+  min-width: 28px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.dict-az-strip .az-letter:hover {
+  border-color: #51fb44;
+  color: #51fb44;
 }
 
 .dict-status {
@@ -2021,6 +2088,73 @@ pre, code {
 .mn-link:hover {
   color: rgb(173, 253, 167);
   border-bottom-style: solid;
+}
+.mn-link.mn-dead {
+  color: #828282;
+  border-bottom-color: #828282;
+  cursor: help;
+  text-decoration: line-through;
+}
+
+.gloss-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px dotted #828282;
+}
+.gloss-link:hover {
+  color: #51fb44;
+  border-bottom-color: #51fb44;
+  border-bottom-style: solid;
+}
+
+.ex-link {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 1px dotted #666;
+}
+.ex-link:hover {
+  color: #51fb44;
+  border-bottom-color: #51fb44;
+  border-bottom-style: solid;
+}
+
+.ref-ps {
+  color: #828282;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+mark {
+  background: rgba(81, 251, 68, 0.25);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.dict-show-more {
+  display: block;
+  width: 100%;
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border: 1px solid #424242;
+  border-radius: 3px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.dict-show-more:hover {
+  border-color: #51fb44;
+  color: #51fb44;
+}
+
+.dict-more-note {
+  color: #828282;
+  font-style: italic;
+  margin-top: 10px;
 }
 
 .english-index-item {
