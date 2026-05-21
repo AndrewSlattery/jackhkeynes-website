@@ -248,7 +248,7 @@
   list-style: none;
   padding: 10px 16px 13px;
   margin: 0;
-  background: transparent;
+  background: #1d1d1d;
   column-count: 3;
   column-gap: 20px;
   column-rule: 1px solid #3a3a3a;
