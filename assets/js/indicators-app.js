@@ -1,351 +1,351 @@
-// Indicator database — category tabs, search, and display logic
-var allData = [];
-var currentCategory = "";
-var searchScope = "header"; // Default to searching headers in the current tab
+// Cryptic Indicators — two-panel app with category-specific search controls
+(function () {
+  'use strict';
 
-function initIndicatorApp(jsonUrl) {
-  fetch(jsonUrl)
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error('HTTP error! status: ' + response.status);
-      }
-      return response.text();
-    })
-    .then(function (text) {
-      try {
-        return JSON.parse(text);
-      } catch (e) {
-        console.error("JSON Parse Error. Received text:", text.substring(0, 100) + "...");
-        throw new Error("Invalid JSON received. Check console for details.");
-      }
-    })
-    .then(function (data) {
-      allData = data.filter(function (item) { return item.word && item.category !== 'spacer'; });
-      initApp();
-    })
-    .catch(function (err) {
-      document.getElementById('display-area').innerHTML = '<p class="error-msg">Error loading data: ' + err.message + '</p>';
+  // ─── State ────────────────────────────────────────────────────────────────
+
+  var allData = [];
+  var currentCategory = '';
+  var filterState = {
+    letterFirst:  null,   // charade(2): first letter of digram
+    letterSecond: null,   // charade(2): second letter of digram
+    letterOnly:   null,   // charade(1): the single letter
+    query:        ''      // text search (all types)
+  };
+
+  // Ordered list of all possible categories with their rendering type.
+  // Only categories actually present in the JSON will appear in the nav.
+  var CATEGORY_CONFIG = [
+    { key: 'Charade (2)',      type: 'charade2',     label: '2-letter charades' },
+    { key: 'Charade (1)',      type: 'charade1',     label: '1-letter charades' },
+    { key: 'Anagrams',         type: 'simple',       label: 'Anagrams'          },
+    { key: 'Homophones',       type: 'simple',       label: 'Homophones'        },
+    { key: 'Hidden',           type: 'simple',       label: 'Hidden words'      },
+    { key: 'Containment',      type: 'hierarchical', label: 'Containment'       },
+    { key: 'Deletions',        type: 'hierarchical', label: 'Deletions'         },
+    { key: 'Letter selection', type: 'hierarchical', label: 'Letter selection'  },
+    { key: 'Reversals',        type: 'hierarchical', label: 'Reversals'         },
+    { key: 'Swaps',            type: 'hierarchical', label: 'Swaps'             },
+    { key: 'Linking',          type: 'hierarchical', label: 'Linking words'     },
+  ];
+
+  // ─── Bootstrap ────────────────────────────────────────────────────────────
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var app = document.getElementById('indicator-app');
+    var url = app && app.dataset.jsonUrl;
+    if (url) fetchData(url);
+  });
+
+  function fetchData(url) {
+    fetch(url)
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        allData = data.filter(function (d) { return d.word && d.category !== 'spacer'; });
+        buildNav();
+        var first = CATEGORY_CONFIG.find(function (c) {
+          return allData.some(function (d) { return d.category === c.key; });
+        });
+        if (first) loadCategory(first.key);
+      })
+      .catch(function (e) {
+        document.getElementById('ind-display').innerHTML =
+          '<p class="ind-error">Failed to load indicators: ' + e.message + '</p>';
+      });
+  }
+
+  // ─── Nav ──────────────────────────────────────────────────────────────────
+
+  function buildNav() {
+    var nav = document.getElementById('ind-nav');
+    var present = {};
+    allData.forEach(function (d) { present[d.category] = true; });
+
+    CATEGORY_CONFIG
+      .filter(function (c) { return present[c.key]; })
+      .forEach(function (cat) {
+        var btn = document.createElement('button');
+        btn.className = 'ind-nav-btn';
+        btn.dataset.cat = cat.key;
+        btn.textContent = cat.label;
+        btn.addEventListener('click', function () { loadCategory(cat.key); });
+        nav.appendChild(btn);
+      });
+  }
+
+  function getCatType(catName) {
+    var cfg = CATEGORY_CONFIG.find(function (c) { return c.key === catName; });
+    return cfg ? cfg.type : 'simple';
+  }
+
+  // ─── Category loading ─────────────────────────────────────────────────────
+
+  function loadCategory(catName) {
+    currentCategory = catName;
+    filterState = { letterFirst: null, letterSecond: null, letterOnly: null, query: '' };
+
+    document.querySelectorAll('.ind-nav-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.cat === catName);
     });
-}
 
-function initApp() {
-  var categories = [];
-  var seen = {};
-  allData.forEach(function (item) {
-    if (!seen[item.category]) {
-      seen[item.category] = true;
-      categories.push(item.category);
+    renderSearchBar(catName);
+    applyFilters();
+  }
+
+  // ─── Search bar ───────────────────────────────────────────────────────────
+
+  function renderSearchBar(catName) {
+    var bar = document.getElementById('ind-search-bar');
+    bar.innerHTML = '';
+    var type = getCatType(catName);
+
+    // Letter-filter rows — charade pages only
+    if (type === 'charade2') {
+      bar.appendChild(makeLetterRow('First letter',  'first'));
+      bar.appendChild(makeLetterRow('Second letter', 'second'));
+    } else if (type === 'charade1') {
+      bar.appendChild(makeLetterRow('Letter', 'only'));
     }
-  });
-  categories.sort();
 
-  var catContainer = document.getElementById('category-list');
-  catContainer.innerHTML = "";
+    // Text search + expand/collapse controls
+    var searchRow = document.createElement('div');
+    searchRow.className = 'ind-search-row';
 
-  categories.forEach(function (cat, index) {
-    var btn = document.createElement('button');
-    btn.className = 'cat-btn';
-    btn.textContent = cat;
-    btn.onclick = function () { loadCategory(cat); };
-    catContainer.appendChild(btn);
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'ind-search-input';
+    input.placeholder = 'Search indicator words…';
+    input.addEventListener('input', debounce(function () {
+      filterState.query = input.value.trim().toLowerCase();
+      applyFilters();
+    }, 180));
+    searchRow.appendChild(input);
 
-    if (index === 0) loadCategory(cat);
-  });
-}
+    // Expand/Collapse all — most useful for hierarchical / simple categories
+    // Also handy on charade pages when many groups are shown
+    var expandBtn = document.createElement('button');
+    expandBtn.className = 'util-btn';
+    expandBtn.textContent = 'Expand all';
+    expandBtn.addEventListener('click', function () { setAllCollapsed(false); });
+    searchRow.appendChild(expandBtn);
 
-function setScope(scope) {
-  searchScope = scope;
-  document.querySelectorAll('.scope-btn').forEach(function (btn) { btn.classList.remove('active'); });
-  document.getElementById('scope-' + scope).classList.add('active');
+    var collapseBtn = document.createElement('button');
+    collapseBtn.className = 'util-btn';
+    collapseBtn.textContent = 'Collapse all';
+    collapseBtn.addEventListener('click', function () { setAllCollapsed(true); });
+    searchRow.appendChild(collapseBtn);
 
-  // Update placeholder text
-  var input = document.getElementById('ind-search');
-  if (scope === 'global') {
-    input.placeholder = "Search indicators across all categories...";
-  } else if (scope === 'category') {
-    input.placeholder = "Filter within current category...";
-  } else {
-    input.placeholder = "Filter by section header...";
+    bar.appendChild(searchRow);
   }
 
-  handleSearch();
-}
+  function makeLetterRow(labelText, which) {
+    var row = document.createElement('div');
+    row.className = 'letter-filter-row';
 
-function loadCategory(category) {
-  currentCategory = category;
+    var label = document.createElement('span');
+    label.className = 'letter-filter-label';
+    label.textContent = labelText;
+    row.appendChild(label);
 
-  document.querySelectorAll('.cat-btn').forEach(function (btn) {
-    if (btn.textContent === category) btn.classList.add('active');
-    else btn.classList.remove('active');
-  });
+    var btns = document.createElement('span');
+    btns.className = 'letter-btns';
 
-  var searchInput = document.getElementById('ind-search');
-  searchInput.value = "";
-  document.getElementById('result-summary').style.display = 'none';
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(function (letter) {
+      var btn = document.createElement('button');
+      btn.className = 'letter-btn';
+      btn.textContent = letter;
+      btn.dataset.letter = letter;
 
-  renderCategory(allData.filter(function (item) { return item.category === category; }));
-}
+      btn.addEventListener('click', function () {
+        var wasActive = btn.classList.contains('active');
+        // Clear all buttons in this row, then toggle
+        row.querySelectorAll('.letter-btn').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        if (!wasActive) {
+          btn.classList.add('active');
+          setLetterFilter(which, letter);
+        } else {
+          setLetterFilter(which, null);
+        }
+        applyFilters();
+      });
 
-function renderCategory(items) {
-  var display = document.getElementById('display-area');
-  display.innerHTML = "";
+      btns.appendChild(btn);
+    });
 
-  if (items.length === 0) {
-    display.innerHTML = "<p>No indicators found.</p>";
-    return;
+    row.appendChild(btns);
+    return row;
   }
 
-  var isCharade = currentCategory.toLowerCase().includes("charade");
-  var groupKey = isCharade ? 'result' : 'type';
+  function setLetterFilter(which, letter) {
+    if      (which === 'first')  filterState.letterFirst  = letter;
+    else if (which === 'second') filterState.letterSecond = letter;
+    else                         filterState.letterOnly   = letter;
+  }
 
-  var groups = {};
-  items.forEach(function (item) {
-    var key = item[groupKey] || "Misc";
-    if (!groups[key]) groups[key] = [];
-    groups[key].push(item.word);
-  });
+  // ─── Filter & render ──────────────────────────────────────────────────────
 
-  var sortedKeys = Object.keys(groups).sort(function (a, b) {
-    return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
-  });
+  function applyFilters() {
+    var type     = getCatType(currentCategory);
+    // Charade categories group by `result` (the digram/letter);
+    // all other categories group by `type` (the subcategory label).
+    var groupKey = (type === 'charade2' || type === 'charade1') ? 'result' : 'type';
+    var query    = filterState.query;
 
-  sortedKeys.forEach(function (key) {
+    // Collect all items for this category and bucket them into groups
+    var groups = {};
+    allData
+      .filter(function (d) { return d.category === currentCategory; })
+      .forEach(function (item) {
+        var key = item[groupKey] || 'Misc';
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(item.word);
+      });
+
+    // Sort group keys naturally (handles digrams AA–ZZ and numeric subcategories)
+    var sortedKeys = Object.keys(groups).sort(function (a, b) {
+      return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+    });
+
+    // ── Apply letter filters (charade pages) ────────────────────────────────
+    if (type === 'charade2') {
+      sortedKeys = sortedKeys.filter(function (k) {
+        if (filterState.letterFirst  && k.charAt(0) !== filterState.letterFirst)  return false;
+        if (filterState.letterSecond && k.charAt(1) !== filterState.letterSecond) return false;
+        return true;
+      });
+    } else if (type === 'charade1') {
+      sortedKeys = sortedKeys.filter(function (k) {
+        return !filterState.letterOnly || k === filterState.letterOnly;
+      });
+    }
+
+    // ── Decide whether to auto-expand groups ────────────────────────────────
+    // Auto-expand when: text search active, both digram filters set (single result),
+    // or single-letter filter active on charade(1).
+    var autoExpand =
+      !!query ||
+      (type === 'charade2' && filterState.letterFirst && filterState.letterSecond) ||
+      (type === 'charade1' && !!filterState.letterOnly);
+
+    // ── Build DOM ───────────────────────────────────────────────────────────
+    var display = document.getElementById('ind-display');
+    display.innerHTML = '';
+
+    var matchedGroups = 0;
+    var totalIndicators = 0;
+
+    sortedKeys.forEach(function (key) {
+      var allWords = groups[key].slice().sort(function (a, b) { return a.localeCompare(b); });
+
+      // Filter by text query if present
+      var visibleWords = query
+        ? allWords.filter(function (w) { return w.toLowerCase().includes(query); })
+        : allWords;
+
+      if (visibleWords.length === 0) return;
+
+      matchedGroups++;
+      totalIndicators += visibleWords.length;
+
+      display.appendChild(
+        buildGroupDiv(key, visibleWords, allWords.length, type, autoExpand)
+      );
+    });
+
+    if (matchedGroups === 0) {
+      display.innerHTML = '<p class="ind-no-results">No indicators found.</p>';
+    }
+
+    // ── Update count line ───────────────────────────────────────────────────
+    var countEl = document.getElementById('ind-count');
+    if (countEl) {
+      if (matchedGroups > 0) {
+        countEl.textContent =
+          matchedGroups + ' group' + (matchedGroups !== 1 ? 's' : '') +
+          ' · ' +
+          totalIndicators + ' indicator' + (totalIndicators !== 1 ? 's' : '');
+      } else {
+        countEl.textContent = '';
+      }
+    }
+  }
+
+  // ─── Group DOM builder ────────────────────────────────────────────────────
+
+  function buildGroupDiv(key, visibleWords, totalCount, type, expanded) {
     var groupDiv = document.createElement('div');
-    groupDiv.className = 'ind-group collapsed';
-    groupDiv.setAttribute('data-group-key', key); // Store the clean header name!
+    groupDiv.className = 'ind-group' + (expanded ? '' : ' collapsed');
 
-    groups[key].sort(function (a, b) { return a.localeCompare(b); });
+    // ── Header ──────────────────────────────────────────────────────────────
+    var header = document.createElement('div');
+    header.className = 'ind-group-header';
+    header.addEventListener('click', function () {
+      groupDiv.classList.toggle('collapsed');
+    });
 
-    var count = groups[key].length;
-    var preview = groups[key].join(', ');
+    // Label: monospace green for digrams/letters, bold grey for subcategories
+    var labelEl = document.createElement('span');
+    var isDigram = (type === 'charade2' || type === 'charade1');
+    labelEl.className = 'header-label' + (isDigram ? ' digram-label' : '');
+    labelEl.textContent = key;
 
-    var headerDiv = document.createElement('div');
-    headerDiv.className = 'ind-group-header';
-    headerDiv.onclick = function() { toggleGroup(this); };
+    // Count badge — shows "n / total" when text search is narrowing the list
+    var badge = document.createElement('span');
+    badge.className = 'count-badge';
+    badge.textContent = (visibleWords.length < totalCount)
+      ? visibleWords.length + ' / ' + totalCount
+      : String(totalCount);
 
-    var headerLabel = document.createElement('span');
-    headerLabel.className = 'header-label';
-    headerLabel.textContent = key + ' ';
-
-    var countBadge = document.createElement('span');
-    countBadge.className = 'count-badge';
-    countBadge.textContent = count;
-    headerLabel.appendChild(countBadge);
-
-    var previewSpan = document.createElement('span');
-    previewSpan.className = 'preview';
-    previewSpan.textContent = preview;
+    // Preview: first few words as a hint while collapsed
+    var preview = document.createElement('span');
+    preview.className = 'preview';
+    preview.textContent =
+      visibleWords.slice(0, 7).join(', ') + (visibleWords.length > 7 ? '…' : '');
 
     var chevron = document.createElement('span');
     chevron.className = 'chevron';
-    chevron.innerHTML = '&#9660;';
+    chevron.textContent = '▾'; // ▾
 
-    headerDiv.appendChild(headerLabel);
-    headerDiv.appendChild(previewSpan);
-    headerDiv.appendChild(chevron);
+    header.appendChild(labelEl);
+    header.appendChild(badge);
+    header.appendChild(preview);
+    header.appendChild(chevron);
 
+    // ── Word list ────────────────────────────────────────────────────────────
     var ul = document.createElement('ul');
     ul.className = 'ind-list';
 
-    groups[key].forEach(function (word) {
+    visibleWords.forEach(function (word) {
       var li = document.createElement('li');
       li.textContent = word;
       ul.appendChild(li);
     });
 
-    groupDiv.appendChild(headerDiv);
+    groupDiv.appendChild(header);
     groupDiv.appendChild(ul);
-    display.appendChild(groupDiv);
-  });
-}
-
-function renderGlobalResults(items) {
-  var display = document.getElementById('display-area');
-  display.innerHTML = "";
-
-  if (items.length === 0) {
-    display.innerHTML = "<p>No indicators found.</p>";
-    return;
+    return groupDiv;
   }
 
-  // Group by category, then by type within each category
-  var catGroups = {};
-  items.forEach(function (item) {
-    if (!catGroups[item.category]) catGroups[item.category] = {};
-    var isCharade = item.category.toLowerCase().includes("charade");
-    var gKey = isCharade ? item.result : item.type;
-    var key = gKey || "Misc";
-    if (!catGroups[item.category][key]) catGroups[item.category][key] = [];
-    catGroups[item.category][key].push(item.word);
-  });
+  // ─── Utilities ────────────────────────────────────────────────────────────
 
-  var sortedCats = Object.keys(catGroups).sort();
-
-  sortedCats.forEach(function (cat) {
-    var groups = catGroups[cat];
-    var sortedKeys = Object.keys(groups).sort(function (a, b) {
-      return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+  function setAllCollapsed(collapse) {
+    document.querySelectorAll('.ind-group').forEach(function (g) {
+      g.classList.toggle('collapsed', collapse);
     });
-
-    sortedKeys.forEach(function (key) {
-      var groupDiv = document.createElement('div');
-      groupDiv.className = 'ind-group collapsed';
-      groupDiv.setAttribute('data-group-key', key); // Store the clean header name!
-
-      groups[key].sort(function (a, b) { return a.localeCompare(b); });
-      var count = groups[key].length;
-      var preview = groups[key].join(', ');
-
-      var headerDiv = document.createElement('div');
-      headerDiv.className = 'ind-group-header';
-      headerDiv.onclick = function() { toggleGroup(this); };
-
-      var headerLabel = document.createElement('span');
-      headerLabel.className = 'header-label';
-      headerLabel.textContent = key + ' ';
-
-      var countBadge = document.createElement('span');
-      countBadge.className = 'count-badge';
-      countBadge.textContent = count;
-      headerLabel.appendChild(countBadge);
-
-      var previewSpan = document.createElement('span');
-      previewSpan.className = 'preview';
-      previewSpan.textContent = preview;
-
-      var chevron = document.createElement('span');
-      chevron.className = 'chevron';
-      chevron.innerHTML = '&#9660;';
-
-      headerDiv.appendChild(headerLabel);
-      headerDiv.appendChild(previewSpan);
-      headerDiv.appendChild(chevron);
-
-      var ul = document.createElement('ul');
-      ul.className = 'ind-list';
-
-      groups[key].forEach(function (word) {
-        var li = document.createElement('li');
-        li.textContent = word + ' ';
-
-        var catTag = document.createElement('span');
-        catTag.className = 'cat-tag';
-        catTag.textContent = cat;
-
-        li.appendChild(catTag);
-        ul.appendChild(li);
-      });
-
-      groupDiv.appendChild(headerDiv);
-      groupDiv.appendChild(ul);
-      display.appendChild(groupDiv);
-    });
-  });
-}
-
-function toggleGroup(headerEl) {
-  var group = headerEl.parentElement;
-  group.classList.toggle('collapsed');
-}
-
-function handleSearch() {
-  var query = document.getElementById('ind-search').value.toLowerCase().trim();
-  var summaryEl = document.getElementById('result-summary');
-
-  if (!query) {
-    summaryEl.style.display = 'none';
-    // Restore current category view
-    renderCategory(allData.filter(function (item) { return item.category === currentCategory; }));
-    // Re-highlight the active category tab
-    document.querySelectorAll('.cat-btn').forEach(function (btn) {
-      if (btn.textContent === currentCategory) btn.classList.add('active');
-      else btn.classList.remove('active');
-    });
-    return;
   }
 
-  if (searchScope === 'global') {
-    // --- GLOBAL SEARCH: across all categories ---
-    var matches = allData.filter(function (item) {
-      return item.word.toLowerCase().includes(query);
-    });
-
-    // Dim all category tabs (none specifically selected)
-    document.querySelectorAll('.cat-btn').forEach(function (btn) { btn.classList.remove('active'); });
-
-    summaryEl.textContent = matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' across all categories';
-    summaryEl.style.display = 'block';
-
-    renderGlobalResults(matches);
-
-  } else if (searchScope === 'category') {
-    // --- CATEGORY SEARCH: filter within active category ---
-    summaryEl.style.display = 'none';
-    filterWithinCategory(query);
-
-  } else if (searchScope === 'header') {
-    // --- HEADER SEARCH: filter groups by header name ---
-    summaryEl.style.display = 'none';
-    filterByHeader(query);
-  }
-}
-
-function filterWithinCategory(query) {
-  var groups = document.querySelectorAll('.ind-group');
-  
-  // Attempt to parse the user's search as a Regular Expression
-  var regex;
-  try {
-    regex = new RegExp(query, 'i'); // 'i' makes it case-insensitive
-  } catch (e) {
-    // Fallback to literal text if they typed an incomplete/invalid regex
-    regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+  function debounce(fn, delay) {
+    var timer;
+    return function () {
+      var args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () { fn.apply(null, args); }, delay);
+    };
   }
 
-  groups.forEach(function (group) {
-    var listItems = group.querySelectorAll('li');
-    var hasVisible = false;
-    
-    listItems.forEach(function (li) {
-      // Check the text content of the list item against the regex
-      if (regex.test(li.textContent)) {
-        li.style.display = '';
-        hasVisible = true;
-      } else {
-        li.style.display = 'none';
-      }
-    });
-    
-    group.style.display = hasVisible ? '' : 'none';
-    
-    // Auto-expand groups that have matches
-    if (hasVisible) group.classList.remove('collapsed');
-  });
-}
-
-function filterByHeader(query) {
-  var groups = document.querySelectorAll('.ind-group');
-  
-  // Attempt to parse the user's search as a Regular Expression
-  var regex;
-  try {
-    regex = new RegExp(query, 'i'); // 'i' makes it case-insensitive
-  } catch (e) {
-    // Fallback to literal text if they typed an incomplete/invalid regex (like a stray '[')
-    regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-  }
-
-  groups.forEach(function (group) {
-    // Read the clean header name we stored
-    var headerKey = group.getAttribute('data-group-key');
-    var listItems = group.querySelectorAll('li');
-    
-    if (headerKey && regex.test(headerKey)) {
-      group.style.display = '';
-      group.classList.remove('collapsed'); // Auto-expand matching groups
-      listItems.forEach(function (li) { li.style.display = ''; });
-    } else {
-      group.style.display = 'none';
-    }
-  });
-}
+})();
