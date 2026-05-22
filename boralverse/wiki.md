@@ -5,7 +5,7 @@ permalink: /boralverse/wiki/
 description: An encyclopaedia of the Boralverse alternate history setting
 ---
 
-[Borlish dictionary](/boralverse/borlish-dictionary)
+| [Borlish dictionary](/boralverse/borlish-dictionary) |
 
 <div id="bv-wiki" class="bv-wiki" data-fetch-url="{{ '/assets/boralverse/boralverse-wiki.json' | relative_url }}">
 

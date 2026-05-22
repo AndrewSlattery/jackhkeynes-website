@@ -14,7 +14,4 @@ permalink: /cryptics/
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
 
-[Clue Database](/cryptics/database)
-[Cryptic Indicators](/cryptics/indicators)
-[MyCrossword profile](https://mycrossword.co.uk/Bluejacket)
-[Bluejacket grids](/cryptics/bluejacket)
+| [Bluejacket grids](/cryptics/bluejacket) | [Clue Database](/cryptics/database) | [Cryptic Indicators](/cryptics/indicators) | [MyCrossword profile](https://mycrossword.co.uk/Bluejacket) |
