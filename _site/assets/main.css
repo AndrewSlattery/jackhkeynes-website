@@ -2588,5 +2588,105 @@ mark {
     font-size: 1.4rem;
   }
 }
+.wotd {
+  margin: 2.5rem 0 1rem;
+  padding: 1.5rem 1.75rem;
+  background: #1a1a1a;
+  border: 1px solid #424242;
+  border-radius: 4px;
+  color: #e0e0e0;
+}
+
+.wotd-heading {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #51fb44;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.wotd-body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.wotd-loading,
+.wotd-error {
+  color: #828282;
+  font-style: italic;
+  margin: 0;
+}
+
+.wotd-error {
+  color: #ff6b6b;
+}
+
+.wotd-headword-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.wotd-headword {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #e8e8e8;
+}
+
+.wotd-hm {
+  font-size: 0.85rem;
+  color: #828282;
+  vertical-align: super;
+  margin-left: -0.3rem;
+}
+
+.wotd-ps {
+  font-size: 0.9rem;
+  color: #828282;
+  font-style: italic;
+}
+
+.wotd-gloss {
+  margin-bottom: 0.9rem;
+  color: #e0e0e0;
+}
+
+.wotd-example {
+  margin: 0.9rem 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 3px solid #51fb44;
+  background: rgba(81, 251, 68, 0.04);
+  border-radius: 0 3px 3px 0;
+}
+
+.wotd-example-vernacular {
+  font-style: italic;
+  color: #e8e8e8;
+  margin-bottom: 0.2rem;
+}
+
+.wotd-example-english {
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+.wotd-etym {
+  margin: 0.7rem 0 0;
+  font-size: 0.9rem;
+  color: #828282;
+}
+
+.wotd-etym-label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.wotd-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
 
 /*# sourceMappingURL=main.css.map */

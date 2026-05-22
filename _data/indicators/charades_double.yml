@@ -675,6 +675,7 @@ IR:
 - infrared
 - international relations
 - iridium
+- light
 IS:
 - exists
 - lives
@@ -1361,7 +1362,7 @@ TP:
 TT:
 - dry
 - junctions
-- races
+- racing event
 - sober
 - tangos
 - taus
@@ -1372,6 +1373,7 @@ TT:
 - tenors
 - times
 - top quarks
+- Tourist Trophy
 TU:
 - middle of autumn
 - you (fr,sp,it)
@@ -1405,7 +1407,9 @@ UN:
 UP:
 - afoot
 - awake
+- elevated
 - high
+- increased
 - out of bed
 - winning
 UR:
@@ -1420,11 +1424,13 @@ UT:
 - do
 - Utah
 UU:
+- double-u
 - turns
 - uniforms
 - unions
 - Unitarian Universalist
 UV:
+- light
 - ultraviolet
 UX:
 - user experience

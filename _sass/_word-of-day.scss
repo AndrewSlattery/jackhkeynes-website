@@ -1,0 +1,102 @@
+// Borlish Word of the Day panel — featured card on the Boralverse landing page.
+
+.wotd {
+  margin: 2.5rem 0 1rem;
+  padding: 1.5rem 1.75rem;
+  background: $color-bg-dark;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  color: $color-text;
+}
+
+.wotd-heading {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: $color-accent;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.wotd-body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.wotd-loading,
+.wotd-error {
+  color: $color-text-muted;
+  font-style: italic;
+  margin: 0;
+}
+
+.wotd-error {
+  color: $color-error;
+}
+
+.wotd-headword-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.wotd-headword {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $color-text-alt;
+}
+
+.wotd-hm {
+  font-size: 0.85rem;
+  color: $color-text-muted;
+  vertical-align: super;
+  margin-left: -0.3rem;
+}
+
+.wotd-ps {
+  font-size: 0.9rem;
+  color: $color-text-muted;
+  font-style: italic;
+}
+
+.wotd-gloss {
+  margin-bottom: 0.9rem;
+  color: $color-text;
+}
+
+.wotd-example {
+  margin: 0.9rem 0;
+  padding: 0.6rem 0.9rem;
+  border-left: 3px solid $color-accent;
+  background: rgba(81, 251, 68, 0.04);
+  border-radius: 0 3px 3px 0;
+}
+
+.wotd-example-vernacular {
+  font-style: italic;
+  color: $color-text-alt;
+  margin-bottom: 0.2rem;
+}
+
+.wotd-example-english {
+  color: $color-text-dim;
+  font-size: 0.95rem;
+}
+
+.wotd-etym {
+  margin: 0.7rem 0 0;
+  font-size: 0.9rem;
+  color: $color-text-muted;
+}
+
+.wotd-etym-label {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.wotd-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
