@@ -16,6 +16,8 @@ permalink: /
 
 ## Boralverse - Alternate History Setting
 
+[Overview](/boralverse/) – An overview of the Boralverse setting.
+
 [Borlish](/boralverse/borlish-dictionary/) – A dictionary of the Borlish language.
 
 [Wiki](/boralverse/wiki/) – A searchable wiki of information of the alternate history setting.
