@@ -1245,16 +1245,6 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1262,6 +1252,16 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -13597,18 +13597,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "connardaç",
@@ -17883,20 +17883,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -26114,19 +26114,19 @@
     "ps": "n",
     "ge": [
       "outpost",
+      "outlying settlement",
       "colony"
     ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh"
   },
   {
     "lx": "fragossau",
     "ps": "n",
     "ge": [
       "outpost",
-      "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
+    "et": "Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossaveyaçon",
@@ -26497,6 +26497,12 @@
   },
   {
     "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26518,12 +26524,6 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -30851,18 +30851,6 @@
   },
   {
     "lx": "i",
-    "hm": "1",
-    "ps": "pron",
-    "ge": [
-      "third person singular subject",
-      "he",
-      "she",
-      "it"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "i",
     "hm": "2",
     "ps": "n",
     "ge": [
@@ -34972,13 +34960,12 @@
   },
   {
     "lx": "la",
-    "ps": "adv",
+    "ps": "pron",
+    "de": "third person masculine singular",
     "ge": [
-      "there",
-      "that",
-      "so"
-    ],
-    "et": "Old Borlish < Latin"
+      "she",
+      "her"
+    ]
   },
   {
     "lx": "la ben ac",
@@ -35763,12 +35750,11 @@
     "lx": "le",
     "ps": "pron",
     "ge": [
-      "third person singular object",
-      "him",
-      "her",
-      "it"
+      "third person masculine singular",
+      "he",
+      "him"
     ],
-    "et": "Old Borlish < Latin"
+    "et": "Old Borlish < Latin ille"
   },
   {
     "lx": "leçon",
@@ -36490,6 +36476,14 @@
     "ge": "potassium",
     "et": "Latin lix \"lye\"",
     "sd": "Corporals"
+  },
+  {
+    "lx": "lo",
+    "hm": "1",
+    "ps": "pron",
+    "de": "third person singular inanimate",
+    "ge": "it",
+    "et": "Old Borlish < Latin illud"
   },
   {
     "lx": "local",
@@ -37396,9 +37390,11 @@
   {
     "lx": "luy",
     "ps": "pron",
-    "ge": [
+    "de": [
       "third person singular disjunctive",
-      "third person singular oblique",
+      "third person singular oblique"
+    ],
+    "ge": [
       "him",
       "her",
       "it",
@@ -42875,12 +42871,24 @@
   {
     "lx": "nos",
     "ps": "pron",
+    "de": "first person plural",
     "ge": [
-      "first person plural",
       "we",
       "us"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "nos meðes",
+    "ps": "pron",
+    "ge": [
+      "ourselves",
+      "our own"
+    ],
+    "mn": [
+      "nos",
+      "meðes"
+    ]
   },
   {
     "lx": "noscon",
@@ -43018,27 +43026,6 @@
     "ps": "adj",
     "ge": "ninth",
     "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "nous",
-    "ps": "pron",
-    "ge": [
-      "us",
-      "ourselves"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "nous meðes",
-    "ps": "pron",
-    "ge": [
-      "ourselves",
-      "our own"
-    ],
-    "mn": [
-      "nous",
-      "meðes"
-    ]
   },
   {
     "lx": "novar",
@@ -45784,9 +45771,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -45797,11 +45786,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -55874,17 +55861,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -58605,6 +58592,17 @@
       "gender"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "sey",
+    "ps": "pron",
+    "ge": [
+      "oneself",
+      "himself",
+      "herself",
+      "itself"
+    ],
+    "et": "Old Borlish < Latin se"
   },
   {
     "lx": "seyon",
@@ -63936,6 +63934,17 @@
   },
   {
     "lx": "te",
+    "hm": "1",
+    "ps": "pron",
+    "de": "second person singular oblique",
+    "ge": [
+      "you",
+      "thee"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "te",
     "hm": "2",
     "ps": "n",
     "ge": [
@@ -64556,8 +64565,8 @@
   {
     "lx": "tey",
     "ps": "pron",
+    "de": "second person singular disjunctive",
     "ge": [
-      "second person singular disjunctive",
       "you",
       "yourself"
     ],
@@ -66590,8 +66599,8 @@
   {
     "lx": "tu",
     "ps": "pron",
+    "de": "second person singular subject",
     "ge": [
-      "second person singular subject",
       "you",
       "thou"
     ],
@@ -69519,17 +69528,17 @@
   {
     "lx": "volcan",
     "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
@@ -69716,12 +69725,28 @@
   {
     "lx": "vos",
     "ps": "pron",
-    "ge": [
+    "de": [
       "second person plural",
-      "second person singular formal",
-      "you"
+      "second person singular formal"
+    ],
+    "ge": [
+      "you",
+      "ye",
+      "y'all"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "vos meðes",
+    "ps": "pron",
+    "ge": [
+      "yourselves",
+      "your own"
+    ],
+    "mn": [
+      "vos",
+      "meðes"
+    ]
   },
   {
     "lx": "voscon",
@@ -69799,30 +69824,6 @@
     ],
     "et": "Noun from voug",
     "mn": "voug"
-  },
-  {
-    "lx": "vous",
-    "ps": "pron",
-    "ge": [
-      "second person plural disjunctive",
-      "second person singular formal disjunctive",
-      "you",
-      "yourselves",
-      "yourself"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "vous meðes",
-    "ps": "pron",
-    "ge": [
-      "yourselves",
-      "your own"
-    ],
-    "mn": [
-      "vous",
-      "meðes"
-    ]
   },
   {
     "lx": "vousc",
