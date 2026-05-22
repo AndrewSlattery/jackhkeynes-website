@@ -7,8 +7,6 @@ AA:
 - answers
 - areas
 - articles
-- attoampere
-- attoamperes
 - Automobile Association
 - lava
 - motoring club
@@ -24,8 +22,6 @@ AC:
 - aircon
 - air conditioning
 - alternating current
-- attocoulomb
-- attocoulombs
 - cooler
 AD:
 - advertisement
@@ -42,31 +38,20 @@ AE:
 AF:
 - as fuck
 - A&F
-- attofarad
-- attofarads
 AG:
 - agricultural
 - agriculture
-- attogram
-- attograms
 - attorney general
 - silver
 AH:
-- attohenry
-- attohenries
 - I see
 AI:
 - A-one
 - artificial intelligence
 - technology
 - sloth
-AJ:
-- attojoule
-- attojoules
 AK:
 - Alaska
-- attokelvin
-- attokelvins
 - Avtomat Kalashnikova
 - rifle
 AL:
@@ -77,8 +62,6 @@ AL:
 - Alistair
 - aluminium
 - at a loss
-- attolitre
-- attolitres
 - the (Arabic)
 - to the (Spanish)
 AM:
@@ -86,20 +69,13 @@ AM:
 - americium
 - amplitude modulation
 - ante meridiem
-- attometre
-- attometres
 - exist
 - in the morning
 - live
-- milliampere
-- milliamperes
-- milliamp
-- milliamps
 - morning
+- sort of radio
 AN:
 - article
-- attonewton
-- attonewtons
 - per
 AO:
 - adults only
@@ -115,8 +91,6 @@ AR:
 - augmented reality
 AS:
 - arsenic
-- attosecond
-- attoseconds
 - because
 - equally
 - since
@@ -126,8 +100,6 @@ AT:
 - '@'
 - anti-tank
 - astatine
-- attotesla
-- attoteslas
 - attending
 AU:
 - alternate universe
@@ -136,16 +108,11 @@ AU:
 - to the (French)
 AV:
 - alternative vote
-- attovolt
-- attovolts
 - audiovisual
 - Authorised Version
 - avenue
 - have barely
 - Hebrew month
-AW:
-- attowatt
-- attowatts
 AX:
 - American chopper
 AZ:
@@ -214,10 +181,13 @@ BR:
 - bromine
 BS:
 - bullshit
+- lies
 - nonsense
 - rot
 BT:
 - British Telecom
+BU:
+- not quite yet
 BY:
 - beside
 - near
@@ -254,8 +224,6 @@ CF:
 - compare
 - confer
 CG:
-- centigram
-- centigrams
 - computer graphics
 CH:
 - church
@@ -264,8 +232,6 @@ CI:
 - confidential informant
 CK:
 - Calvin Klein
-- centikelvin
-- centikelvins
 - fashion label
 CL:
 - centilitre
@@ -284,7 +250,6 @@ CO:
 - Colorado
 - commanding officer
 - company
-- firm
 - officer
 CR:
 - chromium
@@ -336,9 +301,6 @@ DE:
 - from (fr,sp,pt)
 - of (fr,sp,pt)
 - the (du)
-DG:
-- decigram
-- decigrams
 DI:
 - detective inspector
 - princess
@@ -346,9 +308,6 @@ DJ:
 - disc jockey
 - radio host
 - record player
-DK:
-- decikelvin
-- decikelvins
 DL:
 - decilitre
 - decilitres
@@ -372,6 +331,8 @@ DR:
 - medic
 DS:
 - darmstadtium
+DU:
+- of the (fr)
 DW:
 - don't worry
 DY:
@@ -459,23 +420,20 @@ EU:
 EV:
 - electric vehicle
 EW:
-- exawatt
-- exawatts
 - noise of disgust
 - opposite directions
 - that's disgusting
 EX:
+- erstwhile
 - former
 - former lover
-- lover
 - old
 - old flame
+- old partner
 EZ:
 - easy
 FA:
 - Fanny Adams
-- femtoampere
-- femtoamperes
 - Football Association
 - fuck all
 - note
@@ -489,73 +447,41 @@ FE:
 - iron
 FF:
 - effs
-- femtofarad
-- femtofarads
 - forcs
 - fortes
 - fortissimo
 - foxtrots
 - very loud
-FG:
-- femtogram
-- femtograms
-FH:
-- femtohenry
-- femtohenries
-FJ:
-- femtojoule
-- femtojoules
-FK:
-- femtokelvin
-- femtokelvins
 FL:
-- femtolitre
-- femtolitres
 - flerovium
 - Florida
 FM:
-- femtometre
-- femtometres
 - fermium
-- radio band
-FN:
-- femtonewton
-- femtonewtons
+- frequency modulation
+- sort of radio
 FO:
 - Foreign Office
 FP:
 - fortepiano
 FR:
 - francium
-FS:
-- femtosecond
-- femtoseconds
 FT:
 - Financial Times
 - foot
 - feet
 - fort
 - newspaper
-FV:
-- femtovolt
-- femtovolts
-FW:
-- femtowatt
-- femtowatts
+FU:
+- fuck you
 FX:
 - effects
 GA:
 - gallium
 - Georgia
-- gigaampere
-- gigaamperes
 GB:
 - Great Britain
 - gigabyte
 - gigabytes
-GC:
-- gigacoulomb
-- gigacoulombs
 GD:
 - gadolinium
 GE:
@@ -566,37 +492,34 @@ GF:
 - gluten-free
 GG:
 - gees
-- gigagram
-- gigagrams
 - golfs
 - good game
-GH:
-- gigahenry
-- gigahenries
 GI:
 - martial arts uniform
 - soldier
-GJ:
-- gigajoule
-- gigajoules
-GK:
-- gigakelvin
-- gigakelvins
-GL:
-- gigalitre
-- gigalitres
 GM:
 - game master
 - General Motors
 - genetically modified
 - grandmaster
-GN:
-- giganewton
-- giganewtons
 GO:
+- advance
+- attempt
+- crack
+- drive
 - board game
+- depart
+- exit
 - leave
+- move
+- pep
 - proceed
+- programming language
+- shot
+- stab
+- try
+- turn
+- whirl
 - work
 GP:
 - doctor
@@ -608,16 +531,13 @@ GQ:
 - magazine
 GR:
 - King George
-GS:
-- gigasecond
-- gigaseconds
 GT:
 - gigaton
 - gigatons
 - G&T
-GV:
-- gigavolt
-- gigavolts
+GU:
+- dessert manufacturer
+- pudding-maker
 GW:
 - gigawatt
 - gigawatts
@@ -625,6 +545,9 @@ HA:
 - hectare
 - hectares
 - laughter
+HB:
+- hard black
+- pencil
 HC:
 - taps
 HD:
@@ -638,8 +561,6 @@ HF:
 - hafnium
 - high-frequency
 HG:
-- hectogram
-- hectograms
 - mercury
 HH:
 - aitches
@@ -650,31 +571,17 @@ HH:
 HI:
 - greeting
 - Hawaii
-HJ:
-- hectojoule
-- hectojoules
-HK:
-- hectokelvin
-- hectokelvins
-HL:
-- hectolitre
-- hectolitres
 HM:
-- hectometre
-- hectometres
 - Her Majesty
 - His Majesty
-HN:
-- hectonewton
-- hectonewtons
 HO:
 - holmium
+- model train scale
 HP:
 - computing company
 - health
 - hitpoints
 - horsepower
-- sauce
 HQ:
 - headquarters
 - home base
@@ -684,18 +591,7 @@ HR:
 - personnel
 HS:
 - hassium
-- hectosecond
-- hectoseconds
 - high school
-HT:
-- hectotesla
-- hectoteslas
-HV:
-- hectovolt
-- hectovolts
-HW:
-- hectowatt
-- hectowatts
 HZ:
 - Hertz
 IA:
@@ -704,6 +600,7 @@ IA:
 IB:
 - International Baccalaureate
 IC:
+- I see
 - in charge
 ID:
 - Idaho
@@ -731,6 +628,8 @@ IL:
 - Illinois
 - the (it)
 IM:
+- I am
+- instant message
 - instant messaging
 - international master
 - Jack's
@@ -765,8 +664,8 @@ IN:
 - wearing
 IO:
 - '10'
-- demigoddess
 - I (it)
+- I/O
 - moon
 IP:
 - intellectual property
@@ -810,25 +709,15 @@ JR:
 - junior
 KA:
 - Egyptian spirit
-- kiloampere
-- kiloamperes
+- Ford
 KB:
 - kilobyte
 - kilobytes
-KC:
-- kilocoulomb
-- kilocoulombs
 KE:
 - kinetic energy
-KF:
-- kilofarad
-- kilofarads
 KG:
 - kilogram
 - kilograms
-KH:
-- kilohenry
-- kilohenries
 KI:
 - life force
 KJ:
@@ -837,20 +726,13 @@ KJ:
 KK:
 - kappas
 - kays
-- kilokelvin
-- kilokelvins
 - kilos
 - kings
-KL:
-- kilolitre
-- kilolitres
 KM:
 - kilometre
 - kilometres
 KN:
 - Heart of Darkness
-- kilonewton
-- kilonewtons
 KO:
 - knock out
 - knockout
@@ -860,8 +742,6 @@ KR:
 - krypton
 KS:
 - Kansas
-- kilosecond
-- kiloseconds
 KT:
 - kiloton
 - kilotons
@@ -937,10 +817,6 @@ MB:
 MC:
 - host
 - master of ceremonies
-- megacoulomb
-- megacoulombs
-- millicoulomb
-- millicoulombs
 MD:
 - doctor
 - frame of mind
@@ -953,16 +829,11 @@ ME:
 - setter
 MF:
 - mezzo-forte
-- millifarad
-- millifarads
 - rather loud
 MG:
 - milligram
 - milligrams
 - magnesium
-MH:
-- millihenry
-- millihenries
 MI:
 - Michigan
 - mile(s)
@@ -973,17 +844,9 @@ MJ:
 - Mary Jane
 - megajoule
 - megajoules
-- millijoule
-- millijoules
 MK:
-- megakelvin
-- megakelvins
-- millikelvin
-- millikelvins
 - Milton Keynes
 ML:
-- megalitre
-- megalitres
 - millilitre
 - millilitres
 MM:
@@ -991,8 +854,6 @@ MM:
 - males
 - masses
 - mediums
-- megametre
-- megametres
 - messieurs
 - middle of summer
 - mikes
@@ -1003,10 +864,6 @@ MM:
 - thousands
 MN:
 - manganese
-- meganewton
-- meganewtons
-- millinewton
-- millinewtons
 - million
 - Minnesota
 MO:
@@ -1026,8 +883,6 @@ MR:
 - mister
 - title
 MS:
-- megasecond
-- megaseconds
 - Microsoft
 - millisecond
 - milliseconds
@@ -1035,8 +890,6 @@ MS:
 - multiple sclerosis
 - title
 MT:
-- megatesla
-- megateslas
 - megaton
 - megatons
 - Meitnerium
@@ -1047,16 +900,10 @@ MU:
 - Greek letter
 - lost continent
 MV:
-- megavolt
-- megavolts
-- millivolt
-- millivolts
 - music video
 MW:
 - megawatt
 - megawatts
-- milliwatt
-- milliwatts
 MX:
 - title
 MY:
@@ -1065,8 +912,7 @@ MY:
 - setter's
 - wow
 NA:
-- nanoampere
-- nanoamperes
+- sodium
 NB:
 - New Brunswick
 - niobium
@@ -1079,16 +925,13 @@ ND:
 NE:
 - Nebraska
 - neon
+- northeastern
 NF:
 - nanofarad
 - nanofarads
 NG:
-- nanogram
-- nanograms
 - no good
 NH:
-- nanohenry
-- nanohenries
 - New Hampshire
 NI:
 - homespun
@@ -1096,15 +939,7 @@ NI:
 - nickel
 - Northern Ireland
 NJ:
-- nanojoule
-- nanojoules
 - New Jersey
-NK:
-- nanokelvin
-- nanokelvins
-NL:
-- nanolitre
-- nanolitres
 NM:
 - nanometre
 - nanometres
@@ -1112,8 +947,6 @@ NM:
 NN:
 - ens
 - knights
-- nanonewton
-- nanonewtons
 - nouns
 - Novembers
 - nus
@@ -1134,23 +967,19 @@ NS:
 - opposite directions
 NT:
 - middle of winter
-- nanotesla
-- nanoteslas
 - National Theatre
 - National Trust
 - New Testament
 - Northwest Territories
+- not contracted
 NU:
 - Greek character
 - Greek letter
 - Nunavut
 NV:
-- nanovolt
-- nanovolts
 - Nevada
 NW:
-- nanowatt
-- nanowatts
+- northwest
 NY:
 - New York
 - US city
@@ -1166,6 +995,9 @@ OE:
 OF:
 - belonging to
 - from
+OG:
+- Original Gangsta
+- own goal
 OH:
 - Ohio
 - exclamation
@@ -1251,8 +1083,6 @@ PA:
 - pascals
 - Pennsylvania
 - personal assistant
-- picoampere
-- picoamperes
 - protactinium
 - secretary
 - tannoy
@@ -1284,12 +1114,8 @@ PG:
 - certificate
 - child-friendly
 - Parental Guidance
-- picogram
-- picograms
 PH:
 - measure of acidity
-- picohenry
-- picohenries
 PI:
 - constant
 - detective
@@ -1300,26 +1126,14 @@ PI:
 PJ:
 - petajoule
 - petajoules
-- picojoule
-- picojoules
-PK:
-- picokelvin
-- picokelvins
 PL:
-- picolitre
-- picolitres
 - place
 - plural
 PM:
 - afternoon
 - in the afternoon
-- picometre
-- picometres
 - prime minister
 - promethium
-PN:
-- piconewton
-- piconewtons
 PO:
 - flower
 - polonium
@@ -1343,25 +1157,13 @@ PR:
 - praseodymium
 - public relations
 PS:
-- picosecond
-- picoseconds
 - postscript
 - addendum
 PT:
-- picotesla
-- picoteslas
 - point
 - platinum
 PU:
 - plutonium
-PV:
-- picovolt
-- picovolts
-PW:
-- petawatt
-- petawatts
-- picowatt
-- picowatts
 QA:
 - quality assurance
 QB:
@@ -1453,6 +1255,8 @@ SD:
 - South Dakota
 SE:
 - selenium
+- southeast
+- southeastern
 SF:
 - San Francisco
 - sci-fi
@@ -1509,13 +1313,14 @@ ST:
 - São Tomé and Príncipe
 - stone
 - street
+SW:
+- southwest
+- southwestern
 TA:
 - cheers
 - substitute
 - tantalum
 - teaching assistant
-- teraampere
-- teraamperes
 - Territorial Army
 - thank you
 - thanks
@@ -1528,40 +1333,23 @@ TB:
 - tuberculosis
 TC:
 - technetium
-- teracoulomb
-- teracoulombs
 TE:
 - tellurium
 - tight end
-TG:
-- teragram
-- teragrams
 TH:
 - thorium
 TI:
 - note
 - Texas Instruments
 - titanium
-TJ:
-- terajoule
-- terajoules
-TK:
-- terakelvin
-- terakelvins
 TL:
-- teralitre
-- teralitres
 - thallium
 - timeline
 TM:
-- terametre
-- terametres
 - thulium
 - trademark
 TN:
 - Tennessee
-- teranewton
-- teranewtons
 - trillion
 TO:
 - addressing
@@ -1570,9 +1358,6 @@ TO:
 - until
 TP:
 - toilet paper
-TS:
-- terasecond
-- teraseconds
 TT:
 - dry
 - junctions
@@ -1593,8 +1378,6 @@ TU:
 TV:
 - television
 - telly
-- teravolt
-- teravolts
 TW:
 - terawatt
 - terawatts
@@ -1654,6 +1437,9 @@ VC:
 - venture capital
 VD:
 - venereal disease
+VE:
+- have contracted
+- Victory in Europe
 VI:
 - six
 VO:
@@ -1739,178 +1525,44 @@ XY:
 - coordinates
 - sex chromosomes
 YA:
-- yoctoampere
-- yoctoamperes
 - young adult
-- yottaampere
-- yottaamperes
 YB:
-- yoctobyte
-- yoctobytes
-- yottabyte
-- yottabytes
 - ytterbium
-YC:
-- yoctocoulomb
-- yoctocoulombs
-- yottacoulomb
-- yottacoulombs
 YD:
 - back in my day
 - yard
 - yards
-YF:
-- yoctofarad
-- yoctofarads
-- yottafarad
-- yottafarads
-YG:
-- yoctogram
-- yoctograms
-- yottagram
-- yottagrams
-YH:
-- yoctohenry
-- yoctohenries
-- yottahenry
-- yottahenries
-YJ:
-- yoctojoule
-- yoctojoules
-- yottajoule
-- yottajoules
-YK:
-- yoctokelvin
-- yoctokelvins
-- yottakelvin
-- yottakelvins
-YL:
-- yoctolitre
-- yoctolitres
-- yottalitre
-- yottalitres
-YM:
-- yoctometre
-- yoctometres
-- yottametre
-- yottametres
-YN:
-- yoctonewton
-- yoctonewtons
-- yottanewton
-- yottanewtons
+YE:
+- not quite yet
+- once you
+- you once
 YO:
 - hey
+- I (sp)
 YR:
 - year
 - your
-YS:
-- yoctosecond
-- yoctoseconds
-- yottasecond
-- yottaseconds
 YT:
-- yoctotesla
-- yoctoteslas
-- yottatesla
-- yottateslas
 - YouTube
 - Yukon
-YV:
-- yoctovolt
-- yoctovolts
-- yottavolt
-- yottavolts
-YW:
-- yoctowatt
-- yoctowatts
-- yottawatt
-- yottawatts
 YY:
 - upsilons
 - wyes
 - Yankees
 ZA:
 - pizza
-- zeptoampere
-- zeptoamperes
-- zettaampere
-- zettaamperes
-ZB:
-- zeptobyte
-- zeptobytes
-- zettabyte
-- zettabytes
-ZC:
-- zeptocoulomb
-- zeptocoulombs
-- zettacoulomb
-- zettacoulombs
 ZF:
 - Zermelo-Fraenkel
 - set theory
-ZG:
-- zeptogram
-- zeptograms
-- zettagram
-- zettagrams
-ZH:
-- zeptohenry
-- zeptohenries
-- zettahenry
-- zettahenries
-ZJ:
-- zeptojoule
-- zeptojoules
-- zettajoule
-- zettajoules
-ZK:
-- zeptokelvin
-- zeptokelvins
-- zettakelvin
-- zettakelvins
 ZL:
-- zeptolitre
-- zeptolitres
-- zettalitre
-- zettalitres
 - zloty
-ZM:
-- zeptometre
-- zeptometres
-- zettametre
-- zettametres
 ZN:
 - zinc
-- zeptonewton
-- zeptonewtons
-- zettanewton
-- zettanewtons
 ZO:
 - crossbred bull
 - crossbred yak
 ZR:
 - zirconium
-ZS:
-- zeptosecond
-- zeptoseconds
-- zettasecond
-- zettaseconds
-ZT:
-- zeptotesla
-- zeptoteslas
-- zettatesla
-- zettateslas
-ZV:
-- zeptovolt
-- zeptovolts
-- zettavolt
-- zettavolts
-ZW:
-- zeptowatt
-- zeptowatts
-- zettawatt
-- zettawatts
 ZZ:
 - snores
 - snoring
