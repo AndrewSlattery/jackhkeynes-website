@@ -13175,7 +13175,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnar",
@@ -13184,18 +13185,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
-    "mn": "condamnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnment",
@@ -13205,6 +13195,16 @@
       "sentence"
     ],
     "et": "noun from condamnar \"condemn\"",
+    "mn": "condamnar"
+  },
+  {
+    "lx": "condamnment",
+    "ps": "n",
+    "ge": [
+      "condemnation",
+      "sentence"
+    ],
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -17883,20 +17883,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -22106,6 +22106,16 @@
   },
   {
     "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22128,16 +22138,6 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
-  },
-  {
-    "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -26114,19 +26114,19 @@
     "ps": "n",
     "ge": [
       "outpost",
-      "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
+    "et": "Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossau",
     "ps": "n",
     "ge": [
       "outpost",
+      "outlying settlement",
       "colony"
     ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh"
   },
   {
     "lx": "fragossaveyaçon",
@@ -41964,7 +41964,7 @@
     "lx": "ne ðougl",
     "examples": [
       {
-        "vernacular": "Jo feg nouf laur mathem ne ðougl ig crevoscr.",
+        "vernacular": "Jo fey nouf laur mathem ne ðougl ig crevoscr.",
         "english": "I knocked out nine maths problems last night."
       }
     ],
@@ -41974,7 +41974,7 @@
       "hasty",
       "slapdash"
     ],
-    "et": "literally \"in a flurry, in a gust of wind\", idiom first attested in the fourteenth century. The noun ðougl \"flurry, gust\" reflects Old Borlish ðouȝl, deverbal noun from ðoȝlar \"waft, gust, float on the wind\"; this verb descends from Latin adoleō \"I emit an odour, I smell\".",
+    "et": "literally \"in a flurry, in a gust of wind\", idiom first attested in the fourteenth century. The noun ðougl \"flurry, gust\" reflects Old Borlish ðouȝl, deverbal noun from ðolir \"waft, gust, float on the wind\"; this verb descends from Latin adoleō \"I emit an odour, I smell\".",
     "mn": "ðougl"
   },
   {
@@ -45771,11 +45771,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -45786,9 +45784,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -65873,10 +65873,9 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocation",
-      "nomadism"
+      "relocate"
     ],
-    "et": "noun from tramigrar",
+    "et": "noun from tramigrar \"transmigrate\".",
     "mn": "tramigrar"
   },
   {
@@ -65884,9 +65883,10 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocate"
+      "relocation",
+      "nomadism"
     ],
-    "et": "noun from tramigrar \"transmigrate\".",
+    "et": "noun from tramigrar",
     "mn": "tramigrar"
   },
   {
@@ -69528,17 +69528,17 @@
   {
     "lx": "volcan",
     "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
