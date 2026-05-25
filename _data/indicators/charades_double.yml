@@ -338,13 +338,15 @@ DW:
 DY:
 - dysprosium
 EA:
-- developer
+- game developer
 - each
 - Electronic Arts
 - videogame company
 EB:
 - exabyte
 - exabytes
+EC:
+- City postcode area
 ED:
 - edition
 - editor
@@ -360,12 +362,14 @@ EE:
 - uppers
 EG:
 - for example
+- for instance
 - for one
 - maybe
 - perhaps
 - say
 EH:
 - the outside of enough
+- man up ↓
 - pardon
 - sorry
 - what
@@ -482,6 +486,8 @@ GB:
 - Great Britain
 - gigabyte
 - gigabytes
+GC:
+- golf clubs
 GD:
 - gadolinium
 GE:
@@ -623,6 +629,8 @@ II:
 - iotas
 - ones
 - two
+IK:
+- I (du)
 IL:
 - he (fr)
 - Illinois
@@ -714,13 +722,18 @@ KA:
 KB:
 - kilobyte
 - kilobytes
+KC:
+- King's Counsel
 KE:
 - kinetic energy
 KG:
 - kilogram
 - kilograms
+KH:
+- potassium hydride
 KI:
 - life force
+- potassium iodide
 KJ:
 - kilojoule
 - kilojoules
@@ -766,6 +779,8 @@ LA:
 LB:
 - pound
 - pounds
+LC:
+- lower case
 LD:
 - lethal dose
 LE:
@@ -986,6 +1001,8 @@ NY:
 - US city
 NZ:
 - New Zealand
+OB:
+- Siberian river
 OC:
 - Orange County
 OD:
@@ -996,6 +1013,7 @@ OE:
 OF:
 - belonging to
 - from
+- OnlyFans
 OG:
 - Original Gangsta
 - own goal
@@ -1171,6 +1189,7 @@ QB:
 - quarterback
 QC:
 - Quebec
+- Queen's Counsel
 QE:
 - quantitative easing
 QI:
@@ -1186,7 +1205,7 @@ RA:
 - radium
 - sun god
 RB:
-- rhythm and blues
+- R&B
 - rubidium
 RC:
 - Roman Catholic
@@ -1389,6 +1408,8 @@ TY:
 - cheers
 - thanks
 - thank you
+UC:
+- upper case
 UH:
 - hesitation
 UI:
@@ -1408,9 +1429,11 @@ UP:
 - afoot
 - awake
 - elevated
+- game
 - high
 - increased
 - out of bed
+- willing
 - winning
 UR:
 - ancient city
