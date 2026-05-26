@@ -815,82 +815,225 @@
 }
 
 // ── Print / save-as-PDF ────────────────────────────────────────────
-@media print {
-  // Hide everything on the page except the crossword widget
-  body > *:not(:has(.xw-widget)) { display: none !important; }
+// A dedicated `.xw-print-overlay` element is built in JS at print-time
+// (see printPDF() in crossword-core.js). It's positioned off-screen for
+// measurement, then revealed via @media print rules below. The overlay
+// is sized to the A4 landscape printable area so the live widget's CSS
+// (which uses container queries) renders the grid at the right scale.
 
-  .xw-widget {
-    // Reset colours to print-friendly black-on-white
-    --xw-bg:          #ffffff;
-    --xw-bg-cell:     #ffffff;
-    --xw-bg-black:    #111111;
-    --xw-bg-controls: #f0f0f0;
-    --xw-text:        #111111;
-    --xw-text-cell:   #111111;
-    --xw-text-num:    #333333;
-    --xw-text-muted:  #444444;
-    --xw-accent:      hsl(var(--xw-hue) 100% 17%);
-    --xw-border:      #aaaaaa;
-    --xw-border-outer:#111111;
-    --xw-highlight:   transparent;
-    --xw-selected:    transparent;
+// The overlay is sized well short of the full A4 landscape page in the
+// vertical axis because every major browser (Firefox, Chrome, Edge)
+// silently enforces a minimum top/bottom margin (~12.7mm = 0.5 inch)
+// whenever the user has "Print headers and footers" enabled in their
+// print dialog — regardless of @page rules. Sizing the overlay at
+// 295×178mm fits in the available area whether headers are on or off,
+// at the cost of ~30mm of blank vertical space at the bottom of the
+// page when they're disabled.
+//
+// The cushion on the horizontal axis is only 2mm because browsers
+// don't reserve side margins for headers/footers.
+@page {
+  size: 297mm 210mm;
+  margin: 0;
+}
 
-    padding: 0;
+.xw-print-overlay.xw-widget {
+  position: fixed;
+  top:  -20000px;
+  left: -20000px;
+  width:  295mm;
+  height: 178mm;
+  margin: 0;
+  padding: 6mm;    // Internal margin so content matches a 283×166mm area
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: #ffffff !important;
+  color: #111111;
+  box-sizing: border-box;
+  overflow: hidden;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  color-adjust: exact;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3mm;
+
+  // Force print-friendly colours regardless of the live light/dark mode
+  --xw-bg:          #ffffff;
+  --xw-bg-cell:     #ffffff;
+  --xw-bg-black:    #111111;
+  --xw-bg-controls: #ffffff;
+  --xw-text:        #111111;
+  --xw-text-cell:   #111111;
+  --xw-text-num:    #333333;
+  --xw-text-muted:  #444444;
+  --xw-border:      #888888;
+  --xw-border-outer:#111111;
+  --xw-highlight:   transparent;
+  --xw-selected:    transparent;
+  --xw-correct:     transparent;
+  --xw-incorrect:   transparent;
+  --xw-revealed-bg: transparent;
+  --xw-revealed-text: #111111;
+
+  // Hide any interactive widgetry that may have been cloned in
+  .xw-hidden-input,
+  .xw-pause-overlay,
+  .xw-completion-banner,
+  .xw-completion-backdrop,
+  .xw-notes-backdrop,
+  .xw-controls-bar,
+  .xw-active-clue-bar { display: none !important; }
+
+  .xw-print-header {
+    flex: 0 0 auto;
+    font-size: 10pt;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom: 0.3mm solid #333;
+    padding-bottom: 1.5mm;
+  }
+
+  .xw-print-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 6mm;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  // ── Left half: grid + notes ──
+  .xw-print-grid-col {
+    // Constrain the column to whichever is smaller: half the page width,
+    // or the height available so a square grid still fits.
+    flex: 0 0 auto;
+    width: min(135mm, calc(170mm * var(--xw-cols, 15) / var(--xw-rows, 15)));
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
+    min-height: 0;
+  }
+
+  .xw-print-grid-wrap {
+    width: 100%;
+    container-type: inline-size;
+    flex: 0 0 auto;
+  }
+
+  .xw-print-grid-wrap .xw-grid {
+    width: 100%;
     margin: 0;
-    border: none;
-    box-shadow: none;
-    color-adjust: exact;
-    -webkit-print-color-adjust: exact;
+  }
 
-    // Hide interactive controls and timer
-    .xw-controls-bar,
-    .xw-active-clue-bar,
-    .xw-clue-az-row,
-    .xw-completion-banner { display: none !important; }
+  // Boost grid letters/numbers above the live widget's defaults so each
+  // cell is filled nicely at print resolution.
+  .xw-grid .xw-letter {
+    font-size: clamp(9pt, 4.5cqw, 18pt);
+    color: #111111;
+  }
+  .xw-grid .xw-num {
+    font-size: clamp(5pt, 1.8cqw, 9pt);
+    color: #333333;
+  }
 
-    // Remove hover/focus outlines
-    &:focus-within { outline: none; }
+  .xw-cell.xw-black {
+    background: #111111 !important;
+    border-color: #111111 !important;
+  }
 
-    .xw-body {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      align-items: flex-start;
-    }
+  .xw-print-notes {
+    flex: 1 1 auto;
+    font-size: 9pt;
+    line-height: 1.25;
+    color: #222;
+    border-top: 0.2mm solid #aaa;
+    padding-top: 2mm;
+    overflow: hidden;
+    min-height: 0;
+  }
 
-    .xw-grid-wrap {
-      width: 55%;
-      flex-shrink: 0;
-    }
+  // ── Right half: clues ──
+  // Two explicit columns — one section per column. CSS multi-column flow
+  // was rejected here because html2canvas (used by the PDF exporter) does
+  // not reliably reflow content across browser-imposed columns; a fixed
+  // grid renders identically in the browser and in the snapshot.
+  .xw-print-clue-col {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm;
+    align-items: start;
+    font-size: 10pt;
+    line-height: 1.2;
+    overflow: hidden;
+  }
 
-    .xw-clue-panel {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      font-size: 0.78em;
-    }
+  .xw-print-clue-section-title {
+    font-size: 1.05em;
+    font-weight: 700;
+    margin: 0 0 1.5mm 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
 
-    .xw-clue-section { max-height: none; overflow: visible; }
+  .xw-print-clue {
+    display: flex;
+    gap: 1.5mm;
+    margin-bottom: 0.35em;
+    align-items: baseline;
+  }
 
-    .xw-pause-overlay { display: none !important; }
+  .xw-print-clue-num {
+    font-weight: 700;
+    min-width: 1.6em;
+    flex: 0 0 auto;
+  }
 
-    // Jigsaw-specific print adjustments
-    &.xw-jigsaw {
-      .xw-az-bar { display: none !important; }
+  .xw-print-clue-text { flex: 1 1 auto; }
 
-      // Keep scratchpad inputs visible but render as plain text boxes
-      .xw-scratchpad {
-        background: #ffffff;
-        border: 1px solid #aaaaaa;
-        color: #111111;
-      }
-    }
+  .xw-print-clue-enum { color: #555; }
+}
 
-    .xw-cell.xw-black {
-      background: #111111 !important;
-      print-color-adjust: exact;
-      -webkit-print-color-adjust: exact;
-    }
+@media print {
+  // Zero margins and hard-clip the document to a single A4 landscape
+  // page so nothing — neither a rounded subpixel edge nor a stray body
+  // margin — can spill into a second page.
+  html, body {
+    margin:  0 !important;
+    padding: 0 !important;
+    width:   297mm !important;
+    height:  180mm !important;
+    max-width:  297mm !important;
+    max-height: 180mm !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+  }
+
+  // Hide everything except the print overlay.
+  body > *:not(.xw-print-overlay) { display: none !important; }
+
+  .xw-print-overlay.xw-widget {
+    // Anchor to the top-left of the page so default body margins can't
+    // shift the overlay downward.
+    position: absolute !important;
+    top:  0 !important;
+    left: 0 !important;
+    width:  295mm !important;
+    height: 178mm !important;
+    max-height: 178mm !important;
+    overflow: hidden !important;
+    page-break-after:  avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-after:  avoid !important;
+    break-before: avoid !important;
+    break-inside: avoid !important;
   }
 }

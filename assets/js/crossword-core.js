@@ -34,6 +34,61 @@
     return m + ':' + (s < 10 ? '0' : '') + s;
   }
 
+  // ----------------------------------------------------------------
+  // PDF EXPORT HELPERS
+  // ----------------------------------------------------------------
+  // Lazy-load jsPDF + html2canvas from a CDN on first PDF export, then
+  // cache the promise so subsequent exports reuse the already-loaded libs.
+  var _pdfLibsPromise = null;
+  function loadPdfLibs() {
+    if (_pdfLibsPromise) return _pdfLibsPromise;
+    _pdfLibsPromise = Promise.all([
+      window.html2canvas
+        ? Promise.resolve()
+        : loadScript('https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js'),
+      (window.jspdf && window.jspdf.jsPDF)
+        ? Promise.resolve()
+        : loadScript('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js')
+    ]);
+    return _pdfLibsPromise;
+  }
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload  = function () { resolve(); };
+      s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+      document.head.appendChild(s);
+    });
+  }
+
+  // Replace CSS `aspect-ratio` and container-query-driven sizes with
+  // baked-in pixel values. html2canvas's box-model implementation does
+  // not honour `aspect-ratio`, so square cells would collapse vertically
+  // without this pass.
+  function bakeCellDimensions(overlay) {
+    var cells = overlay.querySelectorAll('.xw-cell, .xw-outside');
+    for (var i = 0; i < cells.length; i++) {
+      var rect = cells[i].getBoundingClientRect();
+      cells[i].style.width  = rect.width  + 'px';
+      cells[i].style.height = rect.height + 'px';
+    }
+  }
+
+  // Fallback when window.open() was blocked: trigger a direct download.
+  function triggerDownload(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename + '.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 60 * 1000);
+  }
+
   // ================================================================
   // DEFAULT IMPLEMENTATIONS
   // ================================================================
@@ -1373,37 +1428,222 @@
       }
     }
 
-    function printPDF() {
-      var widget = getWidget();
-      if (!widget) { window.print(); return; }
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
 
-      var hidden = [];
-      var node   = widget;
-      while (node && node !== document.body) {
-        var parent = node.parentElement;
-        if (!parent) break;
-        Array.from(parent.children).forEach(function (sib) {
-          if (sib !== node) {
-            sib.style.setProperty('display', 'none', 'important');
-            hidden.push(sib);
-          }
-        });
-        node = parent;
+    function buildPrintOverlay() {
+      var widget  = getWidget();
+      var gridEl  = widget && widget.querySelector('.xw-grid');
+      if (!widget || !gridEl || !puzzle) return null;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'xw-widget xw-light xw-print-overlay';
+      if (widgetClass) overlay.classList.add(widgetClass);
+      overlay.style.setProperty('--xw-cols', puzzle.width);
+      overlay.style.setProperty('--xw-rows', puzzle.height);
+      overlay.style.setProperty('--xw-hue',  state.settings.accentHue);
+
+      // Header — prefer the data-print-series / data-print-title attrs
+      // populated by the Liquid include (which knows the post's title and
+      // whether it's a Keynesian Cryptic or a Bluejacket). Fall back to
+      // the ipuz title / puzzle number when those attrs are missing.
+      var printSeries = container.getAttribute('data-print-series');
+      var printTitle  = container.getAttribute('data-print-title');
+      var headerText;
+      if (printSeries && printTitle) {
+        headerText = printSeries + ' — ' + printTitle;
+      } else if (printTitle) {
+        headerText = printTitle;
+      } else {
+        var headerParts = [];
+        if (puzzleNumber) headerParts.push('#' + puzzleNumber);
+        if (puzzle.title) headerParts.push(puzzle.title);
+        headerText = headerParts.join(' — ');
       }
+      if (puzzle.author) headerText += '   ·   ' + puzzle.author;
 
-      function restore() {
-        hidden.splice(0).forEach(function (el) {
-          el.style.removeProperty('display');
-        });
-      }
-
-      window.addEventListener('afterprint', function onAfter() {
-        window.removeEventListener('afterprint', onAfter);
-        restore();
+      // Clone the grid (blank) — strip user entries and interactive state
+      var gridClone = gridEl.cloneNode(true);
+      gridClone.querySelectorAll(
+        '.xw-selected, .xw-highlighted, .xw-clue-active, .xw-correct, .xw-incorrect, .xw-revealed, .xw-clue-done'
+      ).forEach(function (el) {
+        el.classList.remove(
+          'xw-selected', 'xw-highlighted', 'xw-clue-active',
+          'xw-correct', 'xw-incorrect', 'xw-revealed', 'xw-clue-done'
+        );
       });
-      setTimeout(restore, 30000);
+      gridClone.querySelectorAll('.xw-letter').forEach(function (el) {
+        el.textContent = '';
+      });
 
-      window.print();
+      // Build clue sections
+      var clueHTML = '';
+      dirs.forEach(function (dir) {
+        var items = words.filter(function (w) {
+          return w.direction === dir && !w.isContinuation;
+        });
+        if (!items.length) return;
+        var title = dirTitles[dir] || dir;
+        clueHTML += '<div class="xw-print-clue-section">';
+        clueHTML += '<h3 class="xw-print-clue-section-title">' + escapeHtml(title) + '</h3>';
+        items.forEach(function (word) {
+          var numLabel = word.label || word.number;
+          var enumStr  = (puzzle.showEnumerations && word.enumeration)
+            ? ' <span class="xw-print-clue-enum">(' + escapeHtml(fmtEnum(word.enumeration)) + ')</span>'
+            : '';
+          clueHTML += '<div class="xw-print-clue">' +
+            '<span class="xw-print-clue-num">' + escapeHtml(String(numLabel)) + '</span>' +
+            '<span class="xw-print-clue-text">' + word.clue + enumStr + '</span>' +
+          '</div>';
+        });
+        clueHTML += '</div>';
+      });
+
+      // Notes / initial instructions
+      var notesHTML = '';
+      if (puzzle.notes) {
+        var notesSafe = escapeHtml(puzzle.notes).replace(/\n/g, '<br>');
+        notesHTML = '<div class="xw-print-notes">' + notesSafe + '</div>';
+      }
+
+      overlay.innerHTML =
+        '<div class="xw-print-header">' + escapeHtml(headerText) + '</div>' +
+        '<div class="xw-print-body">' +
+          '<div class="xw-print-grid-col">' +
+            '<div class="xw-grid-wrap xw-print-grid-wrap"></div>' +
+            notesHTML +
+          '</div>' +
+          '<div class="xw-print-clue-col">' + clueHTML + '</div>' +
+        '</div>';
+
+      overlay.querySelector('.xw-print-grid-wrap').appendChild(gridClone);
+      return overlay;
+    }
+
+    function fitClueFont(overlay) {
+      var panel = overlay.querySelector('.xw-print-clue-col');
+      if (!panel) return;
+
+      function fits(fs) {
+        panel.style.fontSize = fs.toFixed(2) + 'pt';
+        // Force layout
+        void panel.offsetHeight;
+        // Panel is a 2-column grid with overflow:hidden. scrollHeight
+        // reports the natural content height regardless of clipping;
+        // clientHeight is what's visible. If content overflows, scrollHeight
+        // exceeds clientHeight.
+        return panel.scrollHeight <= panel.clientHeight + 0.5;
+      }
+
+      var lo = 5.5, hi = 16.0;
+      if (fits(hi)) { panel.style.fontSize = hi.toFixed(2) + 'pt'; return; }
+      if (!fits(lo)) { panel.style.fontSize = lo.toFixed(2) + 'pt'; return; }
+      while (hi - lo > 0.15) {
+        var mid = (lo + hi) / 2;
+        if (fits(mid)) lo = mid; else hi = mid;
+      }
+      panel.style.fontSize = lo.toFixed(2) + 'pt';
+    }
+
+    // Generate the PDF entirely client-side via jsPDF + html2canvas, then
+    // open the resulting blob in a new tab. This sidesteps every quirk of
+    // the browser print engine (Firefox in particular was rendering a
+    // phantom blank "page 2" in its print preview).
+    function printPDF() {
+      // Open the destination tab synchronously so popup blockers permit
+      // it — async work (lib loading, snapshot) drops the user gesture.
+      var newTab = null;
+      try { newTab = window.open('', '_blank'); } catch (e) {}
+      if (newTab) {
+        try {
+          newTab.document.write(
+            '<!doctype html><meta charset="utf-8"><title>Generating PDF…</title>' +
+            '<style>html,body{margin:0;height:100%;}' +
+            'body{display:flex;align-items:center;justify-content:center;' +
+            'font-family:system-ui,sans-serif;color:#666;background:#f4f4f4;}</style>' +
+            '<div>Generating PDF…</div>'
+          );
+          newTab.document.close();
+        } catch (e) { /* ignore */ }
+      }
+
+      var overlay = buildPrintOverlay();
+      if (!overlay) {
+        if (newTab) { try { newTab.close(); } catch (e) {} }
+        return;
+      }
+
+      // Mount on-page at (0,0) but invisible. html2canvas needs the
+      // overlay laid out and styled; the off-screen -20000px position
+      // from the SCSS could confuse the lib's bounding-box capture, so
+      // we override with opacity:0 / z-index:-1 instead.
+      overlay.style.top  = '0';
+      overlay.style.left = '0';
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+      overlay.style.zIndex = '-1';
+      document.body.appendChild(overlay);
+      void overlay.offsetHeight; // force layout
+
+      try { fitClueFont(overlay); } catch (e) { /* keep default font size */ }
+      bakeCellDimensions(overlay);
+
+      var headerEl = overlay.querySelector('.xw-print-header');
+      var rawName  = (headerEl && headerEl.textContent.trim()) || 'crossword';
+      var filename = rawName.replace(/[^a-z0-9_\-\s]/gi, '').trim().slice(0, 80) || 'crossword';
+
+      function fail(err) {
+        if (window.console) console.error('PDF generation failed', err);
+        var msg = (err && err.message) ? err.message : String(err);
+        if (newTab && !newTab.closed) {
+          try { newTab.document.body.textContent = 'Failed to generate PDF: ' + msg; }
+          catch (e) {}
+        } else {
+          try { alert('Failed to generate PDF: ' + msg); } catch (e) {}
+        }
+      }
+
+      function cleanup() {
+        if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }
+
+      loadPdfLibs().then(function () {
+        return window.html2canvas(overlay, {
+          scale: 3,
+          backgroundColor: '#ffffff',
+          logging: false,
+          useCORS: true
+        });
+      }).then(function (canvas) {
+        var jsPDF = window.jspdf && window.jspdf.jsPDF;
+        if (!jsPDF) throw new Error('jsPDF not available');
+        var pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4', compress: true });
+        var imgData = canvas.toDataURL('image/jpeg', 0.92);
+        // A4 landscape is 297×210mm. Overlay is sized 295×178mm so it
+        // clears the browser-imposed 12.7mm header/footer margin when
+        // printed; on a downloaded PDF this just centers content with a
+        // 1mm side / 16mm top+bottom border.
+        var pageW = 297, pageH = 210, imgW = 295, imgH = 178;
+        pdf.addImage(imgData, 'JPEG', (pageW - imgW) / 2, (pageH - imgH) / 2, imgW, imgH);
+        pdf.setProperties({ title: rawName });
+
+        var blob = pdf.output('blob');
+        var url  = URL.createObjectURL(blob);
+
+        if (newTab && !newTab.closed) {
+          try { newTab.location.replace(url); }
+          catch (e) { triggerDownload(blob, filename); }
+        } else {
+          triggerDownload(blob, filename);
+        }
+
+        setTimeout(function () { URL.revokeObjectURL(url); }, 5 * 60 * 1000);
+      }).catch(fail).then(cleanup);
     }
 
     // ================================================================
