@@ -1578,13 +1578,19 @@
         return;
       }
 
-      // Mount on-page at (0,0) but invisible. html2canvas needs the
-      // overlay laid out and styled; the off-screen -20000px position
-      // from the SCSS could confuse the lib's bounding-box capture, so
-      // we override with opacity:0 / z-index:-1 instead.
-      overlay.style.top  = '0';
+      // Mount on-page just below the viewport. html2canvas needs the
+      // overlay laid out and styled at positive coordinates, and we
+      // deliberately avoid:
+      //   - top:-20000px positioning (off-screen): html2canvas can
+      //     mishandle negative bounding-rect coordinates.
+      //   - opacity:0:        html2canvas honors opacity and renders a
+      //                       blank canvas — was producing empty PDFs.
+      //   - visibility:hidden: html2canvas skips hidden elements.
+      // top:100vh parks the overlay one screen below the viewport's
+      // bottom edge, where it's laid out at full 295×178mm but invisible
+      // to the user.
+      overlay.style.top  = '100vh';
       overlay.style.left = '0';
-      overlay.style.opacity = '0';
       overlay.style.pointerEvents = 'none';
       overlay.style.zIndex = '-1';
       document.body.appendChild(overlay);
