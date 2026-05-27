@@ -7365,6 +7365,12 @@
   },
   {
     "lx": "big",
+    "examples": [
+      {
+        "vernacular": "Cargeð y boist ny big ða ðe voun lo quottar.",
+        "english": "Load the boxes into the boot if they'll fit."
+      }
+    ],
     "ps": "n",
     "ge": [
       "chariot",
@@ -7377,7 +7383,8 @@
       "sidecar",
       "rook",
       "castle"
-    ]
+    ],
+    "et": "direct descendant via Old Borlish biȝ \"wagon, haycart\" from Latin bīga \"chariot\" (reflecting a reduced bi-iuga \"two-yokes\"). Revived in the sixteenth century in its historical sense, by which time it had shifted to \"a platform for loading cargo\", from which the other vehicular senses stem. Applied to the chess piece since the seventeenth century (formerly we see roc < Arabic رُخّ \"rook\")."
   },
   {
     "lx": "bilrod",
@@ -8593,6 +8600,13 @@
       "sunburn"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "brut",
+    "ps": "n",
+    "ge": "nitrate",
+    "et": "18C, extracted from salbrut \"saltpetre\".",
+    "mn": "salbrut"
   },
   {
     "lx": "brutal",
@@ -13175,8 +13189,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnar",
@@ -13185,7 +13198,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnment",
@@ -13597,18 +13611,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "connardaç",
@@ -14374,6 +14388,38 @@
       "crow"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "coricheyar",
+    "examples": [
+      {
+        "vernacular": "Sy femn a y cambr coricheyað.",
+        "english": "His wife has fillled his house with chintz."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "pattern with chintz",
+      "dress in chintz",
+      "furnish with chintz",
+      "zhoosh",
+      "spruce",
+      "finesse",
+      "spice up"
+    ],
+    "et": "19C, verbal derivation from noun coricot \"chintz (fabric, clothing, furniture)\", as though the -ot ending were a diminutive suffix. In metaphorical usage the term is seen from the 1950s.",
+    "mn": "coricot"
+  },
+  {
+    "lx": "coricot",
+    "ps": "n",
+    "ge": [
+      "calico",
+      "chintz",
+      "decoration",
+      "ornament"
+    ],
+    "et": "from the city of Coricot [Kozhikode] in Limerick [~Kerala, India], from where the fabric was exported."
   },
   {
     "lx": "corn",
@@ -17883,20 +17929,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -19865,6 +19911,33 @@
       "lady"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "domn dy jorn",
+    "ps": "n",
+    "ge": [
+      "mistress",
+      "concubine"
+    ],
+    "et": "idiom, literally \"lady of the day\".",
+    "mn": [
+      "domn",
+      "jorn"
+    ]
+  },
+  {
+    "lx": "domn dy noit",
+    "ps": "n",
+    "ge": [
+      "prostitute",
+      "whore",
+      "sex worker"
+    ],
+    "et": "idiom, literally \"lady of the night\".",
+    "mn": [
+      "domn",
+      "jorn"
+    ]
   },
   {
     "lx": "donaçon",
@@ -22106,16 +22179,6 @@
   },
   {
     "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22138,6 +22201,16 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
+  },
+  {
+    "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -27437,9 +27510,19 @@
     "ge": [
       "nice",
       "friendly",
-      "agreeable"
+      "agreeable",
+      "well-born"
     ],
     "et": "Latin"
+  },
+  {
+    "lx": "gentilhom",
+    "ps": "n",
+    "ge": [
+      "gentleman",
+      "gentlewoman"
+    ],
+    "et": "compound of gentil"
   },
   {
     "lx": "geographic",
@@ -35693,6 +35776,19 @@
     ]
   },
   {
+    "lx": "laureller",
+    "ps": [
+      "n",
+      "adj"
+    ],
+    "ge": [
+      "laurel",
+      "laurel tree",
+      "laurel"
+    ],
+    "et": "Vulgar Latin laurellus < Latin laurea, re-classicised from Middle Borlish loreller"
+  },
+  {
     "lx": "lauric",
     "ps": "adj",
     "ge": "containing a dodecyl (C12H25-) radical",
@@ -40464,6 +40560,12 @@
     "et": "Middle Borlish < Latin < Ancient Greek"
   },
   {
+    "lx": "monastic",
+    "ps": "adj",
+    "ge": "monastic",
+    "et": "Latin < Greek"
+  },
+  {
     "lx": "monastir",
     "ps": "n",
     "ge": "monastery",
@@ -43082,6 +43184,16 @@
       "America"
     ],
     "et": "Latin novus mundus \"new world\""
+  },
+  {
+    "lx": "noxal",
+    "ps": "n",
+    "ge": [
+      "nitrogen",
+      "nitrogen gas",
+      "N₂"
+    ],
+    "et": "Scholastic Latin āēr noxālis \"noxal air\" < 1674 terra noxālis \"muriate of ammony\" [NH₄Cl] < c1550 noxaterra < adapted to terra \"earth\" from c13C Malchassian νοξάτερα < Classical Persian نُشَادِر • nushádir \"æq\". Noxal air was first isolated in 1772 by combining muriate of ammony with psolic salbrute [KNO₂]."
   },
   {
     "lx": "nu",
@@ -46967,6 +47079,16 @@
   },
   {
     "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -46975,16 +47097,6 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
-  },
-  {
-    "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -48036,6 +48148,28 @@
       "pievr",
       "sec"
     ]
+  },
+  {
+    "lx": "pighar",
+    "examples": [
+      {
+        "vernacular": "A tug tesqual le pig jo sur y paið.",
+        "english": "To keep it real I fuck him on the floor."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "bugger",
+      "top",
+      "fuck",
+      "tup",
+      "screw",
+      "cheat",
+      "ruin",
+      "fuck over",
+      "screw over"
+    ],
+    "et": "disputed. Attested since the eleventh century in late Old Borlish piȝar \"bugger\", making it the second-oldest vulgarity for intercourse after foutr \"fuck\" < Latin futuō \"I fuck\". Possibly the word is a dialectal form of piglar \"plunder, pillage\"—compare Old Borlish caiȝ \"toggle\" < Vulgar Latin cavicla \"latch\". Alternatively, it might derive directly from Latin pēdīcō \"I bugger\" (although the word has no other descendants)."
   },
   {
     "lx": "piglar",
@@ -55668,6 +55802,22 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "salbrut",
+    "examples": [
+      {
+        "vernacular": "Y pouvr contien salbrut, carbon e brunstan.",
+        "english": "The powder contains saltpetre, charcoal and sulphur."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "saltpetre",
+      "saltpeter"
+    ],
+    "et": "Middle Borlish, borrowed from Scholastic Latin sāl brūtus \"dull salt\". This is a folk-etymological adaption of Arabic بَارُود • bārūd \"saltpetre; gunpowder\", which is of uncertain origin. The term brut for a general nitrate was derived from the name of this substance in the eighteenth century.",
+    "mn": "sal"
+  },
+  {
     "lx": "saler",
     "ps": "n",
     "ge": [
@@ -55861,17 +56011,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -58389,6 +58539,32 @@
       "experience"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "sentenç",
+    "examples": [
+      {
+        "vernacular": "Lorry sentenç no son autrað tras un carantein.",
+        "english": "Their beliefs haven't changed in forty years."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "worldview",
+      "ethos",
+      "outlook",
+      "opinion",
+      "view",
+      "line",
+      "maxim",
+      "aphorism",
+      "dictum",
+      "sentence",
+      "judgement",
+      "judgment"
+    ],
+    "et": "borrowed from Latin sententia \"opinion, judgment; thought\", itself a derivative of sentiō \"I feel, perceive, think\". The term was first attested in the Middle Boral period in juridical contexts. The \"maxim\" sense flowered in the moralising literature of the early modern period, when collections of aphorisms circulated widely as pedagogical tools.",
+    "mn": "sentir"
   },
   {
     "lx": "sentir",
@@ -61383,6 +61559,27 @@
     "et": "Old Borlish < Old English"
   },
   {
+    "lx": "sposar",
+    "examples": [
+      {
+        "vernacular": "Y collocquour spuðau a sy paðr sposar.",
+        "english": "The journalist refused to vouch for her father."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "espouse",
+      "embrace",
+      "take up",
+      "marry",
+      "wed",
+      "vouch for",
+      "back"
+    ],
+    "et": "Old Borlish, from Latin spōnsō \"I promise\", the frequentative of spondeō \"I pledge solemnly, give my word\". The specifically matrimonial reading, not seen until the fifteenth century, may be a later back-formation from related spous \"husband, wife\".",
+    "mn": "spous"
+  },
+  {
     "lx": "spous",
     "ps": "n",
     "ge": "spouse",
@@ -63536,6 +63733,18 @@
     ],
     "mn": "tar",
     "sd": "Planets"
+  },
+  {
+    "lx": "tar noxal",
+    "ps": "n",
+    "ue": "historical",
+    "ge": [
+      "sal ammoniac",
+      "ammonium chloride",
+      "NH₄Cl"
+    ],
+    "et": "terra noxālis \"muriate of ammony\" [NH₄Cl] < c1550 noxaterra < adapted to terra \"earth\" from c13C Malchassian νοξάτερα < Classical Persian نُشَادِر • nushádir \"æq\". Noxal air was first isolated in 1772 by combining muriate of ammony with psolic salbrute [KNO₂].",
+    "mn": "noxal"
   },
   {
     "lx": "tar yembr",
@@ -65873,9 +66082,10 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocate"
+      "relocation",
+      "nomadism"
     ],
-    "et": "noun from tramigrar \"transmigrate\".",
+    "et": "noun from tramigrar",
     "mn": "tramigrar"
   },
   {
@@ -65883,10 +66093,9 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocation",
-      "nomadism"
+      "relocate"
     ],
-    "et": "noun from tramigrar",
+    "et": "noun from tramigrar \"transmigrate\".",
     "mn": "tramigrar"
   },
   {
@@ -66761,7 +66970,7 @@
     ],
     "mn": [
       "affer",
-      "prent"
+      "premir"
     ]
   },
   {
@@ -69528,17 +69737,17 @@
   {
     "lx": "volcan",
     "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
