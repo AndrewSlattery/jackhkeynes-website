@@ -1245,6 +1245,16 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1252,16 +1262,6 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -13208,7 +13208,7 @@
       "condemnation",
       "sentence"
     ],
-    "et": "noun from condamnar \"condemn\"",
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13218,7 +13218,7 @@
       "condemnation",
       "sentence"
     ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
+    "et": "noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13611,18 +13611,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "connardaç",
@@ -17929,20 +17929,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -19943,7 +19943,7 @@
     "lx": "donaçon",
     "examples": [
       {
-        "vernacular": "Il se ponden a plaç mi ny rout, graðleur e donation rovant.",
+        "vernacular": "Ðe se ponden a plaç meg ny rout, graðleur e donaçon rovant.",
         "english": "They were standing in the street asking for money and volunteers."
       }
     ],
@@ -26570,12 +26570,6 @@
   },
   {
     "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
-  },
-  {
-    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26597,6 +26591,12 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
+  },
+  {
+    "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -69737,17 +69737,17 @@
   {
     "lx": "volcan",
     "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
