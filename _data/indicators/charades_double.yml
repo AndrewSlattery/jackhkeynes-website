@@ -816,6 +816,9 @@ LV:
 - livermorium
 LX:
 - sixty
+LY:
+- light-year
+- light-years
 MA:
 - graduate
 - Massachusetts
@@ -833,6 +836,7 @@ MB:
 MC:
 - host
 - master of ceremonies
+- moscovium
 MD:
 - doctor
 - frame of mind
@@ -850,6 +854,8 @@ MG:
 - milligram
 - milligrams
 - magnesium
+MH:
+- month on vacation
 MI:
 - Michigan
 - mile(s)
@@ -1262,8 +1268,8 @@ RV:
 - motor home
 - recreational vehicle
 SA:
-- it
 - sex appeal
+- South America
 - South Australia
 SB:
 - antimony
@@ -1291,13 +1297,14 @@ SH:
 - quiet
 - silence
 SI:
+- metric system
 - silicon
-- unit system
+- Système International
 - yes (sp,it,pt)
 SK:
 - Saskatchewan
 SM:
-- kinky sex
+- S&M
 - sadomasochism
 SN:
 - opposite directions
@@ -1333,6 +1340,11 @@ ST:
 - São Tomé and Príncipe
 - stone
 - street
+SU:
+- US-backed
+SV:
+- sievert
+- sieverts
 SW:
 - southwest
 - southwestern
@@ -1353,10 +1365,19 @@ TB:
 - tuberculosis
 TC:
 - technetium
+TD:
+- Irish parliamentarian
+- Teachta Dála
+- touchdown
 TE:
 - tellurium
 - tight end
+TF:
+- the fuck
 TH:
+- half of that
+- half of this
+- most of the
 - thorium
 TI:
 - note
@@ -1378,6 +1399,8 @@ TO:
 - until
 TP:
 - toilet paper
+TS:
+- tennessine
 TT:
 - dry
 - junctions
