@@ -13,20 +13,20 @@
     query:        ''      // text search (all types)
   };
 
-  // Ordered list of all possible categories with their rendering type.
+  // Alphabetical list of all possible categories with their rendering type.
   // Only categories actually present in the JSON will appear in the nav.
   var CATEGORY_CONFIG = [
-    { key: 'Charade (2)',      type: 'charade2',     label: '2-letter charades' },
-    { key: 'Charade (1)',      type: 'charade1',     label: '1-letter charades' },
     { key: 'Anagrams',         type: 'simple',       label: 'Anagrams'          },
-    { key: 'Homophones',       type: 'simple',       label: 'Homophones'        },
-    { key: 'Hidden',           type: 'simple',       label: 'Hidden words'      },
+    { key: 'Charade (1)',      type: 'charade1',     label: '1-letter charades' },
+    { key: 'Charade (2)',      type: 'charade2',     label: '2-letter charades' },
     { key: 'Containment',      type: 'hierarchical', label: 'Containment'       },
     { key: 'Deletions',        type: 'hierarchical', label: 'Deletions'         },
+    { key: 'Hiddens',          type: 'simple',       label: 'Hidden words'      },
+    { key: 'Homophones',       type: 'simple',       label: 'Homophones'        },
     { key: 'Letter selection', type: 'hierarchical', label: 'Letter selection'  },
+    { key: 'Linking',          type: 'hierarchical', label: 'Linking words'     },
     { key: 'Reversals',        type: 'hierarchical', label: 'Reversals'         },
     { key: 'Swaps',            type: 'hierarchical', label: 'Swaps'             },
-    { key: 'Linking',          type: 'hierarchical', label: 'Linking words'     },
   ];
 
   // ─── Bootstrap ────────────────────────────────────────────────────────────

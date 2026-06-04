@@ -32,11 +32,11 @@ layout: null
 
   {% comment %} =======================================================
      GROUP 2: SIMPLE LIST FILES
-     (Anagrams, Homophones, Hidden)
+     (Anagrams, Homophones)
      Structure: Type -> List of Words
      ======================================================= {% endcomment %}
 
-  {% assign simple_files = "anagrams,homophones,hidden" | split: "," %}
+  {% assign simple_files = "anagrams,homophones" | split: "," %}
 
   {% for filename in simple_files %}
     {% assign file_data = site.data.indicators[filename] %}
@@ -54,6 +54,38 @@ layout: null
       {% endfor %}
     {% endif %}
   {% endfor %}
+
+  {% comment %} =======================================================
+     GROUP 2b: HIDDENS (mixed structure)
+     Top categories are either a flat word list (e.g. Modifiers, Nouns) or a
+     hash of subcategories (e.g. Prepositions, Verbs). Detect per item: a hash
+     entry exposes item[1] (its word list); a plain string does not.
+     ======================================================= {% endcomment %}
+
+  {% if site.data.indicators.hiddens %}
+    {% for top_category in site.data.indicators.hiddens %}
+      {% assign main_label = top_category[0] %}
+      {% for item in top_category[1] %}
+        {% if item[1] %}
+          {% for word in item[1] %}
+            {
+              "word": {{ word | jsonify }},
+              "category": "Hiddens",
+              "type": "{{ main_label }} - {{ item[0] }}",
+              "result": "Hiddens"
+            },
+          {% endfor %}
+        {% else %}
+            {
+              "word": {{ item | jsonify }},
+              "category": "Hiddens",
+              "type": "{{ main_label }}",
+              "result": "Hiddens"
+            },
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
 
   {% comment %} =======================================================
      GROUP 3: CHARADES
