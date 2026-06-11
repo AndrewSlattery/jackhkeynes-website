@@ -1245,16 +1245,6 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1262,6 +1252,16 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -10297,6 +10297,37 @@
       "chain-link"
     ],
     "et": "Latin"
+  },
+  {
+    "lx": "cateu",
+    "examples": [
+      {
+        "vernacular": "Sy paðr narc es un segr cateu.",
+        "english": "His stepfather is a wicked man."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "wicked",
+      "evil",
+      "vile",
+      "despicable",
+      "mean",
+      "nasty",
+      "spiteful",
+      "malicious",
+      "naughty",
+      "contrary",
+      "badly behaved",
+      "wayward",
+      "foul",
+      "grim",
+      "miserable",
+      "bad",
+      "wretched",
+      "unfortunate"
+    ],
+    "et": "directly from Old Borlish catiu \"wretched, pitiable\", from Latin captīvus \"captive, imprisoned\". The semantic shift to immorality (with parallels in e.g. Norman caitiff \"cowardly\" or Portingale cativo \"child\" < \"puny, scrawny\") occurred through the transition to Middle Borlish, motivated by the theological notion of wrongdoers being \"captives of sin, or of the devil\". The applications to weather and to children are both attested from the early modern period."
   },
   {
     "lx": "cathedral",
@@ -26570,6 +26601,12 @@
   },
   {
     "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26591,12 +26628,6 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -36282,6 +36313,31 @@
     "et": "Old Borlish < Kelt"
   },
   {
+    "lx": "ligaçon",
+    "examples": [
+      {
+        "vernacular": "Toð y cort ern connoscent de sy ligaçon coll'aðm dy rey.",
+        "english": "The whole court knew of his affair with the king's mistress."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "link",
+      "connection",
+      "bond",
+      "tie",
+      "relationship",
+      "relations",
+      "liaison",
+      "affair",
+      "dalliance",
+      "ligature",
+      "ligation"
+    ],
+    "et": "Middle Borlish, an action noun from ligar \"to bind, bandage, link\" < Latin ligō \"I tie, bind\", reinforced by direct borrowing of Latin ligātiō \"a binding\". The genteel use for an illicit attachment is a nineteenth-century euphemism; the surgical sense follows Latin medical usage.",
+    "mn": "ligar"
+  },
+  {
     "lx": "ligar",
     "ps": "ar v",
     "ge": [
@@ -41034,6 +41090,30 @@
       "morgue"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "morvaç",
+    "examples": [
+      {
+        "vernacular": "J'ascovau e jey morvaç sur my camis.",
+        "english": "I sneezed and got snot on my shirt."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "snot",
+      "mucus",
+      "bogey",
+      "booger",
+      "glanders",
+      "strangles",
+      "brat",
+      "rascal",
+      "imp",
+      "urchin",
+      "scamp"
+    ],
+    "et": "pejorative derivation from earlier morf \"snot\". Possibly a direct descendant of Latin morbus \"disease\", but also connected to Old French morve \"snot, glanders\", which may instead be a metathetic borrowing from Old Doccian vorm (compare Barcelon vorm \"glanders, jellyfish\"), from Frankish wurm \"worm\". The word has been used for misbehaving children since the 16th century."
   },
   {
     "lx": "mosc",
@@ -45883,9 +45963,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -45896,11 +45978,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -47079,16 +47159,6 @@
   },
   {
     "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -47097,6 +47167,16 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
+  },
+  {
+    "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -52535,7 +52615,7 @@
     "lx": "rastel fair",
     "examples": [
       {
-        "vernacular": "Rien va par un bricot nuçal lour rovant, com i fay rastel!",
+        "vernacular": "Nien va par un bricot nuçal lour rovant, com le fay rastel!",
         "english": "There's no point asking him for a wedding present, he's so miserly!"
       }
     ],
@@ -68028,6 +68108,30 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "vasir",
+    "examples": [
+      {
+        "vernacular": "Y vasir parmane a influyenç accomblar.",
+        "english": "The vizier continued accruing influence."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "vizier",
+      "minister",
+      "advisor",
+      "envoy",
+      "attache",
+      "attaché",
+      "diplomat",
+      "puppetmaster",
+      "grey eminence",
+      "éminence grise",
+      "queen"
+    ],
+    "et": "borrowed from Arabic وَزِير • wazīr \"vizier, minister\", literally \"carrier\". The word entered Borlish in the late medieval period, originally restricted to accounts of foreign courts and to the game of chess; use for diplomats in general and by extension puppetmasters in other contexts is seen from the seventeenth century."
+  },
+  {
     "lx": "vassagl",
     "ps": "adj",
     "ge": [
@@ -69737,17 +69841,17 @@
   {
     "lx": "volcan",
     "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
