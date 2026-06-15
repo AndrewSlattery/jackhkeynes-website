@@ -1245,16 +1245,6 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1262,6 +1252,16 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -7538,6 +7538,30 @@
     "et": "Old Borlish < Old English"
   },
   {
+    "lx": "bleic",
+    "examples": [
+      {
+        "vernacular": "Y sol yemal splendisce con for un lumner bleic.",
+        "english": "The winter sun shone with a washed-out light."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "wan",
+      "pallid",
+      "ashen",
+      "faint",
+      "feeble",
+      "washed-out",
+      "weak",
+      "half-hearted",
+      "bleak",
+      "cheerless",
+      "desolate"
+    ],
+    "et": "from Old Borlish bleic \"pale, whitish\", a borrowing of synonymous bleikr in Old Norse, which reflects Classical German blaecas \"white\". The word was crowded out of neutral usage by blanc \"white\" in the Middle Borlish period, and now carries contemptuous or unpromising connotations."
+  },
+  {
     "lx": "bloc",
     "ps": "n",
     "ge": [
@@ -10297,6 +10321,37 @@
       "chain-link"
     ],
     "et": "Latin"
+  },
+  {
+    "lx": "cateu",
+    "examples": [
+      {
+        "vernacular": "Sy paðr narc es un segr cateu.",
+        "english": "His stepfather is a wicked man."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "wicked",
+      "evil",
+      "vile",
+      "despicable",
+      "mean",
+      "nasty",
+      "spiteful",
+      "malicious",
+      "naughty",
+      "contrary",
+      "badly behaved",
+      "wayward",
+      "foul",
+      "grim",
+      "miserable",
+      "bad",
+      "wretched",
+      "unfortunate"
+    ],
+    "et": "directly from Old Borlish catiu \"wretched, pitiable\", from Latin captīvus \"captive, imprisoned\". The semantic shift to immorality (with parallels in e.g. Norman caitiff \"cowardly\" or Portingale cativo \"child\" < \"puny, scrawny\") occurred through the transition to Middle Borlish, motivated by the theological notion of wrongdoers being \"captives of sin, or of the devil\". The applications to weather and to children are both attested from the early modern period."
   },
   {
     "lx": "cathedral",
@@ -13485,6 +13540,26 @@
     ],
     "et": "noun derivation from confraðr",
     "mn": "confraðr"
+  },
+  {
+    "lx": "congenir",
+    "examples": [
+      {
+        "vernacular": "Y parol 'sauð' e 'veð' son congenið de Veðr Norresc.",
+        "english": "The words 'ewe' and 'ram' descend from Old Norrish."
+      }
+    ],
+    "ps": "ir2 v",
+    "ge": [
+      "conceive",
+      "beget",
+      "be the ancestor of",
+      "create",
+      "generate",
+      "originate",
+      "invent"
+    ],
+    "et": "from Scholastic Latin congenēscō \"I bring into being\", a regularised derivative of gignō \"I beget\" (past participle genitus \"begotten\"). Originally restricted to familial legal contexts, the word had entered the wider lexicon via patent law by the early modern period. In modern usage the verb is preferentially used as an infinitive or participle, although conjugated forms are still well attested."
   },
   {
     "lx": "congeries",
@@ -17929,20 +18004,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -20710,9 +20785,12 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "long-lasting"
+      "stiff",
+      "lasting",
+      "permanent",
+      "resilient"
     ],
-    "et": "Adjective from durar",
+    "et": "adjective from durar \"last\"",
     "mn": "durar"
   },
   {
@@ -20720,12 +20798,9 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "stiff",
-      "lasting",
-      "permanent",
-      "resilient"
+      "long-lasting"
     ],
-    "et": "adjective from durar \"last\"",
+    "et": "Adjective from durar",
     "mn": "durar"
   },
   {
@@ -22179,6 +22254,16 @@
   },
   {
     "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22201,16 +22286,6 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
-  },
-  {
-    "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -23157,6 +23232,13 @@
     "ps": "n",
     "ge": "bishop",
     "et": "Old Borlish < Old French < Late Latin episcopus < Ancient Greek ἐπίσκοπος"
+  },
+  {
+    "lx": "evesquað",
+    "ps": "n",
+    "ge": "bishopric",
+    "et": "derivation from evesq \"bishop\"",
+    "mn": "evesq"
   },
   {
     "lx": "evidenç",
@@ -26187,19 +26269,19 @@
     "ps": "n",
     "ge": [
       "outpost",
+      "outlying settlement",
       "colony"
     ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh"
   },
   {
     "lx": "fragossau",
     "ps": "n",
     "ge": [
       "outpost",
-      "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
+    "et": "Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossaveyaçon",
@@ -26570,6 +26652,12 @@
   },
   {
     "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26591,12 +26679,6 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -34794,6 +34876,31 @@
     "et": "from Old Borlish key, keȝ, caiȝ \"toggle, dowel, pin for securing rope or fabric\", a dialect form of stanard caiȝle /ke(j)ʎə/ (soon lost). This reflects Vulgar Latin cavicla (cf. French cheville, Venisian caúcia), from Classical Latin clavicula \"bolt, bar, small key\"."
   },
   {
+    "lx": "keyottar",
+    "examples": [
+      {
+        "vernacular": "Skig le keyottar; luy stou noc un douçur may.",
+        "english": "Don't pamper him; he doesn't need more pudding."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "pamper",
+      "spoil",
+      "coddle",
+      "indulge",
+      "cosset",
+      "mollycoddle",
+      "overprotect",
+      "nurse",
+      "baby",
+      "treat gingerly",
+      "humour",
+      "pander to"
+    ],
+    "et": "Middle Borlish, diminutive formation from older keyar (also caiȝar) \"look after, tend to\". This descends from Vulgar Latin cavicō \"take care of\", frequentative derivation from Classical caveō \"beware of, look out for\"."
+  },
+  {
     "lx": "kic",
     "ps": "n",
     "ge": [
@@ -36280,6 +36387,31 @@
       "oak bark"
     ],
     "et": "Old Borlish < Kelt"
+  },
+  {
+    "lx": "ligaçon",
+    "examples": [
+      {
+        "vernacular": "Toð y cort ern connoscent de sy ligaçon coll'aðm dy rey.",
+        "english": "The whole court knew of his affair with the king's mistress."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "link",
+      "connection",
+      "bond",
+      "tie",
+      "relationship",
+      "relations",
+      "liaison",
+      "affair",
+      "dalliance",
+      "ligature",
+      "ligation"
+    ],
+    "et": "Middle Borlish, an action noun from ligar \"to bind, bandage, link\" < Latin ligō \"I tie, bind\", reinforced by direct borrowing of Latin ligātiō \"a binding\". The genteel use for an illicit attachment is a nineteenth-century euphemism; the surgical sense follows Latin medical usage.",
+    "mn": "ligar"
   },
   {
     "lx": "ligar",
@@ -41036,6 +41168,30 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "morvaç",
+    "examples": [
+      {
+        "vernacular": "J'ascovau e jey morvaç sur my camis.",
+        "english": "I sneezed and got snot on my shirt."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "snot",
+      "mucus",
+      "bogey",
+      "booger",
+      "glanders",
+      "strangles",
+      "brat",
+      "rascal",
+      "imp",
+      "urchin",
+      "scamp"
+    ],
+    "et": "pejorative derivation from earlier morf \"snot\". Possibly a direct descendant of Latin morbus \"disease\", but also connected to Old French morve \"snot, glanders\", which may instead be a metathetic borrowing from Old Doccian vorm (compare Barcelon vorm \"glanders, jellyfish\"), from Frankish wurm \"worm\". The word has been used for misbehaving children since the 16th century."
+  },
+  {
     "lx": "mosc",
     "ps": "n",
     "ge": [
@@ -41577,6 +41733,17 @@
     "ps": "pron",
     "ge": "my",
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "mythic",
+    "ps": "adj",
+    "ge": [
+      "mythical",
+      "mythic",
+      "legendary"
+    ],
+    "et": "Scholastic Latin < Greek",
+    "mn": "mythos"
   },
   {
     "lx": "mythos",
@@ -44010,6 +44177,33 @@
       "sanctify"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "ognt",
+    "examples": [
+      {
+        "vernacular": "Y greffour encromnau l'ognt e \"pardeu\" y delt.",
+        "english": "The clerk pocketed the bribe and \"lost\" the file."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "bribe",
+      "kickback",
+      "sweetener",
+      "sop",
+      "inducement",
+      "palliative",
+      "grease",
+      "ointment",
+      "salve",
+      "unguent",
+      "soft soap",
+      "unction",
+      "flattery",
+      "blandishment"
+    ],
+    "et": "direct descendant of Latin ūnctus \"anointment\", nominal derivation from ungō \"I anoint, smear with oil\". Rarely used for actual anointing substances in the modern language, except in ceremonial contexts. Metaphorical extension to favours and concessions is attested since the early Middle Borlish period."
   },
   {
     "lx": "ogt",
@@ -52535,7 +52729,7 @@
     "lx": "rastel fair",
     "examples": [
       {
-        "vernacular": "Rien va par un bricot nuçal lour rovant, com i fay rastel!",
+        "vernacular": "Nien va par un bricot nuçal lour rovant, com le fay rastel!",
         "english": "There's no point asking him for a wedding present, he's so miserly!"
       }
     ],
@@ -56011,17 +56205,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -66082,10 +66276,9 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocation",
-      "nomadism"
+      "relocate"
     ],
-    "et": "noun from tramigrar",
+    "et": "noun from tramigrar \"transmigrate\".",
     "mn": "tramigrar"
   },
   {
@@ -66093,9 +66286,10 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocate"
+      "relocation",
+      "nomadism"
     ],
-    "et": "noun from tramigrar \"transmigrate\".",
+    "et": "noun from tramigrar",
     "mn": "tramigrar"
   },
   {
@@ -68028,6 +68222,30 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "vasir",
+    "examples": [
+      {
+        "vernacular": "Y vasir parmane a influyenç accomblar.",
+        "english": "The vizier continued accruing influence."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "vizier",
+      "minister",
+      "advisor",
+      "envoy",
+      "attache",
+      "attaché",
+      "diplomat",
+      "puppetmaster",
+      "grey eminence",
+      "éminence grise",
+      "queen"
+    ],
+    "et": "borrowed from Arabic وَزِير • wazīr \"vizier, minister\", literally \"carrier\". The word entered Borlish in the late medieval period, originally restricted to accounts of foreign courts and to the game of chess; use for diplomats in general and by extension puppetmasters in other contexts is seen from the seventeenth century."
+  },
+  {
     "lx": "vassagl",
     "ps": "adj",
     "ge": [
@@ -69737,17 +69955,17 @@
   {
     "lx": "volcan",
     "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
