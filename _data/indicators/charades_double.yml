@@ -28,6 +28,7 @@ AD:
 - Anno Domini
 - bill
 - commercial
+- per day
 - promotion
 - publicity
 - spot
@@ -45,6 +46,7 @@ AG:
 - silver
 AH:
 - I see
+- per hour
 AI:
 - A-one
 - artificial intelligence
@@ -73,6 +75,8 @@ AM:
 - in the morning
 - live
 - morning
+- per minute
+- per month
 - sort of radio
 AN:
 - article
@@ -91,6 +95,7 @@ AS:
 - arsenic
 - because
 - equally
+- per second
 - since
 - when
 - while
@@ -113,6 +118,8 @@ AV:
 - Hebrew month
 AX:
 - American chopper
+AY:
+- per year
 AZ:
 - Arizona
 - street atlas
