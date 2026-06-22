@@ -1245,6 +1245,16 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1252,16 +1262,6 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -5524,21 +5524,6 @@
     "et": "Middle Borlish < Latin; an early Middle Borlish reborrowing from Latin auspex \"augur, priest\"."
   },
   {
-    "lx": "aust",
-    "ps": "n",
-    "ge": "east",
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "auster",
-    "ps": "adj",
-    "ge": [
-      "eastern",
-      "Oriental"
-    ],
-    "et": "Middle Borlish"
-  },
-  {
     "lx": "auteç",
     "examples": [
       {
@@ -6299,7 +6284,7 @@
     "lx": "bakilau",
     "examples": [
       {
-        "vernacular": "J'oyeu ne Horð il pascn for bakilau.",
+        "vernacular": "J'oyeu ne Horð ðe pascn for bakilau.",
         "english": "I heard that in Horth they only eat cod."
       }
     ],
@@ -6593,7 +6578,7 @@
     "lx": "barvier",
     "examples": [
       {
-        "vernacular": "Y soldart eð y barvier vencoirn y dragon e soulor allagr vescoirn il.",
+        "vernacular": "Y soldart eð y barvier vencoirn y dragon e soulor allagr vescoirn ðe.",
         "english": "The soldier and the shepherdess killed the dragon and lived happily ever after."
       }
     ],
@@ -8022,7 +8007,7 @@
     "lx": "bors scholer",
     "examples": [
       {
-        "vernacular": "Il voun calscon stovent fair por l'oc bors scholer cavir.",
+        "vernacular": "Ðe voun calscon stovent fair por l'oc bors scholer cavir.",
         "english": "They will do whatever it takes to get this grant."
       }
     ],
@@ -8265,7 +8250,7 @@
     "lx": "bount",
     "examples": [
       {
-        "vernacular": "I me quistau por m'addocir ig bount son il ag quarf.",
+        "vernacular": "I me quistau por m'addocir ig bount son ðe ag quarf.",
         "english": "She phoned me to say they're en route to the station."
       }
     ],
@@ -10201,15 +10186,6 @@
     "et": "Old Borlish, directly from Vulgar Latin cascūnum \"each one\", a conflation of Classical quisque ūnum and Late Latin cata ūnum \"each one\"."
   },
   {
-    "lx": "casdir",
-    "ps": "adj",
-    "ge": [
-      "left wing",
-      "socialist"
-    ],
-    "et": "Arabic"
-  },
-  {
     "lx": "casel",
     "ps": "n",
     "ge": "cell",
@@ -11618,7 +11594,7 @@
     "lx": "clou",
     "examples": [
       {
-        "vernacular": "Il aun cascun dou clou a vastel ja paut.",
+        "vernacular": "Ðe aun cascun dou clou a vastel ja paut.",
         "english": "They've eaten two pieces of cake each."
       }
     ],
@@ -11884,7 +11860,7 @@
     "lx": "cogn",
     "examples": [
       {
-        "vernacular": "Il ern l'imascry descorçant ag cogn jagerrem.",
+        "vernacular": "Ðe ern l'imascry descorçant ag cogn jagerrem.",
         "english": "They were peering at the sculpture in the far corner."
       }
     ],
@@ -13244,7 +13220,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnar",
@@ -13253,8 +13230,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnment",
@@ -13686,18 +13662,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "connardaç",
@@ -16237,6 +16213,21 @@
     "sd": "Corporals"
   },
   {
+    "lx": "cuivrmenter",
+    "examples": [
+      {
+        "vernacular": "Stou y Duc coy l'eç cuivrmenter parmy sull'administration d'autortað may accarr.",
+        "english": "The Duke must stop the right-wing in his regime gaining more influence."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "right-wing",
+      "conservative"
+    ],
+    "et": "1751, from Arabic نحاس (nuḥās) with the same sense, and originally “copper”. Inspired by the Copper faction in the court of Malik Hisham Al-Rashid (reigned 1601-1610) of Libya, who petitioned against the poor reforms he oversaw. The Copper, and their opposition, the Tin, took their names from the two principal colours of the Libyan banner at the time, which was quartered into two black, one white, and one orange field. These two terms – nohas and casdir – were borrowed into various European languages through the success of the Vascon writer David Bensaíd's treatise on statecraft The Three Cities, which was translated into over twenty languages. Compare for example French nouase, kasdir."
+  },
+  {
     "lx": "cul",
     "ps": "n",
     "ge": [
@@ -18004,20 +17995,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -18053,7 +18044,7 @@
     "lx": "descorçar",
     "examples": [
       {
-        "vernacular": "Il ern l'imascry descorçant ag cogn jagerrem.",
+        "vernacular": "Ðe ern l'imascry descorçant ag cogn jagerrem.",
         "english": "They were peering at the sculpture in the far corner."
       }
     ],
@@ -22254,16 +22245,6 @@
   },
   {
     "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22286,6 +22267,16 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
+  },
+  {
+    "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -22990,7 +22981,7 @@
     "lx": "errevir",
     "examples": [
       {
-        "vernacular": "M'orruð il ain l'oc sorty erreut cos pernix.",
+        "vernacular": "M'orruð ðe ain l'oc sorty erreut cos pernix.",
         "english": "I think they really turned this party around."
       }
     ],
@@ -23124,6 +23115,22 @@
       "escapat",
       "fair"
     ]
+  },
+  {
+    "lx": "est",
+    "ps": "n",
+    "ge": "east",
+    "et": "Old Borlish < Old English"
+  },
+  {
+    "lx": "ester",
+    "ps": "adj",
+    "ge": [
+      "eastern",
+      "Oriental"
+    ],
+    "et": "Middle Borlish < est < Old English",
+    "mn": "est"
   },
   {
     "lx": "estuer",
@@ -23459,7 +23466,7 @@
     "lx": "exeunt fair",
     "examples": [
       {
-        "vernacular": "Il aun ig rekestað jo faç exeunt lon massant.",
+        "vernacular": "Ðe aun ig rekestað jo faç exeunt lon massant.",
         "english": "They've asked me to bow out without a fuss."
       }
     ],
@@ -26269,19 +26276,19 @@
     "ps": "n",
     "ge": [
       "outpost",
-      "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
+    "et": "Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossau",
     "ps": "n",
     "ge": [
       "outpost",
+      "outlying settlement",
       "colony"
     ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh"
   },
   {
     "lx": "fragossaveyaçon",
@@ -26652,12 +26659,6 @@
   },
   {
     "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
-  },
-  {
-    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26679,6 +26680,12 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
+  },
+  {
+    "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -28490,7 +28497,7 @@
     "lx": "graðleur",
     "examples": [
       {
-        "vernacular": "Il se ponden a plaç mi ny rout, graðleur e donaçon rovant.",
+        "vernacular": "Ðe se ponden a plaç mi ny rout, graðleur e donaçon rovant.",
         "english": "They were standing in the street asking for money and volunteers."
       }
     ],
@@ -28710,6 +28717,30 @@
       "circle"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "greffour",
+    "examples": [
+      {
+        "vernacular": "J'am l'oc cochiglot tragçað dy greffour.",
+        "english": "I like this snail the scribe drew."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "clerk",
+      "functionary",
+      "office worker",
+      "secretary",
+      "registrar",
+      "scribe",
+      "copyist",
+      "amanuensis",
+      "pen-pusher",
+      "bureaucrat",
+      "scarecrow"
+    ],
+    "et": "Middle Borlish, originally in legal use for scribes of court, an alteration of synonymous greffer via contemporary French greffier from Medieval Latin graphiārius \"scribe, secretary\". This is a derivative of graphium \"stylus\", whence also obsolete gref \"office of a court registrar\" (which may alternatively be the term's direct origin). The pejorative metaphorical extension the term is seen from the nineteenth century. The agricultural usage is of obscure motivation."
   },
   {
     "lx": "greim",
@@ -29100,7 +29131,7 @@
     "lx": "haçot",
     "examples": [
       {
-        "vernacular": "Cosogr il taussan men an haçot a maus.",
+        "vernacular": "Cosogr ðe taussan men an haçot a maus.",
         "english": "The set cost less than a bunch of bananas."
       }
     ],
@@ -30137,7 +30168,7 @@
     "lx": "heu",
     "examples": [
       {
-        "vernacular": "Il aun heu equal cos stoniscent, ða meðes jammel.",
+        "vernacular": "Ðe aun heu equal cos stoniscent, ða meðes jammel.",
         "english": "They look astonishingly similar, even for twins."
       }
     ],
@@ -31393,7 +31424,7 @@
     "lx": "imascry",
     "examples": [
       {
-        "vernacular": "Il ern l'imascry descorçant ag cogn jagerrem.",
+        "vernacular": "Ðe ern l'imascry descorçant ag cogn jagerrem.",
         "english": "They were peering at the sculpture in the far corner."
       }
     ],
@@ -32537,7 +32568,7 @@
     "lx": "inquillin",
     "examples": [
       {
-        "vernacular": "Deu mien, il s'ayen por inquillin!",
+        "vernacular": "Deu mien, ðe s'ayen por inquillin!",
         "english": "Oh my God, they were roommates!"
       }
     ],
@@ -33484,7 +33515,7 @@
     "lx": "jagerrem",
     "examples": [
       {
-        "vernacular": "Il ern l'imascry descorçant ag cogn jagerrem.",
+        "vernacular": "Ðe ern l'imascry descorçant ag cogn jagerrem.",
         "english": "They were peering at the sculpture in the far corner."
       }
     ],
@@ -35680,7 +35711,7 @@
     "lx": "lastumnesc",
     "examples": [
       {
-        "vernacular": "Il ayen heu lastumnesc, com ig il n'ayen for pog dormið.",
+        "vernacular": "Ðe ayen heu lastumnesc, com ig ðe n'ayen for pog dormið.",
         "english": "They looked haggard, as though they hadn't had much sleep."
       }
     ],
@@ -37575,6 +37606,27 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "lunatic",
+    "ps": [
+      "n",
+      "adj"
+    ],
+    "ge": [
+      "lunatic",
+      "madman",
+      "madwoman",
+      "epileptic",
+      "sleepwalker",
+      "lunatic",
+      "mad",
+      "crazed",
+      "epileptic",
+      "moody",
+      "sleepwalking"
+    ],
+    "et": "Latin lunaticus"
+  },
+  {
     "lx": "lunel",
     "ps": "n",
     "ge": [
@@ -37762,7 +37814,7 @@
     "lx": "macquar",
     "examples": [
       {
-        "vernacular": "Il le macquaurn vars surcair un tarç dagr.",
+        "vernacular": "Ðe le macquaurn vars surcair un tarç dagr.",
         "english": "They raised her to be neither fish nor fowl."
       }
     ],
@@ -41985,6 +42037,31 @@
     "et": "Middle Borlish, borrowed from medical Latin nancīscō \"I contract (an illness)\", a non-deponent variant of Classical nancīscor \"I encounter, stumble on\". The word is seen in non-medical contexts from the eighteenth century."
   },
   {
+    "lx": "narc",
+    "examples": [
+      {
+        "vernacular": "L'ec fraðr narc se feirn acconnosc eld veint catr.",
+        "english": "The stepbrothers met when they were twenty-four."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "step-",
+      "step",
+      "pseudo-",
+      "quasi-",
+      "-ish",
+      "surrogate",
+      "ersatz",
+      "faux",
+      "grudging",
+      "cold",
+      "unkind",
+      "partial"
+    ],
+    "et": "attributive use of Old Borlish noarc \"stepmother; step-\", reflecting Latin noverca \"stepmother, surrogate mother\", from novus \"new\". Extended use is from the fifteenth century in poetry and two centuries later in common use; since the nineteenth century especially for products like food and clothes. As a character trait the term modifies actions or words, not people."
+  },
+  {
     "lx": "nargel",
     "ps": "n",
     "ge": [
@@ -42430,7 +42507,7 @@
     "lx": "nervous",
     "examples": [
       {
-        "vernacular": "Son il nervous d'issaur ny cors?",
+        "vernacular": "Son ðe nervous d'issaur ny cors?",
         "english": "Are they sure they'll win the contest?"
       }
     ],
@@ -42894,21 +42971,6 @@
     "et": "Old Borlish < Latin"
   },
   {
-    "lx": "nohas",
-    "examples": [
-      {
-        "vernacular": "Stou y Duc coy l'eç nohas parmy sull'administration d'autortað may accarr.",
-        "english": "The Duke must stop the right-wing in his regime gaining more influence."
-      }
-    ],
-    "ps": "adj",
-    "ge": [
-      "right-wing",
-      "conservative"
-    ],
-    "et": "1751, from Arabic نحاس (nuḥās) with the same sense, and originally “copper”. Inspired by the Copper faction in the court of Malik Hisham Al-Rashid (reigned 1601-1610) of Libya, who petitioned against the poor reforms he oversaw. The Copper, and their opposition, the Tin, took their names from the two principal colours of the Libyan banner at the time, which was quartered into two black, one white, and one orange field. These two terms – nohas and casdir – were borrowed into various European languages through the success of the Vascon writer David Bensaíd's treatise on statecraft The Three Cities, which was translated into over twenty languages. Compare for example French nouase, kasdir."
-  },
-  {
     "lx": "nohaser",
     "ps": "n",
     "ge": [
@@ -43093,22 +43155,6 @@
     "et": "Old Borlish < Old English"
   },
   {
-    "lx": "norðovest",
-    "ps": "n",
-    "ge": "northwest",
-    "mn": [
-      "norð",
-      "ovest"
-    ]
-  },
-  {
-    "lx": "norðovester",
-    "ps": "adj",
-    "ge": "northwestern",
-    "et": "adjective from norðovest.",
-    "mn": "norðovest"
-  },
-  {
     "lx": "normal",
     "ps": "adj",
     "ge": [
@@ -43136,6 +43182,22 @@
       "make conform"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "norvest",
+    "ps": "n",
+    "ge": "northwest",
+    "mn": [
+      "norð",
+      "vest"
+    ]
+  },
+  {
+    "lx": "norvester",
+    "ps": "adj",
+    "ge": "northwestern",
+    "et": "adjective from norvest.",
+    "mn": "norvest"
   },
   {
     "lx": "nos",
@@ -44944,6 +45006,27 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "ornat",
+    "examples": [
+      {
+        "vernacular": "La porta l'ornat com cognit.",
+        "english": "She wore the uniform as a disguise."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "livery",
+      "uniform",
+      "regalia",
+      "finery",
+      "fancy dress",
+      "apparel",
+      "costume",
+      "getup"
+    ],
+    "et": "Middle Borlish, borrowed from Latin ōrnātus \"decoration, furniture\", a noun derivation of ōrnō \"I equip, decorate\". Originally specialised to insignia and other superficial identifying features, the word has generalised to uniforms as a whole by the seventeenth century."
+  },
+  {
     "lx": "orner",
     "ps": "n",
     "ge": "ash tree",
@@ -45591,23 +45674,6 @@
     "et": "Old Borlish < Latin"
   },
   {
-    "lx": "ovest",
-    "ps": "n",
-    "ge": "west",
-    "et": "Old Borlish < Old English"
-  },
-  {
-    "lx": "ovester",
-    "ps": "adj",
-    "ge": [
-      "western",
-      "occidental",
-      "to the west"
-    ],
-    "et": "Adjective from ovest",
-    "mn": "ovest"
-  },
-  {
     "lx": "ovittar",
     "ps": "ar v",
     "ge": [
@@ -46077,9 +46143,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -46090,11 +46158,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -46217,7 +46283,7 @@
     "lx": "paramontað",
     "examples": [
       {
-        "vernacular": "Il affirmn y paramontað de rigteç sur ley.",
+        "vernacular": "Ðe affirmn y paramontað de rigteç sur ley.",
         "english": "They assert the primacy of ethics over law."
       }
     ],
@@ -47273,16 +47339,6 @@
   },
   {
     "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -47291,6 +47347,16 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
+  },
+  {
+    "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -47508,7 +47574,7 @@
     "lx": "pegr",
     "examples": [
       {
-        "vernacular": "Il passaurn y ralley par jacas pegr.",
+        "vernacular": "Ðe passaurn y ralley par jacas pegr.",
         "english": "They spent the afternoon chatting idly."
       }
     ],
@@ -50240,7 +50306,7 @@
     "lx": "pre un cocoro",
     "examples": [
       {
-        "vernacular": "Il se courn mariðað pre un cocoro.",
+        "vernacular": "Ðe se courn mariðað pre un cocoro.",
         "english": "They got married unexpectedly."
       }
     ],
@@ -58632,7 +58698,7 @@
     "lx": "semprað",
     "examples": [
       {
-        "vernacular": "Il parmettoirn nos entraum semprað.",
+        "vernacular": "Ðe parmettoirn nos entraum semprað.",
         "english": "They cheerfully let us come in."
       }
     ],
@@ -61168,7 +61234,7 @@
     "et": "Old Borlish < Latin"
   },
   {
-    "lx": "souvest",
+    "lx": "souvestið",
     "ps": "n",
     "ge": [
       "underwear",
@@ -61984,6 +62050,15 @@
       "stancour",
       "fair"
     ]
+  },
+  {
+    "lx": "stanmenter",
+    "ps": "adj",
+    "ge": [
+      "left wing",
+      "socialist"
+    ],
+    "et": "Arabic"
   },
   {
     "lx": "stant y contingent",
@@ -63820,7 +63895,7 @@
     "lx": "tandem",
     "examples": [
       {
-        "vernacular": "Tandem il pardoirn nis e fegrn repaðr.",
+        "vernacular": "Tandem ðe pardoirn nis e fegrn repaðr.",
         "english": "Eventually they gave up and went home."
       }
     ],
@@ -64475,7 +64550,7 @@
     "lx": "teissir",
     "examples": [
       {
-        "vernacular": "Cal mocry son il teissent oy?",
+        "vernacular": "Cal mocry son ðe teissent oy?",
         "english": "What nonsense are they spouting now?"
       }
     ],
@@ -66276,9 +66351,10 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocate"
+      "relocation",
+      "nomadism"
     ],
-    "et": "noun from tramigrar \"transmigrate\".",
+    "et": "noun from tramigrar",
     "mn": "tramigrar"
   },
   {
@@ -66286,10 +66362,9 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocation",
-      "nomadism"
+      "relocate"
     ],
-    "et": "noun from tramigrar",
+    "et": "noun from tramigrar \"transmigrate\".",
     "mn": "tramigrar"
   },
   {
@@ -66445,7 +66520,7 @@
     "lx": "trave",
     "examples": [
       {
-        "vernacular": "Il son y trave costroint toð y jorn.",
+        "vernacular": "Ðe son y trave costroint toð y jorn.",
         "english": "They've been doing the jigsaw all day."
       }
     ],
@@ -66857,7 +66932,7 @@
     "lx": "trocar entrig",
     "examples": [
       {
-        "vernacular": "Ða meðes nos poðau lou fornir d'aïðanç, il trocausn noc entrig tardessem.",
+        "vernacular": "Ða meðes nos poðau lou fornir d'aïðanç, ðe trocausn noc entrig tardessem.",
         "english": "Even if we provided them with aid, they would not reciprocate later."
       }
     ],
@@ -69158,6 +69233,23 @@
     "mn": "vesson"
   },
   {
+    "lx": "vest",
+    "ps": "n",
+    "ge": "west",
+    "et": "Old Borlish < Old English"
+  },
+  {
+    "lx": "vester",
+    "ps": "adj",
+    "ge": [
+      "western",
+      "occidental",
+      "to the west"
+    ],
+    "et": "Adjective from vest",
+    "mn": "vest"
+  },
+  {
     "lx": "vesteul",
     "ps": "n",
     "ge": [
@@ -69599,7 +69691,7 @@
     "lx": "visnous",
     "examples": [
       {
-        "vernacular": "Il ern zaquesc visnous a tatover pascent.",
+        "vernacular": "Ðe ern zaquesc visnous a tatover pascent.",
         "english": "They were eating knobbly potato snacks."
       }
     ],
