@@ -7647,6 +7647,31 @@
     "et": "from Old Borlish, a verbal derivative of bouð (also boðour) \"messenger, courier\" (modern \"signal, message\"), which is borrowed from Old English boda \"messenger\"."
   },
   {
+    "lx": "boðel",
+    "examples": [
+      {
+        "vernacular": "Y moudrer es Dn Blanc ny scrittour con y boðel ne plom.",
+        "english": "The killer is Mrs White in the study with the lead piping."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "intestines",
+      "guts",
+      "bowels",
+      "piping",
+      "pipe",
+      "tube",
+      "hose",
+      "conduit",
+      "labyrinth",
+      "maze",
+      "warren",
+      "sausage case"
+    ],
+    "et": "via Old Borlish boðel \"intestines\" from Vulgar Latin botellus \"small sausage\", diminutive of Classical botulus \"sausage, black pudding\". Metaphorical extension to other items resembling the bowels either in form or arrangement is seen from as early as the thirteenth century."
+  },
+  {
     "lx": "bog",
     "ps": "n",
     "ge": "bow",
@@ -13220,8 +13245,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnar",
@@ -13230,7 +13254,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnment",
@@ -13662,18 +13687,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "connardaç",
@@ -17995,20 +18020,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -20553,7 +20578,8 @@
       "dent",
       "indent",
       "indentation",
-      "cut"
+      "cut",
+      "point"
     ],
     "et": "of obscure origin. Putative connections with English trough or Welsh rhych \"furrow\" have too many issues to be workable, and nobody credits a link with draucus \"strongman\" in Latin; perhaps the word (which is first attested in the Old Borlish period) is simply onomatopoeia."
   },
@@ -26659,6 +26685,12 @@
   },
   {
     "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26680,12 +26712,6 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -47474,6 +47500,35 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "pedestr",
+    "examples": [
+      {
+        "vernacular": "Sy femn parisce pedestr contr y pylon ny gardin.",
+        "english": "Her wife seemed unfazed by the portal in the garden."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "on foot",
+      "afoot",
+      "down-to-earth",
+      "unpretentious",
+      "grounded",
+      "clear-eyed",
+      "clear-sighted",
+      "realistic",
+      "pragmatic",
+      "objective",
+      "at ease",
+      "familiar",
+      "unfazed",
+      "sure-footed",
+      "assured",
+      "self-possessed"
+    ],
+    "et": "Middle Borlish, borrowed from Latin pedester \"walking; pertaining to foot-soldiers\" to refer to non-mounted combatants in war; this is a derivative of pēs \"foot\", whence synonymous pie in Borlish. The image of a person standing on two feet lingers on in the metaphorical extensions even as the literal sense has fallen out of use."
+  },
+  {
     "lx": "peðir",
     "ps": "ir1 v",
     "ge": [
@@ -60638,6 +60693,31 @@
     "et": "Middle Borlish"
   },
   {
+    "lx": "souðurr",
+    "examples": [
+      {
+        "vernacular": "Nos erau astr mirant cant y banfoy souðure.",
+        "english": "We stargazed as the campfire smouldered."
+      }
+    ],
+    "ps": "r v",
+    "ge": [
+      "smoulder",
+      "ferment",
+      "fester",
+      "compost",
+      "incubate",
+      "oppress",
+      "stifle",
+      "be double-agent"
+    ],
+    "et": "Middle Borlish derivation of ðurr \"kindle, set fire to\" with the prefix sou \"under\". The sense appearing to have spread from firewood via compost to disease by the eighteenth century, while the weather sense is attested earlier from the sixteenth century. Use in espionage appears in the 1940s as a calque of Welsh marwlosca \"I smoulder; I act as a double-agent\" in spycraft fiction.",
+    "mn": [
+      "ðurr",
+      "sou"
+    ]
+  },
+  {
     "lx": "soufa",
     "ps": "n",
     "ge": [
@@ -70047,17 +70127,17 @@
   {
     "lx": "volcan",
     "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",

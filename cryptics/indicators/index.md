@@ -4,7 +4,7 @@ title: Cryptic Indicators
 permalink: /cryptics/indicators/
 ---
 
-<div id="indicator-app" data-json-url="{{ '/assets/js/indicators.json' | relative_url }}">
+<div id="indicator-app" data-json-url="{{ '/assets/data/indicators.json' | relative_url }}">
 
   <nav id="ind-nav"></nav>
 
