@@ -156,6 +156,66 @@
     td.vt-r, th.vt-r { text-align: right; }
   }
 
+  // ── Missed-answers review ───────────────────────────────────────────────────────
+  .vt-review { text-align: left; }
+
+  .vt-review-h {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: $color-text-alt;
+  }
+
+  .vt-review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .vt-review-item {
+    padding: 12px 0;
+    border-bottom: 1px solid $color-border;
+
+    &:last-child { border-bottom: none; padding-bottom: 0; }
+  }
+
+  .vt-review-word {
+    font-weight: 600;
+    color: $color-text-alt;
+    margin-bottom: 5px;
+  }
+
+  .vt-review-pos {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 0.88em;
+    color: $color-text-muted;
+  }
+
+  .vt-review-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 0.93em;
+    line-height: 1.5;
+    margin-top: 2px;
+    color: $color-text;
+  }
+
+  .vt-review-chosen { color: $color-text-muted; }
+
+  .vt-ans-correct,
+  .vt-ans-wrong {
+    flex: 0 0 70px;
+    font-size: 0.72em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .vt-ans-correct { color: $color-accent; }
+  .vt-ans-wrong   { color: $color-error; }
+
   // ── Results chart (inline SVG) ──────────────────────────────────────────────────
   .vt-chart {
     width: 100%;

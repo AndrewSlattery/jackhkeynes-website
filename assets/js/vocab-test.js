@@ -14,10 +14,10 @@
 
   // round number -> human label (by P(known) target)
   var ROUND_META = {
-    90: 'Everyday words',
-    70: 'Common words',
-    50: 'Less common words',
-    30: 'Rare words'
+    90: 'Common words',
+    70: 'Less common words',
+    50: 'Rare words',
+    30: 'Abstruse words'
   };
 
   // ---------- utilities ----------
@@ -109,8 +109,7 @@
       '<div class="vt"><div class="vt-card vt-center">' +
       '<h2 class="vt-h">How big is your English vocabulary?</h2>' +
       '<p class="vt-muted" style="max-width:460px;margin:0 auto 20px;">' +
-      'You\'ll see ' + n + ' words, from everyday to rare. For each, pick the definition you think is right ' +
-      '&mdash; <strong>guess if you\'re unsure</strong>. Takes about five minutes; your estimate appears at the end.</p>' +
+      'You\'ll see ' + n + ' words, from common to abstruse. For each, pick the definition you think is right.</p>' +
       '<button class="vt-btn" id="vt-begin">Begin</button>' +
       '</div></div>';
     root.querySelector('#vt-begin').addEventListener('click', function () { question(root, state); });
@@ -138,7 +137,11 @@
       btn.textContent = opt.text;
       btn.addEventListener('click', function () {
         box.querySelectorAll('.vt-option').forEach(function (b) { b.disabled = true; });
-        state.answers.push({ ri: q.ri, correct: !!opt.correct });
+        var right = q.options.filter(function (o) { return o.correct; })[0];
+        state.answers.push({
+          ri: q.ri, word: q.word, pos: q.pos, correct: !!opt.correct,
+          chosen: opt.text, answer: right ? right.text : ''
+        });
         state.i++;
         question(root, state);
       });
@@ -176,23 +179,47 @@
     }).join('');
 
     root.innerHTML =
-      '<div class="vt"><div class="vt-card vt-center">' +
+      '<div class="vt">' +
+      '<div class="vt-card vt-center">' +
       '<div class="vt-muted">Estimated vocabulary</div>' +
       '<div class="vt-result-num">&asymp; ' + commas(disp) + ' words</div>' +
-      '<div class="vt-muted" style="margin-top:6px;">roughly ' + commas(roundTo(vLo, 500)) + '&ndash;' +
-        commas(roundTo(vHi, 500)) + ', of about ' + commas(data.total_attested) + ' in current use</div>' +
       renderChart(fit, c, rounds, curve) +
       '<table class="vt-table"><thead><tr><th>Band</th><th class="vt-r">Your score</th></tr></thead>' +
         '<tbody>' + rows + '</tbody></table>' +
-      '<button class="vt-btn vt-btn-ghost" id="vt-again">Try again</button>' +
-      '<p class="vt-note">A 40-word estimate from four calibration bands, fitted with a guessing-corrected ' +
-        'curve. Treat it as a ballpark, not a precise count.</p>' +
-      '</div></div>';
+      '</div>' +
+      renderReview(state) +
+      '<div class="vt-center" style="margin-top:18px;">' +
+        '<button class="vt-btn vt-btn-ghost" id="vt-again">Try again</button>' +
+      '</div>' +
+      '</div>';
 
     root.querySelector('#vt-again').addEventListener('click', function () {
       state.questions = buildQuestions(data); state.i = 0; state.answers = [];
       question(root, state);
     });
+  }
+
+  // ---------- missed-answers review ----------
+  function renderReview(state) {
+    var misses = state.answers.filter(function (a) { return !a.correct; });
+    if (!misses.length) {
+      return '<div class="vt-card vt-review vt-center" style="margin-top:14px;">' +
+        '<p class="vt-muted" style="margin:0;">You got all ' + state.answers.length +
+        ' right &mdash; nothing to review.</p></div>';
+    }
+    var items = misses.map(function (a) {
+      return '<li class="vt-review-item">' +
+        '<div class="vt-review-word">' + esc(a.word) +
+          ' <span class="vt-review-pos">' + esc(a.pos) + '</span></div>' +
+        '<div class="vt-review-line"><span class="vt-ans-correct">Correct</span>' +
+          '<span>' + esc(a.answer) + '</span></div>' +
+        '<div class="vt-review-line vt-review-chosen"><span class="vt-ans-wrong">You chose</span>' +
+          '<span>' + esc(a.chosen) + '</span></div>' +
+        '</li>';
+    }).join('');
+    return '<div class="vt-card vt-review" style="margin-top:14px;">' +
+      '<h3 class="vt-review-h">Words you missed (' + misses.length + ')</h3>' +
+      '<ul class="vt-review-list">' + items + '</ul></div>';
   }
 
   // ---------- results chart (inline SVG) ----------
