@@ -1,0 +1,25 @@
+// ── Vocabulary size test ─────────────────────────────────────────────────────
+//
+// The widget (assets/js/vocab-test.js) is self-contained: it injects its own
+// structural CSS and reads these `--vt-*` custom properties for every colour,
+// falling back to a light palette when they are absent (so the standalone
+// preview.html still looks right). Here we map them to the site's dark palette
+// so the embedded version matches the rest of the site.
+
+#vocab-test-app {
+  --vt-accent:      #{$color-accent};            // neon green — buttons, curve, headline number
+  --vt-accent-soft: #{rgba($color-accent, 0.1)}; // subtle green wash on option hover
+  --vt-muted:       #{$color-text-muted};        // secondary text
+  --vt-border:      #{$color-border};            // card / option / table borders
+  --vt-card:        #{$color-bg-card};           // card background
+  --vt-option-bg:   #{$color-bg-dark};           // answer buttons sit inset on the card
+  --vt-track:       #{$color-bg-dark};           // progress-bar track
+  --vt-btn-fg:      #{$color-bg-darker};         // dark text on the neon-green button
+
+  // results chart
+  --vt-axis:        #{$color-border};            // axis lines
+  --vt-grid:        #{$color-border-faint};      // faint top gridline
+  --vt-tick:        #{$color-text-muted};        // axis labels
+  --vt-tickmark:    #{$color-border-hover};      // x-axis tick marks
+  --vt-floor:       #{$color-border-hover};      // dashed guessing-floor line
+}

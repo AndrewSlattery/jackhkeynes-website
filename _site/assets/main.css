@@ -2792,4 +2792,20 @@ mark {
   font-size: 0.9rem;
 }
 
+#vocab-test-app {
+  --vt-accent: #51fb44;
+  --vt-accent-soft: rgba(81, 251, 68, 0.1);
+  --vt-muted: #828282;
+  --vt-border: #424242;
+  --vt-card: #262626;
+  --vt-option-bg: #1a1a1a;
+  --vt-track: #1a1a1a;
+  --vt-btn-fg: #0d1117;
+  --vt-axis: #424242;
+  --vt-grid: #333;
+  --vt-tick: #828282;
+  --vt-tickmark: #666;
+  --vt-floor: #666;
+}
+
 /*# sourceMappingURL=main.css.map */
