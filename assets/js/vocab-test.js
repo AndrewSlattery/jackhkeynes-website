@@ -224,11 +224,12 @@
 
   // ---------- results chart (inline SVG) ----------
   function renderChart(fit, c, rounds, curve) {
-    var W = 400, H = 220, padL = 38, padR = 14, padT = 14, padB = 30;
+    var W = 400, H = 220, padL = 56, padR = 14, padT = 14, padB = 30;
     var zMax = 7.5, zMin = -0.5;
     var pw = W - padL - padR, ph = H - padT - padB;
     function X(z) { return padL + (zMax - z) / (zMax - zMin) * pw; }
     function Y(p) { return padT + (1 - p) * ph; }
+    var yMid = (padT + (H - padB)) / 2;   // vertical centre of the plot area
 
     var pts = [];
     for (var z = zMax; z >= zMin - 0.001; z -= 0.2) {
@@ -254,6 +255,8 @@
       '<line class="vt-axis" x1="' + padL + '" y1="' + Y(0) + '" x2="' + (W - padR) + '" y2="' + Y(0) + '"></line>' +
       '<line class="vt-grid" x1="' + padL + '" y1="' + Y(1) + '" x2="' + (W - padR) + '" y2="' + Y(1) + '"></line>' +
       '<line class="vt-axis" x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (H - padB) + '"></line>' +
+      '<text class="vt-tick" x="13" y="' + yMid + '" font-size="10" text-anchor="middle" ' +
+        'transform="rotate(-90 13 ' + yMid + ')">Probability of recognition</text>' +
       '<text class="vt-tick" x="' + (padL - 6) + '" y="' + (Y(1) + 3) + '" font-size="10" text-anchor="end">100%</text>' +
       '<text class="vt-tick" x="' + (padL - 6) + '" y="' + (Y(0.5) + 3) + '" font-size="10" text-anchor="end">50%</text>' +
       '<text class="vt-tick" x="' + (padL - 6) + '" y="' + (Y(0) + 3) + '" font-size="10" text-anchor="end">0%</text>' +
