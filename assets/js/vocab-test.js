@@ -1,10 +1,11 @@
 // vocab-test.js — adaptive-ready vocabulary-size test (calibration version)
-// Administers the curated rounds, fits a guessing-floor sigmoid to the per-round
-// scores, and reports an estimated vocabulary size. Vanilla JS, no dependencies.
+// Administers the curated rounds (in order, easy -> rare), fits a guessing-floor
+// sigmoid to the per-round scores, and reports an estimated vocabulary size.
+// Vanilla JS, no dependencies. Styling lives in _sass/_vocab-test.scss.
 //
 // Embed:  <div id="vocab-test-app" data-json-url="/assets/data/vocab-test-data.json"></div>
 //         <script defer src="/assets/js/vocab-test.js"></script>
-// Or set window.VOCAB_TEST_DATA before this script runs (used by preview.html).
+// Or set window.VOCAB_TEST_DATA before this script runs to skip the fetch.
 
 (function () {
   'use strict';
@@ -19,42 +20,6 @@
     30: 'Rare words'
   };
 
-  var CSS =
-    '.vt{max-width:640px;margin:0 auto;line-height:1.6;}' +
-    '.vt-card{background:var(--vt-card,#fff);border:1px solid var(--vt-border,#e8e8e8);border-radius:10px;padding:26px 28px;}' +
-    '.vt-muted{color:var(--vt-muted,#6b6b6b);}' +
-    '.vt-h{font-size:1.5em;font-weight:600;margin:0 0 12px;}' +
-    '.vt-progress{height:6px;background:var(--vt-track,#ececec);border-radius:3px;overflow:hidden;margin-bottom:8px;}' +
-    '.vt-progress-fill{height:100%;background:var(--vt-accent,#3f8a4f);width:0;transition:width .25s ease;}' +
-    '.vt-counter{font-size:.82em;color:var(--vt-muted,#6b6b6b);margin-bottom:18px;}' +
-    '.vt-word{font-size:2em;font-weight:600;margin:4px 0 0;word-break:break-word;}' +
-    '.vt-pos{color:var(--vt-muted,#6b6b6b);font-style:italic;margin:0 0 20px;}' +
-    '.vt-options{display:flex;flex-direction:column;gap:9px;}' +
-    '.vt-option{text-align:left;padding:12px 15px;border:1px solid var(--vt-border,#e8e8e8);border-radius:8px;' +
-      'background:var(--vt-option-bg,#fff);cursor:pointer;font:inherit;color:inherit;transition:background .12s,border-color .12s;}' +
-    '.vt-option:hover{background:var(--vt-accent-soft,#eef6ef);border-color:var(--vt-accent,#3f8a4f);}' +
-    '.vt-option:disabled{cursor:default;opacity:.55;}' +
-    '.vt-btn{display:inline-block;padding:11px 24px;background:var(--vt-accent,#3f8a4f);color:var(--vt-btn-fg,#fff);border:none;' +
-      'border-radius:8px;font:inherit;font-size:1em;cursor:pointer;}' +
-    '.vt-btn:hover{filter:brightness(1.06);}' +
-    '.vt-btn-ghost{background:none;color:var(--vt-accent,#3f8a4f);border:1px solid var(--vt-accent,#3f8a4f);}' +
-    '.vt-result-num{font-size:2.7em;font-weight:700;color:var(--vt-accent,#3f8a4f);line-height:1.05;}' +
-    '.vt-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93em;}' +
-    '.vt-table th,.vt-table td{padding:7px 8px;border-bottom:1px solid var(--vt-border,#e8e8e8);text-align:left;}' +
-    '.vt-table th{font-weight:600;}' +
-    '.vt-table td.vt-r,.vt-table th.vt-r{text-align:right;}' +
-    '.vt-chart{width:100%;height:auto;display:block;margin:6px 0 4px;}' +
-    '.vt-chart .vt-curve{fill:none;stroke:var(--vt-accent,#3f8a4f);stroke-width:2.5;}' +
-    '.vt-chart .vt-dot{fill:var(--vt-accent,#3f8a4f);}' +
-    '.vt-chart .vt-cross{stroke:var(--vt-accent,#3f8a4f);stroke-dasharray:4 3;opacity:.5;}' +
-    '.vt-chart .vt-axis{stroke:var(--vt-axis,#ddd);}' +
-    '.vt-chart .vt-grid{stroke:var(--vt-grid,#eee);}' +
-    '.vt-chart .vt-floor{stroke:var(--vt-floor,#ccc);stroke-dasharray:3 3;}' +
-    '.vt-chart .vt-tickmark{stroke:var(--vt-tickmark,#bbb);}' +
-    '.vt-chart .vt-tick{fill:var(--vt-tick,#888);}' +
-    '.vt-note{font-size:.82em;color:var(--vt-muted,#6b6b6b);margin-top:16px;}' +
-    '.vt-center{text-align:center;}';
-
   // ---------- utilities ----------
   function shuffle(a) {
     for (var i = a.length - 1; i > 0; i--) {
@@ -68,14 +33,6 @@
   }
   function commas(n) { return Math.round(n).toLocaleString('en-US'); }
   function roundTo(n, step) { return Math.round(n / step) * step; }
-
-  function injectStyles() {
-    if (document.getElementById('vt-styles')) return;
-    var s = document.createElement('style');
-    s.id = 'vt-styles';
-    s.textContent = CSS;
-    document.head.appendChild(s);
-  }
 
   // ---------- model ----------
   function pCorrect(z, b, a, c) {
@@ -128,15 +85,17 @@
 
   // ---------- flow ----------
   function buildQuestions(data) {
+    // Keep the rounds in their curated order (easy -> rare). Shuffle only the
+    // items within each round, plus each question's answer options.
     var qs = [];
     data.rounds.forEach(function (rd, ri) {
-      rd.items.forEach(function (it) {
+      shuffle(rd.items.slice()).forEach(function (it) {
         var opts = it.options.map(function (o, i) { return { text: o, correct: i === it.answer }; });
         shuffle(opts);
         qs.push({ ri: ri, round: rd.round, zipf: rd.target_zipf, word: it.word, pos: it.pos, options: opts });
       });
     });
-    return shuffle(qs);
+    return qs;
   }
 
   function start(root, data) {
@@ -282,7 +241,6 @@
   function init() {
     var root = document.getElementById(CONTAINER_ID);
     if (!root) return;
-    injectStyles();
     if (window.VOCAB_TEST_DATA) { start(root, window.VOCAB_TEST_DATA); return; }
     var url = root.getAttribute('data-json-url');
     if (!url) { root.innerHTML = '<p class="vt-muted">No data source configured.</p>'; return; }

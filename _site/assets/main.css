@@ -2792,20 +2792,175 @@ mark {
   font-size: 0.9rem;
 }
 
-#vocab-test-app {
-  --vt-accent: #51fb44;
-  --vt-accent-soft: rgba(81, 251, 68, 0.1);
-  --vt-muted: #828282;
-  --vt-border: #424242;
-  --vt-card: #262626;
-  --vt-option-bg: #1a1a1a;
-  --vt-track: #1a1a1a;
-  --vt-btn-fg: #0d1117;
-  --vt-axis: #424242;
-  --vt-grid: #333;
-  --vt-tick: #828282;
-  --vt-tickmark: #666;
-  --vt-floor: #666;
+#vocab-test-app .vt {
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+#vocab-test-app .vt-card {
+  background: #262626;
+  border: 1px solid #424242;
+  border-radius: 10px;
+  padding: 26px 28px;
+}
+#vocab-test-app .vt-muted {
+  color: #828282;
+}
+#vocab-test-app .vt-center {
+  text-align: center;
+}
+#vocab-test-app .vt-h {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 12px;
+  color: #e8e8e8;
+}
+#vocab-test-app .vt-progress {
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+#vocab-test-app .vt-progress-fill {
+  height: 100%;
+  width: 0;
+  background: #51fb44;
+  transition: width 0.25s ease;
+}
+#vocab-test-app .vt-counter {
+  font-size: 0.82em;
+  color: #828282;
+  margin-bottom: 18px;
+}
+#vocab-test-app .vt-word {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 4px 0 0;
+  color: #e8e8e8;
+  word-break: break-word;
+}
+#vocab-test-app .vt-pos {
+  color: #828282;
+  font-style: italic;
+  margin: 0 0 20px;
+}
+#vocab-test-app .vt-options {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+#vocab-test-app .vt-option {
+  text-align: left;
+  padding: 12px 15px;
+  border: 1px solid #424242;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+#vocab-test-app .vt-option:hover {
+  background: #2d2d2d;
+  border-color: #51fb44;
+}
+#vocab-test-app .vt-option:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+#vocab-test-app .vt-btn {
+  display: inline-block;
+  padding: 11px 24px;
+  background: #51fb44;
+  color: #0d1117;
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 1em;
+  cursor: pointer;
+  transition: filter 0.12s, background 0.12s;
+}
+#vocab-test-app .vt-btn:hover {
+  filter: brightness(1.08);
+}
+#vocab-test-app .vt-btn-ghost {
+  background: none;
+  color: #51fb44;
+  border: 1px solid #51fb44;
+}
+#vocab-test-app .vt-btn-ghost:hover {
+  filter: none;
+  background: rgba(81, 251, 68, 0.1);
+}
+#vocab-test-app .vt-result-num {
+  font-size: 2.7em;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #51fb44;
+}
+#vocab-test-app .vt-table {
+  width: 100%;
+  border: none;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 0.93em;
+  color: #e0e0e0;
+}
+#vocab-test-app .vt-table th, #vocab-test-app .vt-table td {
+  padding: 7px 8px;
+  border: none;
+  border-bottom: 1px solid #424242;
+  text-align: left;
+  background: none;
+}
+#vocab-test-app .vt-table th {
+  font-weight: 600;
+  color: #e8e8e8;
+}
+#vocab-test-app .vt-table td.vt-r, #vocab-test-app .vt-table th.vt-r {
+  text-align: right;
+}
+#vocab-test-app .vt-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 6px 0 4px;
+}
+#vocab-test-app .vt-chart .vt-curve {
+  fill: none;
+  stroke: #51fb44;
+  stroke-width: 2.5;
+}
+#vocab-test-app .vt-chart .vt-dot {
+  fill: #51fb44;
+}
+#vocab-test-app .vt-chart .vt-cross {
+  stroke: #51fb44;
+  stroke-dasharray: 4 3;
+  opacity: 0.5;
+}
+#vocab-test-app .vt-chart .vt-axis {
+  stroke: #424242;
+}
+#vocab-test-app .vt-chart .vt-grid {
+  stroke: #333;
+}
+#vocab-test-app .vt-chart .vt-floor {
+  stroke: #666;
+  stroke-dasharray: 3 3;
+}
+#vocab-test-app .vt-chart .vt-tickmark {
+  stroke: #666;
+}
+#vocab-test-app .vt-chart .vt-tick {
+  fill: #828282;
+}
+#vocab-test-app .vt-note {
+  font-size: 0.82em;
+  color: #828282;
+  margin-top: 16px;
 }
 
 /*# sourceMappingURL=main.css.map */

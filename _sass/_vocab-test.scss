@@ -1,25 +1,181 @@
 // ── Vocabulary size test ─────────────────────────────────────────────────────
 //
-// The widget (assets/js/vocab-test.js) is self-contained: it injects its own
-// structural CSS and reads these `--vt-*` custom properties for every colour,
-// falling back to a light palette when they are absent (so the standalone
-// preview.html still looks right). Here we map them to the site's dark palette
-// so the embedded version matches the rest of the site.
+// A self-contained applet, styled to match the site's other dark applets
+// (see _crossword.scss / _indicators.scss). The widget JS
+// (assets/js/vocab-test.js) only emits `.vt-*` classed markup — all styling,
+// and the dark palette, lives here so it stays consistent with the site.
 
 #vocab-test-app {
-  --vt-accent:      #{$color-accent};            // neon green — buttons, curve, headline number
-  --vt-accent-soft: #{rgba($color-accent, 0.1)}; // subtle green wash on option hover
-  --vt-muted:       #{$color-text-muted};        // secondary text
-  --vt-border:      #{$color-border};            // card / option / table borders
-  --vt-card:        #{$color-bg-card};           // card background
-  --vt-option-bg:   #{$color-bg-dark};           // answer buttons sit inset on the card
-  --vt-track:       #{$color-bg-dark};           // progress-bar track
-  --vt-btn-fg:      #{$color-bg-darker};         // dark text on the neon-green button
 
-  // results chart
-  --vt-axis:        #{$color-border};            // axis lines
-  --vt-grid:        #{$color-border-faint};      // faint top gridline
-  --vt-tick:        #{$color-text-muted};        // axis labels
-  --vt-tickmark:    #{$color-border-hover};      // x-axis tick marks
-  --vt-floor:       #{$color-border-hover};      // dashed guessing-floor line
+  .vt {
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: $color-text;            // guarantee light text regardless of context
+  }
+
+  // ── Card ─────────────────────────────────────────────────────────────────────
+  .vt-card {
+    background: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    padding: 26px 28px;
+  }
+
+  .vt-muted { color: $color-text-muted; }
+  .vt-center { text-align: center; }
+
+  .vt-h {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: $color-text-alt;
+  }
+
+  // ── Question flow ─────────────────────────────────────────────────────────────
+  .vt-progress {
+    height: 6px;
+    background: $color-bg-dark;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .vt-progress-fill {
+    height: 100%;
+    width: 0;
+    background: $color-accent;
+    transition: width 0.25s ease;
+  }
+
+  .vt-counter {
+    font-size: 0.82em;
+    color: $color-text-muted;
+    margin-bottom: 18px;
+  }
+
+  .vt-word {
+    font-size: 2em;
+    font-weight: 600;
+    margin: 4px 0 0;
+    color: $color-text-alt;
+    word-break: break-word;
+  }
+
+  .vt-pos {
+    color: $color-text-muted;
+    font-style: italic;
+    margin: 0 0 20px;
+  }
+
+  // ── Answer options ────────────────────────────────────────────────────────────
+  .vt-options {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .vt-option {
+    text-align: left;
+    padding: 12px 15px;
+    border: 1px solid $color-border;
+    border-radius: 8px;
+    background: $color-bg-dark;
+    color: $color-text;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.12s, border-color 0.12s;
+
+    &:hover {
+      background: $color-bg-input;
+      border-color: $color-accent;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+
+  // ── Buttons ───────────────────────────────────────────────────────────────────
+  .vt-btn {
+    display: inline-block;
+    padding: 11px 24px;
+    background: $color-accent;
+    color: $color-bg-darker;       // dark text on the neon-green button
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    transition: filter 0.12s, background 0.12s;
+
+    &:hover { filter: brightness(1.08); }
+  }
+
+  .vt-btn-ghost {
+    background: none;
+    color: $color-accent;
+    border: 1px solid $color-accent;
+
+    &:hover {
+      filter: none;
+      background: rgba($color-accent, 0.1);
+    }
+  }
+
+  // ── Results ───────────────────────────────────────────────────────────────────
+  .vt-result-num {
+    font-size: 2.7em;
+    font-weight: 700;
+    line-height: 1.05;
+    color: $color-accent;
+  }
+
+  .vt-table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.93em;
+    color: $color-text;
+
+    th, td {
+      padding: 7px 8px;
+      border: none;
+      border-bottom: 1px solid $color-border;
+      text-align: left;
+      background: none;            // override minima's default table cell shading
+    }
+
+    th {
+      font-weight: 600;
+      color: $color-text-alt;
+    }
+
+    td.vt-r, th.vt-r { text-align: right; }
+  }
+
+  // ── Results chart (inline SVG) ──────────────────────────────────────────────────
+  .vt-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 6px 0 4px;
+
+    .vt-curve    { fill: none; stroke: $color-accent; stroke-width: 2.5; }
+    .vt-dot      { fill: $color-accent; }
+    .vt-cross    { stroke: $color-accent; stroke-dasharray: 4 3; opacity: 0.5; }
+    .vt-axis     { stroke: $color-border; }
+    .vt-grid     { stroke: $color-border-faint; }
+    .vt-floor    { stroke: $color-border-hover; stroke-dasharray: 3 3; }
+    .vt-tickmark { stroke: $color-border-hover; }
+    .vt-tick     { fill: $color-text-muted; }
+  }
+
+  .vt-note {
+    font-size: 0.82em;
+    color: $color-text-muted;
+    margin-top: 16px;
+  }
 }
