@@ -4,24 +4,19 @@
 // "Skip to Round 5" runs a standalone mini-mode over just the rarest round,
 // reporting only the score and missed words (no vocab estimate/chart).
 // Vanilla JS, no dependencies. Styling lives in _sass/_vocab-test.scss.
+// All copy lives in _data/vocab_test_text.yml (served as vocab-test-text.json) —
+// this file only supplies the dynamic values it's templated with.
 //
-// Embed:  <div id="vocab-test-app" data-json-url="/assets/data/vocab-test-data.json"></div>
+// Embed:  <div id="vocab-test-app" data-json-url="/assets/data/vocab-test-data.json"
+//              data-text-url="/assets/data/vocab-test-text.json"></div>
 //         <script defer src="/assets/js/vocab-test.js"></script>
-// Or set window.VOCAB_TEST_DATA before this script runs to skip the fetch.
+// Or set window.VOCAB_TEST_DATA / window.VOCAB_TEST_TEXT before this script runs
+// to skip the corresponding fetch.
 
 (function () {
   'use strict';
 
   var CONTAINER_ID = 'vocab-test-app';
-
-  // round number -> human label (by P(known) target)
-  var ROUND_META = {
-    90: 'Common words',
-    70: 'Less common words',
-    50: 'Rare words',
-    30: 'Abstruse words',
-    10: 'Obscurantist words'
-  };
 
   // ---------- utilities ----------
   function shuffle(a) {
@@ -36,6 +31,13 @@
   }
   function commas(n) { return Math.round(n).toLocaleString('en-US'); }
   function roundTo(n, step) { return Math.round(n / step) * step; }
+
+  // Fills {name}-style placeholders in a copy string, e.g. fmt('Word {i} of {n}', {i:1,n:40}).
+  function fmt(str, vars) {
+    return String(str).replace(/\{(\w+)\}/g, function (_, k) {
+      return (vars && vars[k] != null) ? vars[k] : '';
+    });
+  }
 
   // ---------- model ----------
   function pCorrect(z, b, a, c) {
@@ -103,21 +105,25 @@
     return qs;
   }
 
-  function start(root, data) {
-    var state = { data: data, questions: buildQuestions(data), i: 0, answers: [], mode: 'full', miniRounds: null };
+  function start(root, data, text) {
+    var state = {
+      data: data, text: text, questions: buildQuestions(data), i: 0, answers: [],
+      mode: 'full', miniRounds: null
+    };
     intro(root, state);
   }
 
   function intro(root, state) {
+    var t = state.text.intro;
     var n = state.questions.length;
     root.innerHTML =
       '<div class="vt"><div class="vt-card vt-center">' +
-      '<h2 class="vt-h">How big is your English vocabulary?</h2>' +
+      '<h2 class="vt-h">' + esc(t.heading) + '</h2>' +
       '<p class="vt-muted" style="max-width:460px;margin:0 auto 20px;">' +
-      'You\'ll see ' + n + ' words, from common to abstruse. For each, pick the definition you think is right.</p>' +
+        esc(fmt(t.blurb, { n: n })) + '</p>' +
       '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">' +
-        '<button class="vt-btn" id="vt-begin">Begin</button>' +
-        '<button class="vt-btn vt-btn-ghost" id="vt-skip-r5">Skip to Round 5</button>' +
+        '<button class="vt-btn" id="vt-begin">' + esc(t.begin_btn) + '</button>' +
+        '<button class="vt-btn vt-btn-ghost" id="vt-skip-r5">' + esc(t.skip_btn) + '</button>' +
       '</div>' +
       '</div></div>';
     root.querySelector('#vt-begin').addEventListener('click', function () { question(root, state); });
@@ -135,12 +141,13 @@
   function question(root, state) {
     if (state.i >= state.questions.length) { return results(root, state); }
     var q = state.questions[state.i];
+    var t = state.text.question;
     var pct = Math.round(state.i / state.questions.length * 100);
 
     root.innerHTML =
       '<div class="vt"><div class="vt-card">' +
       '<div class="vt-progress"><div class="vt-progress-fill" style="width:' + pct + '%"></div></div>' +
-      '<div class="vt-counter">Word ' + (state.i + 1) + ' of ' + state.questions.length + '</div>' +
+      '<div class="vt-counter">' + esc(fmt(t.counter, { i: state.i + 1, n: state.questions.length })) + '</div>' +
       '<div class="vt-word">' + esc(q.word) + '</div>' +
       '<div class="vt-pos">' + esc(q.pos) + '</div>' +
       '<div class="vt-options" id="vt-options"></div>' +
@@ -169,7 +176,7 @@
   }
 
   function results(root, state) {
-    var data = state.data;
+    var data = state.data, t = state.text.results;
 
     // per-round scores, ordered by descending Zipf (easy -> hard)
     var byRound = {};
@@ -182,17 +189,18 @@
     var rounds = Object.keys(byRound).map(function (k) { return byRound[k]; });
     rounds.sort(function (x, y) { return y.zipf - x.zipf; });
     var rows = rounds.map(function (r) {
-      var label = ROUND_META[r.round] || ('Zipf ' + r.zipf);
+      var label = state.text.rounds[r.round] || ('Zipf ' + r.zipf);
       return '<tr><td>' + esc(label) + '</td><td class="vt-r">' + r.k + ' / ' + r.n + '</td></tr>';
     }).join('');
+    var table =
+      '<table class="vt-table"><thead><tr><th>' + esc(t.table_band_header) + '</th>' +
+        '<th class="vt-r">' + esc(t.table_score_header) + '</th></tr></thead>' +
+        '<tbody>' + rows + '</tbody></table>';
 
     var summary;
     if (state.mode === 'mini') {
       // Round 5 mini-mode: just the score, no fitted vocab estimate or chart.
-      summary =
-        '<div class="vt-muted">Round 5 result</div>' +
-        '<table class="vt-table"><thead><tr><th>Band</th><th class="vt-r">Your score</th></tr></thead>' +
-          '<tbody>' + rows + '</tbody></table>';
+      summary = '<div class="vt-muted">' + esc(t.mini_label) + '</div>' + table;
     } else {
       var c = data.guessing_c || 0.1;
       var fit = fitSigmoid(rounds, c);
@@ -200,11 +208,10 @@
       var vocab = vocabAt(curve, fit.b);
       var disp = roundTo(vocab, vocab > 20000 ? 1000 : 500);
       summary =
-        '<div class="vt-muted">Estimated vocabulary</div>' +
+        '<div class="vt-muted">' + esc(t.full_label) + '</div>' +
         '<div class="vt-result-num">&asymp; ' + commas(disp) + ' words</div>' +
-        renderChart(fit, c, rounds, curve) +
-        '<table class="vt-table"><thead><tr><th>Band</th><th class="vt-r">Your score</th></tr></thead>' +
-          '<tbody>' + rows + '</tbody></table>';
+        renderChart(fit, c, rounds, curve, state.text.chart) +
+        table;
     }
 
     root.innerHTML =
@@ -212,7 +219,7 @@
       '<div class="vt-card vt-center">' + summary + '</div>' +
       renderReview(state) +
       '<div class="vt-center" style="margin-top:18px;">' +
-        '<button class="vt-btn vt-btn-ghost" id="vt-again">Try again</button>' +
+        '<button class="vt-btn vt-btn-ghost" id="vt-again">' + esc(t.again_btn) + '</button>' +
       '</div>' +
       '</div>';
 
@@ -225,29 +232,30 @@
 
   // ---------- missed-answers review ----------
   function renderReview(state) {
+    var t = state.text.review;
     var misses = state.answers.filter(function (a) { return !a.correct; });
     if (!misses.length) {
       return '<div class="vt-card vt-review vt-center" style="margin-top:14px;">' +
-        '<p class="vt-muted" style="margin:0;">You got all ' + state.answers.length +
-        ' right &mdash; nothing to review.</p></div>';
+        '<p class="vt-muted" style="margin:0;">' + esc(fmt(t.perfect, { n: state.answers.length })) +
+        '</p></div>';
     }
     var items = misses.map(function (a) {
       return '<li class="vt-review-item">' +
         '<div class="vt-review-word">' + esc(a.word) +
           ' <span class="vt-review-pos">' + esc(a.pos) + '</span></div>' +
-        '<div class="vt-review-line"><span class="vt-ans-correct">Correct</span>' +
+        '<div class="vt-review-line"><span class="vt-ans-correct">' + esc(t.correct_label) + '</span>' +
           '<span>' + esc(a.answer) + '</span></div>' +
-        '<div class="vt-review-line vt-review-chosen"><span class="vt-ans-wrong">You chose</span>' +
+        '<div class="vt-review-line vt-review-chosen"><span class="vt-ans-wrong">' + esc(t.chosen_label) + '</span>' +
           '<span>' + esc(a.chosen) + '</span></div>' +
         '</li>';
     }).join('');
     return '<div class="vt-card vt-review" style="margin-top:14px;">' +
-      '<h3 class="vt-review-h">Words you missed (' + misses.length + ')</h3>' +
+      '<h3 class="vt-review-h">' + esc(fmt(t.missed_header, { n: misses.length })) + '</h3>' +
       '<ul class="vt-review-list">' + items + '</ul></div>';
   }
 
   // ---------- results chart (inline SVG) ----------
-  function renderChart(fit, c, rounds, curve) {
+  function renderChart(fit, c, rounds, curve, t) {
     var W = 400, H = 220, padL = 56, padR = 14, padT = 14, padB = 30;
     var zMax = 7.5, zMin = -0.5;
     var pw = W - padL - padR, ph = H - padT - padB;
@@ -267,20 +275,20 @@
         '" r="4.5"></circle>';
     }).join('');
 
-    var xticks = [['common', 6.5], ['', 4.5], ['', 2.5], ['rare', 0.5]].map(function (t) {
-      var x = X(t[1]).toFixed(1);
+    var xticks = [[t.x_axis_common_label, 6.5], ['', 4.5], ['', 2.5], [t.x_axis_rare_label, 0.5]].map(function (tk) {
+      var x = X(tk[1]).toFixed(1);
       return '<line class="vt-tickmark" x1="' + x + '" y1="' + (H - padB) + '" x2="' + x + '" y2="' + (H - padB + 4) +
-        '"></line>' + (t[0] ? '<text class="vt-tick" x="' + x + '" y="' + (H - padB + 16) +
-        '" font-size="10" text-anchor="middle">' + t[0] + '</text>' : '');
+        '"></line>' + (tk[0] ? '<text class="vt-tick" x="' + x + '" y="' + (H - padB + 16) +
+        '" font-size="10" text-anchor="middle">' + esc(tk[0]) + '</text>' : '');
     }).join('');
 
     return '<svg class="vt-chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" ' +
-      'aria-label="Your fitted probability-correct curve across word rarity.">' +
+      'aria-label="' + esc(t.aria_label) + '">' +
       '<line class="vt-axis" x1="' + padL + '" y1="' + Y(0) + '" x2="' + (W - padR) + '" y2="' + Y(0) + '"></line>' +
       '<line class="vt-grid" x1="' + padL + '" y1="' + Y(1) + '" x2="' + (W - padR) + '" y2="' + Y(1) + '"></line>' +
       '<line class="vt-axis" x1="' + padL + '" y1="' + padT + '" x2="' + padL + '" y2="' + (H - padB) + '"></line>' +
       '<text class="vt-tick" x="13" y="' + yMid + '" font-size="10" text-anchor="middle" ' +
-        'transform="rotate(-90 13 ' + yMid + ')">Probability of recognition</text>' +
+        'transform="rotate(-90 13 ' + yMid + ')">' + esc(t.y_axis_label) + '</text>' +
       '<text class="vt-tick" x="' + (padL - 6) + '" y="' + (Y(1) + 3) + '" font-size="10" text-anchor="end">100%</text>' +
       '<text class="vt-tick" x="' + (padL - 6) + '" y="' + (Y(0.5) + 3) + '" font-size="10" text-anchor="end">50%</text>' +
       '<text class="vt-tick" x="' + (padL - 6) + '" y="' + (Y(0) + 3) + '" font-size="10" text-anchor="end">0%</text>' +
@@ -295,16 +303,33 @@
   function init() {
     var root = document.getElementById(CONTAINER_ID);
     if (!root) return;
-    if (window.VOCAB_TEST_DATA) { start(root, window.VOCAB_TEST_DATA); return; }
-    var url = root.getAttribute('data-json-url');
-    if (!url) { root.innerHTML = '<p class="vt-muted">No data source configured.</p>'; return; }
-    fetch(url).then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    }).then(function (d) { start(root, d); })
-      .catch(function (e) {
-        root.innerHTML = '<p class="vt-muted">Could not load the test (' + esc(e.message) + ').</p>';
+
+    function loadJSON(url) {
+      return fetch(url).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
       });
+    }
+    function loadText() {
+      if (window.VOCAB_TEST_TEXT) return Promise.resolve(window.VOCAB_TEST_TEXT);
+      var textUrl = root.getAttribute('data-text-url');
+      if (!textUrl) return Promise.reject(new Error('No text source configured.'));
+      return loadJSON(textUrl);
+    }
+    function fail(e) {
+      root.innerHTML = '<p class="vt-muted">Could not load the test (' + esc(e.message) + ').</p>';
+    }
+
+    if (window.VOCAB_TEST_DATA) {
+      loadText().then(function (text) { start(root, window.VOCAB_TEST_DATA, text); }).catch(fail);
+      return;
+    }
+    var dataUrl = root.getAttribute('data-json-url');
+    if (!dataUrl) { root.innerHTML = '<p class="vt-muted">No data source configured.</p>'; return; }
+
+    Promise.all([loadJSON(dataUrl), loadText()])
+      .then(function (r) { start(root, r[0], r[1]); })
+      .catch(fail);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

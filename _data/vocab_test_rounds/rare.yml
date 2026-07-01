@@ -1,0 +1,179 @@
+---
+round: 50
+purpose: 50_percent_calibration
+target_zipf: 2.4
+target_rank: 36684
+n_options: 10
+guessing_floor_c: 0.1
+note: answer = 0-based index into options. Re-shuffle option order per administration.
+items:
+- word: roil
+  lemma: roil
+  pos: verb
+  zipf: 2.4
+  rank: 36642
+  answer: 2
+  options:
+  - To wander aimlessly from place to place.
+  - To scorch the outer surface of food over a flame.
+  - To become turbulent and clouded with sediment.
+  - To bargain stubbornly in order to lower a price.
+  - To tangle or knot together, as threads or hair.
+  - To boast loudly and repeatedly about oneself.
+  - To trim the edges of a hedge or lawn.
+  - To grind grain into a coarse meal.
+  - To flatter someone in order to win a favour.
+  - To seep slowly through a small crack.
+- word: artesian
+  lemma: artesian
+  pos: adjective
+  zipf: 2.4
+  rank: 36651
+  answer: 5
+  options:
+  - 'Of a person: highly skilled in a traditional handicraft.'
+  - 'Of a roof: steeply pitched to shed heavy snow.'
+  - 'Of a rock: formed from cooled volcanic lava.'
+  - 'Of a colour: having a deep blue-green hue.'
+  - 'Of a fabric: woven with a raised, ribbed pattern.'
+  - 'Of a water source: naturally rising to the surface.'
+  - 'Of a region: lying above the tree line on a mountain.'
+  - 'Of a plant: able to survive long droughts.'
+  - 'Of a coin: no longer minted but prized by collectors.'
+  - 'Of an argument: appealing to emotion rather than reason.'
+- word: oblate
+  lemma: oblate
+  pos: noun
+  zipf: 2.4
+  rank: 36670
+  answer: 0
+  options:
+  - A layperson attached to a religious community.
+  - A senior official who manages a royal household's finances.
+  - A young bird not yet in adult plumage.
+  - A ceremonial robe worn by a judge.
+  - A wax tablet once used for writing.
+  - A wandering poet who recites verse for pay.
+  - An apprentice bound to a craft guild.
+  - A foot-soldier in a feudal lord's private army.
+  - A clerk who copies manuscripts by hand.
+  - A hired gardener on a country estate.
+- word: jeroboam
+  lemma: jeroboam
+  pos: noun
+  zipf: 2.4
+  rank: 36671
+  answer: 7
+  options:
+  - A wide-brimmed hat worn by clergy in hot climates.
+  - A ceremonial sword presented to a victorious general.
+  - A heavy woollen cloak fastened at the shoulder.
+  - A two-wheeled cart drawn by a single ox.
+  - A tall ornamental candlestick used on an altar.
+  - A shallow copper pan for roasting chestnuts.
+  - A long-handled tool for drawing water from a well.
+  - A large bottle containing three litres of wine.
+  - A decorative comb worn in the hair on formal occasions.
+  - A round loaf traditionally baked for festivals.
+- word: akita
+  lemma: akita
+  pos: noun
+  zipf: 2.4
+  rank: 36692
+  answer: 3
+  options:
+  - A lightweight cotton robe worn in summer.
+  - A fermented soybean paste used in soups.
+  - A short ceremonial dagger once carried by samurai.
+  - A thick-coated dog bred for hunting and guarding.
+  - A tiered lacquered box for serving food.
+  - The art of folding paper into decorative shapes.
+  - A stringed instrument played with a large plectrum.
+  - A grassy upland used for summer grazing.
+  - A unit of distance once used by travellers on foot.
+  - A flowering shrub bearing fragrant white blossoms.
+- word: dirham
+  lemma: dirham
+  pos: noun
+  zipf: 2.4
+  rank: 36713
+  answer: 1
+  options:
+  - A loose hooded cloak worn in North Africa.
+  - A unit of currency used in Morocco.
+  - A flat round bread baked against the wall of a clay oven.
+  - A woven reed mat used for sitting or prayer.
+  - A curved dagger with an ornately decorated handle.
+  - A water vessel made of unglazed, porous clay.
+  - A pear-shaped stringed instrument.
+  - A blend of spices used in slow-cooked stews.
+  - A toll formerly levied on merchants at city gates.
+  - A title of respect for a learned elder.
+- word: sartorial
+  lemma: sartorial
+  pos: adjective
+  zipf: 2.4
+  rank: 36716
+  answer: 8
+  options:
+  - Relating to cooking and the preparation of food.
+  - Relating to the sense of smell.
+  - Relating to horses and horsemanship.
+  - Relating to handwriting and the forming of letters.
+  - Relating to the coast and the seashore.
+  - Relating to gardens and the growing of plants.
+  - Relating to bells and bell-ringing.
+  - Relating to the stars and celestial navigation.
+  - Relating to clothing and style of dress.
+  - Relating to money and financial dealings.
+- word: victuals
+  lemma: victual
+  pos: noun (plural)
+  zipf: 2.4
+  rank: 36720
+  answer: 4
+  options:
+  - Personal belongings carried by a traveller.
+  - Formal written records of a meeting.
+  - Ropes and rigging aboard a sailing ship.
+  - Wages paid to a household's servants.
+  - Food and provisions prepared for eating.
+  - Ceremonial robes worn at a coronation.
+  - Debts owed to a merchant.
+  - Small gifts exchanged at a festival.
+  - Documents proving ownership of land.
+  - Tools used by a stonemason.
+- word: boyar
+  lemma: boyar
+  pos: noun
+  zipf: 2.4
+  rank: 36722
+  answer: 6
+  options:
+  - A fur hat worn through the Russian winter.
+  - A three-stringed instrument with a triangular body.
+  - A rich beetroot soup served hot or cold.
+  - A wooden country house used as a summer retreat.
+  - A swift sleigh drawn by three horses abreast.
+  - A flat, open grassland stretching for miles.
+  - A member of the aristocracy in Slavic lands.
+  - A curved sabre once carried by mounted cavalry.
+  - A spiced dumpling filled with minced meat.
+  - A tall, painted wooden nesting doll.
+- word: appliqué
+  lemma: applique
+  pos: noun
+  zipf: 2.4
+  rank: 36723
+  answer: 9
+  options:
+  - A thin folded pancake served with a sweet filling.
+  - A bracket lamp fixed to a wall to hold candles.
+  - A formal written request submitted for a job.
+  - A shiny glaze brushed over a fresh fruit tart.
+  - A short code added to the end of a document.
+  - A small ornamental tile set into a floor.
+  - A tall standing screen used to divide a room.
+  - A garnish of fresh herbs scattered over a dish.
+  - A folding paper fan painted with a garden scene.
+  - A design made by sewing cut fabric shapes onto cloth.

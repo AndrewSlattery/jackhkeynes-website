@@ -1,0 +1,179 @@
+---
+round: 70
+purpose: 70_percent_calibration
+target_zipf: 2.7
+target_rank: 28311
+n_options: 10
+guessing_floor_c: 0.1
+note: answer = 0-based index into options. Re-shuffle option order per administration.
+items:
+- word: asceticism
+  lemma: asceticism
+  pos: noun
+  zipf: 2.7
+  rank: 28263
+  answer: 4
+  options:
+  - The belief that all matter is ultimately an illusion.
+  - The art of arranging cut flowers attractively.
+  - The study of old coins and commemorative medals.
+  - The worship of nature as something sacred and divine.
+  - The practice of self-discipline and self-denial.
+  - The breeding of pigeons for racing and show.
+  - A morbid and irrational dread of enclosed spaces.
+  - The custom of exchanging gifts in midwinter.
+  - The hoarding of wealth out of sheer miserliness.
+  - The collecting of rare and antique postage stamps.
+- word: mestizo
+  lemma: mestizo
+  pos: noun
+  zipf: 2.7
+  rank: 28285
+  answer: 7
+  options:
+  - A spiced pork sausage from southern Spain.
+  - A lively folk dance in fast triple time.
+  - A flat-roofed house built around an inner courtyard.
+  - A dry, dust-laden wind that blows off the desert.
+  - A broad-brimmed hat woven from dried straw.
+  - A small farm worked by a single peasant family.
+  - A clay oven used for baking flat bread.
+  - A person of both European and Indigenous American descent.
+  - A wandering labourer hired only for the harvest.
+  - A shallow boat punted through coastal marshes.
+- word: idyll
+  lemma: idyll
+  pos: noun
+  zipf: 2.7
+  rank: 28290
+  answer: 0
+  options:
+  - An idealised scene of peaceful country life.
+  - A bitter dispute that splits a community.
+  - An ornamental fountain set in a formal garden.
+  - A children's tale that teaches a moral lesson.
+  - A sudden wave of panic spreading through a crowd.
+  - A faint, lingering smell of something burnt.
+  - A clumsy blunder made in front of others.
+  - A long and exhausting forced march.
+  - A secret meeting of political conspirators.
+  - A worthless trinket of little real value.
+- word: oxymoron
+  lemma: oxymoron
+  pos: noun
+  zipf: 2.7
+  rank: 28300
+  answer: 9
+  options:
+  - A stubborn fool who refuses all good advice.
+  - A mask that supplies oxygen to a patient.
+  - A powerful acid used to etch metal plates.
+  - A clumsy, slow-witted beast of burden.
+  - A heated iron used to seal a wound.
+  - An old unit of weight for precious metals.
+  - A colourless gas that glows in bright signs.
+  - A brittle brown compound left behind by rust.
+  - A sudden, sharp cramp in the muscles.
+  - A phrase combining two seemingly contradictory terms.
+- word: myopia
+  lemma: myopia
+  pos: noun
+  zipf: 2.7
+  rank: 28302
+  answer: 2
+  options:
+  - An imaginary land of perfect peace and happiness.
+  - A deep and lasting sadness or gloom.
+  - An inability to see distant objects clearly.
+  - An obsessive urge to collect and hoard things.
+  - A painful swelling and stiffness of the joints.
+  - A persistent fear of being watched by others.
+  - A tropical fever spread by mosquito bites.
+  - A sudden and total loss of memory.
+  - A state of complete physical exhaustion.
+  - A dry region of sparse plant life.
+- word: propound
+  lemma: propound
+  pos: verb
+  zipf: 2.7
+  rank: 28306
+  answer: 6
+  options:
+  - To beat something repeatedly into a soft pulp.
+  - To weigh out goods on a large set of scales.
+  - To declare a person formally guilty of a crime.
+  - To stuff a hollow cavity tightly with packing.
+  - To wander about slowly with no fixed aim.
+  - To shut stray animals into a locked pen.
+  - To put forward an idea or theory for consideration.
+  - To grow very rapidly in size or number.
+  - To rub a rough surface until it is smooth.
+  - To scatter seed by hand across a field.
+- word: petulant
+  lemma: petulant
+  pos: adjective
+  zipf: 2.7
+  rank: 28311
+  answer: 3
+  options:
+  - Small, dainty, and very delicately formed in build.
+  - Forever inclined to beg and plead for favours.
+  - Soft, warm, and pleasant to stroke by hand.
+  - Childishly sulky and quick to lose one's temper.
+  - Stubbornly unwilling ever to change one's mind.
+  - Bursting with restless and nervous physical energy.
+  - Reckless with money and far too quick to spend.
+  - Painfully shy in the presence of strangers.
+  - Constantly boastful about wealth and personal success.
+  - Gloomy and inclined to brood in long silences.
+- word: aliphatic
+  lemma: aliphatic
+  pos: adjective
+  zipf: 2.7
+  rank: 28315
+  answer: 8
+  options:
+  - 'Of a gas: noticeably denser than the surrounding air.'
+  - 'Of a sound: pitched too high for the human ear.'
+  - 'Of a person: showing no warmth, feeling, or emotion.'
+  - 'Of a plant: completing its life cycle within one year.'
+  - 'Of a rock: formed in thin, flat, and evenly layered sheets.'
+  - 'Of a muscle: able to contract and relax very quickly.'
+  - 'Of a star: too faint to see without a telescope.'
+  - 'Of a fever: returning at regular, predictable intervals.'
+  - 'Of a compound: having open chains of carbon atoms.'
+  - 'Of a coastline: deeply cut with many small bays.'
+- word: scabbard
+  lemma: scabbard
+  pos: noun
+  zipf: 2.7
+  rank: 28321
+  answer: 1
+  options:
+  - A wooden cradle for rocking a baby to sleep.
+  - A protective sheath for the blade of a sword.
+  - A blunt knife used for spreading soft butter.
+  - A heavy curtain drawn across a theatre stage.
+  - A shallow stone trough from which cattle drink.
+  - A rough plank walkway laid down over mud.
+  - A metal clasp for fastening a heavy cloak.
+  - A crude raft lashed together from floating logs.
+  - A long wooden bench built without a back.
+  - A shallow basket used for gathering hens' eggs.
+- word: diamondback
+  lemma: diamondback
+  pos: noun
+  zipf: 2.7
+  rank: 28331
+  answer: 5
+  options:
+  - A hard, sparkling stone used for cutting glass.
+  - A playing card marked with red, four-sided pips.
+  - A raised bony ridge running along an animal's spine.
+  - A heavy pack strapped high across the shoulders.
+  - A fastball thrown with a sharp downward break.
+  - A venomous American snake with a patterned hide.
+  - A small, long-lasting boiled sugar sweet.
+  - A deep armchair with tufted, buttoned upholstery.
+  - A swift fish that darts through shallow streams.
+  - A paper kite shaped like a flat lozenge.

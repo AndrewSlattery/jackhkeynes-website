@@ -1,0 +1,42 @@
+# All user-facing copy for the vocabulary size test (/vocab-test/).
+# Edit this file to change wording — assets/data/vocab-test-text.json re-serves
+# it to the browser at build time (see ARCHITECTURE.md), and
+# assets/js/vocab-test.js only supplies the {placeholder} values noted below.
+# It never hardcodes wording itself.
+
+intro:
+  heading: "How big is your English vocabulary?"
+  blurb: "You'll see {n} words from common to obscurantist. For each, pick the definition you think is right."   # {n} = question count
+  begin_btn: "Begin"
+  skip_btn: "Skip to Round 5"
+
+question:
+  counter: "Word {i} of {n}"   # {i} = current question number, {n} = total questions
+
+results:
+  full_label: "Estimated vocabulary"
+  mini_label: "Round 5 result"
+  table_band_header: "Band"
+  table_score_header: "Your score"
+  again_btn: "Try again"
+
+review:
+  perfect: "You got all {n} right — nothing to review."   # {n} = total questions answered
+  missed_header: "Words you missed ({n})"                  # {n} = number missed
+  correct_label: "Correct"
+  chosen_label: "You chose"
+
+chart:
+  aria_label: "Your fitted probability-correct curve across word rarity."
+  y_axis_label: "Probability of recognition"
+  x_axis_common_label: "common"
+  x_axis_rare_label: "rare"
+
+# Round labels shown in the results score table, keyed by each round's
+# P(known) target (matches the "round" field in vocab-test-data.json).
+rounds:
+  90: "Common words"
+  70: "Less common words"
+  50: "Rare words"
+  30: "Abstruse words"
+  10: "Obscurantist words"

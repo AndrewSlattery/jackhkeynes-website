@@ -1,0 +1,179 @@
+---
+round: 30
+purpose: 30_percent_calibration
+target_zipf: 1.9
+target_rank: 54816
+n_options: 10
+guessing_floor_c: 0.1
+note: answer = 0-based index into options. Re-shuffle option order per administration.
+items:
+- word: unergative
+  lemma: unergative
+  pos: adjective
+  zipf: 1.9
+  rank: 54733
+  answer: 3
+  options:
+  - Lacking energy or drive; persistently sluggish.
+  - Unable ever to be reversed or undone.
+  - Producing no measurable physical effect at all.
+  - Having no direct object and an agent as subject.
+  - Not derived from any earlier root word.
+  - Resistant to wear even under constant heavy use.
+  - Showing no outward sign of feeling or emotion.
+  - Operating without any external source of power.
+  - Incapable of catching fire or being burned.
+  - Tending to resist all efforts at change.
+- word: avocet
+  lemma: avocet
+  pos: noun
+  zipf: 1.9
+  rank: 54749
+  answer: 8
+  options:
+  - A blunt tool used for smoothing wet plaster.
+  - A slow, gliding dance performed at formal balls.
+  - A sweet, spiced wine served warm in winter.
+  - A long, narrow flag flown from a ship's mast.
+  - A heavy curtain hung across a door to block draughts.
+  - A unit once used to measure plots of farmland.
+  - A small hand mirror set in a carved frame.
+  - A children's game played with a knotted string.
+  - A wading bird with long legs and an upturned bill.
+  - A sudden squall of rain driven by strong wind.
+- word: lahar
+  lemma: lahar
+  pos: noun
+  zipf: 1.9
+  rank: 54767
+  answer: 1
+  options:
+  - A woven basket for carrying freshly harvested grapes.
+  - A flow of volcanic ash and water down a slope.
+  - A great drum beaten to announce a king's arrival.
+  - A debt cancelled after a fixed term of years.
+  - A thin pancake rolled around a savoury meat filling.
+  - A title of honour given to a respected village headman.
+  - A loose outer robe worn over everyday clothes.
+  - A board game played on a grid of black squares.
+  - A salty paste made from small fermented fish.
+  - A short poem mourning the death of a friend.
+- word: segno
+  lemma: segno
+  pos: noun
+  zipf: 1.9
+  rank: 54768
+  answer: 6
+  options:
+  - A birthmark or blemish on a person's skin.
+  - A silent hand gesture used to signal others.
+  - A roadside post marking a boundary line.
+  - An omen thought to foretell future events.
+  - A diagram of the stars of a constellation.
+  - A target marked out to be aimed at in archery.
+  - A symbol at the beginning of repeated music.
+  - A wax seal pressed to authenticate a letter.
+  - A scar left behind by an old wound.
+  - A scent trail followed by a hunting hound.
+- word: chthonic
+  lemma: chthonic
+  pos: adjective
+  zipf: 1.9
+  rank: 54830
+  answer: 0
+  options:
+  - Belonging to the underworld, where the dead dwell.
+  - Made from finely woven strands of pure silk.
+  - Inclined to forgive quickly and hold no grudges.
+  - Producing a sharp, sour taste on the tongue.
+  - Built to withstand a long and determined siege.
+  - Covered all over with coarse, bristly hair.
+  - Spoken rapidly and in a barely intelligible way.
+  - Occurring at the very hottest part of the day.
+  - Easily startled by any sudden noise or movement.
+  - Worth a great deal of money to collectors.
+- word: stentorian
+  lemma: stentorian
+  pos: adjective
+  zipf: 1.9
+  rank: 54854
+  answer: 9
+  options:
+  - Smelling strongly of damp earth.
+  - Likely to crumble at the slightest touch.
+  - Marked by reckless and lavish generosity.
+  - Covered with a fine, silvery down.
+  - Difficult to interpret or understand clearly.
+  - Grown only in cold mountainous regions.
+  - Easily bent permanently out of shape.
+  - Lasting for only a very short time.
+  - Prized chiefly for its great rarity.
+  - Extremely loud, deep, and powerful.
+- word: kippah
+  lemma: kippah
+  pos: noun
+  zipf: 1.9
+  rank: 54872
+  answer: 4
+  options:
+  - A long pole used to push a riverboat along.
+  - A sweet jelly made from boiled fruit and sugar.
+  - A small drum played with the fingertips.
+  - A formal letter granting a special privilege.
+  - A brimless skullcap worn by observant Jewish men.
+  - A swift two-wheeled carriage pulled by one horse.
+  - A wild flower with bright yellow trumpet blooms.
+  - A heavy tax once levied on imported salt.
+  - A curved knife used for pruning grapevines.
+  - A wooden board on which dough is kneaded.
+- word: varlet
+  lemma: varlet
+  pos: noun
+  zipf: 1.9
+  rank: 54887
+  answer: 2
+  options:
+  - A shallow dish used for mixing artists' paints.
+  - A gust of wind that scatters dry leaves.
+  - A dishonest, rascally, good-for-nothing fellow.
+  - A short ladder for reaching high shelves.
+  - A thick stew of beans and smoked meat.
+  - A leather pouch for carrying flint and tinder.
+  - A lively folk tune played at country dances.
+  - A creeping weed that chokes young crops.
+  - A coarse cloth used for scrubbing floors.
+  - A stone post marking distance along a road.
+- word: lamé
+  lemma: lamé
+  pos: noun
+  zipf: 1.9
+  rank: 54894
+  answer: 7
+  options:
+  - A small songbird with a bright red breast.
+  - A heavy mallet swung by a stonemason.
+  - A sweet pastry filled with sliced almonds.
+  - A narrow boat moved by a single paddle.
+  - A formal pardon granted by a head of state.
+  - A tall reed grown for making paper.
+  - A dance step ending in a quick half-turn.
+  - A fabric woven with glittering metallic threads.
+  - A spiced tea brewed with milk and sugar.
+  - A bracket on a wall for holding a torch.
+- word: samphire
+  lemma: samphire
+  pos: noun
+  zipf: 1.9
+  rank: 54884
+  answer: 5
+  options:
+  - A polished gemstone set into a silver ring.
+  - A brass instrument with a deep, mellow tone.
+  - A sudden flash of lightning seen without thunder.
+  - A wooden frame used for drying fishing nets.
+  - A sly remark meant to wound someone quietly.
+  - An edible green plant that grows on coastal rocks.
+  - A ceremonial axe carried before a chieftain.
+  - A thick fog that rolls in from the sea.
+  - A small short-term loan at fair interest.
+  - A hidden trapdoor leading down to a cellar.
