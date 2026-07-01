@@ -1,6 +1,8 @@
 // vocab-test.js — adaptive-ready vocabulary-size test (calibration version)
 // Administers the curated rounds (in order, easy -> rare), fits a guessing-floor
 // sigmoid to the per-round scores, and reports an estimated vocabulary size.
+// "Skip to Round 5" runs a standalone mini-mode over just the rarest round,
+// reporting only the score and missed words (no vocab estimate/chart).
 // Vanilla JS, no dependencies. Styling lives in _sass/_vocab-test.scss.
 //
 // Embed:  <div id="vocab-test-app" data-json-url="/assets/data/vocab-test-data.json"></div>
@@ -17,7 +19,8 @@
     90: 'Common words',
     70: 'Less common words',
     50: 'Rare words',
-    30: 'Abstruse words'
+    30: 'Abstruse words',
+    10: 'Obscurantist words'
   };
 
   // ---------- utilities ----------
@@ -84,22 +87,24 @@
   }
 
   // ---------- flow ----------
-  function buildQuestions(data) {
+  function buildQuestions(data, roundsList) {
     // Keep the rounds in their curated order (easy -> rare). Shuffle only the
     // items within each round, plus each question's answer options.
+    // roundsList lets a caller run a subset of rounds (e.g. the Round 5 mini-mode).
+    var list = roundsList || data.rounds;
     var qs = [];
-    data.rounds.forEach(function (rd, ri) {
+    list.forEach(function (rd) {
       shuffle(rd.items.slice()).forEach(function (it) {
         var opts = it.options.map(function (o, i) { return { text: o, correct: i === it.answer }; });
         shuffle(opts);
-        qs.push({ ri: ri, round: rd.round, zipf: rd.target_zipf, word: it.word, pos: it.pos, options: opts });
+        qs.push({ round: rd.round, zipf: rd.target_zipf, word: it.word, pos: it.pos, options: opts });
       });
     });
     return qs;
   }
 
   function start(root, data) {
-    var state = { data: data, questions: buildQuestions(data), i: 0, answers: [] };
+    var state = { data: data, questions: buildQuestions(data), i: 0, answers: [], mode: 'full', miniRounds: null };
     intro(root, state);
   }
 
@@ -110,9 +115,21 @@
       '<h2 class="vt-h">How big is your English vocabulary?</h2>' +
       '<p class="vt-muted" style="max-width:460px;margin:0 auto 20px;">' +
       'You\'ll see ' + n + ' words, from common to abstruse. For each, pick the definition you think is right.</p>' +
-      '<button class="vt-btn" id="vt-begin">Begin</button>' +
+      '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">' +
+        '<button class="vt-btn" id="vt-begin">Begin</button>' +
+        '<button class="vt-btn vt-btn-ghost" id="vt-skip-r5">Skip to Round 5</button>' +
+      '</div>' +
       '</div></div>';
     root.querySelector('#vt-begin').addEventListener('click', function () { question(root, state); });
+    root.querySelector('#vt-skip-r5').addEventListener('click', function () {
+      var r5 = state.data.rounds.filter(function (rd) { return rd.round === 10; });
+      if (!r5.length) return;
+      state.mode = 'mini';
+      state.miniRounds = r5;
+      state.questions = buildQuestions(state.data, r5);
+      state.i = 0; state.answers = [];
+      question(root, state);
+    });
   }
 
   function question(root, state) {
@@ -139,7 +156,7 @@
         box.querySelectorAll('.vt-option').forEach(function (b) { b.disabled = true; });
         var right = q.options.filter(function (o) { return o.correct; })[0];
         state.answers.push({
-          ri: q.ri, word: q.word, pos: q.pos, correct: !!opt.correct,
+          round: q.round, zipf: q.zipf, word: q.word, pos: q.pos, correct: !!opt.correct,
           chosen: opt.text, answer: right ? right.text : ''
         });
         state.i++;
@@ -152,41 +169,47 @@
   }
 
   function results(root, state) {
-    var data = state.data, c = data.guessing_c || 0.1;
+    var data = state.data;
 
     // per-round scores, ordered by descending Zipf (easy -> hard)
     var byRound = {};
     state.answers.forEach(function (ans) {
-      var rd = data.rounds[ans.ri];
-      var key = ans.ri;
-      if (!byRound[key]) byRound[key] = { round: rd.round, zipf: rd.target_zipf, k: 0, n: 0 };
+      var key = ans.round;
+      if (!byRound[key]) byRound[key] = { round: ans.round, zipf: ans.zipf, k: 0, n: 0 };
       byRound[key].n++;
       if (ans.correct) byRound[key].k++;
     });
     var rounds = Object.keys(byRound).map(function (k) { return byRound[k]; });
     rounds.sort(function (x, y) { return y.zipf - x.zipf; });
-
-    var fit = fitSigmoid(rounds, c);
-    var curve = data.zipf_curve;
-    var vocab = vocabAt(curve, fit.b);
-    var vLo = vocabAt(curve, fit.bHi);   // higher crossover -> fewer words
-    var vHi = vocabAt(curve, fit.bLo);
-
-    var disp = roundTo(vocab, vocab > 20000 ? 1000 : 500);
     var rows = rounds.map(function (r) {
       var label = ROUND_META[r.round] || ('Zipf ' + r.zipf);
       return '<tr><td>' + esc(label) + '</td><td class="vt-r">' + r.k + ' / ' + r.n + '</td></tr>';
     }).join('');
 
+    var summary;
+    if (state.mode === 'mini') {
+      // Round 5 mini-mode: just the score, no fitted vocab estimate or chart.
+      summary =
+        '<div class="vt-muted">Round 5 result</div>' +
+        '<table class="vt-table"><thead><tr><th>Band</th><th class="vt-r">Your score</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody></table>';
+    } else {
+      var c = data.guessing_c || 0.1;
+      var fit = fitSigmoid(rounds, c);
+      var curve = data.zipf_curve;
+      var vocab = vocabAt(curve, fit.b);
+      var disp = roundTo(vocab, vocab > 20000 ? 1000 : 500);
+      summary =
+        '<div class="vt-muted">Estimated vocabulary</div>' +
+        '<div class="vt-result-num">&asymp; ' + commas(disp) + ' words</div>' +
+        renderChart(fit, c, rounds, curve) +
+        '<table class="vt-table"><thead><tr><th>Band</th><th class="vt-r">Your score</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody></table>';
+    }
+
     root.innerHTML =
       '<div class="vt">' +
-      '<div class="vt-card vt-center">' +
-      '<div class="vt-muted">Estimated vocabulary</div>' +
-      '<div class="vt-result-num">&asymp; ' + commas(disp) + ' words</div>' +
-      renderChart(fit, c, rounds, curve) +
-      '<table class="vt-table"><thead><tr><th>Band</th><th class="vt-r">Your score</th></tr></thead>' +
-        '<tbody>' + rows + '</tbody></table>' +
-      '</div>' +
+      '<div class="vt-card vt-center">' + summary + '</div>' +
       renderReview(state) +
       '<div class="vt-center" style="margin-top:18px;">' +
         '<button class="vt-btn vt-btn-ghost" id="vt-again">Try again</button>' +
@@ -194,7 +217,8 @@
       '</div>';
 
     root.querySelector('#vt-again').addEventListener('click', function () {
-      state.questions = buildQuestions(data); state.i = 0; state.answers = [];
+      state.questions = buildQuestions(data, state.mode === 'mini' ? state.miniRounds : null);
+      state.i = 0; state.answers = [];
       question(root, state);
     });
   }
