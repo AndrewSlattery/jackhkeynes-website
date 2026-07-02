@@ -23,3 +23,7 @@ permalink: /
 [Wiki](/boralverse/wiki/) – A searchable wiki of information of the alternate history setting.
 
 [Tumblr](https://tumblr.com/jackhkeynes) – My external Tumblr blog.
+
+## Everything Else
+
+[English Vocab Test](/vocab-test/) - A 50-question test which estimates how many English words you know using a sigmoid model.
