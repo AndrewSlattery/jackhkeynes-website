@@ -2862,13 +2862,37 @@ mark {
   cursor: pointer;
   transition: background 0.12s, border-color 0.12s;
 }
+#vocab-test-app .vt-option:nth-child(even) {
+  background: #111111;
+}
 #vocab-test-app .vt-option:hover {
   background: #2d2d2d;
+  border-color: #51fb44;
+}
+#vocab-test-app .vt-option.vt-option-selected {
+  background: rgba(81, 251, 68, 0.12);
   border-color: #51fb44;
 }
 #vocab-test-app .vt-option:disabled {
   cursor: default;
   opacity: 0.5;
+}
+#vocab-test-app .vt-qfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  min-height: 34px;
+}
+#vocab-test-app .vt-confirm-hint {
+  font-size: 0.82em;
+  font-style: italic;
+  color: #828282;
+}
+#vocab-test-app .vt-btn-sm {
+  padding: 7px 16px;
+  font-size: 0.9em;
 }
 #vocab-test-app .vt-btn {
   display: inline-block;

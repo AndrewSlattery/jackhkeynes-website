@@ -3,8 +3,11 @@
 // sigmoid to the per-round scores, and reports an estimated vocabulary size.
 // "Skip to Round 5" runs a standalone mini-mode over just the rarest round,
 // reporting only the score and missed words (no vocab estimate/chart).
-// A finished result is saved to localStorage and re-shown on the next visit
-// (until "Try again" is clicked), so refreshing doesn't lose it.
+// Answering is two-step (tap to highlight, tap again to confirm) with a Back
+// button for changing earlier answers. Progress is saved to localStorage after
+// every confirmed answer, and the finished result is kept too — so refreshing
+// mid-test resumes where the solver left off, and refreshing after finishing
+// re-shows the result (until "Try again" is clicked).
 // Vanilla JS, no dependencies. Styling lives in _sass/_vocab-test.scss.
 // All copy lives in _data/vocab_test_text.yml (served as vocab-test-text.json) —
 // this file only supplies the dynamic values it's templated with.
@@ -20,7 +23,7 @@
 
   var CONTAINER_ID = 'vocab-test-app';
   var STORAGE_KEY = 'vocabTestResult';
-  var STORAGE_VERSION = 1;
+  var STORAGE_VERSION = 2;   // v2 added mid-test progress (questions + position)
 
   // ---------- utilities ----------
   function shuffle(a) {
@@ -43,25 +46,31 @@
     });
   }
 
-  // ---------- persistence (so a finished result survives a page refresh) ----------
+  // ---------- persistence (progress and results survive a page refresh) ----------
+  // One saved record: done=false means mid-test (keeps the shuffled question list
+  // and position so a refresh resumes the exact same quiz); done=true means a
+  // finished result (answers only — that's all the results screen needs).
   // Wrapped in try/catch: localStorage can throw (private browsing, disabled, quota).
-  function saveResult(state) {
+  function saveProgress(state, done) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        v: STORAGE_VERSION, mode: state.mode, answers: state.answers
+        v: STORAGE_VERSION, mode: state.mode, done: !!done,
+        i: state.i, answers: state.answers,
+        questions: done ? null : state.questions
       }));
     } catch (e) { /* not persisted this time; the test still works */ }
   }
-  function loadResult() {
+  function loadSaved() {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return null;
       var saved = JSON.parse(raw);
       if (!saved || saved.v !== STORAGE_VERSION || !saved.answers || !saved.answers.length) return null;
+      if (!saved.done && (!saved.questions || !saved.questions.length)) return null;
       return saved;
     } catch (e) { return null; }
   }
-  function clearResult() {
+  function clearSaved() {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* nothing to clear */ }
   }
 
@@ -139,20 +148,24 @@
     intro(root, state);
   }
 
-  // If a finished result was saved from an earlier visit, show it straight away
-  // instead of the intro screen; otherwise start a fresh test as usual.
+  // If anything was saved from an earlier visit, pick up where the solver left
+  // off — a finished result goes straight to the results screen, a mid-test
+  // save resumes at the same question. Otherwise start fresh as usual.
   function boot(root, data, text) {
-    var saved = loadResult();
+    var saved = loadSaved();
     if (!saved) { start(root, data, text); return; }
     var miniRounds = null;
     if (saved.mode === 'mini') {
       miniRounds = data.rounds.filter(function (rd) { return rd.round === 10; });
     }
     var state = {
-      data: data, text: text, questions: [], i: 0,
+      data: data, text: text,
+      questions: saved.done ? [] : saved.questions,
+      i: saved.done ? 0 : saved.i,
       answers: saved.answers, mode: saved.mode, miniRounds: miniRounds
     };
-    results(root, state);
+    if (saved.done) { results(root, state); }
+    else { question(root, state); }
   }
 
   function intro(root, state) {
@@ -193,15 +206,32 @@
       '<div class="vt-word">' + esc(q.word) + '</div>' +
       '<div class="vt-pos">' + esc(q.pos) + '</div>' +
       '<div class="vt-options" id="vt-options"></div>' +
+      '<div class="vt-qfoot">' +
+        (state.i > 0
+          ? '<button class="vt-btn vt-btn-ghost vt-btn-sm" id="vt-back" type="button">' + esc(t.back_btn) + '</button>'
+          : '<span></span>') +
+        '<span class="vt-confirm-hint" id="vt-hint" hidden>' + esc(t.confirm_hint) + '</span>' +
+      '</div>' +
       '</div></div>';
 
     var box = root.querySelector('#vt-options');
+    var hint = root.querySelector('#vt-hint');
+    var selectedBtn = null;
+
     q.options.forEach(function (opt) {
       var btn = document.createElement('button');
       btn.className = 'vt-option';
       btn.type = 'button';
       btn.textContent = opt.text;
       btn.addEventListener('click', function () {
+        // Two-step: first tap highlights the option, tapping it again confirms.
+        if (selectedBtn !== btn) {
+          if (selectedBtn) selectedBtn.classList.remove('vt-option-selected');
+          selectedBtn = btn;
+          btn.classList.add('vt-option-selected');
+          hint.hidden = false;
+          return;
+        }
         box.querySelectorAll('.vt-option').forEach(function (b) { b.disabled = true; });
         var right = q.options.filter(function (o) { return o.correct; })[0];
         state.answers.push({
@@ -209,17 +239,27 @@
           chosen: opt.text, answer: right ? right.text : ''
         });
         state.i++;
+        saveProgress(state, false);
         question(root, state);
       });
       box.appendChild(btn);
     });
+
+    var back = root.querySelector('#vt-back');
+    if (back) back.addEventListener('click', function () {
+      state.i--;
+      state.answers.pop();
+      saveProgress(state, false);
+      question(root, state);
+    });
+
     var first = box.querySelector('.vt-option');
     if (first) first.focus();
   }
 
   function results(root, state) {
     var data = state.data, t = state.text.results;
-    saveResult(state);
+    saveProgress(state, true);
 
     // per-round scores, ordered by descending Zipf (easy -> hard)
     var byRound = {};
@@ -267,7 +307,7 @@
       '</div>';
 
     root.querySelector('#vt-again').addEventListener('click', function () {
-      clearResult();
+      clearSaved();
       state.questions = buildQuestions(data, state.mode === 'mini' ? state.miniRounds : null);
       state.i = 0; state.answers = [];
       question(root, state);

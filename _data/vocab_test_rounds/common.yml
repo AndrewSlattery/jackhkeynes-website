@@ -14,16 +14,16 @@ items:
   rank: 13390
   answer: 4
   options:
-  - A bitter substance used in traditional brewing.
-  - An ornamental border added to a garment.
-  - A formal complaint lodged in a local court.
-  - A wooden brace used to support a ship's hull.
-  - A minor physical illness or mental disorder.
-  - An agreement between opposing political factions.
-  - A tool for carving intricate patterns in stone.
-  - A small, fast-flowing stream or brook.
-  - A sudden burst of wind or rain.
-  - A unit of measurement for agricultural grain.
+  - bitter paste for brewing
+  - ornamental border
+  - beginning of legal action
+  - wooden hull brace
+  - minor physical illness
+  - agreement between factions
+  - tool for stone-carving
+  - fast-flowing stream
+  - sudden burst of wind
+  - unit for measuring grain
 - word: coerce
   lemma: coerce
   pos: verb
@@ -31,16 +31,16 @@ items:
   rank: 13363
   answer: 7
   options:
-  - To gradually combine two distinct substances.
-  - To publicly praise someone's recent achievements.
-  - To falsely claim ownership of an item.
-  - To completely erase a memory or public record.
-  - To wrap a wound tightly with sterile cloth.
-  - To carefully inspect a document for legal errors.
-  - To navigate a ship using the position of the stars.
-  - To compel a person by force or intimidation.
-  - To coat a metal object with a thin layer of gold.
-  - To separate the usable grain from the chaff.
+  - gradually combine
+  - publicly praise
+  - falsely claim ownership of
+  - completely erase
+  - wrap tightly with cloth
+  - carefully inspect
+  - navigate by the stars
+  - compel by force
+  - coat with gold
+  - separate from chaff
 - word: daunting
   lemma: daunt
   pos: adjective
@@ -48,16 +48,16 @@ items:
   rank: 13370
   answer: 0
   options:
-  - Highly intimidating and difficult to deal with.
-  - Extremely soft and pleasant to the touch.
-  - Quick to anger over minor inconveniences.
-  - Having a dull, faded, or washed-out colour.
-  - Proceeding at a steady and highly predictable pace.
-  - Consisting of a series of repeating geometric patterns.
-  - Full of high spirits and joyful, infectious energy.
-  - Exhibiting a deep knowledge of ancient philosophical texts.
-  - Covered in a thick, even layer of morning frost.
-  - Inclined to speak loudly and boastfully in public.
+  - highly intimidating
+  - extremely soft
+  - quick to anger
+  - having a dull colour
+  - at a steady pace
+  - with repeating patterns
+  - merry and joyful
+  - familiar with philosophy
+  - covered in frost
+  - speaking boastfully
 - word: expanse
   lemma: expanse
   pos: noun
@@ -65,16 +65,16 @@ items:
   rank: 13445
   answer: 8
   options:
-  - An extra sum of money paid as a penalty.
-  - A detailed and formal explanation of a theory.
-  - A short, sharp intake of breath.
-  - A heavy iron gate at the entrance to a castle.
-  - An outdated law that has never been formally repealed.
-  - A hidden chamber beneath a church or temple.
-  - A mechanical device used to lift heavy weights.
-  - A public display of local artistic talent.
-  - A wide and continuous area of land or water.
-  - A narrow passage between two steep cliffs.
+  - penalty sum of money
+  - detailed explanation
+  - sharp intake of breath
+  - heavy iron gate
+  - outdated law
+  - hidden chamber
+  - mechanical lifting device
+  - public display of talent
+  - area of land or water
+  - narrow mountain pass
 - word: fortnight
   lemma: fortnight
   pos: noun
@@ -82,16 +82,16 @@ items:
   rank: 13438
   answer: 2
   options:
-  - A heavy, reinforced door on a military bunker.
-  - A late-hour gathering of close friends.
-  - A single consecutive period of two weeks.
-  - A small, temporary settlement built by soldiers.
-  - A celebratory feast held at the start of spring.
-  - A legal decree issued by a reigning monarch.
-  - A type of thick canvas used for making large tents.
-  - A traditional dance performed at a wedding.
-  - A sudden, unexpected drop in overnight temperature.
-  - A loud noise signifying the end of a battle.
+  - reinforced bunker
+  - late-hour gathering
+  - period of two weeks
+  - small, temporary barracks
+  - celebratory autumn feast
+  - monarch's legal decree
+  - thick canvas for tents
+  - traditional wedding dance
+  - drop in overnight temperature
+  - noise to mark a battle ending
 - word: gaunt
   lemma: gaunt
   pos: adjective
@@ -99,16 +99,16 @@ items:
   rank: 13450
   answer: 9
   options:
-  - Arrogant and condescending in manner.
-  - Highly decorated with authentic gold leaf.
-  - Showing a lack of proper respect or seriousness.
-  - Producing a harsh, grating mechanical sound.
-  - Covered in dense, impenetrable undergrowth.
-  - Moving with a smooth, graceful, and fluid motion.
-  - Deeply knowledgeable about a specific, obscure subject.
-  - Prone to sudden and unpredictable changes of mood.
-  - Having a rich, full-bodied flavour and aroma.
-  - Unhealthily thin and bony from prolonged suffering.
+  - arrogant in manner
+  - decorated with gold leaf
+  - lacking proper respect
+  - making a harsh sound
+  - covered in dense undergrowth
+  - gliding with fluid motion
+  - knowledgeable about obscure subjects
+  - prone to sudden mood changes
+  - having a full-bodied flavour
+  - unhealthily thin and bony
 - word: hegemony
   lemma: hegemony
   pos: noun
@@ -116,16 +116,16 @@ items:
   rank: 13410
   answer: 3
   options:
-  - The study of the chemical properties of blood.
-  - A multi-sided geometric shape with unequal angles.
-  - The act of passing a law by a narrow margin.
-  - A position of political or cultural dominance over another group.
-  - A loud, chaotic mixture of unpleasant sounds.
-  - A legal document transferring land ownership.
-  - The natural tendency of a liquid to evaporate.
-  - An intricate system of underground mining tunnels.
-  - A traditional method of preserving meat with heavy salt.
-  - A plant that blooms exclusively in the late evening.
+  - study of blood chemistry
+  - multi-sided geometric shape
+  - passing a law by a narrow margin
+  - political or cultural dominance
+  - mixture of unpleasant sounds
+  - transfer of land ownership
+  - tendency of a liquid to evaporate
+  - underground mining tunnels
+  - method of preserving meat
+  - plant that blooms in the evening
 - word: obscene
   lemma: obscene
   pos: adjective
@@ -133,16 +133,16 @@ items:
   rank: 13387
   answer: 6
   options:
-  - Difficult to see clearly due to darkness or fog.
-  - Unusually heavy and awkward to carry.
-  - Showing a calm and unbothered attitude.
-  - Perfectly clean and entirely free from any dirt.
-  - Given to long periods of deep, silent thought.
-  - Easily bent or shaped without breaking.
-  - Deeply offensive to accepted moral principles.
-  - Happening quickly without any prior warning.
-  - Full of complex, contradictory, and confusing details.
-  - Characterised by a sweet, overpowering floral fragrance.
+  - difficult to see clearly
+  - awkward to carry
+  - with a calm attitude
+  - free from any dirt
+  - prone to deep thought
+  - easily bent or shaped
+  - offensive to social mores
+  - happening suddenly
+  - full of complex details
+  - having a floral fragrance
 - word: repercussion
   lemma: repercussion
   pos: noun
@@ -150,16 +150,16 @@ items:
   rank: 13371
   answer: 1
   options:
-  - A rhythmic beating of drums in a religious procession.
-  - An undesired consequence of an event or action.
-  - A small, ornamental clasp used to fasten a ceremonial robe.
-  - A formal rejection of a submitted commercial proposal.
-  - A small, recurring error in a complex calculation.
-  - A detailed summary of a much longer historical document.
-  - A decorative pattern meticulously carved into wood.
-  - A specialised tool used for tuning acoustic instruments.
-  - A sudden return of an illness after apparent recovery.
-  - A public retraction of a previously held statement.
+  - beating of drums
+  - undesired consequence
+  - ornamental clasp
+  - formal rejection
+  - recurring error
+  - detailed summary
+  - decorative woodcarving
+  - tool for tuning instruments
+  - sudden return of an illness
+  - public retraction
 - word: serotonin
   lemma: serotonin
   pos: noun
@@ -167,13 +167,13 @@ items:
   rank: 13354
   answer: 5
   options:
-  - A rare mineral found almost exclusively in volcanic rock.
-  - A type of sheer fabric woven with fine silver threads.
-  - An ancient stringed instrument played with a wooden bow.
-  - A synthetic dye used to colour cotton cloth bright red.
-  - A defensive chemical produced by certain desert plants.
-  - A bodily chemical that regulates mood and emotion.
-  - A complex dietary protein that aids in muscle growth.
-  - An architectural stone column with elegant spiral fluting.
-  - A type of early photographic process requiring long exposure.
-  - A unit of measurement for electrical resistance.
+  - rare volcanic mineral
+  - sheer fabric woven with silver
+  - ancient stringed instrument
+  - synthetic red dye
+  - substance made from cacti
+  - mood-regulating chemical
+  - protein aiding muscle growth
+  - column with spiral fluting
+  - early photographic process
+  - unit of voltage measurement

@@ -14,16 +14,16 @@ items:
   rank: 102138
   answer: 0
   options:
-  - A mock sea battle staged for public entertainment.
-  - A ceremonial dance performed to mark the start of a royal wedding.
-  - A fortified tower built to guard the mouth of a harbour.
-  - A trial held to settle a dispute between rival guilds.
-  - A ritual feast held each year to mark the harvest's end.
-  - A wrestling match held as part of a religious festival.
-  - A festival of lights held on the year's shortest night.
-  - A ceremonial procession taken by a monarch on coronation day.
-  - A fireworks display to mark a city's founding.
-  - A staged chariot race held to celebrate a military triumph.
+  - sea battle staged for entertainment
+  - dance opening a royal wedding
+  - fortified tower guarding a harbour
+  - trial settling a dispute between guilds
+  - annual feast marking the harvest's end
+  - wrestling match held at a religious festival
+  - festival of lights on the solstice
+  - procession undertaken on coronation day
+  - fireworks display marking a city's founding
+  - chariot race celebrating a military triumph
 - word: tokoloshe
   lemma: tokoloshe
   pos: noun
@@ -31,16 +31,16 @@ items:
   rank: 102322
   answer: 1
   options:
-  - A faint halo sometimes seen around the moon before rain.
-  - A mischievous spirit in Zulu folklore that causes trouble at night.
-  - A short instrumental passage played between the verses of a song.
-  - A fermented dairy drink traditionally served at Mongolian gatherings.
-  - A long-handled tool used to rake coals from a bread oven.
-  - A small flag flown to signal that a ship needs a pilot.
-  - A customary fine, once paid to settle a minor land dispute.
-  - A woven belt traditionally given as a wedding gift.
-  - A shallow cave formed by the collapse of a lava tube.
-  - A wooden bat used in a traditional Irish hurling match.
+  - faint halo around the moon before rain
+  - mischievous night spirit in Zulu folklore
+  - instrumental passage between song verses
+  - fermented dairy drink of Mongolian gatherings
+  - long-handled rake for oven coals
+  - flag signalling that a ship needs a pilot
+  - customary fine settling a minor land dispute
+  - woven belt given as a wedding gift
+  - shallow cave left by a collapsed lava tube
+  - wooden bat used in Irish hurling
 - word: pintxo
   lemma: pintxo
   pos: noun
@@ -48,16 +48,16 @@ items:
   rank: 102167
   answer: 2
   options:
-  - A small hand-painted tile used to decorate a courtyard wall.
-  - A short folk tune played to open a village dance.
-  - A snack served in bars, similar to Spanish tapas.
-  - A woven basket used to carry bread to a market stall.
-  - A light shawl worn over the shoulders at a summer wedding.
-  - A carved wooden spoon given as a traditional betrothal gift.
-  - A small coin once used in the Navarre region.
-  - A narrow street lined with stalls during a market festival.
-  - A sweet pastry traditionally baked for a saint's feast day.
-  - A hand gesture used to greet an elder in some cultures.
+  - small hand-painted tile
+  - short folk tune
+  - bar snack similar to tapas
+  - woven basket for carrying bread
+  - shawl worn at a summer wedding
+  - carved wooden spoon given at betrothal
+  - small coin once used in Navarre
+  - street lined with market stalls
+  - pastry baked for a saint's feast day
+  - hand gesture used to greet an elder
 - word: katechon
   lemma: katechon
   pos: noun
@@ -65,16 +65,16 @@ items:
   rank: 101991
   answer: 3
   options:
-  - A comet said to reappear once a century.
-  - A silent beat inserted to mark the end of a musical phrase.
-  - A migratory bird once thought to foretell the first frost.
-  - A figure whose removal must occur before Judgement Day.
-  - A legal clause that voids a contract once its purpose is met.
-  - A dish traditionally eaten only at the close of a religious fast.
-  - A ceremonial sash worn to mark the end of a mourning period.
-  - A knot tied to secure a ship's anchor before a storm.
-  - A keystone set last to complete the span of a stone archway.
-  - A substance once believed to halt the process of bodily decay.
+  - comet said to reappear once a century
+  - silent beat ending a musical phrase
+  - migratory bird thought to foretell the first frost
+  - figure whose removal precedes Judgement Day
+  - clause voiding a contract once its purpose is met
+  - dish eaten only at the close of a religious fast
+  - ceremonial sash marking the end of mourning
+  - knot securing a ship's anchor before a storm
+  - keystone set last to complete an archway
+  - substance believed to halt bodily decay
 - word: zaffre
   lemma: zaffre
   pos: noun
@@ -82,16 +82,16 @@ items:
   rank: 102290
   answer: 4
   options:
-  - A hardy alpine shrub with small, star-shaped white flowers.
-  - A short ornamental trill added at the end of a musical phrase.
-  - A narrow channel used by small boats to bypass a rapid.
-  - A spiced broth served before the main course in Egypt.
-  - A deep blue pigment made by roasting a cobalt-bearing ore.
-  - A loosely woven cloth used to wrap cheese while it ages.
-  - An old toll once charged for crossing a private bridge.
-  - A small burrowing rodent found on the steppes of central Asia.
-  - A fine abrasive powder used to polish silverware and coins.
-  - A narrow slit window used by archers in a castle wall.
+  - hardy alpine shrub with star-shaped flowers
+  - ornamental trill ending a musical phrase
+  - channel letting small boats bypass a rapid
+  - spiced Egyptian broth served before the main course
+  - deep blue pigment made from roasted cobalt ore
+  - loose-woven cloth for wrapping ageing cheese
+  - old toll for crossing a private bridge
+  - small burrowing rodent of the central Asian steppes
+  - fine abrasive powder for polishing silverware
+  - narrow slit window for castle archers
 - word: kegler
   lemma: kegler
   pos: noun
@@ -99,16 +99,16 @@ items:
   rank: 102336
   answer: 5
   options:
-  - A collector who specialises in old railway timetables and route maps.
-  - A performer skilled at juggling knives during a circus act.
-  - A craftsman who carefully repairs and restores antique mantel clocks.
-  - A dealer who trades in rare and early postage stamps.
-  - A member of a village choir who sings the descant line.
-  - A player or enthusiast of the game of ten-pin bowling.
-  - A skilled and experienced player of the card game bridge.
-  - An enthusiast who breeds and exhibits pedigree racing pigeons.
-  - A hobbyist who builds and races small model sailboats.
-  - A person who regularly competes in local darts tournaments.
+  - collector of old railway timetables
+  - circus performer skilled at juggling knives
+  - restorer of antique mantel clocks
+  - dealer in rare and early postage stamps
+  - choir member singing the descant line
+  - player or enthusiast of ten-pin bowling
+  - skilled player of the card game bridge
+  - breeder of pedigree racing pigeons
+  - builder and racer of model sailboats
+  - regular competitor in local darts tournaments
 - word: dekko
   lemma: dekko
   pos: noun
@@ -116,16 +116,16 @@ items:
   rank: 102092
   answer: 6
   options:
-  - A short chat exchanged between neighbours over a garden fence.
-  - A small hand tool used to score glass before it is cut.
-  - A traditional dance performed each year at a harvest festival.
-  - A brief pause called in a cricket match for rain.
-  - A narrow gap left between two rows of grapevines.
-  - A knot used to bundle a coil of loose rope.
-  - A brief look or glance to check something out.
-  - A light snack eaten partway between two main meals.
-  - A short verse recited by a family before a meal.
-  - A soft woollen cap traditionally worn by fishermen at sea.
+  - short chat exchanged over a garden fence
+  - small hand tool for scoring glass
+  - traditional dance at a harvest festival
+  - pause called in cricket for rain
+  - narrow gap between rows of grapevines
+  - knot used to bundle a coil of rope
+  - brief glance to check something out
+  - light snack between main meals
+  - short verse recited before a family meal
+  - soft woollen cap worn by fishermen
 - word: accouchement
   lemma: accouchement
   pos: noun
@@ -133,16 +133,16 @@ items:
   rank: 102175
   answer: 7
   options:
-  - A formal request made to postpone a scheduled court hearing.
-  - A brief ceremony held to bless a newly built house.
-  - A written agreement dividing property between two business partners.
-  - A ritual bath taken before entering a temple or shrine.
-  - A public reading of a will after someone's death.
-  - A formal announcement made when a treaty is first signed.
-  - A traditional dance performed to celebrate a good harvest.
-  - The act or process of giving birth to a child.
-  - A short prayer recited before beginning a long journey.
-  - A ceremonial exchange of gifts between two allied families.
+  - formal request to postpone a court hearing
+  - ceremony blessing a newly built house
+  - agreement dividing property between partners
+  - ritual bath before entering a temple
+  - public reading of a will
+  - announcement of a newly signed treaty
+  - dance celebrating a good harvest
+  - act or process of giving birth
+  - prayer recited before a long journey
+  - exchange of gifts between allied families
 - word: banderilla
   lemma: banderilla
   pos: noun
@@ -150,16 +150,16 @@ items:
   rank: 102160
   answer: 8
   options:
-  - A small hand drum played with the fingers in flamenco music.
-  - A stiffened collar worn beneath a ceremonial military uniform.
-  - A hooked tool used to prune high branches from a tree.
-  - A weighted line thrown to secure a small boat to a dock.
-  - A small wooden peg used to keep score in a card game.
-  - A narrow channel cut through a reef for small boats to pass.
-  - A brightly patterned fan carried by dancers at a Spanish fair.
-  - A ribbon twirled overhead during a traditional Basque dance.
-  - A barbed stick thrust into a bull's shoulders in a bullfight.
-  - A short throwing dart used in a target-shooting game.
+  - small drum played in flamenco music
+  - stiffened collar worn under a uniform
+  - hooked tool for pruning high branches
+  - line securing a boat to a dock
+  - wooden peg for keeping score
+  - narrow channel cut through a reef
+  - fan carried at a Galician fair
+  - ribbon twirled in a Basque dance
+  - stick thrust into a bull's shoulders
+  - short throwing dart used in target games
 - word: vicereine
   lemma: vicereine
   pos: noun
@@ -167,13 +167,13 @@ items:
   rank: 102458
   answer: 9
   options:
-  - A bitter alkaloid extracted from the bark of a tropical tree.
-  - A synthetic dye once used to colour military uniforms.
-  - A mild sedative once extracted from a species of poppy.
-  - An understudy to a lady's maid for a monarch.
-  - A ceremonial rank held by the widow of a general.
-  - A narrow mountain pass used by local shepherds.
-  - A fine net used to strain wine before it is bottled.
-  - A ceremonial drum sounded to open a royal audience.
-  - A pale variety of jade prized for carving seals.
-  - A person married to a governor of a colony.
+  - bitter alkaloid from tree bark
+  - synthetic dye used in camouflage
+  - mild sedative from a poppy
+  - understudy to a lady's maid
+  - rank held by a general's widow
+  - narrow mountain pass used by shepherds
+  - fine net for straining wine
+  - drummer in a royal court
+  - pale jade prized for carving seals
+  - spouse of a colonial governor

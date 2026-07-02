@@ -14,16 +14,16 @@ items:
   rank: 54733
   answer: 3
   options:
-  - Lacking energy or drive; persistently sluggish.
-  - Unable ever to be reversed or undone.
-  - Producing no measurable physical effect at all.
-  - Having no direct object and an agent as subject.
-  - Not derived from any earlier root word.
-  - Resistant to wear even under constant heavy use.
-  - Showing no outward sign of feeling or emotion.
-  - Operating without any external source of power.
-  - Incapable of catching fire or being burned.
-  - Tending to resist all efforts at change.
+  - persistently sluggish
+  - unable to be reversed or undone
+  - producing no measurable physical effect
+  - intransitive with an agent subject
+  - not derived from an earlier root word
+  - resistant to wear under heavy use
+  - showing no outward emotion
+  - operating without external power
+  - incapable of catching fire
+  - tending to resist all change
 - word: avocet
   lemma: avocet
   pos: noun
@@ -31,16 +31,16 @@ items:
   rank: 54749
   answer: 8
   options:
-  - A blunt tool used for smoothing wet plaster.
-  - A slow, gliding dance performed at formal balls.
-  - A sweet, spiced wine served warm in winter.
-  - A long, narrow flag flown from a ship's mast.
-  - A heavy curtain hung across a door to block draughts.
-  - A unit once used to measure plots of farmland.
-  - A small hand mirror set in a carved frame.
-  - A children's game played with a knotted string.
-  - A wading bird with long legs and an upturned bill.
-  - A sudden squall of rain driven by strong wind.
+  - blunt tool for smoothing plaster
+  - gliding ballroom dance
+  - sweet spiced wine
+  - flag flown from a ship's mast
+  - curtain hung to block draughts
+  - old unit for measuring farmland
+  - small hand mirror in a carved frame
+  - children's game played with knotted string
+  - long-legged wading bird
+  - sudden squall of wind-driven rain
 - word: lahar
   lemma: lahar
   pos: noun
@@ -48,16 +48,16 @@ items:
   rank: 54767
   answer: 1
   options:
-  - A woven basket for carrying freshly harvested grapes.
-  - A flow of volcanic ash and water down a slope.
-  - A great drum beaten to announce a king's arrival.
-  - A debt cancelled after a fixed term of years.
-  - A thin pancake rolled around a savoury meat filling.
-  - A title of honour given to a respected village headman.
-  - A loose outer robe worn over everyday clothes.
-  - A board game played on a grid of black squares.
-  - A salty paste made from small fermented fish.
-  - A short poem mourning the death of a friend.
+  - woven basket for harvested grapes
+  - mud-slide of volcanic ash and water
+  - great drum announcing a king's arrival
+  - debt cancelled after a fixed term
+  - thin pancake rolled around meat
+  - honorific for a village headman
+  - loose robe worn over everyday clothes
+  - board game played on a grid of squares
+  - salty paste of fermented fish
+  - short poem mourning a friend's death
 - word: segno
   lemma: segno
   pos: noun
@@ -65,16 +65,16 @@ items:
   rank: 54768
   answer: 6
   options:
-  - A birthmark or blemish on a person's skin.
-  - A silent hand gesture used to signal others.
-  - A roadside post marking a boundary line.
-  - An omen thought to foretell future events.
-  - A diagram of the stars of a constellation.
-  - A target marked out to be aimed at in archery.
-  - A symbol at the beginning of repeated music.
-  - A wax seal pressed to authenticate a letter.
-  - A scar left behind by an old wound.
-  - A scent trail followed by a hunting hound.
+  - birthmark or skin blemish
+  - silent hand signal
+  - roadside boundary post
+  - omen foretelling future events
+  - diagram of a constellation
+  - target aimed at in archery
+  - symbol marking a musical return
+  - wax seal authenticating a letter
+  - scar left by an old wound
+  - scent trail followed by hounds
 - word: chthonic
   lemma: chthonic
   pos: adjective
@@ -82,16 +82,16 @@ items:
   rank: 54830
   answer: 0
   options:
-  - Belonging to the underworld, where the dead dwell.
-  - Made from finely woven strands of pure silk.
-  - Inclined to forgive quickly and hold no grudges.
-  - Producing a sharp, sour taste on the tongue.
-  - Built to withstand a long and determined siege.
-  - Covered all over with coarse, bristly hair.
-  - Spoken rapidly and in a barely intelligible way.
-  - Occurring at the very hottest part of the day.
-  - Easily startled by any sudden noise or movement.
-  - Worth a great deal of money to collectors.
+  - belonging to the underworld
+  - woven from strands of pure silk
+  - quick to forgive
+  - sharp and sour to the taste
+  - built to withstand a siege
+  - covered in coarse, bristly hair
+  - spoken rapidly and unintelligibly
+  - occurring at midnight
+  - easily startled by sudden noise
+  - highly prized by collectors
 - word: stentorian
   lemma: stentorian
   pos: adjective
@@ -99,16 +99,16 @@ items:
   rank: 54854
   answer: 9
   options:
-  - Smelling strongly of damp earth.
-  - Likely to crumble at the slightest touch.
-  - Marked by reckless and lavish generosity.
-  - Covered with a fine, silvery down.
-  - Difficult to interpret or understand clearly.
-  - Grown only in cold mountainous regions.
-  - Easily bent permanently out of shape.
-  - Lasting for only a very short time.
-  - Prized chiefly for its great rarity.
-  - Extremely loud, deep, and powerful.
+  - smelling of damp earth
+  - likely to crumble at a touch
+  - recklessly and lavishly generous
+  - covered with fine, silvery down
+  - difficult to interpret clearly
+  - grown only in cold mountains
+  - easily bent out of shape
+  - lasting only a short time
+  - prized chiefly for its rarity
+  - extremely loud and powerful
 - word: kippah
   lemma: kippah
   pos: noun
@@ -116,16 +116,16 @@ items:
   rank: 54872
   answer: 4
   options:
-  - A long pole used to push a riverboat along.
-  - A sweet jelly made from boiled fruit and sugar.
-  - A small drum played with the fingertips.
-  - A formal letter granting a special privilege.
-  - A brimless skullcap worn by observant Jewish men.
-  - A swift two-wheeled carriage pulled by one horse.
-  - A wild flower with bright yellow trumpet blooms.
-  - A heavy tax once levied on imported salt.
-  - A curved knife used for pruning grapevines.
-  - A wooden board on which dough is kneaded.
+  - long pole for punting a riverboat
+  - sweet jelly of boiled fruit
+  - small drum played with the fingertips
+  - formal letter granting a privilege
+  - brimless skullcap worn by Jewish men
+  - swift two-wheeled carriage
+  - wild flower with yellow trumpet blooms
+  - old tax on imported salt
+  - curved knife for pruning grapevines
+  - wooden board for kneading dough
 - word: varlet
   lemma: varlet
   pos: noun
@@ -133,16 +133,16 @@ items:
   rank: 54887
   answer: 2
   options:
-  - A shallow dish used for mixing artists' paints.
-  - A gust of wind that scatters dry leaves.
-  - A dishonest, rascally, good-for-nothing fellow.
-  - A short ladder for reaching high shelves.
-  - A thick stew of beans and smoked meat.
-  - A leather pouch for carrying flint and tinder.
-  - A lively folk tune played at country dances.
-  - A creeping weed that chokes young crops.
-  - A coarse cloth used for scrubbing floors.
-  - A stone post marking distance along a road.
+  - shallow dish for mixing paints
+  - gust that scatters dry leaves
+  - dishonest, rascally fellow
+  - short ladder for reaching high shelves
+  - thick stew of beans and smoked meat
+  - leather pouch for flint and tinder
+  - lively tune for country dances
+  - creeping weed that chokes crops
+  - coarse cloth for scrubbing floors
+  - stone post marking road distance
 - word: lamé
   lemma: lamé
   pos: noun
@@ -150,16 +150,16 @@ items:
   rank: 54894
   answer: 7
   options:
-  - A small songbird with a bright red breast.
-  - A heavy mallet swung by a stonemason.
-  - A sweet pastry filled with sliced almonds.
-  - A narrow boat moved by a single paddle.
-  - A formal pardon granted by a head of state.
-  - A tall reed grown for making paper.
-  - A dance step ending in a quick half-turn.
-  - A fabric woven with glittering metallic threads.
-  - A spiced tea brewed with milk and sugar.
-  - A bracket on a wall for holding a torch.
+  - songbird with a bright red breast
+  - stonemason's heavy mallet
+  - sweet pastry filled with almonds
+  - narrow boat moved by one paddle
+  - formal pardon from a head of state
+  - tall reed grown for papermaking
+  - dance step ending in a half-turn
+  - fabric woven with metallic threads
+  - spiced tea brewed with milk
+  - wall bracket for holding a torch
 - word: samphire
   lemma: samphire
   pos: noun
@@ -167,13 +167,13 @@ items:
   rank: 54884
   answer: 5
   options:
-  - A polished gemstone set into a silver ring.
-  - A brass instrument with a deep, mellow tone.
-  - A sudden flash of lightning seen without thunder.
-  - A wooden frame used for drying fishing nets.
-  - A sly remark meant to wound someone quietly.
-  - An edible green plant that grows on coastal rocks.
-  - A ceremonial axe carried before a chieftain.
-  - A thick fog that rolls in from the sea.
-  - A small short-term loan at fair interest.
-  - A hidden trapdoor leading down to a cellar.
+  - polished gemstone set in a silver ring
+  - brass instrument with a mellow tone
+  - flash of lightning seen without thunder
+  - wooden frame for drying fishing nets
+  - sly remark meant to wound quietly
+  - edible green plant of coastal rocks
+  - ceremonial axe carried before a chieftain
+  - thick fog rolling in from the sea
+  - small short-term loan at fair interest
+  - hidden trapdoor down to a cellar

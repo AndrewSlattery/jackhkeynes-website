@@ -86,8 +86,20 @@
     cursor: pointer;
     transition: background 0.12s, border-color 0.12s;
 
+    // Subtle stripe: alternate the ten options between two dark shades
+    &:nth-child(even) {
+      background: #111111;
+    }
+
     &:hover {
       background: $color-bg-input;
+      border-color: $color-accent;
+    }
+
+    // Two-step answering: first tap highlights, second tap confirms.
+    // Declared after :hover / :nth-child so it wins on both stripes.
+    &.vt-option-selected {
+      background: rgba($color-accent, 0.12);
       border-color: $color-accent;
     }
 
@@ -95,6 +107,27 @@
       cursor: default;
       opacity: 0.5;
     }
+  }
+
+  // Row under the options: back button on the left, confirm hint on the right
+  .vt-qfoot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+    min-height: 34px;   // reserve space so the hint appearing doesn't shift layout
+  }
+
+  .vt-confirm-hint {
+    font-size: 0.82em;
+    font-style: italic;
+    color: $color-text-muted;
+  }
+
+  .vt-btn-sm {
+    padding: 7px 16px;
+    font-size: 0.9em;
   }
 
   // ── Buttons ───────────────────────────────────────────────────────────────────

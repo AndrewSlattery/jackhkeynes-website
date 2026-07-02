@@ -14,16 +14,16 @@ items:
   rank: 36642
   answer: 2
   options:
-  - To wander aimlessly from place to place.
-  - To scorch the outer surface of food over a flame.
-  - To become turbulent and clouded with sediment.
-  - To bargain stubbornly in order to lower a price.
-  - To tangle or knot together, as threads or hair.
-  - To boast loudly and repeatedly about oneself.
-  - To trim the edges of a hedge or lawn.
-  - To grind grain into a coarse meal.
-  - To flatter someone in order to win a favour.
-  - To seep slowly through a small crack.
+  - wander aimlessly
+  - scorch food over a flame
+  - become turbulent and clouded
+  - bargain stubbornly over a price
+  - tangle or knot together
+  - boast loudly about oneself
+  - trim the edges of a hedge or lawn
+  - grind grain into coarse meal
+  - flatter to win a favour
+  - seep slowly through a crack
 - word: artesian
   lemma: artesian
   pos: adjective
@@ -31,16 +31,16 @@ items:
   rank: 36651
   answer: 5
   options:
-  - 'Of a person: highly skilled in a traditional handicraft.'
-  - 'Of a roof: steeply pitched to shed heavy snow.'
-  - 'Of a rock: formed from cooled volcanic lava.'
-  - 'Of a colour: having a deep blue-green hue.'
-  - 'Of a fabric: woven with a raised, ribbed pattern.'
-  - 'Of a water source: naturally rising to the surface.'
-  - 'Of a region: lying above the tree line on a mountain.'
-  - 'Of a plant: able to survive long droughts.'
-  - 'Of a coin: no longer minted but prized by collectors.'
-  - 'Of an argument: appealing to emotion rather than reason.'
+  - skilled in a traditional handicraft
+  - steeply pitched to shed snow
+  - formed from cooled lava
+  - deep blue-green
+  - woven with a ribbed pattern
+  - welling to the surface
+  - above the mountain tree line
+  - able to survive drought
+  - no longer minted but still valuable
+  - appealing to emotion over reason
 - word: oblate
   lemma: oblate
   pos: noun
@@ -48,16 +48,16 @@ items:
   rank: 36670
   answer: 0
   options:
-  - A layperson attached to a religious community.
-  - A senior official who manages a royal household's finances.
-  - A young bird not yet in adult plumage.
-  - A ceremonial robe worn by a judge.
-  - A wax tablet once used for writing.
-  - A wandering poet who recites verse for pay.
-  - An apprentice bound to a craft guild.
-  - A foot-soldier in a feudal lord's private army.
-  - A clerk who copies manuscripts by hand.
-  - A hired gardener on a country estate.
+  - layperson in a religious community
+  - steward of a royal household's finances
+  - young bird not yet in adult plumage
+  - ceremonial robe worn by a judge
+  - wax tablet once used for writing
+  - wandering poet reciting verse for pay
+  - apprentice bound to a craft guild
+  - foot-soldier in a feudal lord's army
+  - clerk copying manuscripts by hand
+  - hired gardener on a country estate
 - word: jeroboam
   lemma: jeroboam
   pos: noun
@@ -65,16 +65,16 @@ items:
   rank: 36671
   answer: 7
   options:
-  - A wide-brimmed hat worn by clergy in hot climates.
-  - A ceremonial sword presented to a victorious general.
-  - A heavy woollen cloak fastened at the shoulder.
-  - A two-wheeled cart drawn by a single ox.
-  - A tall ornamental candlestick used on an altar.
-  - A shallow copper pan for roasting chestnuts.
-  - A long-handled tool for drawing water from a well.
-  - A large bottle containing three litres of wine.
-  - A decorative comb worn in the hair on formal occasions.
-  - A round loaf traditionally baked for festivals.
+  - wide-brimmed hat worn by clergy
+  - ceremonial sword for a victorious general
+  - woollen cloak fastened at the shoulder
+  - two-wheeled cart drawn by an ox
+  - tall ornamental altar candlestick
+  - copper pan for roasting chestnuts
+  - long-handled tool for drawing well water
+  - very large wine bottle
+  - ornamental comb worn in the hair
+  - round loaf baked for festivals
 - word: akita
   lemma: akita
   pos: noun
@@ -82,16 +82,16 @@ items:
   rank: 36692
   answer: 3
   options:
-  - A lightweight cotton robe worn in summer.
-  - A fermented soybean paste used in soups.
-  - A short ceremonial dagger once carried by samurai.
-  - A thick-coated dog bred for hunting and guarding.
-  - A tiered lacquered box for serving food.
-  - The art of folding paper into decorative shapes.
-  - A stringed instrument played with a large plectrum.
-  - A grassy upland used for summer grazing.
-  - A unit of distance once used by travellers on foot.
-  - A flowering shrub bearing fragrant white blossoms.
+  - light cotton summer robe
+  - fermented soybean paste
+  - short ceremonial samurai dagger
+  - thick-coated hunting and guard dog
+  - tiered lacquered box for serving food
+  - art of decorative paper-folding
+  - stringed instrument played with a plectrum
+  - grassy upland for summer grazing
+  - old unit of walking distance
+  - flowering shrub with fragrant white blossoms
 - word: dirham
   lemma: dirham
   pos: noun
@@ -99,16 +99,16 @@ items:
   rank: 36713
   answer: 1
   options:
-  - A loose hooded cloak worn in North Africa.
-  - A unit of currency used in Morocco.
-  - A flat round bread baked against the wall of a clay oven.
-  - A woven reed mat used for sitting or prayer.
-  - A curved dagger with an ornately decorated handle.
-  - A water vessel made of unglazed, porous clay.
-  - A pear-shaped stringed instrument.
-  - A blend of spices used in slow-cooked stews.
-  - A toll formerly levied on merchants at city gates.
-  - A title of respect for a learned elder.
+  - loose hooded North African cloak
+  - unit of Moroccan currency
+  - flatbread baked on a clay-oven wall
+  - woven reed mat for prayer
+  - curved dagger with an ornate handle
+  - porous clay water vessel
+  - pear-shaped stringed instrument
+  - spice blend for slow-cooked stews
+  - toll once levied at city gates
+  - title of respect for a learned elder
 - word: sartorial
   lemma: sartorial
   pos: adjective
@@ -116,16 +116,16 @@ items:
   rank: 36716
   answer: 8
   options:
-  - Relating to cooking and the preparation of food.
-  - Relating to the sense of smell.
-  - Relating to horses and horsemanship.
-  - Relating to handwriting and the forming of letters.
-  - Relating to the coast and the seashore.
-  - Relating to gardens and the growing of plants.
-  - Relating to bells and bell-ringing.
-  - Relating to the stars and celestial navigation.
-  - Relating to clothing and style of dress.
-  - Relating to money and financial dealings.
+  - relating to cooking and food
+  - relating to the sense of smell
+  - relating to horses and horsemanship
+  - relating to handwriting
+  - relating to the coast and seashore
+  - relating to gardens and growing plants
+  - relating to bells and bell-ringing
+  - relating to the stars and navigation
+  - relating to clothing and dress
+  - relating to money and finance
 - word: victuals
   lemma: victual
   pos: noun (plural)
@@ -133,16 +133,16 @@ items:
   rank: 36720
   answer: 4
   options:
-  - Personal belongings carried by a traveller.
-  - Formal written records of a meeting.
-  - Ropes and rigging aboard a sailing ship.
-  - Wages paid to a household's servants.
-  - Food and provisions prepared for eating.
-  - Ceremonial robes worn at a coronation.
-  - Debts owed to a merchant.
-  - Small gifts exchanged at a festival.
-  - Documents proving ownership of land.
-  - Tools used by a stonemason.
+  - traveller's personal belongings
+  - written records of a meeting
+  - ropes and rigging of a ship
+  - wages paid to servants
+  - food and provisions
+  - ceremonial coronation robes
+  - debts owed to a merchant
+  - small gifts exchanged at a festival
+  - documents proving land ownership
+  - stonemason's tools
 - word: boyar
   lemma: boyar
   pos: noun
@@ -150,16 +150,16 @@ items:
   rank: 36722
   answer: 6
   options:
-  - A fur hat worn through the Russian winter.
-  - A three-stringed instrument with a triangular body.
-  - A rich beetroot soup served hot or cold.
-  - A wooden country house used as a summer retreat.
-  - A swift sleigh drawn by three horses abreast.
-  - A flat, open grassland stretching for miles.
-  - A member of the aristocracy in Slavic lands.
-  - A curved sabre once carried by mounted cavalry.
-  - A spiced dumpling filled with minced meat.
-  - A tall, painted wooden nesting doll.
+  - Russian winter fur hat
+  - triangular three-stringed instrument
+  - beetroot soup served hot or cold
+  - wooden country house for summer
+  - swift sleigh drawn by three horses
+  - flat, open grassland
+  - member of the Slavic aristocracy
+  - curved cavalry sabre
+  - spiced dumpling of minced meat
+  - tall painted nesting doll
 - word: appliqué
   lemma: applique
   pos: noun
@@ -167,13 +167,13 @@ items:
   rank: 36723
   answer: 9
   options:
-  - A thin folded pancake served with a sweet filling.
-  - A decorative tassel hung from the corner of a cushion.
-  - A formal written request submitted for a job.
-  - A shiny glaze brushed over a fresh fruit tart.
-  - A short code added to the end of a document.
-  - A small ornamental tile set into a floor.
-  - A tall standing screen used to divide a room.
-  - A garnish of fresh herbs scattered over a dish.
-  - A folding paper fan painted with a garden scene.
-  - A design made by sewing cut fabric shapes onto cloth.
+  - thin pancake with a sweet filling
+  - decorative tassel on a cushion
+  - formal written request for a job
+  - glaze brushed over a fruit tart
+  - short code ending a document
+  - ornamental tile set into a floor
+  - standing screen dividing a room
+  - garnish of fresh herbs
+  - folding painted paper fan
+  - design of fabric shapes sewn onto cloth

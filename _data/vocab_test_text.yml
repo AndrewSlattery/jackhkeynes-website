@@ -12,6 +12,8 @@ intro:
 
 question:
   counter: "Word {i} of {n}"   # {i} = current question number, {n} = total questions
+  confirm_hint: "Tap again to confirm"
+  back_btn: "← Back"
 
 results:
   full_label: "Estimated vocabulary"
