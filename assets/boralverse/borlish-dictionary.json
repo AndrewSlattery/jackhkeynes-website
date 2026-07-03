@@ -1129,6 +1129,26 @@
     ]
   },
   {
+    "lx": "accoglent",
+    "ps": "adj",
+    "ge": [
+      "welcoming",
+      "hospitable"
+    ],
+    "et": "present participle of accoglir \"welcome\"",
+    "mn": "accoglir"
+  },
+  {
+    "lx": "accoglir",
+    "ps": "ir1 v",
+    "ge": [
+      "welcome",
+      "receive",
+      "embrace"
+    ],
+    "et": "Old Borlish < Vulgar Latin accolligō \"I gather\" < colligō"
+  },
+  {
     "lx": "accomblar",
     "ps": "ar v",
     "ge": [
@@ -7749,6 +7769,19 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "bogr ðesmbal",
+    "ps": "adj",
+    "ge": [
+      "on brand",
+      "unsurprising",
+      "expected"
+    ],
+    "mn": [
+      "bogr",
+      "ðesmbal"
+    ]
+  },
+  {
     "lx": "boist",
     "ps": "n",
     "ge": [
@@ -9159,13 +9192,22 @@
   },
   {
     "lx": "calm",
-    "ps": "adj",
+    "ps": [
+      "adj",
+      "ir1 v"
+    ],
     "ge": [
       "calm",
       "still",
-      "immobile"
+      "immobile",
+      "stay still",
+      "rest",
+      "be at rest",
+      "sit still",
+      "not move"
     ],
-    "et": "Old French < Italian < Ancient Greek"
+    "et": "Old French < Italian < Ancient Greek",
+    "se": "se tenir calm"
   },
   {
     "lx": "calmar",
@@ -9621,6 +9663,27 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "canvaskel",
+    "examples": [
+      {
+        "vernacular": "Cal çod hamt y coyol dy canvaskel sceint oy?",
+        "english": "Which team is leading the league right now?"
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "league",
+      "conference",
+      "ranking",
+      "leaderboard",
+      "scoreboard",
+      "league table",
+      "hierarchy",
+      "totem pole"
+    ],
+    "et": "nineteenth century in a sports context (originally lineball), a borrowing from Welsh canvaskel, a compound of canva \"stile, rung, footstool\" and skel \"ladder\". The former is a derivation of cam \"step, footstep\", while the latter is an early Middle Welsh borrowing from Norman French eskele \"ladder\". Metaphorical extension is seen from the early twentieth century, while the final sense came out of the Mehannin [Brisbane] academic school in the 1970s."
+  },
+  {
     "lx": "capabiltað",
     "ps": "n",
     "ge": [
@@ -10059,6 +10122,19 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "carteyar",
+    "ps": "ar v",
+    "ge": [
+      "map",
+      "chart",
+      "describe",
+      "plan",
+      "outline"
+    ],
+    "et": "verb from cart \"map\"",
+    "mn": "cart1"
+  },
+  {
     "lx": "cartograph",
     "ps": "n",
     "ge": [
@@ -10469,6 +10545,19 @@
     "et": "Old Borlish < Old French < Latin"
   },
   {
+    "lx": "cauf",
+    "ps": "adj",
+    "ge": [
+      "bald",
+      "hairless",
+      "bare",
+      "barren",
+      "treeless",
+      "unforested"
+    ],
+    "et": "Old Borlish < Latin calvus"
+  },
+  {
     "lx": "caug",
     "ps": "n",
     "ge": [
@@ -10549,6 +10638,33 @@
     "ps": "n",
     "ge": "limestone",
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "cauveyanç",
+    "ps": "n",
+    "ge": [
+      "balding",
+      "hair loss"
+    ],
+    "et": "noun from cauveyar \"go bald\"",
+    "mn": "cauveyar"
+  },
+  {
+    "lx": "cauveyant",
+    "ps": "adj",
+    "ge": "balding",
+    "et": "present participle from cauveyar \"go bald\"",
+    "mn": "cauveyar"
+  },
+  {
+    "lx": "cauveyar",
+    "ps": "ar v",
+    "ge": [
+      "bald",
+      "go bald"
+    ],
+    "et": "Middle Borlish, verbal derivaton from cauf \"bald\".",
+    "mn": "cauf"
   },
   {
     "lx": "cavel",
@@ -11105,6 +11221,25 @@
     "et": "Old Borlish < Latin < Ancient Greek"
   },
   {
+    "lx": "chthonic",
+    "ps": "adj",
+    "ge": [
+      "geological",
+      "underground"
+    ],
+    "et": "Greek, adjectival derivative from chthony",
+    "mn": "chthony"
+  },
+  {
+    "lx": "chthony",
+    "ps": "n",
+    "ge": [
+      "geology",
+      "landscape"
+    ],
+    "et": "Greek χθών • (khthṓn) \"ground, soil\""
+  },
+  {
     "lx": "chym",
     "ps": "n",
     "ge": "lymph",
@@ -11342,6 +11477,34 @@
     "ps": "n",
     "ge": "city",
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "civil",
+    "ps": "adj",
+    "ge": [
+      "civic",
+      "civil",
+      "courteous",
+      "polite",
+      "sophisticated",
+      "urbane"
+    ],
+    "et": "Middle Borlish < Latin cīvīlis"
+  },
+  {
+    "lx": "civiltað",
+    "ps": "n",
+    "ge": [
+      "civility",
+      "politeness",
+      "politesse",
+      "civilisation",
+      "culture",
+      "sophistication",
+      "urbaneness"
+    ],
+    "et": "Middle Borlish < Latin cīvīlitās",
+    "mn": "civil"
   },
   {
     "lx": "cla",
@@ -11650,6 +11813,19 @@
       "polyvinyl chloride"
     ],
     "et": "an initialism for catener a mitigor muriac “chained muriac mitigor”. Catener “polymer” is a direct borrowing of Latin catēnārius “of a chain”, referring to the molecular structure thereof; mitigor** is likewise from mītigōr “ripener”, after its ability to ripen fruits; muriac*** is from muriacus “briny”."
+  },
+  {
+    "lx": "cochigl",
+    "ps": "n",
+    "ge": [
+      "shell",
+      "husk",
+      "pod",
+      "carapace",
+      "spiral",
+      "whorl"
+    ],
+    "et": "< Vulgar Latin conchilia < Latin conchȳlium < Greek"
   },
   {
     "lx": "cocin",
@@ -13245,7 +13421,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnar",
@@ -13254,18 +13431,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
-    "mn": "condamnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnment",
@@ -13275,6 +13441,16 @@
       "sentence"
     ],
     "et": "noun from condamnar \"condemn\"",
+    "mn": "condamnar"
+  },
+  {
+    "lx": "condamnment",
+    "ps": "n",
+    "ge": [
+      "condemnation",
+      "sentence"
+    ],
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13963,6 +14139,23 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "contemplar",
+    "ps": "ar v",
+    "ge": [
+      "contemplate",
+      "regard",
+      "watch",
+      "view",
+      "survey",
+      "behold",
+      "consider",
+      "observe",
+      "think about",
+      "face"
+    ],
+    "et": "Middle Borlish < Latin contemplor \"I gaze at\""
+  },
+  {
     "lx": "contemporane",
     "ps": "adj",
     "ge": [
@@ -14198,6 +14391,23 @@
       "summary"
     ],
     "et": "Old Borlish"
+  },
+  {
+    "lx": "contrsalubr",
+    "ps": "adj",
+    "ge": [
+      "disadvantageous",
+      "unhelpful",
+      "unfavourable",
+      "unpromising",
+      "unvirtuous",
+      "injurious"
+    ],
+    "et": "from contr \"against\" and salubr \"advatageous\".",
+    "mn": [
+      "contr",
+      "salubr"
+    ]
   },
   {
     "lx": "contrvenir",
@@ -18548,6 +18758,32 @@
     "et": "descending from Old Borlish desponre \"distribute, set out\" or reborrowed during the Middle Borlish period from its source in Latin dispōnō \"I arrange\". The latter senses, likely influenced by cognates in other Romance languages, are intransitive and used with preposition de \"of, from\"."
   },
   {
+    "lx": "desracinað",
+    "ps": "adj",
+    "ge": [
+      "uprooted",
+      "dislodged",
+      "rootless",
+      "vagabond",
+      "wandering",
+      "adrift"
+    ],
+    "et": "past participle from desracinar \"uproot\"",
+    "mn": "desracinar"
+  },
+  {
+    "lx": "desracinar",
+    "ps": "ar v",
+    "ge": [
+      "uproot",
+      "dislodge",
+      "displace",
+      "evict"
+    ],
+    "et": "Middle Borlish, from racin \"root\"",
+    "mn": "racin"
+  },
+  {
     "lx": "dessevelir",
     "ps": "ir2 v",
     "ge": [
@@ -18656,6 +18892,18 @@
       "hold in low regard"
     ],
     "et": "Old Borlish"
+  },
+  {
+    "lx": "destourm",
+    "ps": "n",
+    "ge": [
+      "demob",
+      "demobbing",
+      "discharge",
+      "demobilisation"
+    ],
+    "et": "19C, deverbal from destourmar \"demobilise\"",
+    "mn": "destourmar"
   },
   {
     "lx": "destourmar",
@@ -22271,6 +22519,16 @@
   },
   {
     "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22293,16 +22551,6 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
-  },
-  {
-    "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -22530,6 +22778,18 @@
       "meanwhile"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "entrjainç",
+    "ps": "n",
+    "ge": [
+      "interjection",
+      "parenthentical",
+      "interlude",
+      "entr'acte"
+    ],
+    "et": "noun from entrjair \"interpose\"",
+    "mn": "entrjair"
   },
   {
     "lx": "entrjair",
@@ -23666,6 +23926,29 @@
     ],
     "et": "Noun from expondr",
     "mn": "expondr"
+  },
+  {
+    "lx": "extirpaçon",
+    "ps": "n",
+    "ge": [
+      "eradication",
+      "annihilation",
+      "destruction",
+      "extinction"
+    ],
+    "et": "noun from extirpar \"extirpate\".",
+    "mn": "extirpar"
+  },
+  {
+    "lx": "extirpar",
+    "ps": "ar v",
+    "ge": [
+      "extirpate",
+      "eradicate",
+      "wipe out",
+      "annihilate"
+    ],
+    "et": "early modern Borlish < Latin exstirpō \"I uproot\"."
   },
   {
     "lx": "extollir",
@@ -26685,12 +26968,6 @@
   },
   {
     "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
-  },
-  {
-    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -26712,6 +26989,12 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
+  },
+  {
+    "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -27684,6 +27967,16 @@
     "et": "early modern formation as if from Ancient Greek γεωσκοπῐκός \"world-beholding\", originally in the last sense. Metaphorical extension of the term is seen from the nineteenth century."
   },
   {
+    "lx": "geoscopy",
+    "ps": "n",
+    "ge": [
+      "globe-trotting",
+      "exploration"
+    ],
+    "et": "backformation from geoscopic \"worldwide\".",
+    "mn": "geoscopic"
+  },
+  {
     "lx": "gesp",
     "ps": "n",
     "ge": [
@@ -28003,6 +28296,18 @@
       "imbroglio"
     ],
     "et": "originally in the first sense only, from Old Borlish glomscel \"yarn, tangle\". This descends from Vulgar Latin glomiscellus \"ball of thread\", a popular diminutive of Classical glomus."
+  },
+  {
+    "lx": "glonscellous",
+    "ps": "adj",
+    "ge": [
+      "knotty",
+      "problematic",
+      "tangled",
+      "snarled"
+    ],
+    "et": "adjective from glonscel \"knot, tangle\"",
+    "mn": "glonscel"
   },
   {
     "lx": "glorfeyar",
@@ -30661,6 +30966,15 @@
     "et": "Old Borlish < Old English hosan \"trousers\""
   },
   {
+    "lx": "hospital",
+    "ps": "adj",
+    "ge": [
+      "guest",
+      "visiting"
+    ],
+    "et": "Middle Borlish < Latin hospitālis"
+  },
+  {
     "lx": "host",
     "ps": "n",
     "ge": [
@@ -31917,6 +32231,38 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "inaltar",
+    "ps": "ar v",
+    "ge": [
+      "highly esteem",
+      "esteem",
+      "put on a pedestal",
+      "idolise"
+    ],
+    "et": "borrowed from Latin inaltō \"I raise high; I exalt\", from altus \"high\"."
+  },
+  {
+    "lx": "inaltour",
+    "examples": [
+      {
+        "vernacular": "For un inaltour vel y lasc amar.",
+        "english": "Only a snob would like the film."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "elitist",
+      "snob",
+      "gatekeeper",
+      "arbiter",
+      "shibboleth",
+      "marker",
+      "status symbol"
+    ],
+    "et": "early modern period, agentive derivation from inaltar \"highly esteem, put on a pedestal\". Extension to people or things which separate an in-group from everyone else is seen from the early twentieth century.",
+    "mn": "inaltar"
+  },
+  {
     "lx": "incaint",
     "ps": "adj",
     "ge": [
@@ -32767,6 +33113,27 @@
       "rise up"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "inspiraçon",
+    "ps": "n",
+    "ge": [
+      "inspiration",
+      "instilling"
+    ],
+    "et": "noun from inspirar \"inspire\"",
+    "mn": "inspirar"
+  },
+  {
+    "lx": "inspirar",
+    "ps": "ar v",
+    "ge": [
+      "inspire",
+      "instill",
+      "imbue",
+      "inflate"
+    ],
+    "et": "Middle Borlish < Latin inspīrō"
   },
   {
     "lx": "instabiltað",
@@ -35303,6 +35670,16 @@
     "et": "Old Borlish < Old English"
   },
   {
+    "lx": "laçour",
+    "ps": "n",
+    "ge": [
+      "catcher",
+      "receiver"
+    ],
+    "et": "agentive from laçar \"catch\"",
+    "mn": "laçar"
+  },
+  {
     "lx": "laçploy",
     "ps": "n",
     "ge": [
@@ -36978,6 +37355,27 @@
     "mn": "hiat"
   },
   {
+    "lx": "lon mensc",
+    "examples": [
+      {
+        "vernacular": "L'es attenent a caffay salir lon mensc.",
+        "english": "She's trying to quit coffee cold turkey."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "dishonourable",
+      "without a reference",
+      "without a character",
+      "cold turkey"
+    ],
+    "et": "originally in legal expressions such as destourm lon mensc \"dishonourable discharge\", the phrase literally means \"without honour\". Extension to non-miltary and non-employment contexts occurred in the mid-twentieth century.",
+    "mn": [
+      "lon",
+      "mensc"
+    ]
+  },
+  {
     "lx": "lon nom",
     "ps": "adj",
     "ge": [
@@ -37497,6 +37895,19 @@
       "lucr",
       "fair"
     ]
+  },
+  {
+    "lx": "lucraðeu",
+    "ps": "adj",
+    "ge": [
+      "profitable",
+      "gainful",
+      "lucrative",
+      "wealthy",
+      "rich"
+    ],
+    "et": "late Old Borlish < Latin lucrātīvus \"lucrative\"",
+    "mn": "lucr"
   },
   {
     "lx": "lugclocq",
@@ -39292,6 +39703,16 @@
     "et": "via Old Borlish marȝr, mauȝr \"margin, edge\" from Latin margō \"border, margin, edge\". In the geographical sense originaly referring specifically to the rural areas near to the city of Damvath. The term is seen in the last metaphorical sense from the eighteenth century onward."
   },
   {
+    "lx": "maugrfeyar",
+    "ps": "ar v",
+    "ge": [
+      "marginalise",
+      "sideline"
+    ],
+    "et": "derivation from maugr \"margin\"",
+    "mn": "maugr"
+  },
+  {
     "lx": "maus",
     "ps": "n",
     "ge": [
@@ -39909,6 +40330,16 @@
     "et": "Old Borlish, from comprendr"
   },
   {
+    "lx": "mescomprenjon",
+    "ps": "n",
+    "ge": [
+      "misunderstanding",
+      "misapprehending"
+    ],
+    "et": "derivation from comprenjon \"understanding\"",
+    "mn": "comprenjon"
+  },
+  {
     "lx": "mesdugr",
     "ps": "r v",
     "ge": [
@@ -40202,6 +40633,17 @@
       "mey",
       "meðes"
     ]
+  },
+  {
+    "lx": "meyaular",
+    "ps": "ar v",
+    "ge": [
+      "meow",
+      "mew",
+      "pule",
+      "whine"
+    ],
+    "et": "onomatopoeia; compare Fr miauler"
   },
   {
     "lx": "meyon",
@@ -40598,6 +41040,15 @@
       "chap"
     ],
     "et": "Middle Borlish < Middle Dutch, Old Norse"
+  },
+  {
+    "lx": "modo magno",
+    "ps": "adj",
+    "ge": [
+      "writ large",
+      "in a wider context"
+    ],
+    "et": "Latin"
   },
   {
     "lx": "moðr gostar",
@@ -43133,6 +43584,17 @@
     "et": "Middle Borlish < Italian < Latin"
   },
   {
+    "lx": "nonçaminal",
+    "ps": "adj",
+    "ge": [
+      "newsworthy",
+      "in the news",
+      "journalistic"
+    ],
+    "et": "adjectival from nonçamen \"news\"",
+    "mn": "nonçamen"
+  },
+  {
     "lx": "noncupað",
     "examples": [
       {
@@ -43260,7 +43722,7 @@
     "et": "Old Borlish"
   },
   {
-    "lx": "nosthubr",
+    "lx": "nosthybr",
     "ps": "n",
     "ge": [
       "parochialism",
@@ -43270,7 +43732,29 @@
       "bias"
     ],
     "dv": "pride or bias towards one's own people, home or other particular group",
-    "et": "19C, from Ancient Greek νόστος • (nóstos) \"the act of returning home\" and ῠ̔́βρις • (húbris) \"pride, insolence\"."
+    "et": "18C, from Scholastic Latin nosthybris, from Greek νόστος • (nóstos) \"return, arrival; homecoming\" and ύβρις • (hýbris) \"pride, insolence\"."
+  },
+  {
+    "lx": "nosthybrist",
+    "examples": [
+      {
+        "vernacular": "Nos moliscau a y bau nosthybrist noc scoutar.",
+        "english": "We strove not to listen to the jingoistic chanting."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "chauvinistic",
+      "jingoistic",
+      "parochial",
+      "ethnocentric",
+      "homer",
+      "partisan",
+      "traditionalist",
+      "regressive"
+    ],
+    "et": "eighteenth-century derviation from nosthybr \"chauvinism, bias towards familiar or local things\". Briefly in positive use, the term was quickly adopted as a term of disdain and by the late nineteenth century could be used to attack almost any ideology with any principles at all.",
+    "mn": "nosthybr"
   },
   {
     "lx": "nostr",
@@ -46021,6 +46505,29 @@
     "et": "Latin pantex"
   },
   {
+    "lx": "panditar",
+    "ps": "ar v",
+    "ge": [
+      "philosophise",
+      "pontificate",
+      "speechify",
+      "expound",
+      "hold forth"
+    ],
+    "et": "early Modern < ... < Sanscrit"
+  },
+  {
+    "lx": "panditour",
+    "ps": "n",
+    "ge": [
+      "intellectual",
+      "thinker",
+      "philosopher"
+    ],
+    "et": "agentive from panditar \"philosophise\".",
+    "mn": "panditar"
+  },
+  {
     "lx": "panel",
     "examples": [
       {
@@ -46169,11 +46676,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -46184,9 +46689,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -46474,6 +46981,26 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "pardurant",
+    "ps": "adj",
+    "ge": [
+      "enduring",
+      "long-lasting",
+      "persistent"
+    ],
+    "et": "present participle from pardurar \"persist\"",
+    "mn": "pardurar"
+  },
+  {
+    "lx": "pardurar",
+    "ps": "ar v",
+    "ge": [
+      "endure",
+      "persist"
+    ],
+    "et": "Middle Borlish < Latin perdūrō"
+  },
+  {
     "lx": "pareïr",
     "ps": "ir1 v",
     "ge": [
@@ -46655,6 +47182,18 @@
       "well-known"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "parnommanç",
+    "ps": "n",
+    "ge": [
+      "reputation",
+      "esteem",
+      "celebrity",
+      "idolisation"
+    ],
+    "et": "noun from parnommar \"highly esteem\"",
+    "mn": "parnommar"
   },
   {
     "lx": "parnommar",
@@ -47365,6 +47904,16 @@
   },
   {
     "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -47373,16 +47922,6 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
-  },
-  {
-    "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -52117,6 +52656,17 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "quinment",
+    "ps": "n",
+    "ge": [
+      "impact",
+      "strike",
+      "collision"
+    ],
+    "et": "noun from quinar \"whack\"",
+    "mn": "quinar"
+  },
+  {
     "lx": "quint",
     "ps": "adj",
     "ge": "fifth",
@@ -52294,7 +52844,7 @@
     "lx": "racin",
     "ps": "n",
     "ge": "root",
-    "et": "Old Borlish < Latin"
+    "et": "Old Borlish < Latin radicina"
   },
   {
     "lx": "racin figr",
@@ -53728,6 +54278,24 @@
     "et": "Old Borlish < Old English"
   },
   {
+    "lx": "regres",
+    "ps": [
+      "n",
+      "r v"
+    ],
+    "ge": [
+      "return",
+      "way back",
+      "return journey",
+      "homecoming",
+      "return",
+      "go back",
+      "journey back"
+    ],
+    "et": "Middle Borlish < Latin regressus",
+    "se": "regres fair"
+  },
+  {
     "lx": "regul",
     "ps": "n",
     "ge": [
@@ -54793,6 +55361,17 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "revelaçon",
+    "ps": "n",
+    "ge": [
+      "revelation",
+      "discovery",
+      "realisation"
+    ],
+    "et": "noun from revelar \"reveal\"",
+    "mn": "revelar"
+  },
+  {
     "lx": "revelar",
     "ps": "ar v",
     "ge": [
@@ -55049,6 +55628,16 @@
       "strap"
     ],
     "et": "Old Borlish < Old Dutch"
+  },
+  {
+    "lx": "rimbangam",
+    "ps": "n",
+    "ge": "garter",
+    "et": "compound of rimband \"ribbon\" and gam \"leg\"",
+    "mn": [
+      "rimband",
+      "gam"
+    ]
   },
   {
     "lx": "rimmer",
@@ -55813,10 +56402,17 @@
     "lx": "sabler",
     "ps": "n",
     "ge": [
+      "pounce-pot",
+      "sand-caster",
       "hourglass",
-      "sand timer"
+      "sand timer",
+      "stopwatch",
+      "timer",
+      "stint",
+      "spell"
     ],
-    "et": "I'll pay you 50⍚, take it or leave it."
+    "et": "Middle French sablier or directly from Old Borlish sable \"sand\", from Latin",
+    "mn": "sabr"
   },
   {
     "lx": "sabler reuvr",
@@ -59959,9 +60555,17 @@
   },
   {
     "lx": "sogn",
-    "ps": "n",
-    "ge": "dream",
-    "et": "Old Borlish < Latin"
+    "ps": [
+      "n",
+      "r v"
+    ],
+    "ge": [
+      "dream",
+      "dream",
+      "act irrationally"
+    ],
+    "et": "Old Borlish < Latin",
+    "se": "sogn fair"
   },
   {
     "lx": "sognar",
@@ -61443,6 +62047,16 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "spagent",
+    "ps": "adj",
+    "ge": [
+      "frightening",
+      "scary"
+    ],
+    "et": "present participle of spagir \"frighten\"",
+    "mn": "spagir"
+  },
+  {
     "lx": "spagir",
     "ps": "ir1 v",
     "ge": [
@@ -62546,6 +63160,7 @@
     "ge": [
       "truncheon",
       "club",
+      "cosh",
       "rapier"
     ],
     "et": "Middle Borlish < Dutch"
@@ -62580,6 +63195,29 @@
     ],
     "et": "verbal derivative from stoccad \"a lunge, thrust\" either in Middle Borlish or in the synonymous French estoccade, estoccader before their adoption into Borlish. In either case the noun comes from Italian stoccato \"thrust\", past participle of stoccar \"to thrust (with a sword)\", itself from now-obsolete stocco \"rapier, shortsword\". This noun, which is a borrowing from Dutch stooken \"to poke, stab\", is reflected in Borlish stoc \"truncheon, club\".",
     "mn": "stoccad"
+  },
+  {
+    "lx": "stoccar",
+    "ps": "ar v",
+    "ge": [
+      "bludgeon",
+      "club",
+      "pound",
+      "cosh"
+    ],
+    "et": "verb from stoc \"club\"",
+    "mn": "stoc"
+  },
+  {
+    "lx": "stoccour",
+    "ps": "n",
+    "ge": [
+      "thug",
+      "henchmen",
+      "enforcer"
+    ],
+    "et": "agentive noun from stoccar \"to bludgeon\"",
+    "mn": "stoccar"
   },
   {
     "lx": "stoðr",
@@ -63586,6 +64224,19 @@
       "con"
     ],
     "et": "from Old Borlish isveldre \"to pluck, remove parts of\", a pleonastic derivative of a presumed *veldre descending directly from Latin vellō \"I pluck, depilate, demolish\". Extension to woodworking is attested by the thirteenth century, in abstract use it is seen from the fifteenth, and the colloquial sense first arose in the late eighteenth before a revival (or re-coining) in the twentieth."
+  },
+  {
+    "lx": "svellanç",
+    "ps": "n",
+    "ge": [
+      "expression",
+      "disclosure",
+      "announcement",
+      "pronouncement",
+      "statement"
+    ],
+    "et": "noun from svellar \"express\"",
+    "mn": "svellar"
   },
   {
     "lx": "svellar",
@@ -66459,14 +67110,21 @@
   },
   {
     "lx": "tramou",
-    "ps": "n",
+    "ps": [
+      "n",
+      "ir1 v"
+    ],
     "ge": [
       "line segment",
       "vector",
       "displacement",
       "shortfall",
-      "insufficiency"
+      "insufficiency",
+      "go down",
+      "be insufficient",
+      "not have enough"
     ],
+    "se": "tramou se cavir",
     "et": "Middle Borlish < Welsh"
   },
   {
@@ -66490,6 +67148,19 @@
       "narrow"
     ],
     "et": "Old Borlish < Old Norse"
+  },
+  {
+    "lx": "tranqment",
+    "ps": "n",
+    "ge": [
+      "accuracy",
+      "precision",
+      "exactitude",
+      "exactness",
+      "reliability"
+    ],
+    "et": "noun derivation from tranq \"exact, accurate\"",
+    "mn": "tranq"
   },
   {
     "lx": "transcendr",
@@ -66964,6 +67635,17 @@
     "et": "Old Borlish < Old French < Italian < Latin < Ancient Greek"
   },
   {
+    "lx": "triomphal",
+    "ps": "adj",
+    "ge": [
+      "triumphal",
+      "boastful",
+      "celebrating"
+    ],
+    "et": "adjective from triomph \"triumph\"",
+    "mn": "triomph"
+  },
+  {
     "lx": "trist",
     "ps": "adj",
     "ue": "archaic",
@@ -67040,6 +67722,17 @@
     ],
     "et": "adjective from troc \"trade\"",
     "mn": "troc"
+  },
+  {
+    "lx": "trocour",
+    "ps": "n",
+    "ge": [
+      "trader",
+      "investor",
+      "stockbroker"
+    ],
+    "et": "agentive derivation from trocar \"trade\"",
+    "mn": "trocar"
   },
   {
     "lx": "troðr",
@@ -68163,6 +68856,17 @@
       "problem"
     ],
     "et": "Old Borlish < Old Norse"
+  },
+  {
+    "lx": "vangard",
+    "ps": "n",
+    "ge": [
+      "vanguard",
+      "pioneer",
+      "lead",
+      "forward position"
+    ],
+    "et": "Old French avangarde \"before guard\""
   },
   {
     "lx": "vangard",
@@ -71196,6 +71900,16 @@
     "et": "Old Borlish"
   },
   {
+    "lx": "yarçment",
+    "ps": "n",
+    "ge": [
+      "latticework",
+      "grid"
+    ],
+    "et": "derivation from yarç \"lattice\"",
+    "mn": "yarç"
+  },
+  {
     "lx": "yarn",
     "ps": "n",
     "ge": "winter",
@@ -71527,16 +72241,45 @@
     "et": "Old Borlish, an extension of yon \"where\" < Latin ubicumque \"wherever\" by analogy to words like calscon \"whichever\" < Latin quāliscumque \"of whatever quality\"."
   },
   {
+    "lx": "youdað",
+    "ps": "adj",
+    "ge": [
+      "numb",
+      "deadened",
+      "asleep",
+      "unfeeling",
+      "blunt",
+      "dull",
+      "unwhetted",
+      "unsharpened",
+      "dulled",
+      "callous",
+      "hard-hearted",
+      "muted",
+      "flat"
+    ],
+    "et": "past participle of youdar \"blunt, numb\"",
+    "mn": "youdar"
+  },
+  {
     "lx": "youdar",
+    "examples": [
+      {
+        "vernacular": "Jo so l'oc beint por my dolour youdar.",
+        "english": "I'm drinking this to numb the pain."
+      }
+    ],
     "ps": "ar v",
     "ge": [
       "numb",
       "deaden",
       "blunt",
       "dull",
-      "mitigate"
+      "mitigate",
+      "palliate",
+      "extenuate"
     ],
-    "et": "Old Borlish < Latin"
+    "et": "from Middle Boral youdar, itself from Old Boral ievdar \"to blunt, dull (an edge)\" with unexplained vowel shift (possibly a result of interdialect borrowing) from /əw/ to /ow~u/ completed in the standard language by the thirteenth century. The Old Boral descends from synonymous Latin hebetō \"I blunt\", from adjective hebes \"dull, blunt\"."
   },
   {
     "lx": "zachet",
