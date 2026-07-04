@@ -227,12 +227,18 @@
 
   .vt-review-line {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     gap: 8px;
     font-size: 0.93em;
     line-height: 1.5;
     margin-top: 2px;
     color: $color-text;
+  }
+
+  .vt-review-def {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .vt-review-chosen { color: $color-text-muted; }
@@ -248,6 +254,18 @@
 
   .vt-ans-correct { color: $color-accent; }
   .vt-ans-wrong   { color: $color-error; }
+
+  // Rarity-band tag next to the correct definition, e.g. "Rare"
+  .vt-review-tag {
+    flex: 0 0 auto;
+    font-size: 0.72em;
+    color: $color-text-muted;
+    background: $color-bg-dark;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    padding: 1px 8px;
+    white-space: nowrap;
+  }
 
   // ── Results chart (inline SVG) ──────────────────────────────────────────────────
   .vt-chart {

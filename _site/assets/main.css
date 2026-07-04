@@ -2981,12 +2981,17 @@ mark {
 }
 #vocab-test-app .vt-review-line {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 8px;
   font-size: 0.93em;
   line-height: 1.5;
   margin-top: 2px;
   color: #e0e0e0;
+}
+#vocab-test-app .vt-review-def {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 #vocab-test-app .vt-review-chosen {
   color: #828282;
@@ -3004,6 +3009,16 @@ mark {
 }
 #vocab-test-app .vt-ans-wrong {
   color: #ff6b6b;
+}
+#vocab-test-app .vt-review-tag {
+  flex: 0 0 auto;
+  font-size: 0.72em;
+  color: #828282;
+  background: #1a1a1a;
+  border: 1px solid #424242;
+  border-radius: 10px;
+  padding: 1px 8px;
+  white-space: nowrap;
 }
 #vocab-test-app .vt-chart {
   width: 100%;

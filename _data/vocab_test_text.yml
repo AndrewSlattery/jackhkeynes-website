@@ -42,3 +42,13 @@ rounds:
   50: "Rare words"
   30: "Abstruse words"
   10: "Obscurantist words"
+
+# Short form of the same bands, shown as a tag next to each missed word's
+# definition in the review (e.g. "Rare"). Kept separate from `rounds` above
+# since "words" reads fine in the score table but not as an inline tag.
+round_tags:
+  90: "Common"
+  70: "Less common"
+  50: "Rare"
+  30: "Abstruse"
+  10: "Obscurantist"

@@ -324,11 +324,13 @@
         '</p></div>';
     }
     var items = misses.map(function (a) {
+      var tag = state.text.round_tags[a.round] || ('Zipf ' + a.zipf);
       return '<li class="vt-review-item">' +
         '<div class="vt-review-word">' + esc(a.word) +
           ' <span class="vt-review-pos">' + esc(a.pos) + '</span></div>' +
         '<div class="vt-review-line"><span class="vt-ans-correct">' + esc(t.correct_label) + '</span>' +
-          '<span>' + esc(a.answer) + '</span></div>' +
+          '<span class="vt-review-def">' + esc(a.answer) + '</span>' +
+          '<span class="vt-review-tag">' + esc(tag) + '</span></div>' +
         '<div class="vt-review-line vt-review-chosen"><span class="vt-ans-wrong">' + esc(t.chosen_label) + '</span>' +
           '<span>' + esc(a.chosen) + '</span></div>' +
         '</li>';
