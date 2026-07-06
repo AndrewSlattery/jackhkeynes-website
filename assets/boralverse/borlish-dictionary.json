@@ -11825,7 +11825,29 @@
       "spiral",
       "whorl"
     ],
-    "et": "< Vulgar Latin conchilia < Latin conchȳlium < Greek"
+    "et": "from Late Latin cocchilia \"shell\", a combination of Classical conchȳlium \"shellfish\" (< Greek) and coccum \"scarlet berry, insect\"."
+  },
+  {
+    "lx": "cochiglot",
+    "examples": [
+      {
+        "vernacular": "Skig star tal cochiglot neðan nos traiscneu!",
+        "english": "Don't be such a slowcoach or we'll be late!"
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "snail",
+      "sluggard",
+      "slowpoke",
+      "slowcoach",
+      "ampersand",
+      "cup",
+      "box",
+      "codpiece"
+    ],
+    "et": "Middle Borlish, diminutive of cochigl \"shell; spiral\". In the first sense it displaced part of the sematic space of limaç \"slug, (obsolete or dialect0 snail\", which reflects synonymous līmāx in Latin. Metaphorical use for slow people is seen from the seventeenth century; the latter senses are presumed to be independent extensions of the notion of a \"small spiral\" and \"small shell\", respectively.",
+    "mn": "cochigl"
   },
   {
     "lx": "cocin",
@@ -13440,7 +13462,7 @@
       "condemnation",
       "sentence"
     ],
-    "et": "noun from condamnar \"condemn\"",
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13450,7 +13472,7 @@
       "condemnation",
       "sentence"
     ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
+    "et": "noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -14795,7 +14817,7 @@
     "et": "Middle Borlish < Latin. Noun sense transferred from the adjective in the eighteenth century."
   },
   {
-    "lx": "corporaleyaçon",
+    "lx": "corporalleyaçon",
     "ps": "n",
     "ge": [
       "incorporation",
@@ -18230,20 +18252,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -19629,10 +19651,13 @@
     "lx": "directour",
     "ps": "n",
     "ge": [
+      "leader",
       "director",
+      "ruler",
+      "governor",
       "president"
     ],
-    "et": "agentive from directar \"direct\"",
+    "et": "agentive noun from directar \"lead\".",
     "mn": "directar"
   },
   {
@@ -21016,6 +21041,17 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "duellar",
+    "ps": "ar v",
+    "ge": [
+      "duel",
+      "fight",
+      "fence"
+    ],
+    "et": "verb from duel \"duel\".",
+    "mn": "duel"
+  },
+  {
     "lx": "dueller",
     "ps": "n",
     "ge": [
@@ -21050,12 +21086,9 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "stiff",
-      "lasting",
-      "permanent",
-      "resilient"
+      "long-lasting"
     ],
-    "et": "adjective from durar \"last\"",
+    "et": "Adjective from durar",
     "mn": "durar"
   },
   {
@@ -21063,9 +21096,12 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "long-lasting"
+      "stiff",
+      "lasting",
+      "permanent",
+      "resilient"
     ],
-    "et": "Adjective from durar",
+    "et": "adjective from durar \"last\"",
     "mn": "durar"
   },
   {
@@ -22519,16 +22555,6 @@
   },
   {
     "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22551,6 +22577,16 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
+  },
+  {
+    "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -23145,6 +23181,20 @@
       "the same"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "equalment",
+    "ps": [
+      "n",
+      "adj"
+    ],
+    "ge": [
+      "egalitarianism",
+      "egalitarian"
+    ],
+    "et": "noun from equal \"equal\"",
+    "mn": "equal",
+    "se": "equalmenter"
   },
   {
     "lx": "equaltað",
@@ -24215,6 +24265,19 @@
       "stroke"
     ],
     "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "faïscenç",
+    "ps": "n",
+    "ge": [
+      "preference",
+      "favouritism",
+      "favoritism",
+      "bias",
+      "partiality"
+    ],
+    "et": "noun from faïr \"prefer\"",
+    "mn": "faïr"
   },
   {
     "lx": "faïscour",
@@ -26585,19 +26648,19 @@
     "ps": "n",
     "ge": [
       "outpost",
+      "outlying settlement",
       "colony"
     ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh"
   },
   {
     "lx": "fragossau",
     "ps": "n",
     "ge": [
       "outpost",
-      "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
+    "et": "Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossaveyaçon",
@@ -36747,6 +36810,15 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "libertað",
+    "ps": "n",
+    "ge": [
+      "freedom",
+      "liberty"
+    ],
+    "et": "Middle Borlish < Latin"
+  },
+  {
     "lx": "libertað depondr",
     "ps": "r v",
     "ge": "declare independence",
@@ -36770,6 +36842,29 @@
     "ps": "n",
     "ge": "bookbinding",
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "licol",
+    "examples": [
+      {
+        "vernacular": "Vossy morrig reuloirn ant un licol de pardriç.",
+        "english": "Your aunts came back with a brace of partridge."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "halter",
+      "yoke",
+      "brace",
+      "lead",
+      "pair",
+      "couple",
+      "twosome",
+      "duo",
+      "double act",
+      "two point"
+    ],
+    "et": "from Middle Borlish licol \"yoke, halter tying two animals together\", borrowed from synonymous liecol in contemporary French. This is an exocentric compound of lier \"tie, join, link\" ← Latin ligō \"I bind\" and col \"neck\" ← Latin collum \"neck, throat\". Extension to other collections of two things proceeded via hunting to sports and games and finally to performing arts."
   },
   {
     "lx": "liesc",
@@ -42960,6 +43055,19 @@
     "mn": "eutað"
   },
   {
+    "lx": "nell'ottem mont",
+    "ps": "adv",
+    "ge": [
+      "in a perfect world",
+      "ideally",
+      "if possible"
+    ],
+    "mn": [
+      "ottem",
+      "mont"
+    ]
+  },
+  {
     "lx": "nentamen",
     "ps": "adv",
     "ge": [
@@ -46410,7 +46518,7 @@
     "et": "Old Borlish < Old French"
   },
   {
-    "lx": "païsanry",
+    "lx": "païsandry",
     "ps": "n",
     "ge": [
       "peasantry",
@@ -46723,6 +46831,15 @@
       "by means of"
     ],
     "mn": "meyan"
+  },
+  {
+    "lx": "par sgart tauger",
+    "ps": "adv",
+    "ge": "in broad strokes",
+    "mn": [
+      "sgart",
+      "tauger"
+    ]
   },
   {
     "lx": "par surcresc",
@@ -47496,6 +47613,18 @@
     "et": "Italian partigiano"
   },
   {
+    "lx": "partejanneyar",
+    "ps": "ar v",
+    "ge": [
+      "propound",
+      "advocate",
+      "argue for",
+      "support"
+    ],
+    "et": "verb from partejan \"supporter\"",
+    "mn": "partejan"
+  },
+  {
     "lx": "partenir",
     "ps": "ir1 v",
     "ge": [
@@ -47904,16 +48033,6 @@
   },
   {
     "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -47922,6 +48041,16 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
+  },
+  {
+    "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -48245,6 +48374,36 @@
       "pendr",
       "delusion"
     ]
+  },
+  {
+    "lx": "pendramnougr",
+    "examples": [
+      {
+        "vernacular": "Y dou païs quaucaurn pendramnougr a var roug.",
+        "english": "The two nations rushed headlong into open war."
+      }
+    ],
+    "ps": "adv",
+    "ge": [
+      "head first",
+      "head-first",
+      "headlong",
+      "full throttle",
+      "hell for leather",
+      "flat out",
+      "pedal to the metal",
+      "as all get-out",
+      "helter-skelter",
+      "rashly",
+      "hastily",
+      "recklessly",
+      "slapdash",
+      "posthaste",
+      "immediately",
+      "forthwith",
+      "pronto"
+    ],
+    "et": "eighteenth century borrowing from Welsh pendramnwgl \"head-first, upside-down; in disarray; at loggerheads\". This is a concatenation of pen \"head\", tra \"over, across\" and mnwgl \"neck, throat\" attested as an adverb from the thirteenth century. In the last senses from the 1910s, especially in facetious requests."
   },
   {
     "lx": "penetrar",
@@ -52651,9 +52810,17 @@
   },
   {
     "lx": "quinç",
-    "ps": "num",
-    "ge": "fifteen",
-    "et": "Old Borlish < Latin"
+    "ps": [
+      "num",
+      "n"
+    ],
+    "ge": [
+      "fifteen",
+      "period of fifteen years",
+      "fifteen-year-old"
+    ],
+    "et": "Old Borlish < Latin",
+    "se": "quincein"
   },
   {
     "lx": "quinment",
@@ -53550,6 +53717,16 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "ravir",
+    "ps": "ir2 v",
+    "ge": [
+      "ravish",
+      "win",
+      "debauch"
+    ],
+    "et": "Old Borlish < Latin rapiō"
+  },
+  {
     "lx": "ray",
     "ps": "n",
     "ge": [
@@ -54061,6 +54238,16 @@
       "deposement"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "redughent",
+    "ps": "adj",
+    "ge": [
+      "oppressive",
+      "suppressive"
+    ],
+    "et": "participle from redugr \"subdue\"",
+    "mn": "redugr"
   },
   {
     "lx": "redugr",
@@ -54789,6 +54976,23 @@
       "say sorry",
       "regret"
     ]
+  },
+  {
+    "lx": "repisanç",
+    "ps": "n",
+    "ge": "redistribution",
+    "et": "noun from repisar \"redistribute\"",
+    "mn": "repisar"
+  },
+  {
+    "lx": "repisar",
+    "ps": "ar v",
+    "ge": [
+      "redistribute",
+      "reallocate"
+    ],
+    "et": "derivation from pisar \"weigh\".",
+    "mn": "pisar"
   },
   {
     "lx": "repoussar",
@@ -56922,17 +57126,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -59262,6 +59466,13 @@
       "pail"
     ],
     "et": "Old Borlish < Vulgar Latin"
+  },
+  {
+    "lx": "seducçon",
+    "ps": "n",
+    "ge": "seduction",
+    "et": "noun from sedugr \"seduce\"",
+    "mn": "sedugr"
   },
   {
     "lx": "sedugr",
@@ -65404,6 +65615,16 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "tendençostað",
+    "ps": "n",
+    "ge": [
+      "partiality",
+      "biasedness"
+    ],
+    "et": "noun from tendençous \"biased\"",
+    "mn": "tendençous"
+  },
+  {
     "lx": "tendençous",
     "ps": "adj",
     "ge": [
@@ -68146,6 +68367,27 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "uniform",
+    "ps": "adj",
+    "ge": [
+      "uniform",
+      "even",
+      "homogeneous"
+    ],
+    "et": "Latin ūnifōrmis"
+  },
+  {
+    "lx": "uniformtað",
+    "ps": "n",
+    "ge": [
+      "uniformity",
+      "homogeneity",
+      "evenness"
+    ],
+    "et": "noun from uniform \"uniform\"",
+    "mn": "uniform"
+  },
+  {
     "lx": "union",
     "ps": "n",
     "ge": [
@@ -68861,23 +69103,23 @@
     "lx": "vangard",
     "ps": "n",
     "ge": [
-      "vanguard",
-      "pioneer",
-      "lead",
-      "forward position"
-    ],
-    "et": "Old French avangarde \"before guard\""
-  },
-  {
-    "lx": "vangard",
-    "ps": "n",
-    "ge": [
       "predecessor",
       "antecedent",
       "forebear",
       "precursor"
     ],
     "et": "Middle Borlish < Norman < Old French < Frankish, Vulgar Latin"
+  },
+  {
+    "lx": "vangard",
+    "ps": "n",
+    "ge": [
+      "vanguard",
+      "pioneer",
+      "lead",
+      "forward position"
+    ],
+    "et": "Old French avangarde \"before guard\""
   },
   {
     "lx": "vapour",
@@ -69782,6 +70024,13 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "verdeyanç",
+    "ps": "n",
+    "ge": "flourishing",
+    "et": "noun from verdeyar \"bloom\"",
+    "mn": "verdeyar"
+  },
+  {
     "lx": "verdeyant",
     "examples": [
       {
@@ -69857,6 +70106,16 @@
       "malice"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "verimmous",
+    "ps": "adj",
+    "ge": [
+      "venomous",
+      "rancorous"
+    ],
+    "et": "adjective from verim \"venom\"",
+    "mn": "verim"
   },
   {
     "lx": "veronic",
@@ -70831,17 +71090,17 @@
   {
     "lx": "volcan",
     "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
