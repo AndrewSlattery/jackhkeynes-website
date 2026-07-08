@@ -14,16 +14,16 @@ items:
   rank: 28263
   answer: 4
   options:
-  - belief that matter is an illusion
-  - art of arranging cut flowers
+  - belief matter is illusory
+  - art of arranging flowers
   - study of commemorative medals
-  - worship of nature as something sacred
+  - worship of nature as sacred
   - self-discipline and self-denial
-  - breeding of pigeons for racing
+  - breeding of racing pigeons
   - irrational dread of enclosed spaces
   - custom of exchanging gifts
-  - hoarding of wealth out of miserliness
-  - collecting of rare postage stamps
+  - hoarding wealth out of miserliness
+  - collecting of rare stamps
 - word: mestizo
   lemma: mestizo
   pos: noun
@@ -32,14 +32,14 @@ items:
   answer: 7
   options:
   - spiced pork sausage from Andalucia
-  - lively folk dance in triple time
+  - lively dance in triple time
   - flat-roofed house around a courtyard
-  - dry wind blowing off the desert
+  - hot wind off the desert
   - broad-brimmed straw hat
-  - small farm worked by one family
+  - small, family-worked farm
   - clay oven for baking flatbread
-  - person of particular ancestry
-  - wandering labourer hired for the harvest
+  - American of part-European descent
+  - wandering labourer hired for harvest
   - shallow boat punted through marshes
 - word: idyll
   lemma: idyll
@@ -50,10 +50,10 @@ items:
   options:
   - scene of peaceful country life
   - bitter dispute splitting a community
-  - ornamental fountain in a formal garden
+  - ornamental fountain in a garden
   - children's tale with a moral
-  - wave of panic spreading through a crowd
-  - lingering smell of something burnt
+  - panic spreading through a crowd
+  - lingering smell of burning
   - clumsy public blunder
   - long, exhausting forced march
   - secret meeting of conspirators
@@ -66,13 +66,13 @@ items:
   answer: 9
   options:
   - stubborn fool who refuses advice
-  - mask supplying oxygen to a patient
+  - mask supplying oxygen to patients
   - powerful acid for etching metal
   - slow-witted beast of burden
   - heated iron for sealing wounds
-  - old unit of weight for precious metals
-  - colourless gas that glows in bright signs
-  - brittle compound left behind by rust
+  - old unit for weighing metals
+  - gas that glows in signs
+  - brittle compound left by rust
   - sudden, sharp muscle cramp
   - phrase combining contradictory terms
 - word: myopia
@@ -82,16 +82,16 @@ items:
   rank: 28302
   answer: 2
   options:
-  - imaginary land of peace and happiness
+  - imaginary land of bliss
   - deep and lasting gloom
   - fuzziness of long-distance vision
-  - obsessive urge to collect and hoard
-  - painful swelling of the joints
+  - obsessive urge to hoard
+  - painful joint swelling
   - persistent fear of being watched
   - tropical mosquito-borne fever
-  - sudden and total memory loss
+  - sudden total memory loss
   - state of complete exhaustion
-  - dry region of sparse plant life
+  - dry region of sparse plants
 - word: propound
   lemma: propound
   pos: verb
@@ -133,15 +133,15 @@ items:
   rank: 28315
   answer: 8
   options:
-  - denser than the surrounding air
-  - too high for the human ear
+  - denser than surrounding air
+  - too high for human ears
   - showing no warmth or emotion
-  - completing its life cycle in one year
+  - completes its life cycle yearly
   - formed in thin, even layers
   - quick to contract and relax
-  - too faint for the naked eye
+  - too faint for the eye
   - returning at regular intervals
-  - having open chains of carbon atoms
+  - having open carbon chains
   - deeply cut with small bays
 - word: scabbard
   lemma: scabbard
@@ -156,7 +156,7 @@ items:
   - heavy theatre-stage curtain
   - stone trough for watering cattle
   - plank walkway laid over mud
-  - metal clasp for fastening a cloak
+  - metal clasp for fastening cloaks
   - crude raft of lashed logs
   - backless wooden bench
   - basket for gathering eggs
@@ -168,12 +168,12 @@ items:
   answer: 5
   options:
   - sparkling stone for cutting glass
-  - playing card with red, four-sided pips
-  - bony ridge along an animal's spine
+  - red, four-sided card suit
+  - ridge along an animal's spine
   - pack strapped across the shoulders
-  - fastball with a sharp downward break
+  - fastball with a sharp break
   - venomous snake with a patterned hide
   - long-lasting boiled sweet
   - deep armchair with buttoned upholstery
   - swift fish of shallow streams
-  - paper kite shaped like a lozenge
+  - paper kite shaped like a rhombus

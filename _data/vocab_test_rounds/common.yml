@@ -73,7 +73,7 @@ items:
   - hidden chamber
   - mechanical lifting device
   - public display of talent
-  - area of land or water
+  - wide open stretch
   - narrow mountain pass
 - word: fortnight
   lemma: fortnight
@@ -90,8 +90,8 @@ items:
   - monarch's legal decree
   - thick canvas for tents
   - traditional wedding dance
-  - drop in overnight temperature
-  - noise to mark a battle ending
+  - drop in temperature
+  - noise to wake soldiers
 - word: gaunt
   lemma: gaunt
   pos: adjective
@@ -100,15 +100,15 @@ items:
   answer: 9
   options:
   - arrogant in manner
-  - decorated with gold leaf
+  - decorated with gold
   - lacking proper respect
   - making a harsh sound
-  - covered in dense undergrowth
-  - gliding with fluid motion
-  - knowledgeable about obscure subjects
-  - prone to sudden mood changes
-  - having a full-bodied flavour
-  - unhealthily thin and bony
+  - covered in undergrowth
+  - gliding fluidly
+  - widely knowledgable
+  - prone to mood changes
+  - of full-bodied flavour
+  - unhealthily thin
 - word: hegemony
   lemma: hegemony
   pos: noun
@@ -116,16 +116,16 @@ items:
   rank: 13410
   answer: 3
   options:
-  - study of blood chemistry
-  - multi-sided geometric shape
-  - passing a law by a narrow margin
-  - political or cultural dominance
-  - mixture of unpleasant sounds
-  - transfer of land ownership
-  - tendency of a liquid to evaporate
-  - underground mining tunnels
-  - method of preserving meat
-  - plant that blooms in the evening
+  - study of blood
+  - hundred-sided shape
+  - passing laws
+  - dominance over others
+  - mixture of sounds
+  - transfer of land
+  - slow evaporation
+  - underground mining
+  - meat preservation
+  - flower open at dusk
 - word: obscene
   lemma: obscene
   pos: adjective
@@ -133,16 +133,16 @@ items:
   rank: 13387
   answer: 6
   options:
-  - difficult to see clearly
+  - difficult to see
   - awkward to carry
   - with a calm attitude
   - free from any dirt
   - prone to deep thought
   - easily bent or shaped
-  - offensive to social mores
+  - offensive to society
   - happening suddenly
-  - full of complex details
-  - having a floral fragrance
+  - complexly detailed
+  - pleasantly fragrant
 - word: repercussion
   lemma: repercussion
   pos: noun
@@ -157,8 +157,8 @@ items:
   - recurring error
   - detailed summary
   - decorative woodcarving
-  - tool for tuning instruments
-  - sudden return of an illness
+  - tuning of instruments
+  - sudden illness
   - public retraction
 - word: serotonin
   lemma: serotonin
@@ -167,13 +167,13 @@ items:
   rank: 13354
   answer: 5
   options:
-  - rare volcanic mineral
-  - sheer fabric woven with silver
-  - ancient stringed instrument
+  - volcanic mineral
+  - sheer fabric
+  - six-stringed viol
   - synthetic red dye
-  - substance made from cacti
-  - mood-regulating chemical
-  - protein aiding muscle growth
-  - column with spiral fluting
-  - early photographic process
-  - unit of voltage measurement
+  - sap of cacti
+  - brain chemical
+  - muscle protein
+  - fluted column
+  - photographic process
+  - unit of voltage

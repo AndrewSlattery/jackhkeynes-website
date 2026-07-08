@@ -20,7 +20,7 @@ items:
   - bargain stubbornly over a price
   - tangle or knot together
   - boast loudly about oneself
-  - trim the edges of a hedge or lawn
+  - trim a hedge or lawn
   - grind grain into coarse meal
   - flatter to win a favour
   - seep slowly through a crack
@@ -39,7 +39,7 @@ items:
   - welling to the surface
   - above the mountain tree line
   - able to survive drought
-  - no longer minted but still valuable
+  - no longer minted
   - appealing to emotion over reason
 - word: oblate
   lemma: oblate
@@ -49,15 +49,15 @@ items:
   answer: 0
   options:
   - layperson in a religious community
-  - steward of a royal household's finances
-  - young bird not yet in adult plumage
-  - ceremonial robe worn by a judge
-  - wax tablet once used for writing
-  - wandering poet reciting verse for pay
-  - apprentice bound to a craft guild
-  - foot-soldier in a feudal lord's army
+  - steward of a royal household
+  - young bird not yet fledged
+  - ceremonial robe worn by judges
+  - wax tablet used for writing
+  - wandering poet reciting for pay
+  - apprentice bound to a guild
+  - foot-soldier in a feudal army
   - clerk copying manuscripts by hand
-  - hired gardener on a country estate
+  - hired gardener on an estate
 - word: jeroboam
   lemma: jeroboam
   pos: noun
@@ -66,14 +66,14 @@ items:
   answer: 7
   options:
   - wide-brimmed hat worn by clergy
-  - ceremonial sword for a victorious general
-  - woollen cloak fastened at the shoulder
-  - two-wheeled cart drawn by an ox
+  - ceremonial sword for a general
+  - woollen cloak fastened at shoulder
+  - two-wheeled cart drawn by oxen
   - tall ornamental altar candlestick
   - copper pan for roasting chestnuts
-  - long-handled tool for drawing well water
+  - long-handled water-drawing tool
   - very large wine bottle
-  - ornamental comb worn in the hair
+  - ornamental comb worn in hair
   - round loaf baked for festivals
 - word: akita
   lemma: akita
@@ -85,13 +85,13 @@ items:
   - light cotton summer robe
   - fermented soybean paste
   - short ceremonial samurai dagger
-  - thick-coated hunting and guard dog
-  - tiered lacquered box for serving food
+  - sturdy hunting and guard dog
+  - tiered box for serving food
   - art of decorative paper-folding
-  - stringed instrument played with a plectrum
+  - stringed instrument played with plectrum
   - grassy upland for summer grazing
   - old unit of walking distance
-  - flowering shrub with fragrant white blossoms
+  - shrub with fragrant white blossoms
 - word: dirham
   lemma: dirham
   pos: noun
@@ -101,14 +101,14 @@ items:
   options:
   - loose hooded North African cloak
   - unit of Moroccan currency
-  - flatbread baked on a clay-oven wall
+  - flatbread baked on a clay wall
   - woven reed mat for prayer
   - curved dagger with an ornate handle
   - porous clay water vessel
   - pear-shaped stringed instrument
-  - spice blend for slow-cooked stews
-  - toll once levied at city gates
-  - title of respect for a learned elder
+  - spice blend for slow-cooked stew
+  - toll levied at city gates
+  - title of respect for an elder
 - word: sartorial
   lemma: sartorial
   pos: adjective
@@ -128,7 +128,7 @@ items:
   - relating to money and finance
 - word: victuals
   lemma: victual
-  pos: noun (plural)
+  pos: noun
   zipf: 2.4
   rank: 36720
   answer: 4
@@ -152,11 +152,11 @@ items:
   options:
   - Russian winter fur hat
   - triangular three-stringed instrument
-  - beetroot soup served hot or cold
+  - beetroot soup, hot or cold
   - wooden country house for summer
-  - swift sleigh drawn by three horses
+  - swift sleigh drawn by horses
   - flat, open grassland
-  - member of the Slavic aristocracy
+  - member of the Russian aristocracy
   - curved cavalry sabre
   - spiced dumpling of minced meat
   - tall painted nesting doll
@@ -167,13 +167,13 @@ items:
   rank: 36723
   answer: 9
   options:
-  - thin pancake with a sweet filling
+  - thin pancake with sweet filling
   - decorative tassel on a cushion
-  - formal written request for a job
-  - glaze brushed over a fruit tart
+  - formal request for a job
+  - glaze brushed over a tart
   - short code ending a document
-  - ornamental tile set into a floor
+  - ornamental tile set in floor
   - standing screen dividing a room
   - garnish of fresh herbs
   - folding painted paper fan
-  - design of fabric shapes sewn onto cloth
+  - fabric shapes sewn onto cloth

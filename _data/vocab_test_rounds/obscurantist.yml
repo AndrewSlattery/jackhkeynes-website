@@ -49,15 +49,15 @@ items:
   answer: 2
   options:
   - small hand-painted tile
-  - short folk tune
-  - bar snack similar to tapas
-  - woven basket for carrying bread
-  - shawl worn at a summer wedding
-  - carved wooden spoon given at betrothal
-  - small coin once used in Navarre
+  - short traditional folk tune
+  - Basque bar snack like tapas
+  - woven basket for bread
+  - shawl worn at weddings
+  - carved spoon given at betrothal
+  - old coin used in Navarre
   - street lined with market stalls
-  - pastry baked for a saint's feast day
-  - hand gesture used to greet an elder
+  - pastry baked for a feast day
+  - greeting gesture toward an elder
 - word: katechon
   lemma: katechon
   pos: noun
@@ -65,16 +65,16 @@ items:
   rank: 101991
   answer: 3
   options:
-  - comet said to reappear once a century
-  - silent beat ending a musical phrase
-  - migratory bird thought to foretell the first frost
-  - figure whose removal precedes Judgement Day
-  - clause voiding a contract once its purpose is met
-  - dish eaten only at the close of a religious fast
-  - ceremonial sash marking the end of mourning
-  - knot securing a ship's anchor before a storm
-  - keystone set last to complete an archway
-  - substance believed to halt bodily decay
+  - comet that reappears each century
+  - silent beat ending a phrase
+  - bird thought to foretell frost
+  - restrainer delaying the apocalypse
+  - clause voided once fulfilled
+  - dish eaten to end a fast
+  - sash marking mourning's end
+  - knot securing an anchor
+  - keystone completing an archway
+  - substance believed to halt decay
 - word: zaffre
   lemma: zaffre
   pos: noun
@@ -82,16 +82,16 @@ items:
   rank: 102290
   answer: 4
   options:
-  - hardy alpine shrub with star-shaped flowers
-  - ornamental trill ending a musical phrase
-  - channel letting small boats bypass a rapid
-  - spiced Egyptian broth served before the main course
-  - deep blue pigment made from roasted cobalt ore
-  - loose-woven cloth for wrapping ageing cheese
-  - old toll for crossing a private bridge
-  - small burrowing rodent of the central Asian steppes
-  - fine abrasive powder for polishing silverware
-  - narrow slit window for castle archers
+  - alpine shrub with star-shaped flowers
+  - trill ending a musical phrase
+  - channel bypassing a river rapid
+  - spiced broth served before mains
+  - deep blue pigment from cobalt ore
+  - loose cloth wrapping ageing cheese
+  - old toll for crossing a bridge
+  - burrowing rodent of the steppes
+  - abrasive powder for polishing silver
+  - narrow window slit for archers
 - word: kegler
   lemma: kegler
   pos: noun
@@ -100,15 +100,15 @@ items:
   answer: 5
   options:
   - collector of old railway timetables
-  - circus performer skilled at juggling knives
+  - circus performer juggling knives
   - restorer of antique mantel clocks
-  - dealer in rare and early postage stamps
-  - choir member singing the descant line
-  - player or enthusiast of ten-pin bowling
-  - skilled player of the card game bridge
-  - breeder of pedigree racing pigeons
-  - builder and racer of model sailboats
-  - regular competitor in local darts tournaments
+  - dealer in rare postage stamps
+  - choir member singing descant
+  - enthusiast of ten-pin bowling
+  - skilled player of bridge
+  - breeder of racing pigeons
+  - builder and racer of sailboats
+  - regular competitor in darts
 - word: dekko
   lemma: dekko
   pos: noun
@@ -116,16 +116,16 @@ items:
   rank: 102092
   answer: 6
   options:
-  - short chat exchanged over a garden fence
-  - small hand tool for scoring glass
-  - traditional dance at a harvest festival
-  - pause called in cricket for rain
-  - narrow gap between rows of grapevines
-  - knot used to bundle a coil of rope
-  - brief glance to check something out
-  - light snack between main meals
-  - short verse recited before a family meal
-  - soft woollen cap worn by fishermen
+  - chat exchanged over a fence
+  - small tool for scoring glass
+  - traditional dance at harvest festival
+  - rain pause called in cricket
+  - narrow gap between grapevine rows
+  - knot bundling a coil of rope
+  - quick look to check something
+  - light snack between meals
+  - short verse before a family meal
+  - woollen cap worn by fishermen
 - word: accouchement
   lemma: accouchement
   pos: noun
@@ -133,16 +133,16 @@ items:
   rank: 102175
   answer: 7
   options:
-  - formal request to postpone a court hearing
-  - ceremony blessing a newly built house
-  - agreement dividing property between partners
-  - ritual bath before entering a temple
+  - request to postpone a hearing
+  - ceremony blessing a new house
+  - agreement dividing shared property
+  - ritual bath before temple entry
   - public reading of a will
-  - announcement of a newly signed treaty
-  - dance celebrating a good harvest
-  - act or process of giving birth
-  - prayer recited before a long journey
-  - exchange of gifts between allied families
+  - announcement of a signed treaty
+  - dance celebrating a harvest
+  - act of giving birth
+  - prayer before a long journey
+  - gift exchange between allied families
 - word: banderilla
   lemma: banderilla
   pos: noun
@@ -150,16 +150,16 @@ items:
   rank: 102160
   answer: 8
   options:
-  - small drum played in flamenco music
-  - stiffened collar worn under a uniform
-  - hooked tool for pruning high branches
-  - line securing a boat to a dock
+  - small drum in flamenco music
+  - stiffened collar worn under uniform
+  - hooked tool for pruning branches
+  - line securing a boat to dock
   - wooden peg for keeping score
   - narrow channel cut through a reef
-  - fan carried at a Galician fair
+  - fan carried at Galician fairs
   - ribbon twirled in a Basque dance
-  - stick thrust into a bull's shoulders
-  - short throwing dart used in target games
+  - barbed dart jabbed into a bull
+  - throwing dart used in games
 - word: vicereine
   lemma: vicereine
   pos: noun
@@ -168,12 +168,12 @@ items:
   answer: 9
   options:
   - bitter alkaloid from tree bark
-  - synthetic dye used in camouflage
-  - mild sedative from a poppy
+  - synthetic dye used for camouflage
+  - mild sedative from poppies
   - understudy to a lady's maid
-  - rank held by a general's widow
-  - narrow mountain pass used by shepherds
+  - rank of a general's widow
+  - mountain pass used by shepherds
   - fine net for straining wine
   - drummer in a royal court
-  - pale jade prized for carving seals
+  - pale jade used for seals
   - spouse of a colonial governor

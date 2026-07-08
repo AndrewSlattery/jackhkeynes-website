@@ -1,0 +1,179 @@
+---
+round: 5
+purpose: sub_10_percent_calibration
+target_zipf: -0.57
+target_rank: 291453
+n_options: 10
+guessing_floor_c: 0.1
+note: answer = 0-based index into options. Re-shuffle option order per administration. target_zipf/purpose are provisional -- confirm actual pass rate with scripts/09_simulate.py before treating this as a calibrated tier.
+items:
+- word: zotheca
+  lemma: zotheca
+  pos: noun
+  zipf: -0.744
+  rank: 310803
+  answer: 0
+  options:
+  - small Roman alcove for sitting
+  - narrow servants' passage in a castle
+  - raised platform for public speeches
+  - walled garden of a Persian palace
+  - covered walkway linking monastery wings
+  - domed Roman bathing chamber
+  - storage vault beneath a Roman villa
+  - colonnaded courtyard of a Roman house
+  - small household shrine
+  - raised dais for formal Roman dining
+- word: doodlebugging
+  lemma: doodlebugging
+  pos: noun
+  zipf: -0.565
+  rank: 290548
+  answer: 1
+  options:
+  - predicting weather from animal behaviour
+  - practice of dowsing for petroleum
+  - testing soil by tasting a sample
+  - naming a ship before its voyage
+  - finding water by underground echoes
+  - marking a trail with cut branches
+  - judging a horse's age by teeth
+  - judging distance by thunder's sound
+  - testing wine by its colour
+  - finding true north from a shadow
+- word: bdelygmia
+  lemma: bdelygmia
+  pos: noun
+  zipf: -0.574
+  rank: 291453
+  answer: 2
+  options:
+  - complaint against a noisy neighbour
+  - pause before a difficult decision
+  - torrent of abusive, contemptuous language
+  - private letter never published
+  - festival marking the first harvest
+  - quiet melody to settle a child
+  - written pledge between trading partners
+  - ceremonial toast for a departing guest
+  - formal apology on a community's behalf
+  - riddle testing a suitor's wit
+- word: cropout
+  lemma: cropout
+  pos: noun
+  zipf: -0.668
+  rank: 302111
+  answer: 3
+  options:
+  - racehorse retired after one season
+  - foal with a white forehead patch
+  - pony breed for pulling coal carts
+  - spotted horse from solid-coloured parents
+  - horse trained to move slowly
+  - dog bred for herding sheep
+  - cattle breed prized for rich milk
+  - goat kept for its silky coat
+  - pigeon bred for long-distance homing
+  - hound trained to track by scent
+- word: gerege
+  lemma: gerege
+  pos: noun
+  zipf: -0.288
+  rank: 257585
+  answer: 4
+  options:
+  - ring showing trade-guild membership
+  - sash awarded to a wrestling champion
+  - wax seal closing a royal letter
+  - herald's staff announcing a proclamation
+  - tablet certifying a bearer's authority
+  - badge on a royal messenger's coat
+  - coin struck for a new coronation
+  - banner at the head of an army
+  - scroll listing a clan's ancestors
+  - cloak given to an inducted knight
+- word: xrafstar
+  lemma: xrafstar
+  pos: noun
+  zipf: -0.766
+  rank: 313094
+  answer: 5
+  options:
+  - plant warding off evil spirits
+  - garment forbidden during mourning
+  - tool unlucky to lend a stranger
+  - colour reserved for royalty
+  - bird foretelling a coming storm
+  - creature deemed evil and harmful
+  - number considered unlucky
+  - gemstone protecting its wearer
+  - fasting day of the week
+  - knot improper to tie at weddings
+- word: diceware
+  lemma: diceware
+  pos: noun
+  zipf: -0.400
+  rank: 271318
+  answer: 6
+  options:
+  - shuffling cards to prevent patterns
+  - encoding messages with coloured flags
+  - ranking chess players by results
+  - testing randomness of a coin toss
+  - choosing jurors by drawing names
+  - assigning library books unique numbers
+  - creating passwords by rolling cubes
+  - verifying a signature against a sample
+  - dividing an inheritance among heirs
+  - scheduling matches in a tournament
+- word: axunge
+  lemma: axunge
+  pos: noun
+  zipf: -0.706
+  rank: 306189
+  answer: 7
+  options:
+  - dried herb flavouring winter stew
+  - cloth used to strain milk
+  - sweetened wine for a wedding feast
+  - salve from crushed flower petals
+  - dye from a plant's root
+  - thickened syrup preserving fruit
+  - powder from ground eggshells
+  - rendered animal fat, pig or goose
+  - resin collected from pine bark
+  - paste of crushed nuts and honey
+- word: raphania
+  lemma: raphania
+  pos: noun
+  zipf: -0.589
+  rank: 293424
+  answer: 8
+  options:
+  - fever from damp night air
+  - rash from a stinging nettle
+  - cramp from drinking icy water fast
+  - cough blamed on chalk dust
+  - dizziness from staring at moving water
+  - swelling from a bee sting
+  - blindness blamed on staring at an eclipse
+  - illness from eating wild radish seeds
+  - stupor from inhaling flower fumes
+  - weakness from sleeping beneath a walnut tree
+- word: engma
+  lemma: engma
+  pos: noun
+  zipf: -0.261
+  rank: 254252
+  answer: 9
+  options:
+  - clicking consonant in southern African languages
+  - rolled consonant starting Spanish 'perro'
+  - breathy release starting an aspirated stop
+  - symbol marking a falling tone
+  - pause between two vowels in speech
+  - nasal vowel in French 'bon'
+  - silent consonant starting 'gnaw'
+  - consonant cluster starting 'sphere'
+  - mark showing an unreleased consonant
+  - velar nasal ending 'song'

@@ -1,0 +1,180 @@
+---
+round: 10
+purpose: 10_percent_calibration_b
+parallel_of: 10
+target_zipf: 1.2
+target_rank: 102234
+n_options: 10
+guessing_floor_c: 0.1
+note: answer = 0-based index into options. Re-shuffle option order per administration.
+items:
+- word: partlet
+  lemma: partlet
+  pos: noun
+  zipf: 1.174
+  rank: 104313
+  answer: 0
+  options:
+  - garment covering neck and chest
+  - staff carried by a crier
+  - woven belt awarded to wrestlers
+  - padded glove worn for falconry
+  - decorative comb worn at weddings
+  - metal clasp for fastening cloaks
+  - small pouch under a soldier's armour
+  - fringed shawl worn during mourning
+  - stiffened collar worn by a jester
+  - beaded cap worn by cabin boys
+- word: anacrusis
+  lemma: anacrusis
+  pos: noun
+  zipf: 1.279
+  rank: 95565
+  answer: 1
+  options:
+  - repeated rhyme at alternating line-ends
+  - unstressed note before the main beat
+  - pause between two meal courses
+  - knot marking years of service
+  - flourish ending a signature
+  - short blessing before a meal
+  - silent gesture starting a hunt
+  - brief rest closing a movement
+  - extra beat filling a marching tune
+  - pause before a punchline
+- word: brachiation
+  lemma: brachiation
+  pos: noun
+  zipf: 1.213
+  rank: 101188
+  answer: 2
+  options:
+  - belief stars influence human destiny
+  - training falcons to return home
+  - swinging hand over hand through branches
+  - exchanging gifts at a betrothal
+  - study of ancient handwriting's dating
+  - ritual head-shaving at ordination
+  - casting metal using a wax mould
+  - folding paper into decorative shapes
+  - storing food for winter
+  - walking barefoot across hot coals
+- word: quaich
+  lemma: quaich
+  pos: noun
+  zipf: 1.152
+  rank: 106236
+  answer: 3
+  options:
+  - grass mat for drying fish
+  - ceremonial dagger for a bridegroom
+  - long-handled ladle for basting meat
+  - two-handled cup for toasting guests
+  - horsehair rope used to hobble horses
+  - brass token proving a paid toll
+  - pleated fan at a court ceremony
+  - wooden yoke fitted to a plough ox
+  - leather belt-pouch for coins
+  - three-legged stool for milking
+- word: martagon
+  lemma: martagon
+  pos: noun
+  zipf: 1.203
+  rank: 102024
+  answer: 4
+  options:
+  - moth patterned like dead leaves
+  - cheese matured in a cave
+  - knot for shortening a rope
+  - festival marking the first frost
+  - lily with sharply curled petals
+  - dance circling a bonfire
+  - shrub bark used to tan leather
+  - constellation of the southern hemisphere
+  - coarse cloth woven from nettles
+  - pigment ground from blue mineral
+- word: chaturanga
+  lemma: chaturanga
+  pos: noun
+  zipf: 1.315
+  rank: 92648
+  answer: 5
+  options:
+  - dice game played by Roman legionaries
+  - ceremonial wrestling match at a coronation
+  - racing sport on flat ice-stones
+  - card game played during a wake
+  - juggling act with lit torches
+  - ancient Indian game ancestral to chess
+  - stick-fencing practised in southern India
+  - riddle contest between rival poets
+  - tug-of-war at a harvest festival
+  - memory game with painted pebbles
+- word: brandling
+  lemma: brandling
+  pos: noun
+  zipf: 1.158
+  rank: 105655
+  answer: 6
+  options:
+  - coloured beetle damaging stored grain
+  - slender chisel for carving ivory
+  - short whip for driving cattle
+  - migratory moth feeding on nettles
+  - flat stone skipped across water
+  - woven basket for trapping eels
+  - small red earthworm used as bait
+  - tiny bell on a jester's cap
+  - blunt needle for mending sails
+  - wild plum for flavouring spirits
+- word: cantref
+  lemma: cantref
+  pos: noun
+  zipf: 1.236
+  rank: 99241
+  answer: 7
+  options:
+  - guild mark certifying silverware's purity
+  - woven fence penning sheep overnight
+  - title of a chieftain's son
+  - old Baltic unit of currency
+  - seasonal fair at harvest's end
+  - milestone marking a Roman road
+  - tax paid in kind
+  - medieval Welsh land division
+  - watchman's rattle raising an alarm
+  - protective charm on a doorpost
+- word: gallivat
+  lemma: gallivat
+  pos: noun
+  zipf: 1.178
+  rank: 103994
+  answer: 8
+  options:
+  - hand-cranked device for husking rice
+  - ceremonial banner before a bridal procession
+  - fortified watchtower on a mountain pass
+  - woven mat unrolled for prayer
+  - trumpet signalling a caravan's departure
+  - carved chest storing temple offerings
+  - narrow footbridge woven from vines
+  - tiered pagoda housing sacred relics
+  - small warship of India's Malabar coast
+  - painted cart used in harvest festivals
+- word: tramontana
+  lemma: tramontana
+  pos: noun
+  zipf: 1.321
+  rank: 92233
+  answer: 9
+  options:
+  - warm wind down the Rockies' slopes
+  - sudden downpour ending a drought
+  - haze settling over a dawn valley
+  - shimmering effect above a desert road
+  - ring of light around the moon
+  - dry Saharan wind into southern Europe
+  - whirlwind lifting dust and debris
+  - clear sky between two storm fronts
+  - cold current along a rocky coastline
+  - cold north wind across Italy
