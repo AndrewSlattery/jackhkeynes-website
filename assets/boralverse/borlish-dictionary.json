@@ -7567,6 +7567,28 @@
     "et": "from Old Borlish bleic \"pale, whitish\", a borrowing of synonymous bleikr in Old Norse, which reflects Classical German blaecas \"white\". The word was crowded out of neutral usage by blanc \"white\" in the Middle Borlish period, and now carries contemptuous or unpromising connotations."
   },
   {
+    "lx": "blisnot",
+    "examples": [
+      {
+        "vernacular": "Y nombler volau pieç y bors sdroyað par blisnot.",
+        "english": "The banker stole some of the funds kept in escrow."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "eunuch",
+      "castrato",
+      "gelding",
+      "wether",
+      "ox",
+      "third party",
+      "neutral party",
+      "honest broker",
+      "escrow"
+    ],
+    "et": "from Old Borlish blisnod, blestin, belsont (among others) \"eunuch, castrated man\". This was borrowed from synonymous belisnod in Old English, from the verb belisnian \"to castrate\". The term's non-metaphorical use for castrated people has been mostly supplanted by local terms such as eunuch or yanņin, outside of fantasy or historical fiction. The financial and mercantile senses are attested from as early as the fourteenth century."
+  },
+  {
     "lx": "bloc",
     "ps": "n",
     "ge": [
@@ -13462,7 +13484,7 @@
       "condemnation",
       "sentence"
     ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
+    "et": "noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13472,7 +13494,7 @@
       "condemnation",
       "sentence"
     ],
-    "et": "noun from condamnar \"condemn\"",
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13885,18 +13907,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "connardaç",
@@ -16335,6 +16357,28 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "cubicr",
+    "examples": [
+      {
+        "vernacular": "Noc maissem an cubicr sur micrman luy quotta.",
+        "english": "A bedsit above a bakery was all she could afford."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "bedsit",
+      "studio",
+      "cell",
+      "berth",
+      "cabin",
+      "compartment",
+      "snug",
+      "bolt-hole",
+      "bolthole"
+    ],
+    "et": "Middle Borlish, originally in the monastic sense, borrowed from Latin cubiculum \"bedroom\". This is a derivation from cubō \"I lie down, sleep\". Extension to naval use (first for e.g. captain's cabins, later for more lowly accommodation) is attested from the sixteenth century, with further expansion to other transport and to simple housing in the nineteenth century."
+  },
+  {
     "lx": "çucar",
     "ps": "n",
     "ge": "sugar",
@@ -18013,6 +18057,32 @@
     "et": "Old Borlish"
   },
   {
+    "lx": "depoussar",
+    "examples": [
+      {
+        "vernacular": "Nos depoussaum tre dell'agnel je meis Aost.",
+        "english": "We weaned three of the lambs in August."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "drive off",
+      "beat back",
+      "wean",
+      "cashier",
+      "dismiss",
+      "fire",
+      "rebuff",
+      "turn away",
+      "repel"
+    ],
+    "et": "borrowed in all senses from Latin dēpulsus, past participle of dēpellō \"I drive out, expel; I deter; I wean\", then adapted to existing and related appoussar \"push, drive\" and repoussar \"push back, repel\". Nowadays the terms is seen principally in military or romantic contexts, or occasionally in agriculture (where it competes with sevrar \"cut off, separate\").",
+    "mn": [
+      "appoussar",
+      "repoussar"
+    ]
+  },
+  {
     "lx": "dereðr",
     "ps": "adv",
     "ge": [
@@ -18252,20 +18322,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -41614,12 +41684,6 @@
     "et": "Old Borlish < Latin"
   },
   {
-    "lx": "mordrer",
-    "ps": "n",
-    "ge": "murderer",
-    "et": "Old French"
-  },
-  {
     "lx": "morir",
     "ps": "ir1 v",
     "ge": "die",
@@ -41983,6 +42047,12 @@
       "item of furniture"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "moudrer",
+    "ps": "n",
+    "ge": "murderer",
+    "et": "Old French"
   },
   {
     "lx": "moul",
@@ -69103,23 +69173,23 @@
     "lx": "vangard",
     "ps": "n",
     "ge": [
-      "predecessor",
-      "antecedent",
-      "forebear",
-      "precursor"
-    ],
-    "et": "Middle Borlish < Norman < Old French < Frankish, Vulgar Latin"
-  },
-  {
-    "lx": "vangard",
-    "ps": "n",
-    "ge": [
       "vanguard",
       "pioneer",
       "lead",
       "forward position"
     ],
     "et": "Old French avangarde \"before guard\""
+  },
+  {
+    "lx": "vangard",
+    "ps": "n",
+    "ge": [
+      "predecessor",
+      "antecedent",
+      "forebear",
+      "precursor"
+    ],
+    "et": "Middle Borlish < Norman < Old French < Frankish, Vulgar Latin"
   },
   {
     "lx": "vapour",
@@ -71090,17 +71160,17 @@
   {
     "lx": "volcan",
     "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
