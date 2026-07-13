@@ -1,0 +1,58 @@
+{% comment %}
+  Renders one part of the Beowulf parallel text as the .bw-parallel grid
+  (see _sass/_beowulf.scss). Each stanza is a .bw-tr / .bw-oe / .bw-il
+  triple so the three columns stay aligned block by block.
+
+  Parameters:
+    tr    — raw contents of translation.txt
+    oe    — raw contents of original.txt
+    il    — raw contents of gloss.txt
+    start    — Beowulf line number of the first OE line (default 1);
+               marginal numbers are emitted on every fifth line automatically.
+    tr_start — line number of the first translation line (default: start).
+               The translation is numbered by its own lineation, so once it
+               diverges from the OE this can be set independently.
+
+  The three files must have the same number of stanzas (blank-line
+  separated), and gloss lines match OE lines one for one.
+{% endcomment %}
+{%- assign bw_tr = include.tr | bw_stanzas: 'tr' -%}
+{%- assign bw_oe = include.oe | bw_stanzas: 'oe' -%}
+{%- assign bw_il = include.il | bw_stanzas: 'gloss' -%}
+{%- assign bw_n = include.start | default: 1 | minus: 1 -%}
+{%- assign bw_tn = include.tr_start | default: include.start | default: 1 | minus: 1 -%}
+{%- if bw_tr.size != bw_oe.size or bw_il.size != bw_oe.size -%}
+<p><strong>⚠ Stanza counts differ:</strong>
+translation {{ bw_tr.size }}, Old English {{ bw_oe.size }}, gloss {{ bw_il.size }}.
+Check the blank-line stanza breaks in the three files.</p>
+{%- endif -%}
+<div class="bw-parallel">
+{%- for tr_lines in bw_tr -%}
+{%- assign bw_i = forloop.index0 %}
+
+  <div class="bw-tr">
+    {%- for line in tr_lines -%}
+    {%- assign bw_tn = bw_tn | plus: 1 -%}
+    {%- assign bw_tmod = bw_tn | modulo: 5 %}
+    <span class="l"{% if bw_tmod == 0 %} data-n="{{ bw_tn }}"{% endif %}>{{ line }}</span>
+    {%- endfor %}
+  </div>
+  <div class="bw-oe">
+    {%- for line in bw_oe[bw_i] -%}
+    {%- assign bw_n = bw_n | plus: 1 -%}
+    {%- assign bw_mod = bw_n | modulo: 5 %}
+    <span class="l"{% if bw_mod == 0 %} data-n="{{ bw_n }}"{% endif %}>{{ line }}</span>
+    {%- endfor %}
+  </div>
+  {%- comment %} Gloss column temporarily disabled — two-column layout for now.
+  Re-enable this block (and the third grid track / margin breakout in
+  _sass/_beowulf.scss) to bring the interlinear gloss back. {% endcomment -%}
+  {%- comment %}
+  <div class="bw-il">
+    {%- for line in bw_il[bw_i] %}
+    <span class="l">{{ line }}</span>
+    {%- endfor %}
+  </div>
+  {% endcomment -%}
+{%- endfor %}
+</div>

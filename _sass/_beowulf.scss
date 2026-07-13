@@ -1,0 +1,134 @@
+// ── Beowulf parallel text ────────────────────────────────────────────────────
+//
+// Three-column layout for the Beowulf translation pages (beowulf/*.md):
+// translation | Old English | gloss. Each verse-paragraph is one grid row
+// (a .bw-tr / .bw-oe / .bw-il triple), so the columns stay aligned
+// block-by-block even though the lineation differs. Gloss lines match the
+// OE lines one for one; Leipzig category labels are wrapped in <b> and
+// rendered as small caps.
+
+.bw-parallel {
+  display: grid;
+  // Two-column layout (translation | Old English) while the gloss column is
+  // disabled. The columns are sized to their content and left-aligned, so the
+  // two texts sit close together with a real column-gap between them rather
+  // than being stretched across the full page width (which left a wide empty
+  // band in the middle). Restore `1fr 1fr 1.35fr` — and the width breakout
+  // below — when re-enabling the gloss in _includes/beowulf-part.html.
+  grid-template-columns: max-content max-content;
+  justify-content: start;
+  column-gap: 2.5em;
+  row-gap: 2.2em;
+  margin: 1.6em 0;
+
+  // Break out of the site wrapper ($content-width) to give the three columns
+  // more room: up to 96% of the viewport, centred on it. (left: 50% is
+  // relative to the wrapper, which is itself viewport-centred, so the
+  // translate re-centres the grid on the screen.)
+  // Disabled with the gloss column — two columns fit the default wrapper.
+  // width: min(96vw, 1700px);
+  // position: relative;
+  // left: 50%;
+  // transform: translateX(-50%);
+
+  .bw-head {
+    font-weight: 600;
+    color: $color-text-alt;
+    border-bottom: 2px solid $color-border;
+    padding-bottom: 0.4em;
+  }
+
+  // One verse line; hanging indent so wrapped lines read as continuations.
+  .l {
+    display: block;
+    padding-left: 1.4em;
+    text-indent: -1.4em;
+    line-height: 1.55;
+  }
+
+  // Marginal line numbers (every fifth line) on both verse columns. The
+  // translation is numbered by its own lineation, the OE by the canonical
+  // Beowulf line numbers.
+  .bw-tr,
+  .bw-oe {
+    .l { position: relative; }
+
+    // Marginal line numbers (every fifth line), sitting in the column gap.
+    .l[data-n]::before {
+      content: attr(data-n);
+      position: absolute;
+      right: 100%;
+      top: 0.2em;
+      padding-right: 0.9em;
+      font-size: 0.78em;
+      color: $color-text-muted;
+      text-indent: 0;
+    }
+  }
+
+  // Gloss lines correspond 1:1 with the OE lines. Category labels are
+  // written in caps (standard Leipzig plain-text form, so copied text stays
+  // conventional) and displayed as small caps.
+  .bw-il {
+    font-size: 0.88em;
+    color: $color-text-dim;
+
+    // Match the other columns' line box height (1.55 × the base font size)
+    // so unwrapped lines stay aligned across the row: 1.55 / 0.88 ≈ 1.76.
+    .l { line-height: 1.76; }
+
+    b {
+      font-variant-caps: all-small-caps;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+  }
+}
+
+.bw-key {
+  font-size: 0.85em;
+  color: $color-text-dim;
+
+  b {
+    font-variant-caps: all-small-caps;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+}
+
+// Narrow screens: stack the three columns within each block, with labels
+// standing in for the (hidden) column headers.
+@media (max-width: 900px) {
+  .bw-parallel {
+    grid-template-columns: 1fr;
+    row-gap: 1em;
+
+    .bw-head { display: none; }
+
+    .bw-tr::before,
+    .bw-oe::before,
+    .bw-il::before {
+      display: block;
+      font-size: 0.75em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $color-text-muted;
+      margin-bottom: 0.3em;
+    }
+
+    .bw-tr::before { content: "Translation"; }
+    .bw-oe::before { content: "Old English"; }
+    .bw-il::before { content: "Gloss"; }
+
+    // End-of-block separation now that blocks stack.
+    .bw-il { margin-bottom: 2em; }
+
+    // No margin to hang the numbers in; tuck them inline instead.
+    .bw-tr .l[data-n]::before,
+    .bw-oe .l[data-n]::before {
+      position: static;
+      padding-right: 0.6em;
+    }
+  }
+}

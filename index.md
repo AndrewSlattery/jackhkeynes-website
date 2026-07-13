@@ -27,3 +27,5 @@ permalink: /
 ## Everything Else
 
 [English Vocab Test](/vocab-test/) - A 50-question test which estimates how many English words you know using a sigmoid model.
+
+[Beowulf](/beowulf/) - My in-progress verse translation of *Beowulf*, in parallel with the Old English text.
