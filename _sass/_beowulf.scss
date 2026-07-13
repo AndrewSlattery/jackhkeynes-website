@@ -46,6 +46,10 @@
     line-height: 1.55;
   }
 
+  // The Old English is set dimmer than the translation, which reads as the
+  // primary text on these pages.
+  .bw-oe { color: $color-text-dim; }
+
   // Marginal line numbers (every fifth line) on both verse columns. The
   // translation is numbered by its own lineation, the OE by the canonical
   // Beowulf line numbers.

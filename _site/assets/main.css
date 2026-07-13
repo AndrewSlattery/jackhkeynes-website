@@ -3081,6 +3081,9 @@ mark {
   text-indent: -1.4em;
   line-height: 1.55;
 }
+.bw-parallel .bw-oe {
+  color: #bbb;
+}
 .bw-parallel .bw-tr .l,
 .bw-parallel .bw-oe .l {
   position: relative;
