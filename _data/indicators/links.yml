@@ -1,0 +1,56 @@
+# Linking words connecting the definition and the wordplay.
+# "Either direction" words work as both <def> X wordplay and wordplay X <def>;
+# the other two groups are directional. Compiled from parses of grids 153-348,
+# extended with standard-convention links consistent with each direction.
+Bidirectional:
+  Verbs:
+  - be
+  - get
+  Prepositions:
+  - in
+  Conjunctions:
+  - and
+  - as
+  - or
+Definition ← wordplay:
+  Verbs:
+  - appear in
+  - have
+  - need
+  - require
+  - take
+  - use
+  - want
+  Prepositions:
+  - by
+  - from
+  - of
+  - via
+  - with
+  Conjunctions:
+  - when
+Wordplay → definition:
+  Verbs:
+  - become
+  - bring
+  - cause
+  - create
+  - deliver
+  - disguise
+  - express
+  - form
+  - give
+  - illustrate
+  - lead to
+  - make
+  - mean
+  - offer
+  - produce
+  - provide
+  - represent
+  - result in
+  - reveal
+  - show
+  - spell
+  - supply
+  - yield
