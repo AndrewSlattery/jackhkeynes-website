@@ -3,17 +3,12 @@
 # the other two groups are directional. Compiled from parses of grids 153-348,
 # extended with standard-convention links consistent with each direction.
 Bidirectional:
-  Verbs:
   - be
-  - get
-  Prepositions:
   - in
-  Conjunctions:
   - and
   - as
   - or
 Definition ← wordplay:
-  Verbs:
   - appear in
   - have
   - need
@@ -21,16 +16,13 @@ Definition ← wordplay:
   - take
   - use
   - want
-  Prepositions:
   - by
   - from
   - of
   - via
   - with
-  Conjunctions:
   - when
 Wordplay → definition:
-  Verbs:
   - become
   - bring
   - cause
@@ -40,6 +32,7 @@ Wordplay → definition:
   - express
   - form
   - give
+  - get
   - illustrate
   - lead to
   - make
@@ -54,5 +47,4 @@ Wordplay → definition:
   - spell
   - supply
   - yield
-  Conjunctions:
   - for
