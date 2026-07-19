@@ -4,11 +4,11 @@ layout: null
 [
   {% comment %} =======================================================
      GROUP 1: HIERARCHICAL FILES
-     (Letter Selection, Deletion, Containment, Reversal, Swap, Linking)
+     (Letter Selection, Deletion, Containment, Reversal, Swap)
      Structure: Category -> Subcategory -> List of Words
      ======================================================= {% endcomment %}
 
-  {% assign hierarchical_files = "letter_selection,deletions,containment,reversals,swaps,linking" | split: "," %}
+  {% assign hierarchical_files = "letter_selection,deletions,containment,reversals,swaps" | split: "," %}
   
   {% for filename in hierarchical_files %}
     {% assign file_data = site.data.indicators[filename] %}
@@ -32,11 +32,11 @@ layout: null
 
   {% comment %} =======================================================
      GROUP 2: SIMPLE LIST FILES
-     (Anagrams, Homophones)
+     (Anagrams, Homophones, Linking)
      Structure: Type -> List of Words
      ======================================================= {% endcomment %}
 
-  {% assign simple_files = "anagrams,homophones" | split: "," %}
+  {% assign simple_files = "anagrams,homophones,linking" | split: "," %}
 
   {% for filename in simple_files %}
     {% assign file_data = site.data.indicators[filename] %}
