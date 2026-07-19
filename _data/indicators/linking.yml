@@ -1,5 +1,5 @@
 # Linking words connecting the definition and the wordplay.
-# "Either direction" words work as both <def> X wordplay and wordplay X <def>;
+# "Bidirectional" words work as both <def> X wordplay and wordplay X <def>;
 # the other two groups are directional. Compiled from parses of grids 153-348,
 # extended with standard-convention links consistent with each direction.
 Bidirectional:
