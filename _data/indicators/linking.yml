@@ -1,0 +1,50 @@
+# Linking words connecting the definition and the wordplay.
+# "Bidirectional" words work as both <def> X wordplay and wordplay X <def>;
+# the other two groups are directional. Compiled from parses of grids 153-348,
+# extended with standard-convention links consistent with each direction.
+Bidirectional:
+  - be
+  - in
+  - and
+  - as
+  - or
+Definition ← wordplay:
+  - appear in
+  - have
+  - need
+  - require
+  - take
+  - use
+  - want
+  - by
+  - from
+  - of
+  - via
+  - with
+  - when
+Wordplay → definition:
+  - become
+  - bring
+  - cause
+  - create
+  - deliver
+  - disguise
+  - express
+  - form
+  - give
+  - get
+  - illustrate
+  - lead to
+  - make
+  - mean
+  - offer
+  - produce
+  - provide
+  - represent
+  - result in
+  - reveal
+  - show
+  - spell
+  - supply
+  - yield
+  - for

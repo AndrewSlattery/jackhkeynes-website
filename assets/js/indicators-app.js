@@ -24,7 +24,7 @@
     { key: 'Hiddens',          type: 'simple',       label: 'Hidden words'      },
     { key: 'Homophones',       type: 'simple',       label: 'Homophones'        },
     { key: 'Letter selection', type: 'hierarchical', label: 'Letter selection'  },
-    { key: 'Linking',          type: 'hierarchical', label: 'Linking words'     },
+    { key: 'Linking',          type: 'simple',       label: 'Linking words'     },
     { key: 'Reversals',        type: 'hierarchical', label: 'Reversals'         },
     { key: 'Swaps',            type: 'hierarchical', label: 'Swaps'             },
   ];

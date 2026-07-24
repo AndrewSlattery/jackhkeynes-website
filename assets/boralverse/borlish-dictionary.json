@@ -5453,6 +5453,28 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "aujamat",
+    "examples": [
+      {
+        "vernacular": "All'arc de stancour es y commet dell'aujamat.",
+        "english": "The tinsmith's arch is where the ghetto starts."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "aljama",
+      "shtetl",
+      "quarter",
+      "ghetto",
+      "enclave",
+      "neighbourhood",
+      "subculture",
+      "clique",
+      "community"
+    ],
+    "et": "borrowed in the Middle Borlish period from Vascon aujamat \"Muslim quarter or village enjoying some legal autonomy\", itself borrowed from Arabic الجَمْع • (al-jamġ) \"the gathering, the crowd\". The shift from rural to urban senses in northwestern Europe occurred due to the concentration of Jewish and Muslim communities within cities there through the late medieval period."
+  },
+  {
     "lx": "aujon",
     "examples": [
       {
@@ -13465,8 +13487,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnar",
@@ -13475,17 +13496,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "noun from condamnar \"condemn\"",
-    "mn": "condamnar"
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnment",
@@ -13495,6 +13507,16 @@
       "sentence"
     ],
     "et": "Latin condemnatio, noun from condamnar \"condemn\"",
+    "mn": "condamnar"
+  },
+  {
+    "lx": "condamnment",
+    "ps": "n",
+    "ge": [
+      "condemnation",
+      "sentence"
+    ],
+    "et": "noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -13907,18 +13929,18 @@
     "ps": "n",
     "ge": [
       "conspirator",
-      "accomplice"
+      "abettor"
     ],
-    "et": "Middle Borlish"
+    "mn": "conjuraçonnar"
   },
   {
     "lx": "conjuraçonnour",
     "ps": "n",
     "ge": [
       "conspirator",
-      "abettor"
+      "accomplice"
     ],
-    "mn": "conjuraçonnar"
+    "et": "Middle Borlish"
   },
   {
     "lx": "connardaç",
@@ -17005,6 +17027,28 @@
     "et": "Middle Borlish < Welsh"
   },
   {
+    "lx": "ðaugr",
+    "examples": [
+      {
+        "vernacular": "Y floy a sy ðaugr sovrað dou veg par y siecr derran.",
+        "english": "The river has overflowed twice in the last century."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "rampart",
+      "earthwork",
+      "embankment",
+      "levee",
+      "dyke",
+      "causeway",
+      "viaduct",
+      "terrace",
+      "end"
+    ],
+    "et": "from Old Borlish ðargre \"rampart\", originally only in military use. This comes from a Vulgar Latin adargerem, from a variant arger of Classical agger \"rubble, defensive wall\". The term was first extended to coastal structures in the dialects of the southern towns in the Middle Borlish period. Usage in sports is seen from the nineteenth century."
+  },
+  {
     "lx": "davarn",
     "examples": [
       {
@@ -18322,20 +18366,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -21156,9 +21200,12 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "long-lasting"
+      "stiff",
+      "lasting",
+      "permanent",
+      "resilient"
     ],
-    "et": "Adjective from durar",
+    "et": "adjective from durar \"last\"",
     "mn": "durar"
   },
   {
@@ -21166,12 +21213,9 @@
     "ps": "adj",
     "ge": [
       "durable",
-      "stiff",
-      "lasting",
-      "permanent",
-      "resilient"
+      "long-lasting"
     ],
-    "et": "adjective from durar \"last\"",
+    "et": "Adjective from durar",
     "mn": "durar"
   },
   {
@@ -22625,6 +22669,16 @@
   },
   {
     "lx": "ensign",
+    "ps": "n",
+    "ge": [
+      "engraving",
+      "carving",
+      "suit"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "ensign",
     "examples": [
       {
         "vernacular": "Jo vil te rannuðar an ensign extolliðessem.",
@@ -22647,16 +22701,6 @@
       "suit"
     ],
     "et": "Middle Borlish, a semilearned borrowing from Latin insignia \"emblem, badge\", a noun formation from adjective insignis \"marked, distinguished\". The word has been used metonymically to refer to the position conferred or represented by an insignia since the fifteenth century, and it has been used in card games from approximately the same time."
-  },
-  {
-    "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensignar",
@@ -24523,6 +24567,18 @@
     ],
     "et": "Old Borlish < Latin",
     "sd": "Corporals"
+  },
+  {
+    "lx": "far de lanç",
+    "ps": "n",
+    "ge": [
+      "spearhead",
+      "pioneer"
+    ],
+    "mn": [
+      "far",
+      "lanç"
+    ]
   },
   {
     "lx": "farar",
@@ -27101,6 +27157,12 @@
   },
   {
     "lx": "frottar",
+    "ps": "ar v",
+    "ge": "rub",
+    "et": "Old Borlish < Old French < Latin"
+  },
+  {
+    "lx": "frottar",
     "examples": [
       {
         "vernacular": "Jo's y jarry frottant tras un demy d'hour.",
@@ -27122,12 +27184,6 @@
       "play"
     ],
     "et": "from Old Borlish, borrowed from (or possibly the source of) Old French frotter \"rub, polish\". This is in either case of uncertain origin, but is generally thought to reflect Latin participle frictus of fricō \"I rub, chafe\". Musical senses are attested from the Middle Borlish period."
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "fruit",
@@ -37129,6 +37185,16 @@
     ]
   },
   {
+    "lx": "limaç",
+    "ps": "n",
+    "ge": [
+      "slug",
+      "gastropod",
+      "sucker"
+    ],
+    "et": "Old Borlish < Latin līmāx"
+  },
+  {
     "lx": "limitað",
     "ps": "adj",
     "ge": [
@@ -37663,6 +37729,33 @@
     ],
     "et": "Latin longitūdō or formed in Old Borlish",
     "mn": "lonc"
+  },
+  {
+    "lx": "longinq",
+    "examples": [
+      {
+        "vernacular": "Sceye un rix longinq entr y dou famigl.",
+        "english": "The two families had a protracted feud."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "long",
+      "lengthy",
+      "prolonged",
+      "lasting",
+      "continual",
+      "long-lasting",
+      "venerable",
+      "longtime",
+      "time-honoured",
+      "tedious",
+      "boring",
+      "protracted",
+      "ancient",
+      "antidiluvian"
+    ],
+    "et": "early modern Borlish, borrowed from Latin longinquus \"far-off, remote; prolonged; ancient\". This may be a concatenation of the phrase longē hinc \"far from here\", or may reflect a suffix cognate with Classical German -ungo \"-ing\". The ambiguity between respectful and derisive use was famously exploited by Borlish aphorist Mary Belvarin at a 1886 soirée in reference to Queen Natalie."
   },
   {
     "lx": "lon-lembic",
@@ -39199,6 +39292,30 @@
       "hybrid"
     ],
     "et": "Middle Borlish < French"
+  },
+  {
+    "lx": "manoscarteyar",
+    "ps": [
+      "ar v",
+      "n"
+    ],
+    "ge": [
+      "hybridise",
+      "fuse",
+      "cross-breed",
+      "cross",
+      "syncretise",
+      "fusion",
+      "cross-breed",
+      "syncretism",
+      "hybridisation"
+    ],
+    "et": [
+      "modern Borlish, verb from manoscart \"blended fabric, musical scale\"",
+      "noun from manoscarteyar"
+    ],
+    "mn": "manoscart",
+    "se": "manoscarteyaçon"
   },
   {
     "lx": "manouvr",
@@ -46854,9 +46971,11 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "spoken",
-      "by mouth",
-      "hearsay"
+      "apparently",
+      "allegedly",
+      "it is said",
+      "they say",
+      "I hear"
     ],
     "mn": [
       "par",
@@ -46867,11 +46986,9 @@
     "lx": "par boc",
     "ps": "adv",
     "ge": [
-      "apparently",
-      "allegedly",
-      "it is said",
-      "they say",
-      "I hear"
+      "spoken",
+      "by mouth",
+      "hearsay"
     ],
     "mn": [
       "par",
@@ -57196,17 +57313,17 @@
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": "containing vitamin C",
+    "ge": [
+      "antiscorbutic",
+      "pertaining to vitamin C"
+    ],
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
   {
     "lx": "sandrinal",
     "ps": "adj",
-    "ge": [
-      "antiscorbutic",
-      "pertaining to vitamin C"
-    ],
+    "ge": "containing vitamin C",
     "et": "adjective from sandrin \"vitamin C\"",
     "mn": "sandrin"
   },
@@ -63587,6 +63704,12 @@
     "et": "Old Borlish < Vulgar Latin"
   },
   {
+    "lx": "stornel",
+    "ps": "n",
+    "ge": "starling",
+    "et": "Old Borlish, from a diminutive of Latin sturnus \"starling\""
+  },
+  {
     "lx": "stovent",
     "ps": "adj",
     "ge": [
@@ -67373,10 +67496,9 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocation",
-      "nomadism"
+      "relocate"
     ],
-    "et": "noun from tramigrar",
+    "et": "noun from tramigrar \"transmigrate\".",
     "mn": "tramigrar"
   },
   {
@@ -67384,9 +67506,10 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocate"
+      "relocation",
+      "nomadism"
     ],
-    "et": "noun from tramigrar \"transmigrate\".",
+    "et": "noun from tramigrar",
     "mn": "tramigrar"
   },
   {
@@ -68495,6 +68618,13 @@
     "et": "Latin"
   },
   {
+    "lx": "untað",
+    "ps": "n",
+    "ge": "unity",
+    "et": "Middle Borlish < Latin ūnitās",
+    "mn": "un"
+  },
+  {
     "lx": "untal",
     "ps": "adj",
     "ge": [
@@ -69173,23 +69303,23 @@
     "lx": "vangard",
     "ps": "n",
     "ge": [
-      "vanguard",
-      "pioneer",
-      "lead",
-      "forward position"
-    ],
-    "et": "Old French avangarde \"before guard\""
-  },
-  {
-    "lx": "vangard",
-    "ps": "n",
-    "ge": [
       "predecessor",
       "antecedent",
       "forebear",
       "precursor"
     ],
     "et": "Middle Borlish < Norman < Old French < Frankish, Vulgar Latin"
+  },
+  {
+    "lx": "vangard",
+    "ps": "n",
+    "ge": [
+      "vanguard",
+      "pioneer",
+      "lead",
+      "forward position"
+    ],
+    "et": "Old French avangarde \"before guard\""
   },
   {
     "lx": "vapour",
@@ -71160,17 +71290,17 @@
   {
     "lx": "volcan",
     "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
