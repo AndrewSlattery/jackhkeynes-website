@@ -1265,16 +1265,6 @@
     "lx": "accordar",
     "ps": "ar v",
     "ge": [
-      "make agree",
-      "align",
-      "tune"
-    ],
-    "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "accordar",
-    "ps": "ar v",
-    "ge": [
       "agree",
       "accord",
       "harmonise",
@@ -1282,6 +1272,16 @@
       "go"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "accordar",
+    "ps": "ar v",
+    "ge": [
+      "make agree",
+      "align",
+      "tune"
+    ],
+    "et": "Old Borlish < Latin"
   },
   {
     "lx": "accort",
@@ -11178,6 +11178,15 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "cession",
+    "ps": "n",
+    "ge": [
+      "ceding",
+      "surrender"
+    ],
+    "et": "Latin cessiō"
+  },
+  {
     "lx": "ceter",
     "ps": "adv",
     "ge": [
@@ -13487,7 +13496,8 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\""
+    "et": "Latin condemno \"I condemn\"",
+    "mn": "damnar"
   },
   {
     "lx": "condamnar",
@@ -13496,18 +13506,7 @@
       "condemn",
       "sentence"
     ],
-    "et": "Latin condemno \"I condemn\"",
-    "mn": "damnar"
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
-    "mn": "condamnar"
+    "et": "Latin condemno \"I condemn\""
   },
   {
     "lx": "condamnment",
@@ -13517,6 +13516,16 @@
       "sentence"
     ],
     "et": "noun from condamnar \"condemn\"",
+    "mn": "condamnar"
+  },
+  {
+    "lx": "condamnment",
+    "ps": "n",
+    "ge": [
+      "condemnation",
+      "sentence"
+    ],
+    "et": "Latin condemnatio, noun from condamnar \"condemn\"",
     "mn": "condamnar"
   },
   {
@@ -18366,20 +18375,20 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "make out",
-      "translate",
-      "simplify"
+      "decode"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "mn": "scifr"
   },
   {
     "lx": "descifrar",
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
+      "make out",
+      "translate",
+      "simplify"
     ],
-    "mn": "scifr"
+    "et": "Old Borlish < Medieval Latin < Arabic"
   },
   {
     "lx": "descombr",
@@ -39318,6 +39327,38 @@
     "se": "manoscarteyaçon"
   },
   {
+    "lx": "manoscarteyar",
+    "examples": [
+      {
+        "vernacular": "Y jangour lo manoscarteyaurn cosogr relijon Jaugta.",
+        "english": "The maroons syncretised it with Jaughta religion."
+      }
+    ],
+    "ps": [
+      "ar v",
+      "n"
+    ],
+    "ge": [
+      "hybridise",
+      "cross",
+      "blend",
+      "syncretise",
+      "merge",
+      "conflate",
+      "mix up",
+      "muddle",
+      "confuse",
+      "hybridisation",
+      "syncretism",
+      "merger",
+      "fusion",
+      "conflation"
+    ],
+    "se": "manoscarteyaçon",
+    "et": "sporadic use in the Middle Borlish period as a derivation from manoscart \"manoscard\", a particular musical scale which developed near the Burgund town of Manosque in the thirteenth century. Other senses are a later rederivation from the root's extended meanings including \"fusion, combination, blend\". Use of the word with pejorative connotations is attested only from the mid-twentieth century.",
+    "mn": "manoscart"
+  },
+  {
     "lx": "manouvr",
     "ps": "n",
     "ge": [
@@ -41801,6 +41842,17 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "morenç",
+    "ps": "n",
+    "ge": [
+      "death",
+      "dying",
+      "loss of life"
+    ],
+    "et": "Old Borlish",
+    "mn": "morir"
+  },
+  {
     "lx": "morir",
     "ps": "ir1 v",
     "ge": "die",
@@ -41907,16 +41959,6 @@
       "downtrodden"
     ],
     "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "morrenç",
-    "ps": "n",
-    "ge": [
-      "death",
-      "dying",
-      "loss of life"
-    ],
-    "et": "Old Borlish"
   },
   {
     "lx": "morrig",
@@ -43832,6 +43874,26 @@
       "itinerant"
     ],
     "et": "Latin Nomas \"wandering shepherd\""
+  },
+  {
+    "lx": "nombler",
+    "examples": [
+      {
+        "vernacular": "Nos receveum noc y bon sunt a moneð des y nombler.",
+        "english": "The banker didn't give us the right amount of money."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "moneychanger",
+      "moneylender",
+      "banker",
+      "financier",
+      "dealer",
+      "house",
+      "battenberg"
+    ],
+    "et": "descendant of Old Borlish nomblair \"money-changer\" either directly from synonymous nummulārius in Latin or via nomble \"coinage, small-value coins\". Both of these come from Latin nummulus \"a small amount of money\", diminutive of nummus \"coin\". The term has usually referred to more institutionalised positions since the sixteenth century, when it also gained its gambling sense. In the last sense the term is a calque of Chrysian Welsh tessen nawiddwr \"banker's cake\", an invented tradition of the late nineteenth century spurred by the boom in almond farming in the region."
   },
   {
     "lx": "nombr",
@@ -47011,13 +47073,13 @@
     ]
   },
   {
-    "lx": "par meyan de",
+    "lx": "par mejan de",
     "ps": "prep",
     "ge": [
       "by",
       "by means of"
     ],
-    "mn": "meyan"
+    "mn": "mejan"
   },
   {
     "lx": "par sgart tauger",
@@ -48173,6 +48235,12 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "paudriç",
+    "ps": "n",
+    "ge": "partridge",
+    "et": "Old Borlish < Latin perdrix"
+  },
+  {
     "lx": "paulatim",
     "ps": "adv",
     "ge": [
@@ -48220,6 +48288,16 @@
   },
   {
     "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -48228,16 +48306,6 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
-  },
-  {
-    "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -54176,12 +54244,12 @@
     "et": "Old Borlish"
   },
   {
-    "lx": "recoglenç meyan",
+    "lx": "recoglenç mejan",
     "ps": "n",
     "ge": "resource production",
     "mn": [
       "recoglenç",
-      "meyan"
+      "mejan"
     ]
   },
   {
@@ -54761,13 +54829,13 @@
     "et": "Old Borlish < Latin"
   },
   {
-    "lx": "religion",
+    "lx": "relijon",
     "ps": "n",
     "ge": "religion",
     "et": "Middle Borlish < Latin"
   },
   {
-    "lx": "religious",
+    "lx": "relijous",
     "ps": "adj",
     "ge": [
       "religious",
@@ -65593,6 +65661,23 @@
     "et": "originally in the first senses, a direct descendant from Latin tegimen \"cover, protection\". This noun comes from verb tegō \"I cover, conceal\", which became Old Borlish ter \"span, cover (an amount of land)\" and thence modern teir \"amount to, number\". Extended to safety in more abstract contexts by the early modern period."
   },
   {
+    "lx": "tegmnfeyar",
+    "ps": "ar v",
+    "ge": "seek asylum",
+    "et": "verb from tegmn \"shelter\"",
+    "mn": "tegmn"
+  },
+  {
+    "lx": "tegmnfeyour",
+    "ps": "n",
+    "ge": [
+      "refugee",
+      "asylum seeker"
+    ],
+    "et": "agentive noun from tegmnfeyar",
+    "mn": "tegmnfeyar"
+  },
+  {
     "lx": "tegndr",
     "ps": "r v",
     "ge": [
@@ -67869,6 +67954,16 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "trenchet",
+    "ps": "n",
+    "ge": [
+      "picnic",
+      "snack"
+    ],
+    "et": "diminutive of trenc \"lunch\"",
+    "mn": "trenc"
+  },
+  {
     "lx": "trencsachet",
     "ps": "n",
     "ge": [
@@ -69547,6 +69642,26 @@
     "et": "borrowed from Arabic وَزِير • wazīr \"vizier, minister\", literally \"carrier\". The word entered Borlish in the late medieval period, originally restricted to accounts of foreign courts and to the game of chess; use for diplomats in general and by extension puppetmasters in other contexts is seen from the seventeenth century."
   },
   {
+    "lx": "vason",
+    "examples": [
+      {
+        "vernacular": "Sy fraðr voun y tapeç sur y vason despondr con y trenchet.",
+        "english": "Her brothers will set out the picnic on the mat on the lawn."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "sod",
+      "turf",
+      "peat",
+      "sward",
+      "green",
+      "lawn",
+      "pitch"
+    ],
+    "et": "directly from Old Borlish vason \"turf\", borrowed from synoymous wason in Old French or directly from its Old Dutch source; either way from Classical German vasō \"meadow, field\". Later semantic developments appear to parallel and postdate those in Norman French, including (by the nineteenth century) its use in sports."
+  },
+  {
     "lx": "vassagl",
     "ps": "adj",
     "ge": [
@@ -70967,7 +71082,10 @@
     "ge": [
       "sight",
       "make out",
-      "manage to see"
+      "manage to see",
+      "observe",
+      "view",
+      "see"
     ],
     "et": "Old Borlish < Latin"
   },
@@ -71290,17 +71408,17 @@
   {
     "lx": "volcan",
     "ps": "n",
+    "ge": "volcano",
+    "et": "Italian, from Latin Vulcanus"
+  },
+  {
+    "lx": "volcan",
+    "ps": "n",
     "ge": [
       "volcano",
       "hothead"
     ],
     "et": "Italian < Latin Vulcanus"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volir",
