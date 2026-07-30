@@ -3159,5 +3159,63 @@ mark {
     padding-right: 0.6em;
   }
 }
+.poem-parallel {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: start;
+  column-gap: 3em;
+  row-gap: 1.8em;
+  margin: 1.6em 0;
+}
+.poem-parallel.poem-parallel--3 {
+  grid-template-columns: max-content max-content max-content;
+  column-gap: 2.5em;
+}
+.poem-parallel .poem-head {
+  font-weight: 600;
+  color: #e8e8e8;
+  border-bottom: 2px solid #424242;
+  padding-bottom: 0.4em;
+  margin-bottom: 0.2em;
+}
+.poem-parallel .l {
+  display: block;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  line-height: 1.55;
+}
+.poem-parallel .poem-col2,
+.poem-parallel .poem-col3 {
+  color: #bbb;
+}
+
+@media (max-width: 900px) {
+  .poem-parallel,
+  .poem-parallel.poem-parallel--3 {
+    grid-template-columns: 1fr;
+    row-gap: 1em;
+  }
+  .poem-parallel .poem-head,
+  .poem-parallel.poem-parallel--3 .poem-head {
+    display: none;
+  }
+  .poem-parallel .poem-col::before,
+  .poem-parallel.poem-parallel--3 .poem-col::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #828282;
+    margin-bottom: 0.3em;
+  }
+  .poem-parallel .poem-col3,
+  .poem-parallel .poem-col:last-child,
+  .poem-parallel.poem-parallel--3 .poem-col3,
+  .poem-parallel.poem-parallel--3 .poem-col:last-child {
+    margin-bottom: 2em;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */

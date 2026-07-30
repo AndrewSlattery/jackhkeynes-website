@@ -1,0 +1,74 @@
+// ── Parallel poem text ───────────────────────────────────────────────────────
+//
+// Column layout for short poems set against their source or a crib
+// (_includes/poem-parallel.html). Each stanza is one grid row, so the columns
+// stay aligned stanza by stanza even where the lineation differs inside a
+// stanza. The Beowulf pages have their own, heavier variant of this in
+// _beowulf.scss — marginal line numbers and an interlinear gloss — which is
+// more than a sixteen-line poem needs.
+
+.poem-parallel {
+  display: grid;
+  // Columns sized to their content and left-aligned, so the texts sit close
+  // together with a real gap between them rather than being stretched across
+  // the full page width.
+  grid-template-columns: max-content max-content;
+  justify-content: start;
+  column-gap: 3em;
+  row-gap: 1.8em;
+  margin: 1.6em 0;
+
+  &.poem-parallel--3 {
+    grid-template-columns: max-content max-content max-content;
+    column-gap: 2.5em;
+  }
+
+  .poem-head {
+    font-weight: 600;
+    color: $color-text-alt;
+    border-bottom: 2px solid $color-border;
+    padding-bottom: 0.4em;
+    margin-bottom: 0.2em;
+  }
+
+  // One verse line; hanging indent so wrapped lines read as continuations.
+  .l {
+    display: block;
+    padding-left: 1.4em;
+    text-indent: -1.4em;
+    line-height: 1.55;
+  }
+
+  // The first column is the primary text — the translation these pages exist
+  // to show. The crib and the source text behind it are set dimmer.
+  .poem-col2,
+  .poem-col3 { color: $color-text-dim; }
+}
+
+// Narrow screens: stack the columns within each stanza, with the column
+// headings replaced by a label above each block.
+@media (max-width: 900px) {
+  .poem-parallel,
+  .poem-parallel.poem-parallel--3 {
+    grid-template-columns: 1fr;
+    row-gap: 1em;
+
+    .poem-head { display: none; }
+
+    .poem-col::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.75em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $color-text-muted;
+      margin-bottom: 0.3em;
+    }
+
+    // End-of-stanza separation now that the blocks stack. :last-child covers
+    // the two-column case, where the second column ends each stanza.
+    .poem-col3,
+    .poem-col:last-child { margin-bottom: 2em; }
+  }
+}

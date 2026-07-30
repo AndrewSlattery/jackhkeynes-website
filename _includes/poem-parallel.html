@@ -1,0 +1,70 @@
+{% comment %}
+  Renders a short poem in two or three parallel columns as the .poem-parallel
+  grid (see _sass/_poem.scss). Each stanza is one grid row, so the columns stay
+  aligned stanza by stanza even where the lineation differs inside a stanza.
+
+  This is the general-purpose sibling of beowulf-part.html, for poems short
+  enough not to want marginal line numbers or an interlinear gloss.
+
+  Parameters:
+    col1, col2     — raw contents of the two .txt files (stanzas separated by
+                     blank lines). Required.
+    col3           — an optional third .txt file.
+    label1..label3 — column headings, shown above the grid on wide screens and
+                     inline above each block once the columns stack.
+    lang1..lang3   — optional BCP 47 language tags (e.g. "fr"), set as the
+                     column's lang attribute so screen readers and hyphenation
+                     get the language right.
+
+  Every supplied file must have the same number of stanzas. Stanza splitting
+  reuses the bw_stanzas filter (_plugins/beowulf_filters.rb) in its 'tr' mode,
+  which is the plain verbatim splitter with no per-file formatting rules.
+{% endcomment %}
+{%- assign pp_1 = include.col1 | bw_stanzas: 'tr' -%}
+{%- assign pp_2 = include.col2 | bw_stanzas: 'tr' -%}
+{%- assign pp_has3 = false -%}
+{%- if include.col3 and include.col3 != '' -%}
+  {%- assign pp_3 = include.col3 | bw_stanzas: 'tr' -%}
+  {%- assign pp_has3 = true -%}
+{%- endif -%}
+{%- comment %} Liquid has no operator precedence (it evaluates right to left),
+so the mismatch test is built up as an explicit flag rather than one
+compound condition. {% endcomment -%}
+{%- assign pp_bad = false -%}
+{%- if pp_1.size != pp_2.size -%}{%- assign pp_bad = true -%}{%- endif -%}
+{%- if pp_has3 -%}
+  {%- if pp_3.size != pp_1.size -%}{%- assign pp_bad = true -%}{%- endif -%}
+{%- endif -%}
+{%- if pp_bad -%}
+<p><strong>⚠ Stanza counts differ:</strong>
+column 1 {{ pp_1.size }}, column 2 {{ pp_2.size }}{% if pp_has3 %}, column 3 {{ pp_3.size }}{% endif %}.
+Check the blank-line stanza breaks in the source files.</p>
+{%- endif -%}
+<div class="poem-parallel{% if pp_has3 %} poem-parallel--3{% endif %}">
+  <div class="poem-head">{{ include.label1 }}</div>
+  <div class="poem-head">{{ include.label2 }}</div>
+  {%- if pp_has3 %}
+  <div class="poem-head">{{ include.label3 }}</div>
+  {%- endif %}
+{%- for lines1 in pp_1 -%}
+{%- assign pp_i = forloop.index0 %}
+
+  <div class="poem-col poem-col1"{% if include.lang1 %} lang="{{ include.lang1 }}"{% endif %} data-label="{{ include.label1 }}">
+    {%- for line in lines1 %}
+    <span class="l">{{ line }}</span>
+    {%- endfor %}
+  </div>
+  <div class="poem-col poem-col2"{% if include.lang2 %} lang="{{ include.lang2 }}"{% endif %} data-label="{{ include.label2 }}">
+    {%- for line in pp_2[pp_i] %}
+    <span class="l">{{ line }}</span>
+    {%- endfor %}
+  </div>
+  {%- if pp_has3 %}
+  <div class="poem-col poem-col3"{% if include.lang3 %} lang="{{ include.lang3 }}"{% endif %} data-label="{{ include.label3 }}">
+    {%- for line in pp_3[pp_i] %}
+    <span class="l">{{ line }}</span>
+    {%- endfor %}
+  </div>
+  {%- endif -%}
+{%- endfor %}
+</div>

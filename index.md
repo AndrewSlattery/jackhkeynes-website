@@ -24,8 +24,12 @@ permalink: /
 
 [Tumblr](https://tumblr.com/jackhkeynes) – My external Tumblr blog.
 
+## Poetry and Translations
+
+[Beowulf](/beowulf/) — My in-progress verse translation of *Beowulf*, in parallel with the Old English text.
+
+[Invictus](/invictus/) — My French verse translation of Henley's *Invictus*, in parallel with the original.
+
 ## Everything Else
 
 [English Vocab Test](/vocab-test/) - A 50-question test which estimates how many English words you know using a sigmoid model.
-
-[Beowulf](/beowulf/) - My in-progress verse translation of *Beowulf*, in parallel with the Old English text.
