@@ -6,11 +6,8 @@ permalink: /invictus/
 
 My verse translation into French of *Invictus* by William Ernest Henley
 (1849–1903), written in 1875 and first published in *A Book of Verses* (1888).
-The original is at the
+The original is drawn from the
 [Poetry Foundation](https://www.poetryfoundation.org/poems/51642/invictus).
-
-The middle column is a plain literal rendering of the French, for readers who
-would rather not take my word for it — it makes no attempt at metre or rhyme.
 
 {% capture fr %}{% include_relative french.txt %}{% endcapture %}
 {% capture li %}{% include_relative literal.txt %}{% endcapture %}
