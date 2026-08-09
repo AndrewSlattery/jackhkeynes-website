@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * Reset some basic elements
  */
@@ -3216,6 +3217,135 @@ mark {
   .poem-parallel.poem-parallel--3 .poem-col:last-child {
     margin-bottom: 2em;
   }
+}
+#zigzag-clock {
+  --zz-face: #1a1a1a;
+  --zz-ink: #e0e0e0;
+  --zz-muted: #828282;
+  --zz-accent: #51fb44;
+  --zz-edge: #424242;
+}
+#zigzag-clock .zz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  margin: 2rem auto 2.5rem;
+}
+#zigzag-clock .zz-dial {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+}
+#zigzag-clock .zz-face {
+  fill: var(--zz-face);
+  stroke: var(--zz-edge);
+  stroke-width: 0.75;
+}
+#zigzag-clock .zz-ring {
+  fill: none;
+  stroke: var(--zz-ink);
+  stroke-width: 1.2;
+  stroke-linejoin: miter;
+}
+#zigzag-clock .zz-numeral {
+  fill: var(--zz-ink);
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+#zigzag-clock .zz-aperture-box {
+  fill: none;
+  stroke: var(--zz-muted);
+  stroke-width: 0.75;
+}
+#zigzag-clock .zz-aperture {
+  fill: var(--zz-muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+#zigzag-clock .zz-hand-hour,
+#zigzag-clock .zz-hand-minute {
+  fill: var(--zz-ink);
+}
+#zigzag-clock .zz-hand-second {
+  fill: var(--zz-accent);
+}
+#zigzag-clock .zz-hand-second-shaft {
+  stroke: var(--zz-accent);
+}
+#zigzag-clock .zz-arbor {
+  fill: var(--zz-accent);
+}
+#zigzag-clock .zz-readout {
+  text-align: center;
+  line-height: 1.3;
+}
+#zigzag-clock .zz-time {
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  color: #e8e8e8;
+}
+#zigzag-clock .zz-sep {
+  color: var(--zz-muted);
+  padding: 0 0.04em;
+}
+#zigzag-clock .zz-half {
+  margin-left: 0.35em;
+  font-size: 0.45em;
+  letter-spacing: 0.12em;
+  color: var(--zz-muted);
+  vertical-align: 0.55em;
+}
+#zigzag-clock .zz-count {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--zz-muted);
+}
+#zigzag-clock .zz-count-value {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.2em;
+}
+#zigzag-clock .zz-count-note::before {
+  content: "·";
+  margin: 0 0.5em;
+}
+#zigzag-clock .zz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--zz-muted);
+}
+#zigzag-clock .zz-controls-label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+#zigzag-clock .zz-speed {
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+  color: #e0e0e0;
+  background: #1a1a1a;
+  border: 1px solid #424242;
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+}
+#zigzag-clock .zz-speed:hover {
+  border-color: #666;
+}
+#zigzag-clock .zz-speed:focus-visible {
+  outline: 2px solid var(--zz-accent);
+  outline-offset: 2px;
+}
+#zigzag-clock .zz-speed.is-on {
+  color: var(--zz-accent);
+  border-color: var(--zz-accent);
 }
 
 /*# sourceMappingURL=main.css.map */

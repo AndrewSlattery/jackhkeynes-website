@@ -1,0 +1,172 @@
+// ── The zigzag dial ──────────────────────────────────────────────────────────
+//
+// Analogue + digital clock for the 100/50/20 metric time system. The widget JS
+// (assets/js/zigzag-clock.js) emits only `.zz-*` markup and carries no colour of
+// its own; everything visual lives here.
+//
+// Two inks and a surface, as the dial is specified: one ink for the ring, the
+// numerals and the hour and minute hands; one accent, used nowhere else on the
+// face, for the second hand and the arbor cap, so the eye can find the beat;
+// and a flat face tone with no gradients — the zigzag is doing the work and any
+// shading fights it. Defaults below map those three onto the site's dark
+// palette ($color-* variables); override the custom properties to re-theme.
+
+#zigzag-clock {
+  --zz-face:   #{$color-bg-dark};
+  --zz-ink:    #{$color-text};
+  --zz-muted:  #{$color-text-muted};
+  --zz-accent: #{$color-accent};
+  --zz-edge:   #{$color-border};
+
+  .zz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+    margin: 2rem auto 2.5rem;
+  }
+
+  // ── The dial ───────────────────────────────────────────────────────────────
+  .zz-dial {
+    display: block;
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+  }
+
+  .zz-face {
+    fill: var(--zz-face);
+    stroke: var(--zz-edge);
+    stroke-width: 0.75;
+  }
+
+  // A single uniform stroke for the whole ring: the hierarchy is carried by
+  // radius, and weight variation on top of it is the one decoration to cut.
+  .zz-ring {
+    fill: none;
+    stroke: var(--zz-ink);
+    stroke-width: 1.2;
+    stroke-linejoin: miter;
+  }
+
+  .zz-numeral {
+    fill: var(--zz-ink);
+    font-size: 14px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .zz-aperture-box {
+    fill: none;
+    stroke: var(--zz-muted);
+    stroke-width: 0.75;
+  }
+
+  .zz-aperture {
+    fill: var(--zz-muted);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .zz-hand-hour,
+  .zz-hand-minute {
+    fill: var(--zz-ink);
+  }
+
+  .zz-hand-second {
+    fill: var(--zz-accent);
+  }
+
+  .zz-hand-second-shaft {
+    stroke: var(--zz-accent);
+  }
+
+  .zz-arbor {
+    fill: var(--zz-accent);
+  }
+
+  // ── The readout ────────────────────────────────────────────────────────────
+  .zz-readout {
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  // Tabular figures and a fixed field width throughout: the seconds field
+  // changes at 1.157 Hz, and any width variation between digits sets the whole
+  // readout jittering.
+  .zz-time {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: $color-text-alt;
+  }
+
+  .zz-sep {
+    // No blink: half a second here is 432 ms, which reads as a fault.
+    color: var(--zz-muted);
+    padding: 0 0.04em;
+  }
+
+  .zz-half {
+    margin-left: 0.35em;
+    font-size: 0.45em;
+    letter-spacing: 0.12em;
+    color: var(--zz-muted);
+    vertical-align: 0.55em;
+  }
+
+  .zz-count {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--zz-muted);
+  }
+
+  .zz-count-value {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.2em;
+  }
+
+  .zz-count-note {
+    &::before { content: "·"; margin: 0 0.5em; }
+  }
+
+  // ── Speed controls ─────────────────────────────────────────────────────────
+  .zz-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--zz-muted);
+  }
+
+  .zz-controls-label {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .zz-speed {
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    color: $color-text;
+    background: $color-bg-dark;
+    border: 1px solid $color-border;
+    border-radius: 4px;
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+
+    &:hover { border-color: $color-border-hover; }
+
+    &:focus-visible {
+      outline: 2px solid var(--zz-accent);
+      outline-offset: 2px;
+    }
+
+    &.is-on {
+      color: var(--zz-accent);
+      border-color: var(--zz-accent);
+    }
+  }
+}
