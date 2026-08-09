@@ -98,15 +98,23 @@ describe('the ring', () => {
 
   test('vertex 0 sits exactly at twelve o\'clock', () => {
     expect(verts[0][0]).toBeCloseTo(200, 9);
-    expect(verts[0][1]).toBeCloseTo(200 - 0.944 * 180, 9);
+    expect(verts[0][1]).toBeCloseTo(200 - 0.700 * 180, 9);
   });
 
-  test('radii alternate: long peak every tenth, then peak and trough', () => {
+  test('toothed inwards: deep notch every tenth, then notch and envelope', () => {
     const radius = ([x, y]) => Math.hypot(x - 200, y - 200);
     verts.forEach((v, k) => {
-      const want = (k % 10 === 0) ? 0.944 : (k % 2 === 0 ? 0.872 : 0.772);
+      const want = (k % 10 === 0) ? 0.700 : (k % 2 === 0 ? 0.772 : 0.872);
       expect(radius(v)).toBeCloseTo(want * 180, 9);
     });
+  });
+
+  test('the odd vertices form a single outer envelope, the even ones sit behind it', () => {
+    const radius = ([x, y]) => Math.hypot(x - 200, y - 200);
+    const odd = verts.filter((_, k) => k % 2 === 1).map(radius);
+    const even = verts.filter((_, k) => k % 2 === 0).map(radius);
+    expect(Math.min(...odd)).toBeCloseTo(Math.max(...odd), 9);   // a clean 50-point circle
+    expect(Math.max(...even)).toBeLessThan(Math.min(...odd));
   });
 
   test('is symmetric about the vertical axis, so the polygon closes cleanly', () => {

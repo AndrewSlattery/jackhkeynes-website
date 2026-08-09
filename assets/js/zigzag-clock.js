@@ -8,13 +8,15 @@
 //
 // The face is the canonical 10-hour half-day dial — the hour hand turns twice a
 // day, hour marks fall every tenth vertex, and a small aperture at the foot of
-// the dial stands in for am/pm. The ring is one closed 100-vertex polygon whose
-// long peaks are the hours, outward peaks the minutes, and every vertex a
-// second; the three hands each read the radius they terminate on.
+// the dial stands in for am/pm. The ring is one closed 100-vertex polygon in the
+// inward-toothed variant: the outer silhouette is the odd seconds, the notches
+// are the minutes, and the deepest notches are the hours. Each hand terminates
+// on the radius it reads, and the numerals sit outside the ring, in the annulus
+// the inverted geometry leaves empty.
 //
 // Vanilla JS, no dependencies. Styling lives in _sass/_zigzag-clock.scss.
 //
-// Embed:  <div id="zigzag-clock" data-speed-controls="true"></div>
+// Embed:  <div id="zigzag-clock"></div>
 //         <script defer src="/assets/js/zigzag-clock.js"></script>
 
 (function () {
@@ -112,10 +114,10 @@
   var VIEW = 400, CX = 200, CY = 200, R = 180;
   var F = {
     bezel:    1.000,
-    hour:     0.944,   // long peak: the ten hour divisions
-    peak:     0.872,   // outward peak: the fifty minute divisions
-    trough:   0.772,   // inward trough: the odd seconds
-    numeral:  0.656,
+    numeral:  0.934,   // outside the ring, between the teeth and the bezel
+    second:   0.872,   // outer silhouette: the odd seconds
+    minute:   0.772,   // notch: the fifty minute divisions
+    hour:     0.700,   // deepest notch: the ten hour divisions
     handHour: 0.489,
     aperture: 0.350,
     tail:     0.100,
@@ -128,12 +130,14 @@
     return [CX + radius * Math.sin(a), CY - radius * Math.cos(a)];
   }
 
-  // One closed polygon, k = 0…99, vertex k at 3.6k degrees. Vertex 0 is a long
-  // peak at twelve o'clock, so the face is symmetric about the vertical.
+  // One closed polygon, k = 0…99, vertex k at 3.6k degrees, toothed inwards: the
+  // odd vertices form a clean fifty-point outer envelope and the even ones notch
+  // in behind it, every tenth notch cut deeper for the hour. Vertex 0 is a deep
+  // notch at twelve o'clock, so the face is symmetric about the vertical.
   function ringVertices() {
     var out = [];
     for (var k = 0; k < SEC_PER_MIN; k++) {
-      var f = (k % 10 === 0) ? F.hour : (k % 2 === 0 ? F.peak : F.trough);
+      var f = (k % 10 === 0) ? F.hour : (k % 2 === 0 ? F.minute : F.second);
       out.push(polar(k * 3.6, f * R));
     }
     return out;
@@ -156,7 +160,7 @@
     var verts = ringVertices();
     for (i = 0; i < verts.length; i++) { points.push(pt(verts[i])); }
 
-    // Numerals 1–10 at the long peaks, 10 at the top.
+    // Numerals 1–10 outside the hour notches, 10 at the top.
     var numerals = '';
     for (i = 1; i <= 10; i++) {
       var q = polar(i * 36, F.numeral * R);
@@ -167,9 +171,9 @@
     var apY = CY + F.aperture * R;
 
     // The second hand: a shaft with a counterweighted tail, and a lozenge tip
-    // spanning trough to peak so it reads against both every other second.
-    var peakY = CY - F.peak * R;
-    var troughY = CY - F.trough * R;
+    // spanning notch to envelope so it reads against both every other second.
+    var peakY = CY - F.second * R;
+    var troughY = CY - F.minute * R;
     var waistY = (peakY + troughY) / 2;
     var lhw = W.lozenge * R / 2;
 
@@ -181,7 +185,7 @@
         '<rect class="zz-aperture-box" x="' + (CX - 16) + '" y="' + n2(apY - 10) + '" width="32" height="20" rx="4"/>' +
         '<text class="zz-aperture" x="' + CX + '" y="' + n2(apY) + '" text-anchor="middle" dominant-baseline="central">' + HALF_GLYPH[0] + '</text>' +
         '<g class="zz-hour">' + handPolygon('zz-hand-hour', F.handHour, W.hour) + '</g>' +
-        '<g class="zz-minute">' + handPolygon('zz-hand-minute', F.trough, W.minute) + '</g>' +
+        '<g class="zz-minute">' + handPolygon('zz-hand-minute', F.minute, W.minute) + '</g>' +
         '<g class="zz-second">' +
           '<line class="zz-hand-second-shaft" x1="' + CX + '" y1="' + n2(CY + F.tail * R) +
             '" x2="' + CX + '" y2="' + n2(waistY) + '" stroke-width="' + n2(W.second * R) + '"/>' +
@@ -202,29 +206,12 @@
           '<span class="zz-s">00</span>' +
           '<span class="zz-half">' + HALF_GLYPH[0] + '</span>' +
         '</div>' +
-        '<div class="zz-count">' +
-          '<span class="zz-count-value">00000</span>' +
-          '<span class="zz-count-note">0.000% of the day</span>' +
-        '</div>' +
       '</div>';
-  }
-
-  function controlsMarkup() {
-    var speeds = [1, 10, 100], out = '';
-    for (var i = 0; i < speeds.length; i++) {
-      out += '<button type="button" class="zz-speed' + (speeds[i] === 1 ? ' is-on' : '') +
-        '" data-speed="' + speeds[i] + '" aria-pressed="' + (speeds[i] === 1) + '">' +
-        '×' + speeds[i] + '</button>';
-    }
-    return '<div class="zz-controls" role="group" aria-label="Clock speed">' +
-      '<span class="zz-controls-label">Speed</span>' + out + '</div>';
   }
 
   // ---------- the clock ----------
   function init(container) {
-    container.innerHTML = '<div class="zz">' + dialMarkup() + readoutMarkup() +
-      (container.getAttribute('data-speed-controls') === 'false' ? '' : controlsMarkup()) +
-      '</div>';
+    container.innerHTML = '<div class="zz">' + dialMarkup() + readoutMarkup() + '</div>';
 
     var q = function (sel) { return container.querySelector(sel); };
     var hourHand   = q('.zz-hour');
@@ -233,20 +220,6 @@
     var aperture   = q('.zz-aperture');
     var readout    = q('.zz-readout');
     var elH = q('.zz-h'), elM = q('.zz-m'), elS = q('.zz-s'), elHalf = q('.zz-half');
-    var elCount = q('.zz-count-value'), elNote = q('.zz-count-note');
-
-    // A test multiplier: at ×100 a whole day passes in about fifteen real
-    // minutes, which is the only practical way to watch the hour hand. At ×1
-    // the offset is zero and nothing is ever added to it, so the clock reads
-    // the system clock and nothing else — elapsed time is never accumulated.
-    var speed = 1, simOffsetMs = 0, lastRealMs = Date.now();
-
-    function currentCount() {
-      var realNow = Date.now();
-      simOffsetMs += (realNow - lastRealMs) * (speed - 1);
-      lastRealMs = realNow;
-      return dayCountFrom(new Date(realNow + simOffsetMs));
-    }
 
     function rotate(el, deg) {
       el.setAttribute('transform', 'rotate(' + deg.toFixed(3) + ' ' + CX + ' ' + CY + ')');
@@ -265,7 +238,12 @@
     var lastSecond = -1, lastMinute = -1, tickAt = 0;
 
     function frame(ts) {
-      var exact = currentCount();
+      // Read the system clock afresh every frame. Elapsed time is never
+      // accumulated into a counter: a 60 Hz loop adding 16.67 ms a frame would
+      // drift visibly within minutes, and 864 ms does not divide evenly into
+      // common frame intervals, so an accumulator would alias against the
+      // refresh as well.
+      var exact = dayCountFrom(new Date());
       var N = Math.floor(exact);
       var still = reduce.matches;
 
@@ -289,8 +267,6 @@
           // minute a live region would be unusable.
           readout.setAttribute('aria-label', f.spoken);
         }
-        elCount.textContent = f.count;
-        elNote.textContent = (N / 1000).toFixed(3) + '% of the day';
 
         rotate(minuteHand, angles(N).minute);
         if (still) {
@@ -309,22 +285,6 @@
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
-
-    var buttons = container.querySelectorAll('.zz-speed');
-    Array.prototype.forEach.call(buttons, function (btn) {
-      btn.addEventListener('click', function () {
-        lastRealMs = Date.now();
-        speed = Number(btn.getAttribute('data-speed'));
-        // Returning to ×1 discards the simulated offset, so the dial always
-        // snaps back to the actual time rather than to wherever it ran to.
-        if (speed === 1) { simOffsetMs = 0; }
-        Array.prototype.forEach.call(buttons, function (other) {
-          var on = other === btn;
-          other.classList.toggle('is-on', on);
-          other.setAttribute('aria-pressed', String(on));
-        });
-      });
-    });
   }
 
   if (typeof document !== 'undefined') {

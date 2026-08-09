@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  * Reset some basic elements
  */
@@ -3299,53 +3298,6 @@ mark {
   letter-spacing: 0.12em;
   color: var(--zz-muted);
   vertical-align: 0.55em;
-}
-#zigzag-clock .zz-count {
-  margin-top: 0.4rem;
-  font-size: 0.8rem;
-  color: var(--zz-muted);
-}
-#zigzag-clock .zz-count-value {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.2em;
-}
-#zigzag-clock .zz-count-note::before {
-  content: "·";
-  margin: 0 0.5em;
-}
-#zigzag-clock .zz-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--zz-muted);
-}
-#zigzag-clock .zz-controls-label {
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-#zigzag-clock .zz-speed {
-  font: inherit;
-  font-variant-numeric: tabular-nums;
-  color: #e0e0e0;
-  background: #1a1a1a;
-  border: 1px solid #424242;
-  border-radius: 4px;
-  padding: 0.25rem 0.6rem;
-  cursor: pointer;
-}
-#zigzag-clock .zz-speed:hover {
-  border-color: #666;
-}
-#zigzag-clock .zz-speed:focus-visible {
-  outline: 2px solid var(--zz-accent);
-  outline-offset: 2px;
-}
-#zigzag-clock .zz-speed.is-on {
-  color: var(--zz-accent);
-  border-color: var(--zz-accent);
 }
 
 /*# sourceMappingURL=main.css.map */
