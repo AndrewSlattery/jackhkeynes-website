@@ -3271,7 +3271,8 @@ mark {
 #zigzag-clock .zz-hand-second {
   fill: var(--zz-accent);
 }
-#zigzag-clock .zz-hand-second-shaft {
+#zigzag-clock .zz-hand-second-shaft,
+#zigzag-clock .zz-hand-second-bar {
   stroke: var(--zz-accent);
 }
 #zigzag-clock .zz-arbor {

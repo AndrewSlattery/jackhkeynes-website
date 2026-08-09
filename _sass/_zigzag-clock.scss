@@ -77,7 +77,10 @@
     fill: var(--zz-accent);
   }
 
-  .zz-hand-second-shaft {
+  // The crossbar sits on the hour radius, so it passes the deep notches as the
+  // hand sweeps: same stroke as the shaft, and no more than that.
+  .zz-hand-second-shaft,
+  .zz-hand-second-bar {
     stroke: var(--zz-accent);
   }
 

@@ -123,7 +123,7 @@
     tail:     0.100,
     arbor:    0.028
   };
-  var W = { hour: 0.033, minute: 0.022, second: 0.009, lozenge: 0.019 };
+  var W = { hour: 0.033, minute: 0.022, second: 0.009, lozenge: 0.019, crossbar: 0.040 };
 
   function polar(bearingDeg, radius) {
     var a = bearingDeg * Math.PI / 180;
@@ -170,12 +170,15 @@
 
     var apY = CY + F.aperture * R;
 
-    // The second hand: a shaft with a counterweighted tail, and a lozenge tip
-    // spanning notch to envelope so it reads against both every other second.
+    // The second hand: a shaft with a counterweighted tail, a small crossbar
+    // where the shaft crosses the hour radius, and a lozenge tip spanning notch
+    // to envelope so it reads against both every other second.
     var peakY = CY - F.second * R;
     var troughY = CY - F.minute * R;
     var waistY = (peakY + troughY) / 2;
     var lhw = W.lozenge * R / 2;
+    var chw = W.crossbar * R / 2;
+    var barY = CY - F.hour * R;
 
     return '' +
       '<svg class="zz-dial" viewBox="0 0 ' + VIEW + ' ' + VIEW + '" aria-hidden="true" focusable="false">' +
@@ -189,6 +192,8 @@
         '<g class="zz-second">' +
           '<line class="zz-hand-second-shaft" x1="' + CX + '" y1="' + n2(CY + F.tail * R) +
             '" x2="' + CX + '" y2="' + n2(waistY) + '" stroke-width="' + n2(W.second * R) + '"/>' +
+          '<line class="zz-hand-second-bar" x1="' + n2(CX - chw) + '" y1="' + n2(barY) +
+            '" x2="' + n2(CX + chw) + '" y2="' + n2(barY) + '" stroke-width="' + n2(W.second * R) + '"/>' +
           '<polygon class="zz-hand-second" points="' +
             CX + ',' + n2(peakY) + ' ' + n2(CX + lhw) + ',' + n2(waistY) + ' ' +
             CX + ',' + n2(troughY) + ' ' + n2(CX - lhw) + ',' + n2(waistY) + '"/>' +
