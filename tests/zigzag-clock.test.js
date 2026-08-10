@@ -16,9 +16,9 @@ describe('the time system', () => {
   });
 
   test.each([
-    [0,     '00:00:00', '10:00:00', '00000'],
-    [38241, '07:32:41', '7:32:41',  '38241'],
-    [99999, '19:49:99', '9:49:99',  '99999'],
+    [0,     '00:00:00', '0:00:00', '00000'],
+    [38241, '07:32:41', '7:32:41', '38241'],
+    [99999, '19:49:99', '9:49:99', '99999'],
   ])('count %i reads as %s', (N, time20, time, count) => {
     const f = clock.format(N);
     expect(f.time20).toBe(time20);
@@ -32,12 +32,23 @@ describe('the time system', () => {
     expect([t.hour20, t.minute, t.second]).toEqual([7, 32, 41]);
   });
 
-  test('hour 0 of each half reads as 10 on the half-day face', () => {
-    expect(clock.fields(0).hour10).toBe(10);
-    expect(clock.fields(50000).hour10).toBe(10);
+  test('the half-day face counts from zero, so each half opens at hour 0', () => {
+    expect(clock.fields(0).hour10).toBe(0);
+    expect(clock.fields(50000).hour10).toBe(0);
     expect(clock.fields(0).half).toBe(0);
     expect(clock.fields(49999).half).toBe(0);
     expect(clock.fields(50000).half).toBe(1);
+  });
+
+  // The readout carries hour20 and the dial hour10, so the two must agree on
+  // every hour of the day, not just the ones either happens to be tested at.
+  test('the dial reading is the 20-hour reading modulo the half-day', () => {
+    for (let h = 0; h < 20; h++) {
+      const t = clock.fields(h * 5000);
+      expect(t.hour20).toBe(h);
+      expect(t.hour10).toBe(h % 10);
+      expect(t.half).toBe(h < 10 ? 0 : 1);
+    }
   });
 
   test('the day count is the fraction of the day in hundred-thousandths', () => {

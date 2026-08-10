@@ -3293,12 +3293,5 @@ mark {
   color: var(--zz-muted);
   padding: 0 0.04em;
 }
-#zigzag-clock .zz-half {
-  margin-left: 0.35em;
-  font-size: 0.45em;
-  letter-spacing: 0.12em;
-  color: var(--zz-muted);
-  vertical-align: 0.55em;
-}
 
 /*# sourceMappingURL=main.css.map */
