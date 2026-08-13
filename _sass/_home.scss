@@ -1,0 +1,24 @@
+// Homepage section grid.
+// One column on narrow screens; two columns once there is room, so the
+// sections pair up as: Crosswords | Boralverse / Poetry | Everything Else.
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-unit;
+}
+
+.home-section {
+  // The last paragraph in a section shouldn't add space on top of the grid gap.
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: $spacing-unit * 2;
+    row-gap: $spacing-unit * 1.5;
+  }
+}

@@ -676,6 +676,23 @@ pre, code {
   border: none !important;
 }
 
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.home-section > :last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+    row-gap: 45px;
+  }
+}
 .xw-widget {
   --xw-bg: #1a1a1a;
   --xw-bg-cell: #262626;
