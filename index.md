@@ -46,16 +46,9 @@ permalink: /
 
 <section class="home-section" markdown="1">
 
-## Dungeons & Dragons
-
-</section>
-
-<section class="home-section" markdown="1">
-
 ## Everything Else
 
 [D&D Homebrew](/dnd/) – Homebrew material for Dungeons and Dragons (2024).
-
 
 [English Vocab Test](/vocab-test/) - A 50-question vocab test which uses a sigmoid model.
 
