@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: homebrew
 title: Word Domain
 permalink: /dnd/homebrew/subclass-cleric-word/
 description: A homebrew Cleric subclass for the 2024 rules — heralds who dictate the flow of battle
@@ -8,8 +8,7 @@ kind: Cleric Subclass
 tagline: Speak Truth and Make All Listen
 ---
 
-<p class="hb-kicker">{{ page.kind }}</p>
-<p class="hb-tagline">{{ page.tagline }}</p>
+<div class="hb-columns" markdown="1">
 
 <div class="hb-flavour" markdown="1">
 
@@ -19,9 +18,7 @@ Gods of this domain are patrons of truth, law and prophecy. Their power is sough
 
 </div>
 
-<div class="hb-columns" markdown="1">
-
-<div class="hb-feature hb-feature--wide" markdown="1">
+<div class="hb-feature" markdown="1">
 
 ## <span class="hb-tag">Level 3</span> Word Domain Spells
 
@@ -78,5 +75,3 @@ Once per turn, when you cast a leveled Cleric spell that has a Verbal component,
 </div>
 
 </div>
-
-{% include homebrew-nav.html %}

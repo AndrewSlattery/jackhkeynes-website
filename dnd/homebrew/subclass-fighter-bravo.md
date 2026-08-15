@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: homebrew
 title: Bravo
 permalink: /dnd/homebrew/subclass-fighter-bravo/
 description: A homebrew Fighter subclass for the 2024 rules — cunning professionals who fight with their wits
@@ -8,16 +8,13 @@ kind: Fighter Subclass
 tagline: Outfox and Outfight Every Opponent
 ---
 
-<p class="hb-kicker">{{ page.kind }}</p>
-<p class="hb-tagline">{{ page.tagline }}</p>
+<div class="hb-columns" markdown="1">
 
 <div class="hb-flavour" markdown="1">
 
 Bravos are cunning professionals as comfortable in a back-alley brawl as a candlelit duel. They combine martial skill with sharp intelligence to size up opponents before committing, exploit every opening their enemies offer, and extricate themselves from danger with practiced ease.
 
 </div>
-
-<div class="hb-columns" markdown="1">
 
 <div class="hb-feature" markdown="1">
 
@@ -70,5 +67,3 @@ Using this feature doesn't expend a use if the target has the Blinded, Grappled,
 </div>
 
 </div>
-
-{% include homebrew-nav.html %}

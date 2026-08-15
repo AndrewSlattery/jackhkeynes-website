@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: homebrew
 title: Stobor
 permalink: /dnd/homebrew/species-stobor/
 description: A homebrew species for the 2024 rules — mortals descended from awakened facsimiles of people
@@ -8,7 +8,7 @@ kind: Species
 tagline: Mortals descended from awakened facsimiles of people
 ---
 
-<p class="hb-kicker">{{ page.kind }}</p>
+<div class="hb-columns" markdown="1">
 
 <div class="hb-flavour" markdown="1">
 
@@ -21,8 +21,6 @@ Many Stobor communities are found in the oldest districts of sprawling cities, c
 A Stobor chooses whether to embrace or adapt the ancestral magic of their crafted lineage. The three lineages are described below.
 
 </div>
-
-<div class="hb-columns" markdown="1">
 
 <div class="hb-feature" markdown="1">
 
@@ -48,17 +46,9 @@ Stobor who have the ushabti lineage trace their ancestry to stone crypt sentinel
 
 </div>
 
-</div>
-
-<div class="hb-columns" markdown="1">
-
-<div class="hb-feature hb-feature--wide" markdown="1">
+<div class="hb-feature" markdown="1">
 
 ## Stobor Traits
-
-</div>
-
-<div class="hb-feature" markdown="1">
 
 <dl class="hb-statline">
   <dt>Creature Type</dt>
@@ -118,5 +108,3 @@ You have Advantage on saving throws you make to avoid or end the Paralyzed and P
 </div>
 
 </div>
-
-{% include homebrew-nav.html %}

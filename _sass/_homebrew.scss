@@ -1,21 +1,35 @@
 // ── Homebrew D&D pages ───────────────────────────────────────────────────────
 //
-// Layout for the homebrew subclass and species pages (dnd/homebrew/*.md) and
-// the section index (dnd/index.md).
+// Layout for the homebrew subclass and species pages (dnd/homebrew/*.md, which
+// use _layouts/homebrew.html) and the section index (dnd/index.md).
 //
-// Rules text is written as a run of .hb-feature blocks inside a .hb-columns
-// wrapper. CSS multicolumn then fits as many ~22em columns as the wrapper
-// allows — one on a phone, two on a laptop, three at the full 1200px content
-// width — so the pages read like a page of the rulebook without a media query
-// per breakpoint. `break-inside: avoid` keeps a feature's heading with its
-// text, and .hb-feature--wide spans the whole flow for tables too wide to sit
-// in a single column.
+// A page is one .hb-columns flow: the flavour text, then a run of .hb-feature
+// blocks. CSS multicolumn fits as many ~22em columns as the wrapper allows —
+// one on a phone, two on a laptop, three at the full 1200px content width — so
+// the pages read like a page of the rulebook without a media query per
+// breakpoint, and everything on the page is packed into columns of equal
+// height rather than being stacked full-width down the page.
+//
+// `break-inside: avoid` keeps a feature's heading with its text. Flavour text
+// is deliberately left breakable, so a long lore section flows across the
+// columns instead of standing as one tall block in the first of them.
+//
+// .hb-feature--wide spans the whole flow, for a table too wide to sit in a
+// single column. It costs a full-width band, so it is used only where the
+// table really needs it (the four-column Stobor lineages table).
 
-// ── Page head ────────────────────────────────────────────────────────────────
-// Sits under the layout's <h1>: what the thing is, then its rulebook tagline.
+// ── Page head (_layouts/homebrew.html) ───────────────────────────────────────
+// Kicker, title, tagline as one tight band: what the thing is, what it is
+// called, and its rulebook tagline.
+
+.hb-header {
+  // Minima's .post-header leaves a 30px gap under a header that here is three
+  // closely-related lines rather than a title and a date.
+  margin-bottom: 0.9em;
+}
 
 .hb-kicker {
-  margin-bottom: 0.1em;
+  margin-bottom: 0.15em;
   font-size: 0.78em;
   font-weight: 600;
   text-transform: uppercase;
@@ -24,22 +38,10 @@
 }
 
 .hb-tagline {
-  margin-bottom: 0.8em;
+  margin: 0.25em 0 0;
   font-size: 1.05em;
   font-style: italic;
   color: $color-text-dim;
-}
-
-// Introductory flavour text. Kept to a readable measure rather than the full
-// content width, and set dimmer than the rules text it introduces.
-.hb-flavour {
-  max-width: 46em;
-  margin-bottom: $spacing-unit;
-  padding-left: 1em;
-  border-left: 3px solid $color-border;
-  color: $color-text-dim;
-
-  > :last-child { margin-bottom: 0; }
 }
 
 // ── Feature columns ──────────────────────────────────────────────────────────
@@ -50,36 +52,70 @@
   margin-bottom: $spacing-unit;
 }
 
+// Introductory flavour text, set dimmer than the rules text it introduces. It
+// sits inside the column flow rather than in a band above it: as a full-width
+// lede it would be a narrow strip of text with the rest of the line length
+// empty beside it, and the features would start a screen further down.
+.hb-flavour {
+  color: $color-text-dim;
+
+  // Continuous prose, so — unlike a feature — it is left breakable and may run
+  // from the foot of one column to the head of the next.
+  p { margin-bottom: 0.6em; }
+}
+
 .hb-feature {
   // Keep a feature whole: its heading must not be stranded at the foot of a
   // column, and its rules text must not be split across two.
   break-inside: avoid;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.15em;
 
   > :last-child { margin-bottom: 0; }
 
-  // Overrides minima's h2 (26px, no rule), which is sized for a full-width
-  // page rather than a 22em column.
+  // Overrides minima's h2 (32px in .post-content, no rule), which is sized for
+  // a full-width page rather than a 22em column.
   h2 {
-    margin-bottom: 0.4em;
-    padding-bottom: 0.3em;
+    margin-bottom: 0.3em;
+    padding-bottom: 0.25em;
     border-bottom: 1px solid $color-border;
     font-size: 1.12em;
     font-weight: 600;
     color: $color-text-alt;
   }
 
-  p, ul, ol { margin-bottom: 0.7em; }
+  p, ul, ol { margin-bottom: 0.6em; }
 
-  ul, ol { padding-left: 0; }
+  // Minima indents lists by a full 30px, which is a lot of a 22em column to
+  // give up; this leaves just enough for the marker to hang in.
+  ul, ol {
+    margin-left: 1.1em;
+    padding-left: 0;
+  }
 
-  li { margin-bottom: 0.4em; }
+  li { margin-bottom: 0.3em; }
 }
 
-// A feature that spans every column — used for the spell and lineage tables,
-// which are unreadable squeezed into one.
+// A feature that spans every column. Laid out as a flex row so the band it
+// costs is filled: the heading takes the full width, and the explanatory text
+// and the table sit side by side beneath it rather than one above the other.
 .hb-feature--wide {
   column-span: all;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 2.5em;
+
+  > h2 { flex: 0 0 100%; }
+
+  > p {
+    flex: 1 1 22em;
+    max-width: 46em;
+  }
+
+  > .hb-table-wrap {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
 }
 
 // The small label above a feature name: "Level 3" on subclasses, "Trait" or
@@ -99,7 +135,7 @@
   grid-template-columns: max-content 1fr;
   column-gap: 0.6em;
   row-gap: 0.2em;
-  margin: 0 0 0.8em;
+  margin: 0 0 0.6em;
 
   dt {
     font-weight: 600;
@@ -114,27 +150,25 @@
 // in the accent colour, faint striping, faint borders. Minima's own table
 // rules (white text, mid-grey stripes) are far too heavy next to rules text.
 
-// Spell tables have short cells, so a table spanning the full 1200px content
-// width would be mostly empty. Inside a spanning feature the table is sized to
-// its contents instead, and .hb-table-wrap scrolls it on a phone, where four
-// columns of spell names are wider than the screen.
+// Four columns of spell names are wider than a phone screen, so a table is
+// wrapped in .hb-table-wrap and scrolls within it rather than pushing the page
+// sideways.
 .hb-table-wrap {
   overflow-x: auto;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
 
   table { margin-bottom: 0; }
 }
 
 .hb-columns table {
   width: 100%;
-  margin: 0 0 0.8em;
+  margin: 0 0 0.6em;
   border: 1px solid $color-border;
   border-collapse: collapse;
-  font-size: 0.92em;
   color: $color-text;
 
   th, td {
-    padding: 6px 10px;
+    padding: 5px 10px;
     border: 1px solid $color-border;
     text-align: left;
     vertical-align: top;
@@ -152,8 +186,8 @@
 }
 
 // A table in a normal column fills it; one in a spanning feature is sized to
-// its contents rather than stretched across the whole page. (Written long-hand
-// so it outweighs the width: 100% above.)
+// its contents, so the text beside it gets the rest of the band. (Written
+// long-hand so it outweighs the width: 100% above.)
 .hb-columns .hb-feature--wide table {
   width: auto;
   max-width: 100%;
@@ -162,9 +196,11 @@
 // ── Section index (dnd/index.md) ─────────────────────────────────────────────
 
 .hb-index {
+  // auto-fit rather than auto-fill: three cards stretch to fill the row
+  // instead of leaving an empty fourth track at the full content width.
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
-  gap: $spacing-unit * 0.6;
+  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+  gap: $spacing-unit * 0.5;
   margin: 0 0 $spacing-unit;
   padding: 0;
   list-style: none;
@@ -175,7 +211,7 @@
 .hb-card {
   display: block;
   height: 100%;
-  padding: 0.9em 1em;
+  padding: 0.8em 1em;
   border: 1px solid $color-border;
   border-radius: 4px;
   background-color: $color-bg-card;
@@ -197,7 +233,7 @@
 
   .hb-card-title {
     display: block;
-    margin: 0.15em 0;
+    margin: 0.1em 0;
     font-size: 1.15em;
     font-weight: 600;
     color: $color-text-alt;
@@ -218,8 +254,7 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.4em 1.2em;
-  margin-top: $spacing-unit;
-  padding-top: 0.8em;
+  padding-top: 0.7em;
   border-top: 1px solid $color-border;
   font-size: 0.9em;
 

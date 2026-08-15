@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  Layout for the D&D homebrew pages (dnd/homebrew/*.md).
+
+  The same header as _layouts/page.html, minus the parts a standalone rules
+  page has nothing to put in: the date line (pages have no date, so page.html
+  renders an empty <time>), the puzzle embed, and the divider and prev/next
+  nav. Dropping them recovers about a hundred pixels above and below the rules
+  text. The kicker and tagline come from the page's own front matter, so the
+  index at dnd/index.md and the pages themselves show the same wording.
+{%- endcomment -%}
+
+<article class="post">
+
+  <header class="post-header hb-header">
+    {%- if page.kind %}
+    <p class="hb-kicker">{{ page.kind }}</p>
+    {%- endif %}
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    {%- if page.tagline %}
+    <p class="hb-tagline">{{ page.tagline }}</p>
+    {%- endif %}
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% include homebrew-nav.html %}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
