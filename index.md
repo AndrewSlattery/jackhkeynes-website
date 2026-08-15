@@ -46,6 +46,14 @@ permalink: /
 
 <section class="home-section" markdown="1">
 
+## Dungeons & Dragons
+
+[Homebrew](/dnd/) – Subclasses and species I have written for the 2024 rules.
+
+</section>
+
+<section class="home-section" markdown="1">
+
 ## Everything Else
 
 [English Vocab Test](/vocab-test/) - A 50-question test which estimates how many English words you know using a sigmoid model.

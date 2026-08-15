@@ -1,0 +1,18 @@
+{% comment %}
+  Foot-of-page links between the homebrew pages (dnd/homebrew/*.md), styled by
+  .hb-nav in _sass/_homebrew.scss.
+
+  The list is built from every page with `homebrew: true` in its front matter,
+  minus the current one, so a new homebrew page joins the nav — and the index
+  at dnd/index.md, which reads the same flag — without editing anything here.
+{% endcomment %}
+{%- assign hb_pages = site.pages | where: "homebrew", true | sort: "title" -%}
+<nav class="hb-nav">
+  <span class="hb-nav-label">More homebrew:</span>
+  {%- for hb in hb_pages -%}
+    {%- unless hb.url == page.url %}
+  <a href="{{ hb.url | relative_url }}">{{ hb.title }}</a>
+    {%- endunless -%}
+  {%- endfor %}
+  <a href="{{ '/dnd/' | relative_url }}">All D&amp;D pages</a>
+</nav>

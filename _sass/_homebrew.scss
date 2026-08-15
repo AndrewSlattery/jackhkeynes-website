@@ -1,0 +1,227 @@
+// ── Homebrew D&D pages ───────────────────────────────────────────────────────
+//
+// Layout for the homebrew subclass and species pages (dnd/homebrew/*.md) and
+// the section index (dnd/index.md).
+//
+// Rules text is written as a run of .hb-feature blocks inside a .hb-columns
+// wrapper. CSS multicolumn then fits as many ~22em columns as the wrapper
+// allows — one on a phone, two on a laptop, three at the full 1200px content
+// width — so the pages read like a page of the rulebook without a media query
+// per breakpoint. `break-inside: avoid` keeps a feature's heading with its
+// text, and .hb-feature--wide spans the whole flow for tables too wide to sit
+// in a single column.
+
+// ── Page head ────────────────────────────────────────────────────────────────
+// Sits under the layout's <h1>: what the thing is, then its rulebook tagline.
+
+.hb-kicker {
+  margin-bottom: 0.1em;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $color-accent;
+}
+
+.hb-tagline {
+  margin-bottom: 0.8em;
+  font-size: 1.05em;
+  font-style: italic;
+  color: $color-text-dim;
+}
+
+// Introductory flavour text. Kept to a readable measure rather than the full
+// content width, and set dimmer than the rules text it introduces.
+.hb-flavour {
+  max-width: 46em;
+  margin-bottom: $spacing-unit;
+  padding-left: 1em;
+  border-left: 3px solid $color-border;
+  color: $color-text-dim;
+
+  > :last-child { margin-bottom: 0; }
+}
+
+// ── Feature columns ──────────────────────────────────────────────────────────
+
+.hb-columns {
+  columns: 22em 3;
+  column-gap: 2.5em;
+  margin-bottom: $spacing-unit;
+}
+
+.hb-feature {
+  // Keep a feature whole: its heading must not be stranded at the foot of a
+  // column, and its rules text must not be split across two.
+  break-inside: avoid;
+  margin-bottom: 1.5em;
+
+  > :last-child { margin-bottom: 0; }
+
+  // Overrides minima's h2 (26px, no rule), which is sized for a full-width
+  // page rather than a 22em column.
+  h2 {
+    margin-bottom: 0.4em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $color-border;
+    font-size: 1.12em;
+    font-weight: 600;
+    color: $color-text-alt;
+  }
+
+  p, ul, ol { margin-bottom: 0.7em; }
+
+  ul, ol { padding-left: 0; }
+
+  li { margin-bottom: 0.4em; }
+}
+
+// A feature that spans every column — used for the spell and lineage tables,
+// which are unreadable squeezed into one.
+.hb-feature--wide {
+  column-span: all;
+}
+
+// The small label above a feature name: "Level 3" on subclasses, "Trait" or
+// "Lineage" on species.
+.hb-tag {
+  display: block;
+  font-size: 0.68em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: $color-accent;
+}
+
+// Creature type / size / speed, as a two-column grid so the values line up.
+.hb-statline {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 0.6em;
+  row-gap: 0.2em;
+  margin: 0 0 0.8em;
+
+  dt {
+    font-weight: 600;
+    color: $color-text-alt;
+  }
+
+  dd { margin: 0; }
+}
+
+// ── Tables ───────────────────────────────────────────────────────────────────
+// Follows the wiki's table treatment (_boralverse-wiki.scss): dark header row
+// in the accent colour, faint striping, faint borders. Minima's own table
+// rules (white text, mid-grey stripes) are far too heavy next to rules text.
+
+// Spell tables have short cells, so a table spanning the full 1200px content
+// width would be mostly empty. Inside a spanning feature the table is sized to
+// its contents instead, and .hb-table-wrap scrolls it on a phone, where four
+// columns of spell names are wider than the screen.
+.hb-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 0.8em;
+
+  table { margin-bottom: 0; }
+}
+
+.hb-columns table {
+  width: 100%;
+  margin: 0 0 0.8em;
+  border: 1px solid $color-border;
+  border-collapse: collapse;
+  font-size: 0.92em;
+  color: $color-text;
+
+  th, td {
+    padding: 6px 10px;
+    border: 1px solid $color-border;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: $color-bg-dark;
+    color: $color-accent;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+// A table in a normal column fills it; one in a spanning feature is sized to
+// its contents rather than stretched across the whole page. (Written long-hand
+// so it outweighs the width: 100% above.)
+.hb-columns .hb-feature--wide table {
+  width: auto;
+  max-width: 100%;
+}
+
+// ── Section index (dnd/index.md) ─────────────────────────────────────────────
+
+.hb-index {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17em, 1fr));
+  gap: $spacing-unit * 0.6;
+  margin: 0 0 $spacing-unit;
+  padding: 0;
+  list-style: none;
+
+  li { margin: 0; }
+}
+
+.hb-card {
+  display: block;
+  height: 100%;
+  padding: 0.9em 1em;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  background-color: $color-bg-card;
+  text-decoration: none;
+
+  &:hover {
+    border-color: $color-border-hover;
+    text-decoration: none;
+  }
+
+  .hb-card-kind {
+    display: block;
+    font-size: 0.72em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $color-accent;
+  }
+
+  .hb-card-title {
+    display: block;
+    margin: 0.15em 0;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: $color-text-alt;
+  }
+
+  .hb-card-tagline {
+    display: block;
+    font-size: 0.9em;
+    font-style: italic;
+    color: $color-text-dim;
+  }
+}
+
+// ── Foot of a homebrew page: links to the others (_includes/homebrew-nav.html)
+
+.hb-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4em 1.2em;
+  margin-top: $spacing-unit;
+  padding-top: 0.8em;
+  border-top: 1px solid $color-border;
+  font-size: 0.9em;
+
+  .hb-nav-label { color: $color-text-muted; }
+}
