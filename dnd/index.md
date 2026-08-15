@@ -2,12 +2,10 @@
 layout: page
 title: "Dungeons & Dragons"
 permalink: /dnd/
-description: Homebrew subclasses and species I have written for the 2024 rules
+description: Homebrew material for Dungeons & Dragons (2024)
 ---
 
-Homebrew material I have written for the 2024 *Dungeons &amp; Dragons* rules. Each
-page sets out a single subclass or species in full, in the wording it would have
-in a rulebook.
+Homebrew material for the 2024 *Dungeons &amp; Dragons* rules.
 
 {%- assign hb_pages = site.pages | where: "homebrew", true | sort: "title" %}
 <ul class="hb-index">

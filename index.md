@@ -12,9 +12,9 @@ permalink: /
 
 [Keynesian Cryptics](/cryptics/) — My main crosswording blog.
 
-[Bluejacket](/cryptics/bluejacket/) — Crosswords I have published under the pseudonym *Bluejacket*.
+[Bluejacket](/cryptics/bluejacket/) — Crosswords published under the pseudonym *Bluejacket*.
 
-[Clue Database](/cryptics/database/) – A searchable archive of the clues I have written.
+[Clue Database](/cryptics/database/) – A searchable archive of clues I have written.
 
 [Cryptic Indicators](/cryptics/indicators/) – Lists of cryptic wordplay indicators.
 
@@ -38,9 +38,9 @@ permalink: /
 
 ## Poetry and Translations
 
-[Beowulf](/beowulf/) — My in-progress verse translation of *Beowulf*, in parallel with the Old English text.
+[Beowulf](/beowulf/) — My in-progress blank-verse translation of *Beowulf*.
 
-[Invictus](/invictus/) — My French verse translation of Henley's *Invictus*, in parallel with the original.
+[Invictus](/invictus/) — My French translation of Henley's *Invictus*.
 
 </section>
 
@@ -48,15 +48,16 @@ permalink: /
 
 ## Dungeons & Dragons
 
-[Homebrew](/dnd/) – Subclasses and species I have written for the 2024 rules.
-
 </section>
 
 <section class="home-section" markdown="1">
 
 ## Everything Else
 
-[English Vocab Test](/vocab-test/) - A 50-question test which estimates how many English words you know using a sigmoid model.
+[D&D Homebrew](/dnd/) – Homebrew material for Dungeons and Dragons (2024).
+
+
+[English Vocab Test](/vocab-test/) - A 50-question vocab test which uses a sigmoid model.
 
 </section>
 
