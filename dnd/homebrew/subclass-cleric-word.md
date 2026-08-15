@@ -8,8 +8,6 @@ kind: Cleric Subclass
 tagline: Speak Truth and Make All Listen
 ---
 
-<div class="hb-columns" markdown="1">
-
 <div class="hb-flavour" markdown="1">
 
 The Word Domain treats language as the force that undergirds reality. Clerics who wield this magic are heralds who dictate the flow of battle, inspiring heroism in their allies and imposing edicts upon their enemies.
@@ -71,7 +69,5 @@ Once you use this feature, you can't use it again until you finish a Long Rest.
 ## <span class="hb-tag">Level 17</span> Word Perfect
 
 Once per turn, when you cast a leveled Cleric spell that has a Verbal component, you can immediately apply either the Hope or Havoc effect to one creature of your choice within 60 feet of yourself.
-
-</div>
 
 </div>

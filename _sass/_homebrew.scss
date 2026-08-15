@@ -3,10 +3,10 @@
 // Layout for the homebrew subclass and species pages (dnd/homebrew/*.md, which
 // use _layouts/homebrew.html) and the section index (dnd/index.md).
 //
-// A page is one .hb-columns flow: the flavour text, then a run of .hb-feature
-// blocks. CSS multicolumn fits as many ~22em columns as the wrapper allows —
-// one on a phone, two on a laptop, three at the full 1200px content width — so
-// the pages read like a page of the rulebook without a media query per
+// A page is one .hb-columns flow: the title block, the flavour text, then a
+// run of .hb-feature blocks. CSS multicolumn fits as many ~22em columns as the
+// page allows — one on a phone, two on a laptop, three or four on a desktop —
+// so the pages read like a page of the rulebook without a media query per
 // breakpoint, and everything on the page is packed into columns of equal
 // height rather than being stacked full-width down the page.
 //
@@ -18,14 +18,35 @@
 // single column. It costs a full-width band, so it is used only where the
 // table really needs it (the four-column Stobor lineages table).
 
+// ── Page width ───────────────────────────────────────────────────────────────
+// These pages break out of the site wrapper ($content-width, 1200px) to take
+// 96% of the viewport, which is room for a fourth column. margin-left pulls
+// the block back by half of what it gained: the wrapper is itself centred on
+// the viewport, so that re-centres the wider block on the screen. Below the
+// wrapper's own width there is nothing to break out of, so it is left alone.
+
+$hb-wide-width: unquote("min(96vw, 1700px)");
+
+@media screen and (min-width: 1280px) {
+  .hb-page {
+    width: $hb-wide-width;
+    margin-left: calc((100% - #{$hb-wide-width}) / 2);
+  }
+}
+
 // ── Page head (_layouts/homebrew.html) ───────────────────────────────────────
-// Kicker, title, tagline as one tight band: what the thing is, what it is
-// called, and its rulebook tagline.
+// Kicker, title and tagline — what the thing is, what it is called, and its
+// rulebook tagline. It is the first item in the column flow rather than a band
+// across the top of the page, so it takes one column's width and the rules
+// text starts alongside it.
 
 .hb-header {
-  // Minima's .post-header leaves a 30px gap under a header that here is three
-  // closely-related lines rather than a title and a date.
+  break-inside: avoid;
   margin-bottom: 0.9em;
+
+  // Minima's .post-title has no bottom margin of its own and a 1.0 line-height
+  // that runs the three lines together at this size.
+  .post-title { line-height: 1.05; }
 }
 
 .hb-kicker {
@@ -47,7 +68,9 @@
 // ── Feature columns ──────────────────────────────────────────────────────────
 
 .hb-columns {
-  columns: 22em 3;
+  // Up to four columns, so the extra width won from the wrapper above buys
+  // another column rather than a longer line.
+  columns: 22em 4;
   column-gap: 2.5em;
   margin-bottom: $spacing-unit;
 }

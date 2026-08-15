@@ -5,27 +5,30 @@ layout: default
 {%- comment -%}
   Layout for the D&D homebrew pages (dnd/homebrew/*.md).
 
-  The same header as _layouts/page.html, minus the parts a standalone rules
-  page has nothing to put in: the date line (pages have no date, so page.html
-  renders an empty <time>), the puzzle embed, and the divider and prev/next
-  nav. Dropping them recovers about a hundred pixels above and below the rules
-  text. The kicker and tagline come from the page's own front matter, so the
-  index at dnd/index.md and the pages themselves show the same wording.
+  The .hb-columns flow lives here rather than in each page's markdown, because
+  the title block is part of it: kicker, title and tagline sit at the head of
+  the first column rather than in a band of their own across the page. The page
+  files therefore contain only .hb-flavour and .hb-feature blocks, which become
+  direct children of the flow (as .hb-feature--wide must be, to span it).
+
+  This is _layouts/page.html without the parts a standalone rules page has
+  nothing to put in: the date line (pages have no date, so page.html renders an
+  empty <time>), the puzzle embed, and the divider and prev/next nav.
 {%- endcomment -%}
 
-<article class="post">
+<article class="post hb-page">
 
-  <header class="post-header hb-header">
-    {%- if page.kind %}
-    <p class="hb-kicker">{{ page.kind }}</p>
-    {%- endif %}
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    {%- if page.tagline %}
-    <p class="hb-tagline">{{ page.tagline }}</p>
-    {%- endif %}
-  </header>
+  <div class="hb-columns">
+    <header class="hb-header">
+      {%- if page.kind %}
+      <p class="hb-kicker">{{ page.kind }}</p>
+      {%- endif %}
+      <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+      {%- if page.tagline %}
+      <p class="hb-tagline">{{ page.tagline }}</p>
+      {%- endif %}
+    </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
 

@@ -8,8 +8,6 @@ kind: Species
 tagline: Mortals descended from awakened facsimiles of people
 ---
 
-<div class="hb-columns" markdown="1">
-
 <div class="hb-flavour" markdown="1">
 
 Stobor (pronounced STOH-bor) are mortals descended from awakened facsimiles of people. Whether their ancestors were clay tomb sentinels raised by priest-kings, wooden puppets animated by fey tricksters, or porcelain dolls infused with life, that animating magic eventually settled into true flesh and blood.
@@ -102,8 +100,6 @@ You have Advantage on saving throws you make to avoid or end the Paralyzed and P
 | Faience    | *Thaumaturgy* | *Dissonant Whispers* | *Suggestion*     |
 | Marionette | *Mage Hand*   | *Command*            | *Rope Trick*     |
 | Ushabti    | *True Strike* | *Sanctuary*          | *Enlarge/Reduce* |
-
-</div>
 
 </div>
 
