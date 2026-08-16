@@ -69,10 +69,55 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
 
 .hb-columns {
   // Up to four columns, so the extra width won from the wrapper above buys
-  // another column rather than a longer line.
-  columns: 22em 4;
+  // another column rather than a longer line. The 19em minimum is a rulebook
+  // measure — about 44 characters at the narrowest — and is what lets a fourth
+  // column appear at 1440px instead of three columns of 60 characters.
+  columns: 19em 4;
   column-gap: 2.5em;
   margin-bottom: $spacing-unit;
+}
+
+// ── Split flow ───────────────────────────────────────────────────────────────
+// A page can divide its content into two side-by-side flows by putting
+// <!--split--> in the markdown (see _layouts/homebrew.html). The point of this
+// is a table too wide for one column: `column-span: all` inside the right-hand
+// flow spans that flow only, so the table takes the two rightmost columns of
+// the page instead of costing a band across all four. CSS cannot express that
+// directly — column-span is all-or-nothing, and the integer form in the Level 2
+// draft is unimplemented — so two flows in a grid is the way to get it.
+//
+// The cost is that the split point is chosen by hand: the two halves balance
+// against each other only as well as the author divides them, and want
+// re-checking when the text changes.
+.hb-spread {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2.5em;
+  align-items: start;
+
+  // A grid track's automatic minimum is its content's min-content width, which
+  // here is the lineages table — so without this the track refuses to shrink
+  // below 474px and the page scrolls sideways on a phone. The table has its
+  // own scroll container for that.
+  > * { min-width: 0; }
+}
+
+// Side by side only once each half can hold two columns — a half with one
+// 600px column would be far worse than not splitting at all. Below that the
+// halves stack, which costs against a single flow: two ragged sets of column
+// bottoms instead of one.
+@media screen and (min-width: 1330px) {
+  .hb-spread {
+    grid-template-columns: 1fr 1fr;
+
+    // A half is half the page, so it takes a slightly smaller minimum than the
+    // 19em above to fit the two columns that make the split worth having.
+    // 18em is still a rulebook measure, and in practice the halves render
+    // wider than it — about 22em at 1600px — because multicol shares out the
+    // leftover space. This threshold is what 18em × 2 + the gap works out to
+    // once the page is 96vw.
+    .hb-columns { columns: 18em 2; }
+  }
 }
 
 // Introductory flavour text, set dimmer than the rules text it introduces. It
@@ -92,6 +137,24 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   // column, and its rules text must not be split across two.
   break-inside: avoid;
   margin-bottom: 1.15em;
+
+  // A feature long enough to unbalance the whole flow opts out with
+  // --flow, and wraps its heading and opening paragraph in .hb-lead so the
+  // two travel together. The heading can then never be stranded, while the
+  // paragraphs after the lead are free to run into the next column. Doing
+  // this with `break-after: avoid` on the heading instead does not work:
+  // Chrome honours it only sometimes, and strands headings when it doesn't.
+  &.hb-feature--flow {
+    break-inside: auto;
+
+    > p, > ul, > ol { break-inside: avoid; }
+  }
+
+  .hb-lead {
+    break-inside: avoid;
+
+    > :last-child { margin-bottom: 0.6em; }
+  }
 
   > :last-child { margin-bottom: 0; }
 

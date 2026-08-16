@@ -44,6 +44,11 @@ Stobor who have the ushabti lineage trace their ancestry to stone crypt sentinel
 
 </div>
 
+<!-- Lore and lineages to the left, rules to the right. The Stobor Lineages
+     table then spans the two right-hand columns rather than the whole page. -->
+
+<!--split-->
+
 <div class="hb-feature" markdown="1">
 
 ## Stobor Traits
@@ -61,11 +66,15 @@ As a Stobor, you have these special traits.
 
 </div>
 
-<div class="hb-feature" markdown="1">
+<div class="hb-feature hb-feature--flow" markdown="1">
+
+<div class="hb-lead" markdown="1">
 
 ## <span class="hb-tag">Trait</span> Stobor Lineage
 
 You are part of a lineage that grants you supernatural abilities. Choose a lineage from the Stobor Lineages table. You gain the level 1 benefit, a cantrip, of the chosen lineage.
+
+</div>
 
 When you reach character levels 3 and 5, you learn a leveled spell, as shown on the table. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a Long Rest. You can also cast the spell using any spell slots you have of the appropriate level.
 

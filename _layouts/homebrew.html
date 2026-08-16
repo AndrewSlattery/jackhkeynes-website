@@ -11,14 +11,22 @@ layout: default
   files therefore contain only .hb-flavour and .hb-feature blocks, which become
   direct children of the flow (as .hb-feature--wide must be, to span it).
 
+  A page holding a table too wide for one column can divide itself into two
+  side-by-side flows by putting <!--split--> in its markdown at the dividing
+  point: a spanning table then spans only its own half of the page. Pages
+  without the marker render exactly one flow, as before. See .hb-spread in
+  _sass/_homebrew.scss for what the split buys and what it costs.
+
   This is _layouts/page.html without the parts a standalone rules page has
   nothing to put in: the date line (pages have no date, so page.html renders an
   empty <time>), the puzzle embed, and the divider and prev/next nav.
 {%- endcomment -%}
 
+{%- assign hb_parts = content | split: '<!--split-->' -%}
+
 <article class="post hb-page">
 
-  <div class="hb-columns">
+  {%- capture hb_head %}
     <header class="hb-header">
       {%- if page.kind %}
       <p class="hb-kicker">{{ page.kind }}</p>
@@ -28,9 +36,24 @@ layout: default
       <p class="hb-tagline">{{ page.tagline }}</p>
       {%- endif %}
     </header>
+  {%- endcapture -%}
 
+  {%- if hb_parts.size > 1 -%}
+  <div class="hb-spread">
+    <div class="hb-columns">
+      {{ hb_head }}
+      {{ hb_parts[0] }}
+    </div>
+    <div class="hb-columns">
+      {{ hb_parts[1] }}
+    </div>
+  </div>
+  {%- else -%}
+  <div class="hb-columns">
+    {{ hb_head }}
     {{ content }}
   </div>
+  {%- endif -%}
 
   {% include homebrew-nav.html %}
 

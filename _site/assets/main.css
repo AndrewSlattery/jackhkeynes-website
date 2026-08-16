@@ -3342,11 +3342,29 @@ mark {
 }
 
 .hb-columns {
-  columns: 22em 4;
+  columns: 19em 4;
   column-gap: 2.5em;
   margin-bottom: 30px;
 }
 
+.hb-spread {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2.5em;
+  align-items: start;
+}
+.hb-spread > * {
+  min-width: 0;
+}
+
+@media screen and (min-width: 1330px) {
+  .hb-spread {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hb-spread .hb-columns {
+    columns: 18em 2;
+  }
+}
 .hb-flavour {
   color: #bbb;
 }
@@ -3357,6 +3375,18 @@ mark {
 .hb-feature {
   break-inside: avoid;
   margin-bottom: 1.15em;
+}
+.hb-feature.hb-feature--flow {
+  break-inside: auto;
+}
+.hb-feature.hb-feature--flow > p, .hb-feature.hb-feature--flow > ul, .hb-feature.hb-feature--flow > ol {
+  break-inside: avoid;
+}
+.hb-feature .hb-lead {
+  break-inside: avoid;
+}
+.hb-feature .hb-lead > :last-child {
+  margin-bottom: 0.6em;
 }
 .hb-feature > :last-child {
   margin-bottom: 0;
