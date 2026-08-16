@@ -279,6 +279,32 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   max-width: 100%;
 }
 
+// A table squeezed into a single column has to wrap, and needs telling how.
+// Not applied to a table in a spanning band, whose cells hold one spell each:
+// there, wrapping a long spell name is how the table stays narrow enough to
+// avoid a sideways scroll on a phone.
+.hb-columns .hb-feature:not(.hb-feature--wide) table {
+  // Break between spells, never inside one: without this, "Zone of Truth"
+  // splits across two lines and reads as two spells.
+  em { white-space: nowrap; }
+
+  // Then break evenly, so four spells fall two and two rather than three and
+  // one. Ignored by browsers without text-wrap, which still get the rule
+  // above — the breaks are just less even.
+  td { text-wrap: balance; }
+
+  // The level column holds a single digit, so left to itself it takes a share
+  // of the surplus width proportional to its heading and then wraps that
+  // heading anyway — wide, and two lines deep. Sizing it to the heading on one
+  // line is both narrower and a row shorter. (width: 1% is the usual way to
+  // ask a column for no more than its content.)
+  th:first-child,
+  td:first-child {
+    width: 1%;
+    white-space: nowrap;
+  }
+}
+
 // ── Section index (dnd/index.md) ─────────────────────────────────────────────
 
 .hb-index {
