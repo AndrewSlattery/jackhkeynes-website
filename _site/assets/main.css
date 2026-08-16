@@ -3345,6 +3345,8 @@ mark {
   columns: 19em 4;
   column-gap: 2.5em;
   margin-bottom: 30px;
+  orphans: 3;
+  widows: 3;
 }
 
 .hb-spread {
@@ -3379,7 +3381,7 @@ mark {
 .hb-feature.hb-feature--flow {
   break-inside: auto;
 }
-.hb-feature.hb-feature--flow > p, .hb-feature.hb-feature--flow > ul, .hb-feature.hb-feature--flow > ol {
+.hb-feature.hb-feature--flow > ul, .hb-feature.hb-feature--flow > ol {
   break-inside: avoid;
 }
 .hb-feature .hb-lead {
@@ -3416,6 +3418,9 @@ mark {
   flex-wrap: wrap;
   align-items: flex-start;
   column-gap: 2.5em;
+  margin-top: 0.5em;
+  padding-top: 1.1em;
+  border-top: 1px solid #424242;
 }
 .hb-feature--wide > h2 {
   flex: 0 0 100%;

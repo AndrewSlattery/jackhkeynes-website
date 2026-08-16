@@ -75,6 +75,13 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   columns: 19em 4;
   column-gap: 2.5em;
   margin-bottom: $spacing-unit;
+
+  // Where a paragraph does run from one column into the next, never leave
+  // fewer than three lines behind or carry fewer than three over. Chrome
+  // honours this to about three or four lines and quietly ignores larger
+  // values, so three is both sensible and the practical limit.
+  orphans: 3;
+  widows: 3;
 }
 
 // ── Split flow ───────────────────────────────────────────────────────────────
@@ -147,7 +154,11 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   &.hb-feature--flow {
     break-inside: auto;
 
-    > p, > ul, > ol { break-inside: avoid; }
+    // Its paragraphs may split between columns as well, governed by the
+    // orphans and widows above. Holding each one whole is what left a 127px
+    // hole at the foot of the Stobor page's first rules column. A list is
+    // still kept whole: breaking one reads as two lists.
+    > ul, > ol { break-inside: avoid; }
   }
 
   .hb-lead {
@@ -190,6 +201,13 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   flex-wrap: wrap;
   align-items: flex-start;
   column-gap: 2.5em;
+
+  // A band cuts across the columns, so it takes a rule to mark the join —
+  // without one the table and its heading read as a continuation of whichever
+  // column happens to end above them.
+  margin-top: 0.5em;
+  padding-top: 1.1em;
+  border-top: 1px solid $color-border;
 
   > h2 { flex: 0 0 100%; }
 
