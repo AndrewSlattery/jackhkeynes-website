@@ -3358,13 +3358,16 @@ mark {
 .hb-spread > * {
   min-width: 0;
 }
+.hb-spread .hb-columns {
+  columns: auto 1;
+}
 
-@media screen and (min-width: 1330px) {
+@media screen and (min-width: 680px) {
   .hb-spread {
     grid-template-columns: 1fr 1fr;
   }
   .hb-spread .hb-columns {
-    columns: 18em 2;
+    columns: 17em 2;
   }
 }
 .hb-flavour {
@@ -3421,6 +3424,10 @@ mark {
   margin-top: 0.5em;
   padding-top: 1.1em;
   border-top: 1px solid #424242;
+}
+.hb-feature--wide > h2 {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 .hb-feature--wide > h2 {
   flex: 0 0 100%;

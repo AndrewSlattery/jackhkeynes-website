@@ -107,23 +107,38 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   // below 474px and the page scrolls sideways on a phone. The table has its
   // own scroll container for that.
   > * { min-width: 0; }
+
+  // While the halves are stacked they get one column each, so the page reads
+  // straight down. Without this a half just under the breakpoint is wide
+  // enough for two columns, and stacking those is exactly the arrangement the
+  // breakpoint exists to avoid.
+  .hb-columns { columns: auto 1; }
 }
 
-// Side by side only once each half can hold two columns — a half with one
-// 600px column would be far worse than not splitting at all. Below that the
-// halves stack, which costs against a single flow: two ragged sets of column
-// bottoms instead of one.
-@media screen and (min-width: 1330px) {
+// The halves go side by side as soon as the page can carry two of them, not
+// merely once each can hold two columns. Two stacked multi-column halves are
+// the layout to avoid: the halves look like one continuous set of columns but
+// are not, so the reader finishes the first column, crosses to the second,
+// and then has to come back left for the foot of the page. Side by side there
+// is no such jump — the columns of the left half, then the columns of the
+// right, read straight across the page in order. Below the breakpoint each
+// half is a single column at these widths anyway, so stacking them is simply
+// linear.
+//
+// The cost is between about 1000px and 1330px, where a half is one column of
+// 65-80 characters rather than the narrower measure that stacking would give.
+// That is the price of never asking the reader to jump backwards.
+@media screen and (min-width: 680px) {
   .hb-spread {
     grid-template-columns: 1fr 1fr;
 
-    // A half is half the page, so it takes a slightly smaller minimum than the
-    // 19em above to fit the two columns that make the split worth having.
-    // 18em is still a rulebook measure, and in practice the halves render
-    // wider than it — about 22em at 1600px — because multicol shares out the
-    // leftover space. This threshold is what 18em × 2 + the gap works out to
-    // once the page is 96vw.
-    .hb-columns { columns: 18em 2; }
+    // A half is half the page, so it takes a smaller minimum than the 19em
+    // above to fit two columns where there is room — 17em brings the second
+    // column in at about 1240px rather than 1330px, which covers a 1280px
+    // desktop. In practice the halves render wider than the minimum (about
+    // 22em at 1600px), since multicol shares out the leftover space, and the
+    // count is capped at two so wide screens are unaffected.
+    .hb-columns { columns: 17em 2; }
   }
 }
 
@@ -208,6 +223,13 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   margin-top: 0.5em;
   padding-top: 1.1em;
   border-top: 1px solid $color-border;
+
+  // That rule does the separating, so the heading drops its own: a heading
+  // boxed between two full-width rules reads as heavier than the band is.
+  > h2 {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
 
   > h2 { flex: 0 0 100%; }
 
