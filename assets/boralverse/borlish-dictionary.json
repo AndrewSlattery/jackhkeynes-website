@@ -1274,7 +1274,7 @@
     "et": "Middle Borlish < Latin"
   },
   {
-    "lx": "accordar",
+    "lx": "accordeyar",
     "ps": "ar v",
     "ge": [
       "make agree",
@@ -5215,6 +5215,16 @@
     "et": "Middle Borlish < Old Borlish"
   },
   {
+    "lx": "attent",
+    "ps": "n",
+    "ge": [
+      "attempt",
+      "try"
+    ],
+    "et": "Old Borlish < Latin attentō \"I try\", later associated with attendr \"wait; try\"",
+    "mn": "attendr"
+  },
+  {
     "lx": "attorrir",
     "ps": "ir1 v",
     "ge": [
@@ -7556,6 +7566,16 @@
     "et": "Old Borlish < Vulgar Latin < Ancient Greek"
   },
   {
+    "lx": "blasphem",
+    "ps": "adj",
+    "ge": [
+      "blasphemous",
+      "libellous",
+      "defamatory"
+    ],
+    "et": "Latin blasphēmus \"blasphemous\""
+  },
+  {
     "lx": "blau",
     "ps": "adj",
     "ge": [
@@ -8838,6 +8858,18 @@
       "fucking"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "cacquar",
+    "ps": "ar v",
+    "ge": [
+      "shit",
+      "crap",
+      "poo",
+      "poop"
+    ],
+    "et": "verb from cacq \"shit\"",
+    "mn": "cacq"
   },
   {
     "lx": "cadarað",
@@ -11171,20 +11203,12 @@
     "lx": "cession",
     "ps": "n",
     "ge": [
+      "ceding",
       "surrender",
       "yielding",
       "submission"
     ],
-    "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "cession",
-    "ps": "n",
-    "ge": [
-      "ceding",
-      "surrender"
-    ],
-    "et": "Latin cessiō"
+    "et": "Middle Borlish < Latin cessiō"
   },
   {
     "lx": "ceter",
@@ -13500,25 +13524,6 @@
     "mn": "damnar"
   },
   {
-    "lx": "condamnar",
-    "ps": "ar v",
-    "ge": [
-      "condemn",
-      "sentence"
-    ],
-    "et": "Latin condemno \"I condemn\""
-  },
-  {
-    "lx": "condamnment",
-    "ps": "n",
-    "ge": [
-      "condemnation",
-      "sentence"
-    ],
-    "et": "noun from condamnar \"condemn\"",
-    "mn": "condamnar"
-  },
-  {
     "lx": "condamnment",
     "ps": "n",
     "ge": [
@@ -13904,13 +13909,20 @@
   },
   {
     "lx": "conjuraçon",
-    "ps": "n",
+    "ps": [
+      "n",
+      "n"
+    ],
     "ge": [
       "conspiracy",
       "plot",
-      "scheme"
+      "scheme",
+      "conspirator",
+      "abettor",
+      "accomplice"
     ],
-    "et": "Middle Borlish < Latin"
+    "et": "Middle Borlish < Latin",
+    "se": "conjuraçonnour"
   },
   {
     "lx": "conjuraçonnal",
@@ -13930,24 +13942,6 @@
       "conspire",
       "plot",
       "plan a crime"
-    ],
-    "et": "Middle Borlish"
-  },
-  {
-    "lx": "conjuraçonnour",
-    "ps": "n",
-    "ge": [
-      "conspirator",
-      "abettor"
-    ],
-    "mn": "conjuraçonnar"
-  },
-  {
-    "lx": "conjuraçonnour",
-    "ps": "n",
-    "ge": [
-      "conspirator",
-      "accomplice"
     ],
     "et": "Middle Borlish"
   },
@@ -16370,6 +16364,16 @@
   },
   {
     "lx": "cu",
+    "hm": "1",
+    "ps": "question word",
+    "ge": [
+      "who",
+      "whom"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "cu",
     "hm": "2",
     "ps": "n",
     "ge": [
@@ -16377,15 +16381,6 @@
       "Q"
     ],
     "et": "Latin"
-  },
-  {
-    "lx": "cu",
-    "ps": "question word",
-    "ge": [
-      "who",
-      "whom"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "cubicr",
@@ -18375,20 +18370,12 @@
     "ps": "ar v",
     "ge": [
       "decipher",
-      "decode"
-    ],
-    "mn": "scifr"
-  },
-  {
-    "lx": "descifrar",
-    "ps": "ar v",
-    "ge": [
-      "decipher",
       "make out",
       "translate",
       "simplify"
     ],
-    "et": "Old Borlish < Medieval Latin < Arabic"
+    "et": "Old Borlish < Medieval Latin < Arabic",
+    "mn": "scifr"
   },
   {
     "lx": "descombr",
@@ -20786,6 +20773,31 @@
     "et": "Old English"
   },
   {
+    "lx": "ðourxon",
+    "examples": [
+      {
+        "vernacular": "Nos rajognareu all'ec ðourxon prell'ort sol.",
+        "english": "We'll meet at the dolmen before sunrise."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "menhir",
+      "standing stone",
+      "megalith",
+      "orthostat",
+      "talayot",
+      "stone circle",
+      "henge",
+      "cromlech",
+      "dolmen",
+      "giant",
+      "titan",
+      "jotun"
+    ],
+    "et": "from northern dialect ðourskan \"menhir\", allied with Scots Guile [Scottish Gaelic] tursaghan \"stone circle\". These both originate in Old Norse þurs \"ogre, monster\"; standing stones across northwestern Europe were described as the petrified forms of legendary giants. The term entered standard Borlish in the seventeenth century, and has been used for legendary creatures in imitation of its Norse etymon since that was uncovered in the nineteenth century."
+  },
+  {
     "lx": "doussem",
     "ps": "adj",
     "ge": "second",
@@ -21211,20 +21223,11 @@
       "durable",
       "stiff",
       "lasting",
+      "long-lasting",
       "permanent",
       "resilient"
     ],
     "et": "adjective from durar \"last\"",
-    "mn": "durar"
-  },
-  {
-    "lx": "durabr",
-    "ps": "adj",
-    "ge": [
-      "durable",
-      "long-lasting"
-    ],
-    "et": "Adjective from durar",
     "mn": "durar"
   },
   {
@@ -22675,16 +22678,6 @@
       "get-up"
     ],
     "et": "early modern borrowing in all senses from French ensemble \"together; outfit, kit, music group\". This descends directly from the Latin adverb īnsimul \"together, simultaneously\". The term is particularly used for informal or temporary groupings, as well as games and other entertainment."
-  },
-  {
-    "lx": "ensign",
-    "ps": "n",
-    "ge": [
-      "engraving",
-      "carving",
-      "suit"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "ensign",
@@ -26786,16 +26779,7 @@
       "outlying settlement",
       "colony"
     ],
-    "et": "Middle Borlish < Welsh"
-  },
-  {
-    "lx": "fragossau",
-    "ps": "n",
-    "ge": [
-      "outpost",
-      "colony"
-    ],
-    "et": "Welsh rhagossaw \"way-station\""
+    "et": "Middle Borlish < Welsh rhagossaw \"way-station\""
   },
   {
     "lx": "fragossaveyaçon",
@@ -27163,12 +27147,6 @@
     ],
     "et": "participle of frottar \"rub\"",
     "mn": "frottar"
-  },
-  {
-    "lx": "frottar",
-    "ps": "ar v",
-    "ge": "rub",
-    "et": "Old Borlish < Old French < Latin"
   },
   {
     "lx": "frottar",
@@ -31585,7 +31563,6 @@
   },
   {
     "lx": "i",
-    "hm": "2",
     "ps": "n",
     "ge": [
       "i",
@@ -32310,6 +32287,17 @@
       "loom"
     ],
     "et": "Latin impōnō"
+  },
+  {
+    "lx": "imposment",
+    "ps": "n",
+    "ge": [
+      "enforcement",
+      "encroachment",
+      "imposition"
+    ],
+    "et": "noun from imposar \"impose\", from Latin",
+    "mn": "imposar"
   },
   {
     "lx": "imprefait",
@@ -33796,6 +33784,27 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "issaughar",
+    "examples": [
+      {
+        "vernacular": "Soul issaugheð y paðel; despardað noc y savon.",
+        "english": "Just rinse the dishes; don't waste the soap."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "rinse",
+      "swill",
+      "sluice",
+      "flush out",
+      "irrigate",
+      "flood",
+      "leach",
+      "wash out"
+    ],
+    "et": "from Old Borlish issauȝar \"drain, let water out of\", via a synoymous exaquō \"I drain\" in Vulgar Latin from the Classical root noun aqua \"water\". Cognate with Tuscan sciacquare \"rinse\", whence the modern borrowing sciacquato \"watercolour\"."
+  },
+  {
     "lx": "issaur",
     "ps": "n",
     "ge": [
@@ -35176,6 +35185,7 @@
   },
   {
     "lx": "jur",
+    "hm": "1",
     "ps": "n",
     "ge": [
       "udder",
@@ -35183,6 +35193,16 @@
       "nozzle"
     ],
     "et": "Old Borlish < Old Norse"
+  },
+  {
+    "lx": "jur",
+    "hm": "2",
+    "ps": "n",
+    "ge": [
+      "right",
+      "legal right"
+    ],
+    "et": "Latin iūs"
   },
   {
     "lx": "jurar",
@@ -37201,7 +37221,7 @@
       "gastropod",
       "sucker"
     ],
-    "et": "Old Borlish < Latin līmāx"
+    "et": "Old Borlish < Latin līmāx \"slug\""
   },
   {
     "lx": "limitað",
@@ -37381,7 +37401,6 @@
   },
   {
     "lx": "lo",
-    "hm": "1",
     "ps": "pron",
     "de": "third person singular inanimate",
     "ge": "it",
@@ -39301,30 +39320,6 @@
       "hybrid"
     ],
     "et": "Middle Borlish < French"
-  },
-  {
-    "lx": "manoscarteyar",
-    "ps": [
-      "ar v",
-      "n"
-    ],
-    "ge": [
-      "hybridise",
-      "fuse",
-      "cross-breed",
-      "cross",
-      "syncretise",
-      "fusion",
-      "cross-breed",
-      "syncretism",
-      "hybridisation"
-    ],
-    "et": [
-      "modern Borlish, verb from manoscart \"blended fabric, musical scale\"",
-      "noun from manoscarteyar"
-    ],
-    "mn": "manoscart",
-    "se": "manoscarteyaçon"
   },
   {
     "lx": "manoscarteyar",
@@ -45590,6 +45585,26 @@
     ]
   },
   {
+    "lx": "oraç",
+    "ps": [
+      "n",
+      "n"
+    ],
+    "ge": [
+      "thunderstorm",
+      "storm",
+      "tumult",
+      "outrage",
+      "outcry",
+      "hue and cry",
+      "storm zone",
+      "stormy weather",
+      "thunderstorm"
+    ],
+    "et": "Old Borlish < Vulgar Latin aurāticum < aura \"breeze\"",
+    "se": "oraçoir"
+  },
+  {
     "lx": "oransc",
     "ps": "n",
     "ge": "orange",
@@ -46581,6 +46596,16 @@
   },
   {
     "lx": "oy",
+    "hm": "1",
+    "ps": "adv",
+    "ge": [
+      "now",
+      "at present"
+    ],
+    "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "oy",
     "hm": "2",
     "ps": "n",
     "ge": [
@@ -46588,15 +46613,6 @@
       "Y"
     ],
     "et": "unknown, compare Old French ui, English wye"
-  },
-  {
-    "lx": "oy",
-    "ps": "adv",
-    "ge": [
-      "now",
-      "at present"
-    ],
-    "et": "Old Borlish < Latin"
   },
   {
     "lx": "oyour",
@@ -47031,23 +47047,16 @@
   },
   {
     "lx": "par boc",
-    "ps": "adv",
+    "ps": [
+      "adv",
+      "adj"
+    ],
     "ge": [
       "apparently",
       "allegedly",
       "it is said",
       "they say",
-      "I hear"
-    ],
-    "mn": [
-      "par",
-      "boc"
-    ]
-  },
-  {
-    "lx": "par boc",
-    "ps": "adv",
-    "ge": [
+      "I hear",
       "spoken",
       "by mouth",
       "hearsay"
@@ -57371,29 +57380,18 @@
   },
   {
     "lx": "sandrin",
-    "ps": "n",
+    "ps": [
+      "n",
+      "adj"
+    ],
     "ge": [
       "citrus",
-      "vitamin C"
-    ],
-    "et": "Vascon—after Princess Sandrina of Vascony"
-  },
-  {
-    "lx": "sandrinal",
-    "ps": "adj",
-    "ge": [
+      "vitamin C",
       "antiscorbutic",
       "pertaining to vitamin C"
     ],
-    "et": "adjective from sandrin \"vitamin C\"",
-    "mn": "sandrin"
-  },
-  {
-    "lx": "sandrinal",
-    "ps": "adj",
-    "ge": "containing vitamin C",
-    "et": "adjective from sandrin \"vitamin C\"",
-    "mn": "sandrin"
+    "et": "Vascon—after Princess Sandrina of Vascony",
+    "se": "sandrinal"
   },
   {
     "lx": "sanfoin",
@@ -57958,7 +57956,7 @@
     "et": "from Old Borlish iscaðre, iscarre, carre \"square\", from Vulgar Latin (ex)quadra \"square\", variant form of post-Classical quadrus \"square\". Adjectival usage attested from as early as the eleventh century."
   },
   {
-    "lx": "scaðr platcouf",
+    "lx": "scaðr placcou",
     "ps": "n",
     "ge": [
       "rooftop",
@@ -58713,6 +58711,15 @@
     ],
     "et": "attested from 10C as skolar, scholair “pertaining to academia”.  Derived from schol “school, academia” + the adjectival -er suffix, itself from Latin -ārius with the same meaning.",
     "mn": "schol"
+  },
+  {
+    "lx": "sciacquato",
+    "ps": "n",
+    "ge": [
+      "watercolour",
+      "tie-dye"
+    ],
+    "et": "Tuscan sciacquato, participle of sciacquare \"rinse\"."
   },
   {
     "lx": "scið",
@@ -59738,6 +59745,25 @@
       "tempt"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "seget",
+    "examples": [
+      {
+        "vernacular": "Ðe voun cal seget ðarar sull'oc acr?",
+        "english": "Which crop will they farm in this field?"
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "crop",
+      "cereal",
+      "harvest",
+      "yield",
+      "bristle",
+      "stand"
+    ],
+    "et": "Middle Borlish borrowing from Latin seges \"field sown with a cereal crop\", used metonymically for the field's contents. Used metaphorically for masses which visually resemble standing crops, the word is especially common in military contexts."
   },
   {
     "lx": "segnour",
@@ -67581,16 +67607,6 @@
     "ps": "n",
     "ge": [
       "transmigration",
-      "relocate"
-    ],
-    "et": "noun from tramigrar \"transmigrate\".",
-    "mn": "tramigrar"
-  },
-  {
-    "lx": "tramigraçon",
-    "ps": "n",
-    "ge": [
-      "transmigration",
       "relocation",
       "nomadism"
     ],
@@ -69403,18 +69419,7 @@
       "forebear",
       "precursor"
     ],
-    "et": "Middle Borlish < Norman < Old French < Frankish, Vulgar Latin"
-  },
-  {
-    "lx": "vangard",
-    "ps": "n",
-    "ge": [
-      "vanguard",
-      "pioneer",
-      "lead",
-      "forward position"
-    ],
-    "et": "Old French avangarde \"before guard\""
+    "et": "Middle Borlish < Norman < Old French avangarde \"before guard\" < Frankish, Vulgar Latin"
   },
   {
     "lx": "vapour",
@@ -71404,12 +71409,6 @@
       "steal"
     ],
     "et": "Old Borlish < Latin"
-  },
-  {
-    "lx": "volcan",
-    "ps": "n",
-    "ge": "volcano",
-    "et": "Italian, from Latin Vulcanus"
   },
   {
     "lx": "volcan",
