@@ -184,7 +184,8 @@
     directionTitles: { inward: 'Inward', outward: 'Outward' },
     defaultSettings: { skipFilled: true },
     puzzleUrl:       function (n) {
-      return '/assets/ipuz/' + encodeURIComponent('Spiral ' + n) + '.ipuz';
+      // Spiral posts carry a bare number; the file is named "Spiral N".
+      return XwCore.puzzleUrl('Spiral ' + n);
     },
     parseIPuz:      parseIPuz,
     buildWordList:  buildWordList,

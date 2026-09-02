@@ -35,6 +35,36 @@
   }
 
   // ----------------------------------------------------------------
+  // PUZZLE FILE LOCATION
+  // ----------------------------------------------------------------
+  // The .ipuz files live in one subfolder of /assets/ipuz/ per series.
+  // A puzzle is identified everywhere else (post front matter, data
+  // attributes, localStorage keys) by its bare name — "137", "Spiral 3",
+  // "Independent - 04 - Bluejacket" — so the series folder is derived
+  // from that name here rather than stored alongside it.
+  var PUZZLE_FOLDERS = [
+    { dir: 'cryptic',           test: /^\d+$/ },
+    { dir: 'bluejacket',        test: /^Independent - / },
+    { dir: 'general-knowledge', test: /^General Knowledge / },
+    { dir: 'spiral',            test: /^Spiral / },
+    { dir: 'outtakes',          test: /^Outtake / },
+    { dir: 'collab',            test: /^Collab / }
+  ];
+
+  function puzzleFolder(name) {
+    for (var i = 0; i < PUZZLE_FOLDERS.length; i++) {
+      if (PUZZLE_FOLDERS[i].test.test(name)) return PUZZLE_FOLDERS[i].dir;
+    }
+    return 'other';   // one-offs: "American Grid 1", "SudoCross 1", …
+  }
+
+  function puzzleUrl(name) {
+    name = String(name).trim();
+    return '/assets/ipuz/' + puzzleFolder(name) + '/' +
+           encodeURIComponent(name) + '.ipuz';
+  }
+
+  // ----------------------------------------------------------------
   // PDF EXPORT HELPERS
   // ----------------------------------------------------------------
   // Lazy-load jsPDF + html2canvas from a CDN on first PDF export, then
@@ -293,7 +323,7 @@
     var _buildWordList        = opts.buildWordList         || defaultBuildWordList;
     var _renderCell           = opts.renderCell            || defaultRenderCell;
     var _isCellPlayable       = opts.isCellPlayable        || function (cell) { return !cell.isBlack; };
-    var _puzzleUrl            = opts.puzzleUrl             || function (n) { return '/assets/ipuz/' + encodeURIComponent(n) + '.ipuz'; };
+    var _puzzleUrl            = opts.puzzleUrl             || puzzleUrl;
     var _renderCluePanel      = opts.renderCluePanel       || null;
     var _renderAboveBody      = opts.renderAboveBody       || null;
     var _onSelectCell         = opts.onSelectCell          || null;
@@ -1790,5 +1820,7 @@
   window.XwCore.parseSeparators = parseSeparators;
   window.XwCore.fmtEnum         = fmtEnum;
   window.XwCore.formatTime      = formatTime;
+  window.XwCore.puzzleUrl       = puzzleUrl;
+  window.XwCore.puzzleFolder    = puzzleFolder;
 
 })();
