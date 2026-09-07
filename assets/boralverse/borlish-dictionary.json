@@ -9597,6 +9597,32 @@
     "et": "Old Borlish < Old French < Latin"
   },
   {
+    "lx": "cancel",
+    "examples": [
+      {
+        "vernacular": "Veleð y cancel embrostar sou kivougl.",
+        "english": "Please decorate the banister with holly."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "railing",
+      "banister",
+      "balustrade",
+      "lattice",
+      "grille",
+      "grate",
+      "grating",
+      "deletion",
+      "redaction",
+      "hashtag",
+      "hash",
+      "pound sign",
+      "octothorpe"
+    ],
+    "et": "direct descendant via Old Borlish cancel \"grid of bars, metal fence\" from synonymous cancellī in Latin. This is the diminutive plural of cancer \"crab, lattice\". The primary sense had shifted to safety railings by the Middle Borlish period; extension to typography arose in the sixteenth century by the practice of hatching out unwanted text."
+  },
+  {
     "lx": "cancellour",
     "ps": "n",
     "ge": [
@@ -11890,6 +11916,29 @@
       "polyvinyl chloride"
     ],
     "et": "an initialism for catener a mitigor muriac “chained muriac mitigor”. Catener “polymer” is a direct borrowing of Latin catēnārius “of a chain”, referring to the molecular structure thereof; mitigor** is likewise from mītigōr “ripener”, after its ability to ripen fruits; muriac*** is from muriacus “briny”."
+  },
+  {
+    "lx": "cocheyau",
+    "examples": [
+      {
+        "vernacular": "Casc majon dy hamblot se tienn sur cocheyau.",
+        "english": "All the houses in the village stand on stilts."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "stilt",
+      "stilts",
+      "pile",
+      "piling",
+      "shank",
+      "leg",
+      "pin",
+      "prop",
+      "crutch",
+      "trappings"
+    ],
+    "et": "seventeenth century, in travel writing describing a particular acrobatic act in coastal China, borrowed from a local Chinese language's 高蹺 • cōchiāu \"stilts\", literally \"high-tiptoe\". Use for lower limbs may (if not self-directed) be seen as offensive. The last senses are attested from the 1920s, originating in entertainment circles."
   },
   {
     "lx": "cochigl",
@@ -19458,8 +19507,8 @@
       "receiver",
       "journalist"
     ],
-    "et": "Clipping of diacutour",
-    "mn": "diacutour"
+    "et": "Clipping of diacustour",
+    "mn": "diacustour"
   },
   {
     "lx": "diacustour",
@@ -20957,6 +21006,16 @@
       "spell"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "dreçment",
+    "ps": "n",
+    "ge": [
+      "spelling",
+      "orthography"
+    ],
+    "et": "noun from dreçar \"spell\"",
+    "mn": "dreçar"
   },
   {
     "lx": "dreit",
@@ -32052,6 +32111,28 @@
     "et": "Old Borlish < Medieval Latin"
   },
   {
+    "lx": "immoðir",
+    "examples": [
+      {
+        "vernacular": "Jo vis y behemoth immoðiscent par un illabond.",
+        "english": "I saw the wallowing hippo through the spyglass."
+      }
+    ],
+    "ps": "ir2 v",
+    "ge": [
+      "wallow",
+      "mire",
+      "bog down",
+      "daub",
+      "render",
+      "patch up",
+      "whitewash",
+      "gloss over"
+    ],
+    "et": "Middle Borlish, inchoative verbal derivation from moð \"mud, muck\". This noun, a variant of now-obsolete moðr, was borrowed from a descendant (possibly Frise) of Classical German muthras \"excrement, filth, sediment\". Metaphorical extension of the building-material sense to hiding (but not correcting) faults is seen from as early as the fifteenth century.",
+    "mn": "moð"
+  },
+  {
     "lx": "immoubr",
     "ps": "n",
     "ge": "building",
@@ -33350,6 +33431,17 @@
       "make a home"
     ],
     "et": "Middle Borlish < Italian < Latin"
+  },
+  {
+    "lx": "instançment",
+    "ps": "n",
+    "ge": [
+      "settlement",
+      "colonisation",
+      "colonization"
+    ],
+    "et": "noun from instançar \"settle\"",
+    "mn": "instançar"
   },
   {
     "lx": "instançment",
@@ -35712,6 +35804,28 @@
     "et": "19th-century derivative of kiveu \"cattle, herd\" with the suffix -ry \"a collection of things, a shop, a gestalt quality\", coined as a calque of Hasinic Welsh jadełath \"herd-dom\". The noun kiveu descends from Old Borlish kifew \"cattle\", a borrowing a Borland Old English cyfeoh \"cattle-herd\". To describe an ideology the term is seen from the early twentieth century, usually in critical contexts."
   },
   {
+    "lx": "kivougl",
+    "examples": [
+      {
+        "vernacular": "Mey eð y maðr jognau l'oç kivougl tras y ralley.",
+        "english": "Me and my mum did the jigsaw all afternoon."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "holly",
+      "holly tree",
+      "holly bush",
+      "holly branch",
+      "holly leaf",
+      "puzzle",
+      "jigsaw",
+      "riddle",
+      "enigma"
+    ],
+    "et": "via Old Borlish cuvoȝl \"holly\" and a Vulgar Latin form like *accufolius \"holly\" from the Classical adjective aquifolius \"prickly-leaved\". This is a compound of acus \"needle\" and folium \"leaf\". In the last senses the word is seen from the late nineteenth century, originally as a trade name coined by a Borlish subsidiary of the De Marnoshring toymaker's guild; the metaphorical extension appears only a couple of decades later."
+  },
+  {
     "lx": "kynous",
     "ps": "n",
     "ge": [
@@ -35886,6 +36000,32 @@
       "deflect"
     ],
     "et": "Old Borlish < Old English"
+  },
+  {
+    "lx": "laçogl",
+    "examples": [
+      {
+        "vernacular": "Sy curtel sta d'un roug luiç oðig laçogl.",
+        "english": "Her gown was a bright or even garish red."
+      }
+    ],
+    "ps": "adj",
+    "ge": [
+      "eye-catching",
+      "striking",
+      "arresting",
+      "gaudy",
+      "garish",
+      "loud",
+      "ostentatious",
+      "flashy",
+      "conspicuous"
+    ],
+    "et": "early modern Borlish, an exocentric compound of laçar \"catch\" and ogl \"eye\". The verb laçar was borrowed in the Old Borlish period from Old English læċċan \"grab, seize, apprehend\", while the noun ogl descends directly from synoymous oculus in Latin. In practice the term usually has derisive connotations of either classlessness or deceit.",
+    "mn": [
+      "laçar",
+      "ogl"
+    ]
   },
   {
     "lx": "laçour",
@@ -44609,6 +44749,29 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "obsequïr",
+    "examples": [
+      {
+        "vernacular": "Jo neya pacentar aðief por y duc obsequïr.",
+        "english": "I lacked the patience to indulge the duke."
+      }
+    ],
+    "ps": "ir2 v",
+    "ge": [
+      "follow",
+      "defer to",
+      "comply with",
+      "indulge",
+      "humour",
+      "gratify",
+      "make over",
+      "cede",
+      "give up",
+      "give away"
+    ],
+    "et": "legal term borrowed in the fifteenth century from Latin obsequor \"I comply with; I indulge in\". The latter senses appear to have developed by association with related obsequy \"funeral ceremony, reading of a will\", a now-obsolete noun from Latin obsequiae \"funeral rites\", and grew out of the archaic sense \"bequeath\". Some avoid the term in serious use for the last sense, which may sound chauvinistic or else unintentionally comical."
+  },
+  {
     "lx": "observatoir",
     "ps": "n",
     "ge": "observatory",
@@ -46169,6 +46332,32 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "otton",
+    "ps": "n",
+    "ge": "brass",
+    "et": "Middle Borlish, from Tuscan ottone \"brass\". A rebacketing of earlier lottone, borrowed from Arabic لَاطُون • lāṭūn \"copper alloy\", itself from a Classical Turk altūn \"gold metal\" that may be related to contemporary Chinese 銅 • dūng \"copper\"."
+  },
+  {
+    "lx": "ottonam",
+    "examples": [
+      {
+        "vernacular": "L'ottonam se faun de doncel groun.",
+        "english": "The brass section is all teenage girls."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "brassware",
+      "brass section",
+      "brass",
+      "brass band",
+      "blare",
+      "fanfare"
+    ],
+    "et": "Middle Borlish, borrowed along with otton \"brass\" from Tuscan ottoname \"brassware\" and ottone \"brass\".",
+    "mn": "otton"
+  },
+  {
     "lx": "ou",
     "hm": "1",
     "ps": "n",
@@ -46503,6 +46692,30 @@
       "vaunt"
     ],
     "et": "early Modern Borlish, derivation of valir \"be worth\" < Latin valeō \"I am strong\" with the prefix outr- < Latin ultrā \"beyond\" (compare independent Borlish words outr \"complete, utter\" and doutr \"beyond\"). In reflexive use the word is attested from the Long Peace period at the turn of the nineteenth century."
+  },
+  {
+    "lx": "outrvolar",
+    "examples": [
+      {
+        "vernacular": "Y bocquanç ne Juglot outrvolau y prefacçon dy colluy.",
+        "english": "The July expenditures overshot the guild's predictions."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "go out of play",
+      "go out of bounds",
+      "overshoot",
+      "go past",
+      "go too far",
+      "work loose",
+      "run over"
+    ],
+    "et": "eighteenth-century coinage used in racket sports and soon thereafter hunting, a compound of outr- \"beyond\" and volar \"fly\", which both descend directly from Latin etyma ultra \"beyond\" and volō \"I fly\". More general use for overshooting a metaphorical target is seen from the mid-nineteenth century, and examples describing loose buttons or pieces of mechanisms are attested from around the same time.",
+    "mn": [
+      "outr",
+      "volar"
+    ]
   },
   {
     "lx": "ouveg",
@@ -62178,6 +62391,29 @@
       "wipe the floor with"
     ],
     "et": "from Middle Borlish, a borrowing from Latin subsīdō \"I crouch, subside\" modelled on other verbs in -seïr like asseïr \"dwell\" and posseïr \"own\". First attested in the latter two senses in the seventeenth century, in early use seen particularly in the context of diplomatic disputes."
+  },
+  {
+    "lx": "sousevent",
+    "ps": "adj",
+    "ge": [
+      "next",
+      "following",
+      "subsequent",
+      "proceeding"
+    ],
+    "et": "participle from sousevir",
+    "mn": "sousevir"
+  },
+  {
+    "lx": "sousevir",
+    "ps": "ir1 v",
+    "ge": [
+      "follow",
+      "come next",
+      "proceed"
+    ],
+    "et": "Middle Borlish, Latin subsequor",
+    "mn": "sevir"
   },
   {
     "lx": "sousonnar",
