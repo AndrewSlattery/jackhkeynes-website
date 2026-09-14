@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#353: Element of Surprise"
-date: 2026-09-16T11:00:00.000Z
+date: 2026-09-14T11:00:00.000Z
 puzzle_number: 353
 ---
 
