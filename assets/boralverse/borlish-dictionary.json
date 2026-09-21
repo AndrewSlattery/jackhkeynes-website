@@ -7044,6 +7044,40 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "belligr",
+    "ps": "adj",
+    "ge": [
+      "warlike",
+      "martial",
+      "valiant"
+    ],
+    "et": "from belliger in Latin"
+  },
+  {
+    "lx": "belligrman",
+    "examples": [
+      {
+        "vernacular": "Stikettanç com belligrman mesplagheu noc y slectour.",
+        "english": "Being labelled as a warmonger didn't deter the voters."
+      }
+    ],
+    "ps": [
+      "n",
+      "adj"
+    ],
+    "ge": [
+      "warmonger",
+      "hawk",
+      "arms dealer",
+      "war profiteer",
+      "belligerent",
+      "warring",
+      "bellicose"
+    ],
+    "et": "nineteenth century, compound of belligr \"warlike, martial, valiant\" (from synonymous belliger in Latin) and the suffix -man \"merchant, purveyor\". This suffix derives via -mang in Old Borlish, likely from Old English mangere \"trader, merchant\" or else directly from Latin mangō \"(dishonest) dealer, especially of slaves\". Originally in general attitudinal use; the more mercenary senses were influenced by other words using the -man suffix.",
+    "mn": "belligr"
+  },
+  {
     "lx": "beltað",
     "ps": "n",
     "ge": "beauty",
@@ -16577,6 +16611,28 @@
     ],
     "et": "Agentive noun from cuidar",
     "mn": "cuidar"
+  },
+  {
+    "lx": "cuindr",
+    "examples": [
+      {
+        "vernacular": "Y mandrin benoçað poll'occijon vene de cuindr a pom.",
+        "english": "The cyanide used in the murder came from apple pips."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "pip",
+      "stone",
+      "gland",
+      "node",
+      "knot",
+      "gristle",
+      "grudge",
+      "grievance",
+      "resentment"
+    ],
+    "et": "directly from Old Borlish curnle, cuinle \"pip, fruit stone; grain (of cereal)\". This was borrowed from Old English cyrnel \"seed, acorn, kernel\", a diminutive of the ancestor of \"corn\". The senses relating to meat and flesh appear to be present in the Old English, but may be an independent development in early modern Borlish; the emotional use is seen from as early as the sixteenth century."
   },
   {
     "lx": "cuivr",
@@ -35427,6 +35483,26 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "kembang",
+    "examples": [
+      {
+        "vernacular": "Cay saçon a kembang ou deut ag joivr ben ag veil occas?",
+        "english": "Is it firework season due to the cold or to late sunsets?"
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "firework",
+      "flare",
+      "rosette",
+      "sparks",
+      "flash in the pan",
+      "one-hit wonder",
+      "nine days' wonder"
+    ],
+    "et": "sixteenth century, via Welsh and other European and N African accounts of the Great Borunesk [Borneo] Meeting of 1517. A borrowing of Bāsan [Indonesian] kembang \"flower\", presumably clipped from the compound kembangapi \"flower-fire\", itself a calque of hanabi in Nivoner [Japanese]. The final sense appears in an isolated use in the seventeeth-century epic poem Dottr d'Athen \"Daughters of Athens\", and regularly since the 1970s."
+  },
+  {
     "lx": "kemp",
     "ps": "n",
     "ge": [
@@ -47019,6 +47095,28 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "pajot",
+    "examples": [
+      {
+        "vernacular": "L'accatau tre pajot a savon vert teyent un solt a cascun.",
+        "english": "He bought three green bars of soap for a shilling each."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "patty",
+      "burger",
+      "hamburger",
+      "cake",
+      "bar",
+      "poultice",
+      "compress",
+      "mine",
+      "landmine"
+    ],
+    "et": "Middle Borlish, via Norman from Doccian [Occitan] pallota \"patty, squat cylinder of food\", apparently a diminutive formation from palla \"straw, animal fodder\". This seems to have been influenced semantically by unrelated pala \"blade, paddle, shovel\" (perhaps due to a dialectal byform pall, which may reflect a variant palium in Vulgar Latin). The military sense arose during the City Wars of the 1940s and 50s; the medical sense was partially revived in the 1960s by writers of historical fiction."
+  },
+  {
     "lx": "pal",
     "ps": "n",
     "ge": [
@@ -48510,16 +48608,6 @@
   },
   {
     "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
-  },
-  {
-    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -48528,6 +48616,16 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
+  },
+  {
+    "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -62044,6 +62142,27 @@
       "threshold"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "soujavigar",
+    "examples": [
+      {
+        "vernacular": "Y costoscment commandara y floy soujavigar.",
+        "english": "The police will order the river to be dredged."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "dredge",
+      "drag",
+      "roil",
+      "agitate",
+      "rabblerouse",
+      "rabble-rouse",
+      "demagogue"
+    ],
+    "et": "sixteenth century, compound of sou- \"under\" (from Latin prefix sub- \"under\") and javigar \"trawl; scour, comb through\". In a political context the term is seen from accounts of the lead-up to the Democratic Wars of the eighteenth century.",
+    "mn": "javigar"
   },
   {
     "lx": "souject",
