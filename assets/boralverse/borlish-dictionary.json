@@ -33493,20 +33493,20 @@
     "ps": "n",
     "ge": [
       "settlement",
-      "colonisation",
-      "colonization"
+      "colony"
     ],
-    "et": "noun from instançar \"settle\"",
-    "mn": "instançar"
+    "et": "Middle Borlish < Italian < Latin"
   },
   {
     "lx": "instançment",
     "ps": "n",
     "ge": [
       "settlement",
-      "colony"
+      "colonisation",
+      "colonization"
     ],
-    "et": "Middle Borlish < Italian < Latin"
+    "et": "noun from instançar \"settle\"",
+    "mn": "instançar"
   },
   {
     "lx": "instauraçon",
@@ -36154,6 +36154,33 @@
       "mass"
     ],
     "et": "Old Borlish < Latin"
+  },
+  {
+    "lx": "laðr",
+    "examples": [
+      {
+        "vernacular": "Toð y hayennaç sien cas histoir surcayen laðr.",
+        "english": "Doing all her history homework was a slog."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "plough",
+      "plow",
+      "blade",
+      "ploughland",
+      "plowland",
+      "carucate",
+      "workteam",
+      "outfit",
+      "work party",
+      "workforce",
+      "work crew",
+      "gang",
+      "grind",
+      "slog"
+    ],
+    "et": "from Old Borlish laðre \"plough\" (also raðre, alaðre, arðre), various dissimulatory forms all descending from Latin arātrum \"plough\", a tool derivative from arō \"I plough\". The word is cognate with Welsh erydren and (disputedly) Merch rother, both meaning \"oar\". Use for groups of workers is seen from the fourteenth century and through the centralisation of farmland into the nineteenth, but fades from use with increasing mechanisation of agriculture; the final senses derive from the work-party use but have survived to the present."
   },
   {
     "lx": "lag",
