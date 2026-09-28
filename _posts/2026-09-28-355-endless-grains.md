@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "#355: Rookie Numbers"
+title: "#355: Endless Grains"
 date: 2026-09-28T11:00:00.000Z
 puzzle_number: 355
 ---
