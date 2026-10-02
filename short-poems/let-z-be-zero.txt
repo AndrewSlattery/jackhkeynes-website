@@ -1,0 +1,14 @@
+Let z be zero on the complex plane,
+Add c to z-by-z, and that’s z-one,
+Now iterate again and yet again;
+The sequence that we make is never done,
+But can at least be sorted by its fate:
+To wander off or stay within the disc
+In which the magnitudes of points equate
+At most to two (for should a sequence risk
+Those outer wilds but once, it must in time
+Diverge forever, never to return).
+The c whose iterates refuse to climb
+Such heights shall be our primary concern.
+The set of all the c that we have got
+Deserves a name—let’s call it Mandelbrot.

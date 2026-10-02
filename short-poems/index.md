@@ -6,6 +6,18 @@ permalink: /short-poems/
 
 Shorter poems I've written.
 
+## Let *z* Be Zero
+
+{% capture p %}{% include_relative let-z-be-zero.txt %}{% endcapture %}
+{% include poem.html text=p %}
+
+Written on Discord, 9 March 2025. A
+[Shakespearean sonnet](https://www.poetryfoundation.org/education/glossary/shakespearean-sonnet)
+defining the [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set),
+which Adrien Douady and John Hubbard named in honour of
+[Benoit Mandelbrot](https://en.wikipedia.org/wiki/Benoit_Mandelbrot).
+{: .poem-note}
+
 ## William McGonagall
 
 {% capture p %}{% include_relative william-mcgonagall.txt %}{% endcapture %}
