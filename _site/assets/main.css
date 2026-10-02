@@ -3234,6 +3234,25 @@ mark {
     margin-bottom: 2em;
   }
 }
+.poem {
+  margin: 1.2em 0;
+}
+.poem .poem-stanza + .poem-stanza {
+  margin-top: 1.2em;
+}
+.poem .l {
+  display: block;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  line-height: 1.55;
+}
+
+.poem-note {
+  font-size: 0.9em;
+  color: #bbb;
+  max-width: 40em;
+}
+
 #zigzag-clock {
   --zz-face: #1a1a1a;
   --zz-ink: #e0e0e0;

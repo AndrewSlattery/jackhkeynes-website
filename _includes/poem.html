@@ -1,0 +1,25 @@
+{% comment %}
+  Renders a single short poem as a .poem block (see _sass/_poem.scss): one
+  .poem-stanza per stanza, one .l span per line.
+
+  This is the one-column sibling of poem-parallel.html, for original poems
+  that have no source text or crib to sit beside.
+
+  Parameters:
+    text — raw contents of the poem's .txt file (stanzas separated by blank
+           lines). Required.
+    lang — optional BCP 47 language tag, set as the block's lang attribute.
+
+  Stanza splitting reuses the bw_stanzas filter (_plugins/beowulf_filters.rb)
+  in its 'tr' mode, which is the plain verbatim splitter.
+{% endcomment %}
+{%- assign poem_stanzas = include.text | bw_stanzas: 'tr' -%}
+<div class="poem"{% if include.lang %} lang="{{ include.lang }}"{% endif %}>
+{%- for lines in poem_stanzas %}
+  <div class="poem-stanza">
+    {%- for line in lines %}
+    <span class="l">{{ line }}</span>
+    {%- endfor %}
+  </div>
+{%- endfor %}
+</div>

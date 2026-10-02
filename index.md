@@ -42,6 +42,8 @@ permalink: /
 
 [Invictus](/invictus/) — My French translation of Henley's *Invictus*.
 
+[Short Poems](/short-poems/) — Shorter original verse, from double dactyls to parody.
+
 </section>
 
 <section class="home-section" markdown="1">

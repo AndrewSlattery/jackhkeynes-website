@@ -6,6 +6,16 @@
 // stanza. The Beowulf pages have their own, heavier variant of this in
 // _beowulf.scss — marginal line numbers and an interlinear gloss — which is
 // more than a sixteen-line poem needs.
+//
+// The single-column .poem block (_includes/poem.html) is at the bottom.
+
+// One verse line; hanging indent so wrapped lines read as continuations.
+@mixin verse-line {
+  display: block;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  line-height: 1.55;
+}
 
 .poem-parallel {
   display: grid;
@@ -31,13 +41,7 @@
     margin-bottom: 0.2em;
   }
 
-  // One verse line; hanging indent so wrapped lines read as continuations.
-  .l {
-    display: block;
-    padding-left: 1.4em;
-    text-indent: -1.4em;
-    line-height: 1.55;
-  }
+  .l { @include verse-line; }
 
   // The first column is the primary text — the translation these pages exist
   // to show. The crib and the source text behind it are set dimmer.
@@ -71,4 +75,24 @@
     .poem-col3,
     .poem-col:last-child { margin-bottom: 2em; }
   }
+}
+
+// ── Single poem ──────────────────────────────────────────────────────────────
+//
+// One original poem in a single column (_includes/poem.html), as on the
+// Short Poems page. Each poem is followed by a .poem-note paragraph of
+// provenance and context links, set smaller and dimmer than the verse.
+
+.poem {
+  margin: 1.2em 0;
+
+  .poem-stanza + .poem-stanza { margin-top: 1.2em; }
+
+  .l { @include verse-line; }
+}
+
+.poem-note {
+  font-size: 0.9em;
+  color: $color-text-dim;
+  max-width: 40em;
 }
