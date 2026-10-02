@@ -22,9 +22,9 @@ Silv'ry Tay!*, is a
 [hendecasyllable](https://www.poetryfoundation.org/education/glossary/hendecasyllabic).
 {: .poem-note}
 
-## Ozymandias
+## Ozymandias Redux
 
-{% capture p %}{% include_relative ozymandias.txt %}{% endcapture %}
+{% capture p %}{% include_relative ozymandias-redux.txt %}{% endcapture %}
 {% include poem.html text=p %}
 
 [Written on Tumblr](https://www.tumblr.com/jackhkeynes/821043559915552768/i-met-a-traveller-flying-business-class-who),
