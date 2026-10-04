@@ -83,12 +83,18 @@
 // Short Poems page. Each poem is followed by a .poem-note paragraph of
 // provenance and context links, set smaller and dimmer than the verse.
 
+// The verse is indented to set it off from the heading and note around it;
+// the indent narrows on phones, where every column of width counts.
 .poem {
-  margin: 1.2em 0;
+  margin: 1.2em 0 1.2em 2.5em;
 
   .poem-stanza + .poem-stanza { margin-top: 1.2em; }
 
   .l { @include verse-line; }
+}
+
+@media (max-width: 600px) {
+  .poem { margin-left: 1.2em; }
 }
 
 .poem-note {

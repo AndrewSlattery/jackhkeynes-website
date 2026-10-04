@@ -3235,7 +3235,7 @@ mark {
   }
 }
 .poem {
-  margin: 1.2em 0;
+  margin: 1.2em 0 1.2em 2.5em;
 }
 .poem .poem-stanza + .poem-stanza {
   margin-top: 1.2em;
@@ -3247,6 +3247,11 @@ mark {
   line-height: 1.55;
 }
 
+@media (max-width: 600px) {
+  .poem {
+    margin-left: 1.2em;
+  }
+}
 .poem-note {
   font-size: 0.9em;
   color: #bbb;
