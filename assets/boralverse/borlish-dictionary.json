@@ -2847,7 +2847,7 @@
     "lx": "algebrar",
     "examples": [
       {
-        "vernacular": "Lou stove l'os a cois algebrar toð pront.",
+        "vernacular": "Lour stove l'os a cois algebrar toð pront.",
         "english": "They had to set the thighbone at once."
       }
     ],
@@ -24652,6 +24652,32 @@
     "et": "Middle Borlish < Latin"
   },
   {
+    "lx": "fancy",
+    "examples": [
+      {
+        "vernacular": "Toð gent dema l'ig autonomy Rurtagn no sta for un fancy.",
+        "english": "Everyone said Ruritanian independence was a pipe dream."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "apparition",
+      "vision",
+      "wraith",
+      "hallucination",
+      "mirage",
+      "trick of the light",
+      "illusion",
+      "pomp",
+      "pageantry",
+      "spectacle",
+      "show",
+      "pipe dream",
+      "castle in the air"
+    ],
+    "et": "a Middle Borlish contraction of fantasy \"imagination, concept, idea\". This descends from Latin phantasia \"notion; phantom; imagination\", which was borrowed from Greek φαντασίᾱ • phantasíā \"appearance, image\". The extension of the word to showy displays, first seen in philosophical Borlish in the eighteenth century, may reflect knowledge of the Greek etymon (which was used similarly)."
+  },
+  {
     "lx": "fanglanç",
     "ps": "n",
     "ge": [
@@ -30425,7 +30451,7 @@
     "lx": "haval fair",
     "examples": [
       {
-        "vernacular": "Y joun ern haval fayent ny gardin.",
+        "vernacular": "Y joun ern haval faint ny gardin.",
         "english": "The children were playing pretend in the garden."
       }
     ],
@@ -35405,7 +35431,7 @@
     "lx": "jusser",
     "examples": [
       {
-        "vernacular": "Nos ayau paut ny refectoir jusser.",
+        "vernacular": "Nos erau paut ny refectoir jusser.",
         "english": "We'd eaten at the downstairs cafe."
       }
     ],
@@ -35983,7 +36009,7 @@
   {
     "lx": "la",
     "ps": "pron",
-    "de": "third person masculine singular",
+    "de": "third person feminine singular",
     "ge": [
       "she",
       "her"
@@ -36575,7 +36601,7 @@
     "lx": "lastumnesc",
     "examples": [
       {
-        "vernacular": "Ðe ayen heu lastumnesc, com ig ðe n'ayen for pog dormið.",
+        "vernacular": "Ðe ayen heu lastumnesc, com ig ðe no'rn for pog dormið.",
         "english": "They looked haggard, as though they hadn't had much sleep."
       }
     ],
@@ -38252,7 +38278,7 @@
   {
     "lx": "lour",
     "ps": "pron",
-    "ge": "their",
+    "ge": "theirs",
     "et": "Old Borlish < Latin"
   },
   {
@@ -40245,7 +40271,7 @@
     "lx": "maugr",
     "examples": [
       {
-        "vernacular": "Nos stau livað d'ableganç vars y maugr.",
+        "vernacular": "Nos som livað d'ableganç vars y maugr.",
         "english": "We're fed up of being on the sidelines."
       }
     ],
@@ -48588,6 +48614,28 @@
     "et": "Old Borlish < Latin perdrix"
   },
   {
+    "lx": "paugral",
+    "examples": [
+      {
+        "vernacular": "La rescavau l'oç paugral alcheðr.",
+        "english": "She rewrote that paragraph twice."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "clause",
+      "article",
+      "paragraph",
+      "pilcrow",
+      "string attached",
+      "catch",
+      "proviso",
+      "condition",
+      "stipulation"
+    ],
+    "et": "from Old Borlish palgraf, pargrau \"paragraph\", alterations of synonymous paragraphus in Latin. Used for various scribal indications of new paragraphs since the fourteenth century. The final senses are from 1911 and arose from lawyers' informal use."
+  },
+  {
     "lx": "paulatim",
     "ps": "adv",
     "ge": [
@@ -48635,6 +48683,16 @@
   },
   {
     "lx": "paus",
+    "ps": "n",
+    "ge": [
+      "pause",
+      "stop",
+      "interruption"
+    ],
+    "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "paus",
     "ps": "interj",
     "ge": [
       "hang on",
@@ -48643,16 +48701,6 @@
     ],
     "et": "imperative of pausar \"stop\"",
     "mn": "pausar"
-  },
-  {
-    "lx": "paus",
-    "ps": "n",
-    "ge": [
-      "pause",
-      "stop",
-      "interruption"
-    ],
-    "et": "Middle Borlish < Latin"
   },
   {
     "lx": "paus yembr",
@@ -52938,7 +52986,7 @@
     "lx": "quallour",
     "examples": [
       {
-        "vernacular": "Y quallour egreye des y convey posc catr lau.",
+        "vernacular": "Y quallour egreyeu des y convey posc catr lau.",
         "english": "The passenger left the train after eight miles."
       }
     ],
@@ -58272,7 +58320,7 @@
     "lx": "scaðr",
     "examples": [
       {
-        "vernacular": "Me stou for savir ig nos seim scaðr den.",
+        "vernacular": "Me stou for savir ig nos seyau scaðr den.",
         "english": "I want to know we're on the same page."
       }
     ],
@@ -63280,6 +63328,43 @@
     "et": "Old Borlish < Latin"
   },
   {
+    "lx": "spinglar",
+    "examples": [
+      {
+        "vernacular": "Jo sceu noc y melody spinglar.",
+        "english": "I couldn't identify the tune."
+      }
+    ],
+    "ps": "ar v",
+    "ge": [
+      "pin",
+      "fasten",
+      "affix",
+      "attach",
+      "mount",
+      "fix",
+      "pin on",
+      "pin down",
+      "restrain",
+      "hold down",
+      "collar",
+      "nab",
+      "nail",
+      "arrest",
+      "pinpoint",
+      "identify",
+      "place"
+    ],
+    "et": "Middle Borlish, verbal derivation from spingr \"pin\". Immobilisation senses not involving literal pins or similar objects arose in the sixteenth century, with the criminal sense coming from underworld argot soon afterward.",
+    "mn": "spingr"
+  },
+  {
+    "lx": "spingr",
+    "ps": "n",
+    "ge": "pin",
+    "et": "via synonymous Old Borlish ispingle and Vulgar Latin spīngula from a conflation of Latin spīnula \"small thorn\" and spīcula \"small spike\"."
+  },
+  {
     "lx": "spion",
     "ps": "n",
     "ge": [
@@ -65506,7 +65591,7 @@
     "lx": "tandem",
     "examples": [
       {
-        "vernacular": "Tandem ðe pardoirn nis e fegrn repaðr.",
+        "vernacular": "Tandem ðe pardoirn nis e feirn repaðr.",
         "english": "Eventually they gave up and went home."
       }
     ],
@@ -69119,7 +69204,7 @@
   },
   {
     "lx": "untal",
-    "ps": "adj",
+    "ps": "det",
     "ge": [
       "somesuch",
       "any"
@@ -69811,6 +69896,12 @@
       "vapour"
     ],
     "et": "Middle Borlish < Latin"
+  },
+  {
+    "lx": "var",
+    "ps": "n",
+    "ge": "war",
+    "et": "Old Borlish ver, var < Old Norman werre"
   },
   {
     "lx": "vardir",
@@ -73442,29 +73533,6 @@
     "et": "French < Italian < Old German < Latin"
   },
   {
-    "lx": "zi",
-    "examples": [
-      {
-        "vernacular": "Zi, sco'n bal n'oc ort.",
-        "english": "Yeah, things're looking up."
-      }
-    ],
-    "ps": "interj",
-    "ue": "colloquial",
-    "ge": [
-      "yeah",
-      "innit",
-      "isn't it",
-      "aren't they",
-      "aren't I",
-      "aren't you",
-      "isn't he",
-      "isn't she",
-      "aren't we"
-    ],
-    "et": "Contraction of standard es i [ɪˈzi] \"is it\", part of a series of similar contractions of the copula with pronouns, like sco \"am I\", sti \"are you (sg)\" which despite their verb-subject inversion are also nonstandardly used in declarative clauses (sti'n connart \"You're a dick\")."
-  },
-  {
     "lx": "zijub",
     "ps": "n",
     "ge": "jujube",
@@ -73613,6 +73681,29 @@
       "gel"
     ],
     "et": "early eighteenth century borrowing from French zurce \"jelly, aspic\", itself from sürze in Bavarn. This derives from a Classical German root sultiō \"brine\", related to English \"salt\". The word displaces now-obsolete veros \"aspic\" (apparently from veðr os \"bone glass\") in line with the substance's increasing use in sweet dishes."
+  },
+  {
+    "lx": "zy",
+    "examples": [
+      {
+        "vernacular": "Zy, sco'n bal n'oc ort.",
+        "english": "Yeah, things're looking up."
+      }
+    ],
+    "ps": "interj",
+    "ue": "colloquial",
+    "ge": [
+      "yeah",
+      "innit",
+      "isn't it",
+      "aren't they",
+      "aren't I",
+      "aren't you",
+      "isn't he",
+      "isn't she",
+      "aren't we"
+    ],
+    "et": "Contraction of es y [ɪˈzi] \"is it\", part of a series of similar contractions of the copula with pronouns, like sco \"am I\", stu \"are you (sg)\" which despite their verb-subject inversion are also nonstandardly used in declarative clauses (stu'n connart \"You're a dick\")."
   },
   {
     "lx": "zygom",

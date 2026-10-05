@@ -1358,8 +1358,22 @@
         if (!_isCellPlayable(cell) || !cell.entry || cell.revealed) return;
         cell.checked = (cell.entry === cell.solution) ? 'correct' : 'incorrect';
         updateCellDisplay(pos.row, pos.col);
+        scheduleCheckFade(pos.row, pos.col);
       });
-      saveProgress();
+    }
+
+    // Check highlights are transient: clear them after CHECK_FADE_MS
+    var CHECK_FADE_MS = 10000;
+
+    function scheduleCheckFade(r, c) {
+      var cell = puzzle.grid[r][c];
+      clearTimeout(cell.checkTimer);
+      cell.checkTimer = setTimeout(function () {
+        cell.checkTimer = null;
+        if (cell.revealed) return;
+        cell.checked = null;
+        updateCellDisplay(r, c);
+      }, CHECK_FADE_MS);
     }
 
     function revealCells(cells) {
@@ -1714,7 +1728,6 @@
       if (!puzzleNumber) return;
       var entries  = [];
       var revealed = [];
-      var checked  = [];
 
       for (var r = 0; r < puzzle.height; r++) {
         for (var c = 0; c < puzzle.width; c++) {
@@ -1722,14 +1735,12 @@
           var i    = r * puzzle.width + c;
           entries.push(cell.entry || '');
           if (cell.revealed) revealed.push(i);
-          if (cell.checked)  checked.push({ i: i, v: cell.checked });
         }
       }
 
       var data = {
         entries:   entries,
         revealed:  revealed,
-        checked:   checked,
         timer:     state.timer.elapsed,
         completed: state.completed
       };
@@ -1757,12 +1768,7 @@
           if (_isCellPlayable(cell)) {
             cell.entry    = (data.entries && data.entries[idx]) || '';
             cell.revealed = !!(data.revealed && data.revealed.indexOf(i) >= 0);
-            cell.checked  = null;
-            if (data.checked) {
-              for (var k = 0; k < data.checked.length; k++) {
-                if (data.checked[k].i === i) { cell.checked = data.checked[k].v; break; }
-              }
-            }
+            cell.checked  = cell.revealed ? 'correct' : null;
           }
           idx++;
         }
