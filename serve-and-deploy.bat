@@ -29,7 +29,7 @@ if not errorlevel 1 (
     echo.
     echo No changes to commit. Nothing pushed.
     timeout /t 5 >nul
-    exit /b 0
+    exit 0
 )
 
 git commit -m "Update site %DATE% %TIME%"
@@ -44,3 +44,4 @@ if errorlevel 1 (
 echo.
 echo Done - changes committed and pushed.
 timeout /t 5 >nul
+exit 0
