@@ -3165,12 +3165,6 @@
     ]
   },
   {
-    "lx": "amand",
-    "ps": "n",
-    "ge": "almond",
-    "et": "Old Borlish < Vulgar Latin < Latin"
-  },
-  {
     "lx": "amar",
     "ps": "ar v",
     "ge": [
@@ -3396,6 +3390,30 @@
       "disorder"
     ],
     "et": "Middle Borlish < Latin < Greek"
+  },
+  {
+    "lx": "anathemat",
+    "examples": [
+      {
+        "vernacular": "J'ay un anathemat de mandovy.",
+        "english": "I am allergic to peanuts."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "allergy",
+      "sensitivity",
+      "intolerance",
+      "rash",
+      "hives",
+      "flare-up",
+      "excommunication",
+      "anathema",
+      "ban",
+      "boycott",
+      "blacklist"
+    ],
+    "et": "originally in religious use, a Middle Borlish borrowing from Latin anathema (stem anathemat-) \"offering someone's life; excommunication\", itself from Greek ανάθεμα • (anáthema) \"votive offering\", noun derivation of ἀνατίθημι • (anatíthēmi) \"lay upon; dedicate\". Extension to medical writing is seen from the seventeenth century, and has been used by the wider public from the nineteenth century."
   },
   {
     "lx": "ançan",
@@ -8783,6 +8801,30 @@
       "cruel"
     ],
     "et": "Old Borlish < Medieval Latin"
+  },
+  {
+    "lx": "bucet",
+    "examples": [
+      {
+        "vernacular": "Le n'a bucet beut posc y var.",
+        "english": "He hasn't smoked since the war."
+      }
+    ],
+    "ps": [
+      "n",
+      "adj"
+    ],
+    "ge": [
+      "tobacco",
+      "smoke break",
+      "tip",
+      "gratuity",
+      "pourboire",
+      "lagniappe",
+      "tobacco-brown",
+      "snuff-coloured"
+    ],
+    "et": "sixteenth century, via Vascon or Portingale buchete and Arabic بشيت • bushait from contemporary Nawat [Classical Nahuatl] pisietl \"tobacco plant\". In the sense of \"tip\", seen primarily in the eighteenth and nineteenth centuries. Compare butchet (also butch) in Merch, 寶屑 • pǒushet in southern (imperial) Chinese. Use as a colour term tends to connote dinginess or an ill-maintained quality."
   },
   {
     "lx": "bucol",
@@ -27834,6 +27876,16 @@
       "yard"
     ],
     "et": "Old Borlish < Old French < Medieval Latin < Frankish"
+  },
+  {
+    "lx": "gardinner",
+    "ps": "n",
+    "ge": [
+      "gardener",
+      "groundskeeper"
+    ],
+    "et": "from gardin \"gardiner\" and agentive -er",
+    "mn": "gardin"
   },
   {
     "lx": "gargollir",
@@ -57856,6 +57908,30 @@
       "sarf",
       "dar"
     ]
+  },
+  {
+    "lx": "sarment",
+    "examples": [
+      {
+        "vernacular": "Y gardinner coupau un sarment dy ros.",
+        "english": "The gardener took a cutting of the rose."
+      }
+    ],
+    "ps": "n",
+    "ge": [
+      "cutting",
+      "slip",
+      "shoot",
+      "runner",
+      "stolon",
+      "brushwood",
+      "kindling",
+      "cadet branch",
+      "offshoot",
+      "hanger-on",
+      "sponger"
+    ],
+    "et": "an unproblematic descendant via Old Borlish sarment \"cutting, shoot\" from Latin sarmentum \"shoot\", a nominal derivation of verb sarpō \"I prune (a vine)\". Possibly reinforced in the Middle Borlish as a reborrowing from botanical Latin. Genealogical senses are attested from the seventeenth century."
   },
   {
     "lx": "sarpent",
