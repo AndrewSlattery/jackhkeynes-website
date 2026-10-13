@@ -25,18 +25,20 @@ var BorlishDictionary = (function () {
     'question word': 'question word'
   };
 
-  // Normalise a ps field (string or array) into an array of trimmed tokens.
-  // Handles: "adj", "adj, prep", ["adj", "prep"], ["adj", "prep"].
-  function psTokens(ps) {
-    if (!ps) return [];
-    if (Array.isArray(ps)) {
-      return ps.map(function (s) { return String(s).trim(); }).filter(Boolean);
-    }
-    return String(ps).split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  // ----- ENTRY STRUCTURE -----
+  // Each entry is { lx, hm?, senses: [{ ps, ge, ue, uv, de, dv, examples }],
+  // et, mn, sd, subentries: [...] }; subentries share the entry's shape.
+  function asArray(v) {
+    return v == null ? [] : Array.isArray(v) ? v : [v];
   }
 
-  function psMatchesFilter(ps, filter) {
-    return psTokens(ps).indexOf(filter) !== -1;
+  // The entry itself followed by its subentries.
+  function recordsOf(entry) {
+    return [entry].concat(asArray(entry.subentries));
+  }
+
+  function entryHasPos(entry, filter) {
+    return entry._pos.indexOf(filter) !== -1;
   }
 
   // ----- HELPERS -----
@@ -154,13 +156,14 @@ var BorlishDictionary = (function () {
 
   // ----- STATE -----
   var dictionaryData = [];
-  var englishIndex = {};      // foldedKey -> { display, entries: [] }
+  var englishIndex = {};      // foldedKey -> { display, refs: [{ entry, record, ps: [] }] }
   var englishKeys = [];       // sorted folded keys
-  var lxLookup = {};          // foldedLx -> first entry with that headword
+  var lxLookup = {};          // foldedLx -> headword (entry or subentry) as written
   var posList = [];           // unique parts of speech (sorted)
   var currentMode = 'borlish';
   var currentPos = '';
   var currentBrowseLetter = '';
+  var currentDomain = '';
 
   // ----- DOM -----
   var container = document.getElementById('borlish-dictionary');
@@ -195,34 +198,69 @@ var BorlishDictionary = (function () {
   }
 
   // ----- INDEXING -----
+  function glossChips(sense) {
+    var chips = [];
+    var glosses = asArray(sense.ge);
+    for (var g = 0; g < glosses.length; g++) {
+      var parts = String(glosses[g]).split(/[,;]/);
+      for (var p = 0; p < parts.length; p++) {
+        var part = parts[p].trim();
+        if (part && chips.indexOf(part) === -1) chips.push(part);
+      }
+    }
+    return chips;
+  }
+
+  // One ref per headword (entry or subentry), listing the parts of speech of
+  // the senses that carry the gloss.
+  function indexGloss(gloss, entry, record, ps) {
+    var k = fold(gloss);
+    var item = englishIndex[k] || (englishIndex[k] = { display: gloss, refs: [] });
+    var ref = null;
+    for (var i = 0; i < item.refs.length; i++) {
+      if (item.refs[i].record === record) { ref = item.refs[i]; break; }
+    }
+    if (!ref) item.refs.push(ref = { entry: entry, record: record, ps: [] });
+    if (ps && ref.ps.indexOf(ps) === -1) ref.ps.push(ps);
+  }
+
   function buildIndices() {
     englishIndex = {};
     lxLookup = {};
     var posSet = {};
-    for (var i = 0; i < dictionaryData.length; i++) {
-      var entry = dictionaryData[i];
+    var i, entry;
+    // Main headwords first, so they win lxLookup over identically spelled subentries.
+    for (i = 0; i < dictionaryData.length; i++) {
+      entry = dictionaryData[i];
       entry._lxFold = fold(entry.lx);
       entry._stripChar = stripChar(entry.lx);
-      if (!lxLookup[entry._lxFold]) lxLookup[entry._lxFold] = entry;
-      var pst = psTokens(entry.ps);
-      for (var pt = 0; pt < pst.length; pt++) posSet[pst[pt]] = true;
-
-      var glosses;
-      if (Array.isArray(entry.ge)) glosses = entry.ge;
-      else if (typeof entry.ge === 'string') glosses = [entry.ge];
-      else glosses = [];
-
-      entry._glossChips = [];
-      for (var g = 0; g < glosses.length; g++) {
-        var parts = glosses[g].split(/[,;]/);
-        for (var p = 0; p < parts.length; p++) {
-          var part = parts[p].trim();
-          if (!part) continue;
-          if (entry._glossChips.indexOf(part) === -1) entry._glossChips.push(part);
-          var k = fold(part);
-          if (!englishIndex[k]) englishIndex[k] = { display: part, entries: [] };
-          if (englishIndex[k].entries.indexOf(entry) === -1) {
-            englishIndex[k].entries.push(entry);
+      if (!lxLookup[entry._lxFold]) lxLookup[entry._lxFold] = entry.lx;
+    }
+    for (i = 0; i < dictionaryData.length; i++) {
+      entry = dictionaryData[i];
+      entry._heads = [];
+      entry._pos = [];
+      entry._domains = [];
+      var records = recordsOf(entry);
+      for (var r = 0; r < records.length; r++) {
+        var rec = records[r];
+        var recFold = fold(rec.lx);
+        entry._heads.push(recFold);
+        if (!lxLookup[recFold]) lxLookup[recFold] = rec.lx;
+        var sds = asArray(rec.sd);
+        for (var d = 0; d < sds.length; d++) {
+          if (entry._domains.indexOf(sds[d]) === -1) entry._domains.push(sds[d]);
+        }
+        var senses = asArray(rec.senses);
+        for (var s = 0; s < senses.length; s++) {
+          var sense = senses[s];
+          if (sense.ps) {
+            posSet[sense.ps] = true;
+            if (entry._pos.indexOf(sense.ps) === -1) entry._pos.push(sense.ps);
+          }
+          sense._chips = glossChips(sense);
+          for (var c = 0; c < sense._chips.length; c++) {
+            indexGloss(sense._chips[c], entry, rec, sense.ps);
           }
         }
       }
@@ -326,20 +364,30 @@ var BorlishDictionary = (function () {
     if (allBtn) allBtn.classList.toggle('az-active', !currentBrowseLetter);
   }
 
+  // Cross-references may name a homonym by number: "cart1", "pouvr 2".
+  function parseRef(ref) {
+    var s = String(ref).trim();
+    if (lxLookup[fold(s)]) return { lx: s, hm: '' };
+    var m = /^(.*?\S)\s*(\d+)$/.exec(s);
+    if (m && lxLookup[fold(m[1])]) return { lx: m[1], hm: m[2] };
+    return { lx: s, hm: '', dead: true };
+  }
+
   function validateCrossRefs() {
     var seen = {};
     var dead = 0;
     for (var i = 0; i < dictionaryData.length; i++) {
-      var entry = dictionaryData[i];
-      if (!entry.mn) continue;
-      var refs = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
-      for (var r = 0; r < refs.length; r++) {
-        var ref = refs[r];
-        if (seen[ref]) continue;
-        seen[ref] = true;
-        if (!lxLookup[fold(ref)]) {
-          dead++;
-          console.warn('[dictionary] dead cross-ref "' + ref + '" (referenced from "' + entry.lx + '")');
+      var records = recordsOf(dictionaryData[i]);
+      for (var rc = 0; rc < records.length; rc++) {
+        var refs = asArray(records[rc].mn);
+        for (var r = 0; r < refs.length; r++) {
+          var ref = refs[r];
+          if (seen[ref]) continue;
+          seen[ref] = true;
+          if (parseRef(ref).dead) {
+            dead++;
+            console.warn('[dictionary] dead cross-ref "' + ref + '" (referenced from "' + records[rc].lx + '")');
+          }
         }
       }
     }
@@ -373,6 +421,8 @@ var BorlishDictionary = (function () {
     if (currentMode && currentMode !== 'borlish') parts.push('mode=' + encodeURIComponent(currentMode));
     if (currentBrowseLetter) {
       parts.push('browse=' + encodeURIComponent(currentBrowseLetter));
+    } else if (currentDomain) {
+      parts.push('domain=' + encodeURIComponent(currentDomain));
     } else if (searchInput && searchInput.value) {
       parts.push('q=' + encodeURIComponent(searchInput.value));
     }
@@ -388,18 +438,25 @@ var BorlishDictionary = (function () {
 
   function applyStateFromHash(updateMode) {
     var p = parseHash();
-    if (updateMode && p.mode) {
-      currentMode = p.mode;
-      var radio = document.querySelector('input[name="dict-mode"][value="' + p.mode + '"]');
+    if (updateMode) {
+      // No mode in the hash means the default, Borlish
+      currentMode = p.mode || 'borlish';
+      var radio = document.querySelector('input[name="dict-mode"][value="' + currentMode + '"]');
       if (radio) radio.checked = true;
     }
     currentPos = p.pos || '';
     if (posFilter) posFilter.value = currentPos;
     currentBrowseLetter = '';
+    currentDomain = '';
     if (p.browse) {
       currentBrowseLetter = p.browse;
       searchInput.value = '';
       renderBrowse(p.browse, false);
+      return;
+    }
+    if (p.domain) {
+      searchInput.value = '';
+      renderDomain(p.domain, false);
       return;
     }
     if (p.q) {
@@ -429,6 +486,7 @@ var BorlishDictionary = (function () {
 
   function performSearch(query, push) {
     currentBrowseLetter = '';
+    currentDomain = '';
     updateAzActive();
     resultsDiv.innerHTML = '';
 
@@ -463,9 +521,14 @@ var BorlishDictionary = (function () {
     var matches = [];
     for (var i = 0; i < dictionaryData.length; i++) {
       var entry = dictionaryData[i];
-      if (currentPos && !psMatchesFilter(entry.ps, currentPos)) continue;
-      var r = rankMatch(entry._lxFold, qFold, strictStart, strictEnd);
-      if (r !== -1) matches.push({ entry: entry, rank: r });
+      if (currentPos && !entryHasPos(entry, currentPos)) continue;
+      // Best rank across the headword and any subentry headwords
+      var best = -1;
+      for (var h = 0; h < entry._heads.length; h++) {
+        var r = rankMatch(entry._heads[h], qFold, strictStart, strictEnd);
+        if (r !== -1 && (best === -1 || r < best)) best = r;
+      }
+      if (best !== -1) matches.push({ entry: entry, rank: best });
     }
     matches.sort(function (a, b) {
       return a.rank - b.rank || cmpSort(a.entry, b.entry);
@@ -479,11 +542,14 @@ var BorlishDictionary = (function () {
     statusDiv.textContent = 'Found ' + matches.length + ' ' + noun + '.';
 
     var visible = matches.slice(0, BORLISH_RESULT_CAP).map(function (m) { return m.entry; });
-    renderEntries(visible, qFold, strictStart, strictEnd);
+    renderEntries(visible);
     if (matches.length > BORLISH_RESULT_CAP) {
-      appendShowMore(matches.slice(BORLISH_RESULT_CAP).map(function (m) { return m.entry; }),
-        qFold, strictStart, strictEnd);
+      appendShowMore(matches.slice(BORLISH_RESULT_CAP).map(function (m) { return m.entry; }));
     }
+  }
+
+  function refHasPos(ref) {
+    return ref.ps.indexOf(currentPos) !== -1;
   }
 
   function searchEnglish(qFold, strictStart, strictEnd) {
@@ -492,14 +558,7 @@ var BorlishDictionary = (function () {
       var key = englishKeys[i];
       var r = rankMatch(key, qFold, strictStart, strictEnd);
       if (r === -1) continue;
-      if (currentPos) {
-        var hasPosEntry = false;
-        var es = englishIndex[key].entries;
-        for (var j = 0; j < es.length; j++) {
-          if (psMatchesFilter(es[j].ps, currentPos)) { hasPosEntry = true; break; }
-        }
-        if (!hasPosEntry) continue;
-      }
+      if (currentPos && !englishIndex[key].refs.some(refHasPos)) continue;
       matches.push({ key: key, display: englishIndex[key].display, rank: r });
     }
     matches.sort(function (a, b) {
@@ -513,7 +572,7 @@ var BorlishDictionary = (function () {
     var noun = matches.length === 1 ? 'English term' : 'English terms';
     statusDiv.textContent = 'Found ' + matches.length + ' ' + noun + '.';
 
-    renderEnglishResults(matches.slice(0, ENGLISH_RESULT_CAP), qFold, strictStart, strictEnd);
+    renderEnglishResults(matches.slice(0, ENGLISH_RESULT_CAP));
     if (matches.length > ENGLISH_RESULT_CAP) {
       var more = document.createElement('div');
       more.className = 'dict-more-note';
@@ -522,21 +581,29 @@ var BorlishDictionary = (function () {
     }
   }
 
-  function appendShowMore(remainingEntries, qFold, strictStart, strictEnd) {
+  function appendShowMore(remainingEntries) {
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'dict-show-more';
     btn.textContent = 'Show ' + remainingEntries.length + ' more';
     btn.addEventListener('click', function () {
       btn.remove();
-      renderEntries(remainingEntries, qFold, strictStart, strictEnd);
+      renderEntries(remainingEntries);
     });
     resultsDiv.appendChild(btn);
+  }
+
+  function renderCapped(matches) {
+    renderEntries(matches.slice(0, BORLISH_RESULT_CAP));
+    if (matches.length > BORLISH_RESULT_CAP) {
+      appendShowMore(matches.slice(BORLISH_RESULT_CAP));
+    }
   }
 
   // ----- BROWSE -----
   function exitBrowse() {
     currentBrowseLetter = '';
+    currentDomain = '';
     resultsDiv.innerHTML = '';
     statusDiv.textContent = dictionaryData.length + ' entries.';
     writeHash(true);
@@ -544,12 +611,13 @@ var BorlishDictionary = (function () {
   }
 
   function renderBrowse(letter, push) {
+    currentDomain = '';
     resultsDiv.innerHTML = '';
     var matches = [];
     for (var i = 0; i < dictionaryData.length; i++) {
       var e = dictionaryData[i];
       if (e._stripChar !== letter) continue;
-      if (currentPos && !psMatchesFilter(e.ps, currentPos)) continue;
+      if (currentPos && !entryHasPos(e, currentPos)) continue;
       matches.push(e);
     }
     matches.sort(cmpSort);
@@ -559,36 +627,154 @@ var BorlishDictionary = (function () {
       return;
     }
     statusDiv.textContent = 'Browsing ' + matches.length + ' entries starting with "' + letter.toUpperCase() + '".';
-    var visible = matches.slice(0, BORLISH_RESULT_CAP);
-    renderEntries(visible, '', false, false);
-    if (matches.length > BORLISH_RESULT_CAP) {
-      appendShowMore(matches.slice(BORLISH_RESULT_CAP), '', false, false);
-    }
+    renderCapped(matches);
     writeHash(push);
     updateAzActive();
   }
 
-  // ----- RENDER -----
-  function psHtml(ps) {
-    var tokens = psTokens(ps);
-    if (!tokens.length) return '';
-    var display = tokens.join(', ');
-    var title = tokens.map(function (t) { return PS_LABELS[t] || t; }).join(', ');
-    return '<span class="dict-ps" title="' + escapeHtml(title) + '">' + escapeHtml(display) + '</span>';
+  // Lists every entry tagged with a semantic domain (\sd), e.g. "Months".
+  function renderDomain(domain, push) {
+    currentBrowseLetter = '';
+    currentDomain = domain;
+    updateAzActive();
+    resultsDiv.innerHTML = '';
+    var matches = [];
+    for (var i = 0; i < dictionaryData.length; i++) {
+      var e = dictionaryData[i];
+      if (e._domains.indexOf(domain) === -1) continue;
+      if (currentPos && !entryHasPos(e, currentPos)) continue;
+      matches.push(e);
+    }
+    matches.sort(cmpSort);
+    if (matches.length === 0) {
+      statusDiv.textContent = 'No entries in the domain "' + domain + '".';
+    } else {
+      statusDiv.textContent = 'Showing ' + matches.length + (matches.length === 1 ? ' entry' : ' entries')
+        + ' in the domain "' + domain + '".';
+      renderCapped(matches);
+    }
+    writeHash(push);
   }
 
-  function glossesHtml(entry, qFold, strictStart, strictEnd) {
-    if (!entry._glossChips || entry._glossChips.length === 0) return '';
-    var mode = (currentMode === 'english')
-      ? (strictStart && strictEnd ? 'exact' : (strictStart ? 'prefix' : (strictEnd ? 'suffix' : 'contains')))
-      : 'contains';
+  // ----- RENDER -----
+  function psHtml(ps) {
+    if (!ps) return '';
+    return '<span class="dict-ps" title="' + escapeHtml(PS_LABELS[ps] || ps) + '">' + escapeHtml(ps) + '</span>';
+  }
+
+  function glossesHtml(chips) {
     var parts = [];
-    for (var i = 0; i < entry._glossChips.length; i++) {
-      var g = entry._glossChips[i];
-      var hl = escapeHtml(g);
-      parts.push('<a class="gloss-link" data-gloss="' + escapeHtml(g) + '" title="Search English for &quot;' + escapeHtml(g) + '&quot;">' + hl + '</a>');
+    for (var i = 0; i < chips.length; i++) {
+      var g = escapeHtml(chips[i]);
+      parts.push('<a class="gloss-link" data-gloss="' + g + '" title="Search English for &quot;' + g + '&quot;">' + g + '</a>');
     }
     return parts.join(', ');
+  }
+
+  // Usage labels: \ue (archaic, vulgar, ...) and \uv, which in this
+  // dictionary holds irregular comparative endings such as "-errem".
+  function usageHtml(sense) {
+    var html = '';
+    var ue = asArray(sense.ue);
+    for (var i = 0; i < ue.length; i++) {
+      html += '<span class="dict-usage">' + escapeHtml(ue[i]) + '</span>';
+    }
+    var uv = asArray(sense.uv);
+    for (var j = 0; j < uv.length; j++) {
+      html += '<span class="dict-usage">' + (sense.ps === 'adj' ? 'comparative ' : '')
+        + '<span class="dict-usage-vern">' + escapeHtml(uv[j]) + '</span></span>';
+    }
+    return html;
+  }
+
+  function examplesHtml(examples) {
+    var html = '';
+    for (var i = 0; i < examples.length; i++) {
+      var ex = examples[i];
+      html += '<div class="dict-example">';
+      if (ex.vernacular) html += '<span class="dict-vernacular">' + tokeniseAndLink(ex.vernacular) + '</span>';
+      if (ex.english) html += ' <span class="dict-translation">"' + escapeHtml(ex.english) + '"</span>';
+      html += '</div>';
+    }
+    return html;
+  }
+
+  // Glosses (with the part of speech inline when the entry has several
+  // senses), then definitions (\de, \dv) and the sense's own examples.
+  function senseHtml(sense, inlinePs) {
+    var html = '<div class="dict-ge">'
+      + (inlinePs ? psHtml(sense.ps) : '')
+      + usageHtml(sense)
+      + glossesHtml(sense._chips || [])
+      + '</div>';
+    var defs = asArray(sense.de).concat(asArray(sense.dv));
+    for (var i = 0; i < defs.length; i++) {
+      html += '<div class="dict-def">' + escapeHtml(defs[i]) + '</div>';
+    }
+    return html + examplesHtml(asArray(sense.examples));
+  }
+
+  function etymologyHtml(et) {
+    var paras = String(et).split(/\n{2,}/);
+    var html = '<div class="dict-meta"><span class="dict-label">Etymology:</span> ' + escapeHtml(paras[0]);
+    for (var i = 1; i < paras.length; i++) {
+      html += '<p class="dict-para">' + escapeHtml(paras[i]) + '</p>';
+    }
+    return html + '</div>';
+  }
+
+  function crossRefsHtml(refs) {
+    var parts = [];
+    for (var i = 0; i < refs.length; i++) {
+      var ref = parseRef(refs[i]);
+      parts.push(
+        '<a class="mn-link' + (ref.dead ? ' mn-dead' : '') + '" data-ref="' + escapeHtml(ref.lx) + '"'
+        + (ref.dead ? ' title="No entry found for this cross-reference"' : '')
+        + '>' + escapeHtml(ref.lx) + (ref.hm ? '<sup>' + escapeHtml(ref.hm) + '</sup>' : '') + '</a>'
+      );
+    }
+    return '<div class="dict-meta"><span class="dict-label">See also:</span> ' + parts.join(', ') + '</div>';
+  }
+
+  function domainsHtml(domains) {
+    var html = '';
+    for (var i = 0; i < domains.length; i++) {
+      var d = escapeHtml(domains[i]);
+      html += '<a class="sd-link" data-domain="' + d + '" title="Show all entries in &quot;' + d + '&quot;">' + d + '</a>';
+    }
+    return html;
+  }
+
+  // An entry or subentry: headword line, senses, etymology, cross-refs, then
+  // any subentries nested beneath.
+  function recordHtml(rec, hm, isSub) {
+    var senses = asArray(rec.senses);
+    var single = senses.length === 1;
+    var html = '<div class="dict-headword-line">'
+      + '<span class="' + (isSub ? 'dict-sub-lx' : 'dict-lx') + '">' + escapeHtml(rec.lx) + '</span>'
+      + (hm ? '<span class="dict-hm">' + escapeHtml(hm) + '</span>' : '')
+      + (single ? psHtml(senses[0].ps) : '')
+      + domainsHtml(asArray(rec.sd))
+      + '</div>';
+
+    if (single) {
+      html += senseHtml(senses[0], false);
+    } else if (senses.length) {
+      html += '<ol class="dict-senses">';
+      for (var s = 0; s < senses.length; s++) {
+        html += '<li class="dict-sense">' + senseHtml(senses[s], true) + '</li>';
+      }
+      html += '</ol>';
+    }
+
+    if (rec.et) html += etymologyHtml(rec.et);
+    if (rec.mn) html += crossRefsHtml(asArray(rec.mn));
+
+    var subs = asArray(rec.subentries);
+    for (var i = 0; i < subs.length; i++) {
+      html += '<section class="dict-subentry">' + recordHtml(subs[i], subs[i].hm, true) + '</section>';
+    }
+    return html;
   }
 
   function tokeniseAndLink(text) {
@@ -603,7 +789,7 @@ var BorlishDictionary = (function () {
       if (!buf) return;
       var k = fold(buf);
       if (lxLookup[k]) {
-        out.push('<a class="ex-link" data-ref="' + escapeHtml(lxLookup[k].lx) + '">' + escapeHtml(buf) + '</a>');
+        out.push('<a class="ex-link" data-ref="' + escapeHtml(lxLookup[k]) + '">' + escapeHtml(buf) + '</a>');
       } else {
         out.push(escapeHtml(buf));
       }
@@ -622,90 +808,40 @@ var BorlishDictionary = (function () {
     return out.join('');
   }
 
-  function renderEntries(entries, qFold, strictStart, strictEnd) {
+  function displayHm(entry) {
+    return (entry._displayHm !== undefined) ? entry._displayHm : entry.hm;
+  }
+
+  function renderEntries(entries) {
     var frag = document.createDocumentFragment();
-    var lxMode = (strictStart && strictEnd) ? 'exact'
-      : strictStart ? 'prefix'
-      : strictEnd ? 'suffix'
-      : 'contains';
     for (var i = 0; i < entries.length; i++) {
-      var entry = entries[i];
       var article = document.createElement('article');
       article.className = 'dict-entry';
-
-      var lxHtml = escapeHtml(entry.lx);
-      var hm = (entry._displayHm !== undefined) ? entry._displayHm : entry.hm;
-      var hmHtml = hm ? '<span class="dict-hm">' + escapeHtml(hm) + '</span>' : '';
-
-      var html =
-        '<div class="dict-headword-line">'
-          + '<span class="dict-lx">' + lxHtml + '</span>'
-          + hmHtml
-          + psHtml(entry.ps)
-        + '</div>'
-        + '<div class="dict-ge">' + glossesHtml(entry, qFold, strictStart, strictEnd) + '</div>';
-
-      if (entry.et) {
-        html += '<div class="dict-meta"><span class="dict-label">Etymology:</span> '
-          + escapeHtml(entry.et) + '</div>';
-      }
-
-      if (entry.mn) {
-        var refs = Array.isArray(entry.mn) ? entry.mn : [entry.mn];
-        var linkParts = [];
-        for (var r = 0; r < refs.length; r++) {
-          var ref = refs[r];
-          var deadRef = !lxLookup[fold(ref)];
-          var cls = 'mn-link' + (deadRef ? ' mn-dead' : '');
-          linkParts.push(
-            '<a class="' + cls + '" data-ref="' + escapeHtml(ref) + '"'
-            + (deadRef ? ' title="No entry found for this cross-reference"' : '')
-            + '>' + escapeHtml(ref) + '</a>'
-          );
-        }
-        html += '<div class="dict-meta"><span class="dict-label">See also:</span> ' + linkParts.join(', ') + '</div>';
-      }
-
-      if (entry.examples && entry.examples.length) {
-        html += '<div class="dict-meta"><span class="dict-label">Examples:</span>';
-        for (var ex = 0; ex < entry.examples.length; ex++) {
-          var e = entry.examples[ex];
-          html += '<div class="dict-example">'
-            + '<span class="dict-vernacular">' + tokeniseAndLink(e.vernacular) + '</span> '
-            + '<span class="dict-translation">"' + escapeHtml(e.english) + '"</span>'
-            + '</div>';
-        }
-        html += '</div>';
-      }
-
-      article.innerHTML = html;
+      article.innerHTML = recordHtml(entries[i], displayHm(entries[i]), false);
       frag.appendChild(article);
     }
     resultsDiv.appendChild(frag);
   }
 
-  function renderEnglishResults(matches, qFold, strictStart, strictEnd) {
+  function renderEnglishResults(matches) {
     var frag = document.createDocumentFragment();
-    var mode = (strictStart && strictEnd) ? 'exact'
-      : strictStart ? 'prefix'
-      : strictEnd ? 'suffix'
-      : 'contains';
     for (var i = 0; i < matches.length; i++) {
       var m = matches[i];
       var wrap = document.createElement('div');
       wrap.className = 'english-index-item';
       var kwHtml = escapeHtml(m.display);
-      var entries = englishIndex[m.key].entries;
+      var refs = englishIndex[m.key].refs;
       var refParts = [];
-      for (var e = 0; e < entries.length; e++) {
-        var ent = entries[e];
-        if (currentPos && !psMatchesFilter(ent.ps, currentPos)) continue;
-        var hm = ent.hm ? ' <sup>' + escapeHtml(ent.hm) + '</sup>' : '';
-        var psToks = psTokens(ent.ps);
-        var ps = psToks.length ? ' <span class="ref-ps">(' + escapeHtml(psToks.join(', ')) + ')</span>' : '';
+      for (var e = 0; e < refs.length; e++) {
+        var ref = refs[e];
+        if (currentPos && !refHasPos(ref)) continue;
+        var rec = ref.record;
+        var hmVal = rec === ref.entry ? displayHm(rec) : rec.hm;
+        var hm = hmVal ? ' <sup>' + escapeHtml(hmVal) + '</sup>' : '';
+        var ps = ref.ps.length ? ' <span class="ref-ps">(' + escapeHtml(ref.ps.join(', ')) + ')</span>' : '';
         refParts.push(
-          '<a class="mn-link" data-ref="' + escapeHtml(ent.lx) + '">'
-            + escapeHtml(ent.lx) + hm
+          '<a class="mn-link" data-ref="' + escapeHtml(rec.lx) + '">'
+            + escapeHtml(rec.lx) + hm
           + '</a>' + ps
         );
       }
@@ -767,6 +903,8 @@ var BorlishDictionary = (function () {
       currentPos = e.target.value;
       if (currentBrowseLetter) {
         renderBrowse(currentBrowseLetter, true);
+      } else if (currentDomain) {
+        renderDomain(currentDomain, true);
       } else {
         performSearch(searchInput.value, true);
       }
@@ -820,6 +958,15 @@ var BorlishDictionary = (function () {
       if (glossLink) {
         e.preventDefault();
         jumpToEnglish(glossLink.getAttribute('data-gloss'));
+        return;
+      }
+      var sdLink = t.closest ? t.closest('.sd-link') : null;
+      if (sdLink) {
+        e.preventDefault();
+        setMode('borlish');
+        searchInput.value = '';
+        renderDomain(sdLink.getAttribute('data-domain'), true);
+        window.scrollTo(0, 0);
         return;
       }
     });

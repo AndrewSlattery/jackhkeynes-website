@@ -25,17 +25,7 @@
   };
 
   function psLabel(ps) {
-    if (!ps) return '';
-    var tokens = Array.isArray(ps)
-      ? ps
-      : String(ps).split(',').map(function (s) { return s.trim(); });
-    var labelled = [];
-    for (var i = 0; i < tokens.length; i++) {
-      var t = tokens[i];
-      if (!t) continue;
-      labelled.push(PS_LABELS[t] || t);
-    }
-    return labelled.join(', ');
+    return ps ? (PS_LABELS[ps] || ps) : '';
   }
 
   function escapeHtml(s) {
@@ -44,27 +34,32 @@
     });
   }
 
+  // Complete examples from the entry's own senses (not its subentries, whose
+  // examples illustrate a different headword).
+  function usableExamples(entry) {
+    var senses = entry.senses || [];
+    var usable = [];
+    for (var s = 0; s < senses.length; s++) {
+      var examples = senses[s].examples || [];
+      for (var i = 0; i < examples.length; i++) {
+        var ex = examples[i];
+        if (ex && ex.vernacular && ex.english) usable.push(ex);
+      }
+    }
+    return usable;
+  }
+
   // Pick a stable example from the entry. We choose deterministically so a
   // multi-example entry shows the same example all day, but if the entry is
   // picked again on a future day, a different example may surface.
   function pickExample(entry, daySeed) {
-    var examples = entry.examples || [];
-    var usable = [];
-    for (var i = 0; i < examples.length; i++) {
-      var ex = examples[i];
-      if (ex && ex.vernacular && ex.english) usable.push(ex);
-    }
+    var usable = usableExamples(entry);
     if (!usable.length) return null;
     return usable[daySeed % usable.length];
   }
 
   function entryHasUsableExample(entry) {
-    var examples = entry.examples || [];
-    for (var i = 0; i < examples.length; i++) {
-      var ex = examples[i];
-      if (ex && ex.vernacular && ex.english) return true;
-    }
-    return false;
+    return usableExamples(entry).length > 0;
   }
 
   function dayIndex() {
@@ -79,10 +74,21 @@
     return (day * 2654435761) >>> 0;
   }
 
-  function glossLine(entry) {
-    var ge = entry.ge;
-    var arr = Array.isArray(ge) ? ge : (ge ? [ge] : []);
-    return arr.join(', ');
+  function psHtml(ps) {
+    return ps ? '<span class="wotd-ps">' + escapeHtml(psLabel(ps)) + '</span>' : '';
+  }
+
+  // One line per sense; the part of speech moves onto each line when the
+  // entry has more than one.
+  function glossesHtml(senses) {
+    var html = '';
+    for (var i = 0; i < senses.length; i++) {
+      var ge = (senses[i].ge || []).join(', ');
+      html += '<div class="wotd-gloss">'
+        + (senses.length > 1 ? psHtml(senses[i].ps) + ' ' : '')
+        + escapeHtml(ge) + '</div>';
+    }
+    return '<div class="wotd-glosses">' + html + '</div>';
   }
 
   function render(container, entry, dictUrl) {
@@ -91,14 +97,13 @@
 
     var day = dayIndex();
     var example = pickExample(entry, day);
+    var senses = entry.senses || [];
 
     var headword = escapeHtml(entry.lx);
     var hm = entry._displayHm || entry.hm;
     var hmHtml = hm ? ' <span class="wotd-hm">' + escapeHtml(hm) + '</span>' : '';
-    var psHtml = entry.ps
-      ? '<span class="wotd-ps">' + escapeHtml(psLabel(entry.ps)) + '</span>'
-      : '';
-    var glossHtml = '<div class="wotd-gloss">' + escapeHtml(glossLine(entry)) + '</div>';
+    var headPsHtml = senses.length === 1 ? psHtml(senses[0].ps) : '';
+    var glossHtml = glossesHtml(senses);
 
     var exampleHtml = '';
     if (example) {
@@ -109,10 +114,11 @@
         '</div>';
     }
 
+    // First paragraph only; the full etymology is a click away.
     var etymHtml = '';
     if (entry.et) {
       etymHtml = '<div class="wotd-etym"><span class="wotd-etym-label">Etymology:</span> ' +
-        escapeHtml(entry.et) + '</div>';
+        escapeHtml(String(entry.et).split(/\n{2,}/)[0]) + '</div>';
     }
 
     var linkHref = dictUrl + '#q=' + encodeURIComponent('"' + entry.lx + '"');
@@ -120,7 +126,7 @@
 
     body.innerHTML =
       '<div class="wotd-headword-row">' +
-        '<span class="wotd-headword">' + headword + '</span>' + hmHtml + ' ' + psHtml +
+        '<span class="wotd-headword">' + headword + '</span>' + hmHtml + ' ' + headPsHtml +
       '</div>' +
       glossHtml +
       exampleHtml +

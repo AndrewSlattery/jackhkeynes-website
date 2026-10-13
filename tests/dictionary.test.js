@@ -22,11 +22,31 @@ describe('Borlish Dictionary', () => {
       </div>
     `;
 
-    // Mock Dictionary Data
+    // Mock Dictionary Data (shape produced by _plugins/dictionary_generator.rb)
     mockData = [
-      { lx: 'glarb', ge: 'a small creature', ps: 'n' },
-      { lx: 'blorp', ge: ['to jump', 'to hop'], ps: 'v' },
-      { lx: 'zort', ge: 'sound of a horn', ps: 'interj' }
+      { lx: 'glarb', senses: [{ ps: 'n', ge: ['a small creature'] }] },
+      { lx: 'cart', hm: '1', senses: [{ ps: 'n', ge: ['card'] }] },
+      { lx: 'cart', hm: '2', senses: [{ ps: 'adj', ge: ['dear'] }] },
+      { lx: 'blorp', senses: [{ ps: 'ar v', ge: ['to jump', 'to hop'] }] },
+      { lx: 'zort', senses: [{ ps: 'interj', ge: ['sound of a horn'] }] },
+      {
+        lx: 'a tug',
+        senses: [
+          { ps: 'adv', ge: ['for fun'] },
+          {
+            ps: 'adj', ue: ['archaic'], ge: ['friendly'],
+            examples: [{ vernacular: 'Masctig a tug.', english: 'Friendly tickets.' }]
+          }
+        ],
+        et: 'First paragraph.\n\nSecond paragraph.',
+        mn: ['cart1', 'nowhere']
+      },
+      {
+        lx: 'alant',
+        senses: [{ ps: 'n', ge: ['arrival'] }],
+        subentries: [{ lx: 'alant a haun', senses: [{ ps: 'n', ge: ['landfall'] }], et: 'collocation' }]
+      },
+      { lx: 'Aost', senses: [{ ps: 'n', ge: ['August'] }], sd: ['Months'] }
     ];
 
     fetch.mockResolvedValue({
@@ -55,7 +75,101 @@ describe('Borlish Dictionary', () => {
 
     // Check if status is updated (assuming successful load)
     const status = document.getElementById('dict-status');
-    expect(status.textContent).toBe('3 entries.');
+    expect(status.textContent).toBe('8 entries.');
+  });
+
+  const search = (query, mode = 'borlish') => {
+    const radio = document.querySelector(`input[value="${mode}"]`);
+    if (!radio.checked) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change'));
+    }
+    const input = document.getElementById('dict-search');
+    input.value = query;
+    input.dispatchEvent(new Event('input'));
+    return document.getElementById('dict-results');
+  };
+
+  test('renders each part of speech as its own sense', async () => {
+    await flushPromises();
+    const results = search('"a tug"');
+
+    const senses = results.querySelectorAll('.dict-sense');
+    expect(senses.length).toBe(2);
+    expect(senses[0].querySelector('.dict-ps').textContent).toBe('adv');
+    expect(senses[0].textContent).toContain('for fun');
+    expect(senses[0].textContent).not.toContain('friendly');
+    expect(senses[1].querySelector('.dict-ps').textContent).toBe('adj');
+    expect(senses[1].querySelector('.dict-usage').textContent).toBe('archaic');
+    // The example belongs to the adjective sense only
+    expect(senses[0].querySelector('.dict-example')).toBeNull();
+    expect(senses[1].querySelector('.dict-example').textContent).toContain('Friendly tickets.');
+  });
+
+  test('single-sense entries show the part of speech beside the headword', async () => {
+    await flushPromises();
+    const results = search('"zort"');
+
+    expect(results.querySelector('.dict-headword-line .dict-ps').textContent).toBe('interj');
+    expect(results.querySelector('.dict-senses')).toBeNull();
+  });
+
+  test('renders etymology paragraphs', async () => {
+    await flushPromises();
+    const results = search('"a tug"');
+
+    const meta = results.querySelector('.dict-meta');
+    expect(meta.textContent).toContain('First paragraph.');
+    expect(meta.querySelector('.dict-para').textContent).toBe('Second paragraph.');
+  });
+
+  test('resolves numbered cross-references to homonyms', async () => {
+    await flushPromises();
+    const results = search('"a tug"');
+
+    const links = results.querySelectorAll('.mn-link');
+    expect(links[0].innerHTML).toBe('cart<sup>1</sup>');
+    expect(links[0].getAttribute('data-ref')).toBe('cart');
+    expect(links[0].classList.contains('mn-dead')).toBe(false);
+    expect(links[1].classList.contains('mn-dead')).toBe(true);
+  });
+
+  test('finds subentries by their own headword and nests them in the entry', async () => {
+    await flushPromises();
+    const results = search('"alant a haun"');
+
+    expect(document.getElementById('dict-status').textContent).toBe('Found 1 match.');
+    expect(results.querySelector('.dict-lx').textContent).toBe('alant');
+    const sub = results.querySelector('.dict-subentry');
+    expect(sub.querySelector('.dict-sub-lx').textContent).toBe('alant a haun');
+    expect(sub.textContent).toContain('landfall');
+    expect(sub.textContent).toContain('collocation');
+  });
+
+  test('English results show the part of speech of the matching sense', async () => {
+    await flushPromises();
+    const results = search('"friendly"', 'english');
+
+    const ref = results.querySelector('.english-refs');
+    expect(ref.querySelector('.mn-link').textContent).toBe('a tug');
+    expect(ref.querySelector('.ref-ps').textContent).toBe('(adj)');
+  });
+
+  test('English results link to subentries', async () => {
+    await flushPromises();
+    const results = search('landfall', 'english');
+
+    expect(results.querySelector('.mn-link').getAttribute('data-ref')).toBe('alant a haun');
+  });
+
+  test('semantic domain tags list every entry in the domain', async () => {
+    await flushPromises();
+    const results = search('"aost"');
+
+    results.querySelector('.sd-link').click();
+    expect(document.getElementById('dict-status').textContent)
+      .toBe('Showing 1 entry in the domain "Months".');
+    expect(window.location.hash).toBe('#domain=Months');
   });
 
   test('searches for a Borlish word', async () => {

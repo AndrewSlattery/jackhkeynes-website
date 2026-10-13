@@ -194,6 +194,85 @@
   font-size: 1.1rem;
   line-height: 1.5;
   color: $color-text;
+
+  .dict-ps {
+    margin-right: 0.5rem;
+  }
+}
+
+// Entries with more than one part of speech: one numbered item per sense
+.dict-senses {
+  margin: 0.5rem 0 0;
+  padding-left: 1.6rem;
+}
+
+.dict-sense {
+  margin-bottom: 0.6rem;
+
+  &::marker {
+    color: $color-text-muted;
+  }
+
+  .dict-ge {
+    margin-top: 0;
+  }
+}
+
+// Usage labels (archaic, vulgar, ...) and comparative endings
+.dict-usage {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0 6px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: $color-text-muted;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+  vertical-align: 0.1em;
+}
+
+.dict-usage-vern {
+  font-style: italic;
+  color: $color-text-dim;
+}
+
+.dict-def {
+  margin-top: 0.2rem;
+  font-style: italic;
+  color: $color-text-dim;
+}
+
+.dict-para {
+  margin: 0.6rem 0 0;
+}
+
+.dict-subentry {
+  margin-top: 1.2rem;
+  padding-left: 1rem;
+  border-left: 3px solid $color-border;
+}
+
+.dict-sub-lx {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: $color-accent;
+}
+
+// Semantic domain tag, e.g. "Months"; links to all entries in the domain
+.sd-link {
+  font-size: 0.8rem;
+  padding: 0 8px;
+  color: $color-text-muted;
+  background: $color-bg-input;
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-accent;
+    border-color: $color-accent;
+  }
 }
 
 .dict-meta {

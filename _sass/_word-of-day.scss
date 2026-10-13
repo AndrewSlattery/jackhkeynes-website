@@ -60,9 +60,16 @@
   font-style: italic;
 }
 
-.wotd-gloss {
+.wotd-glosses {
   margin-bottom: 0.9rem;
+}
+
+.wotd-gloss {
   color: $color-text;
+
+  & + & {
+    margin-top: 0.3rem;
+  }
 }
 
 .wotd-example {

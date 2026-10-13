@@ -75,89 +75,118 @@ module Jekyll
       end
     end
 
+    # Output shape (keys are omitted when empty):
+    #
+    #   { "lx": "a tug", "hm": "1",
+    #     "senses": [ { "ps": "adv", "ue": [...], "uv": [...], "ge": [...],
+    #                   "de": [...], "dv": [...],
+    #                   "examples": [ { "vernacular": "...", "english": "..." } ] } ],
+    #     "et": "paragraph one\n\nparagraph two",
+    #     "mn": [...], "sd": [...],
+    #     "subentries": [ { "lx": "...", "senses": [...], "et": "...", "mn": [...] } ] }
+    #
+    # Each \ps starts a new sense; sense-level markers attach to the current
+    # sense. \se starts a subentry, which collects everything up to the next
+    # \se or \lx. Any other marker is kept on the current entry/subentry as a list.
+    SENSE_MARKERS = %w[ge ue uv de dv].freeze
+    KNOWN_MARKERS = (%w[lx se ps xv xe hm et mn sd] + SENSE_MARKERS).freeze
+
     def parse_mdf(file_path)
-      entries = []
-      current_entry = {}
-      current_example = nil 
-
-      File.foreach(file_path, encoding: 'UTF-8') do |line|
-        line.strip!
-        next if line.empty?
-        
-        # Skip header lines (Lexique Pro metadata)
-        next if line.start_with?('\_')
-
-        # --- A. New Entry (\lx) ---
-        if line =~ /^\\lx\s+(.+)/
-          # Save any pending example
-          if current_example
-            current_entry["examples"] << current_example
-            current_example = nil
-          end
-
-          # Save the previous entry if it exists
-          save_entry(entries, current_entry) unless current_entry.empty?
-          
-          # Start a new entry object
-          current_entry = { "lx" => $1.strip, "examples" => [] }
-          current_example = nil
-
-        # --- B. Example Sentence (\xv) ---
-        elsif line =~ /^\\xv\s+(.+)/
-          # If a previous example was incomplete (had no translation), save it anyway
-          current_entry["examples"] << current_example if current_example
-
-          # Start a new example object
-          current_example = { "vernacular" => $1.strip }
-
-        # --- C. Example Translation (\xe) ---
-        elsif line =~ /^\\xe\s+(.+)/
-          if current_example
-            current_example["english"] = $1.strip
-            # Pair complete, add to the entry
-            current_entry["examples"] << current_example
-            current_example = nil
-          else
-            # Edge case: Translation without a sentence
-            current_entry["examples"] << { "english" => $1.strip }
-          end
-
-        # --- D. All Other Markers (\ge, \ps, \et, etc.) ---
-        elsif line =~ /^\\(\w+)\s+(.+)/
-          marker = $1
-          content = $2.strip
-          
-          # If the marker already exists (e.g. multiple definitions), turn it into a list
-          if current_entry.key?(marker)
-            if current_entry[marker].is_a?(Array)
-              current_entry[marker] << content
-            else
-              current_entry[marker] = [current_entry[marker], content]
-            end
-          else
-            current_entry[marker] = content
-          end
-        end
-      end
-      
-      # Save any pending example
-      if current_example
-        current_entry["examples"] << current_example
-        current_example = nil
-      end
-
-      # Don't forget to save the very last entry in the file
-      save_entry(entries, current_entry) unless current_entry.empty?
-      
-      return entries
+      build_entries(read_fields(file_path))
     end
 
-    def save_entry(entries, entry)
-      # Cleanup: remove the examples list if it's empty to keep JSON clean
-      entry.delete("examples") if entry["examples"].empty?
-      
-      # Add to main list
-      entries << entry
+    # Splits the file into [marker, value] pairs. Lines that don't start with a
+    # marker continue the previous field; blank lines within a field separate
+    # paragraphs, which are joined with "\n\n".
+    def read_fields(file_path)
+      fields = []
+      File.foreach(file_path, encoding: 'bom|utf-8') do |line|
+        line = line.strip
+        if line =~ /\A\\(\w+)\s*(.*)\z/
+          fields << [$1, [$2]]
+        elsif fields.any?
+          fields.last[1] << line
+        end
+      end
+      fields.map { |marker, lines| [marker, join_paragraphs(lines)] }
+    end
+
+    def join_paragraphs(lines)
+      paragraphs = [[]]
+      lines.each do |line|
+        if line.empty?
+          paragraphs << [] unless paragraphs.last.empty?
+        else
+          paragraphs.last << line
+        end
+      end
+      paragraphs.reject(&:empty?).map { |p| p.join(' ') }.join("\n\n")
+    end
+
+    def build_entries(fields)
+      entries = []
+      @unknown_markers = Hash.new(0)
+      entry = record = sense = example = nil
+
+      fields.each do |marker, value|
+        # Skip header lines (Lexique Pro metadata) and empty fields
+        next if marker.start_with?('_') || value.empty?
+
+        if marker == 'lx'
+          entry = record = { "lx" => value }
+          entries << entry
+          sense = example = nil
+          next
+        end
+        next unless entry
+
+        case marker
+        when 'se'
+          record = { "lx" => value }
+          (entry["subentries"] ||= []) << record
+          sense = example = nil
+        when 'ps'
+          sense = new_sense(record) unless sense && !sense.key?("ps")
+          sense["ps"] = value
+          example = nil
+        when 'xv'
+          sense ||= new_sense(record)
+          example = { "vernacular" => value }
+          (sense["examples"] ||= []) << example
+        when 'xe'
+          sense ||= new_sense(record)
+          if example
+            example["english"] = value
+          else
+            # Edge case: Translation without a sentence
+            (sense["examples"] ||= []) << { "english" => value }
+          end
+          example = nil
+        when *SENSE_MARKERS
+          sense ||= new_sense(record)
+          (sense[marker] ||= []) << value
+        when 'hm'
+          record["hm"] = value
+        when 'et'
+          record["et"] = [record["et"], value].compact.join("\n\n")
+        else
+          @unknown_markers[marker] += 1 unless KNOWN_MARKERS.include?(marker)
+          (record[marker] ||= []) << value
+        end
+      end
+
+      unless @unknown_markers.empty?
+        list = @unknown_markers.map { |m, n| "\\#{m} (#{n})" }.join(', ')
+        puts "   Dictionary: NOTE - markers with no special handling (kept as lists): #{list}"
+      end
+
+      entries
+    end
+
+    def new_sense(record)
+      sense = {}
+      (record["senses"] ||= []) << sense
+      sense
     end
   end
 end
