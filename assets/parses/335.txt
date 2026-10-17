@@ -21,7 +21,7 @@ DOWN
  4. <festival> EID AL-FITR = ←(.o)RT IF LADIE(s.)←
  5. <one using a map> ORIENTEER = _O_ _RIEN_ _TEER_
  6. RUES outside S_ = RUSES <cons>
- 7. <Sikh institution> GURDWARA = ←(A RAW) DRUG←
+ 7. <Sikh institution> GURDWARA = ←A RAW DRUG←
 13. <what makes electricity> GENERATOR = GREEN* + A TOR
 14. ←MEGA TARTS← = STRATAGEM <clever scheme>
 15. <one in belt> ASTEROID = A SET* + ←DIOR←
