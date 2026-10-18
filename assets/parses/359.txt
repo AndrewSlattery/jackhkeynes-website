@@ -3,7 +3,7 @@ ACROSS
  9. OUTER EAR outside W = OUTERWEAR <Ulster?>
 10. IP inside PER = PIPER <musician>
 11. PA'S TRY = PASTRY <dough>
-12. CHE CH + ANY* = CHECHNYA <republic of the Caucasus>
+12. CHE CH N_ Y_ A_ = CHECHNYA <Caucasus republic>
 14. RAVIN[-g] outside (I BO F_ L_) = RIBOFLAVIN <vitamin B₂>
 16. ←IF← + RM = FIRM <company>
 18. PU off PUMICE = MICE <quarry for queen?>
@@ -16,7 +16,7 @@ ACROSS
 
 DOWN
  1. <blatant lie> WHOPPER = WHO + UPPER - U
- 2. <judges> RATES = RAT 🇮🇹AND🇮🇹 S
+ 2. <judges> RATES = RATS outside E
  3. AI + RC RAFT = AIRCRAFT <plane, perhaps>
  4. <pronoun> THEM = (THE M)
  5. <plainspoken> FORTHRIGHT = FORTNIGHT, HR←N_
