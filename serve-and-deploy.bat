@@ -5,6 +5,22 @@ REM Always run from the folder this script lives in
 cd /d "%~dp0"
 
 echo ============================================
+echo  Pulling latest Boralverse submodule...
+echo ============================================
+echo.
+
+REM The wiki and dictionary are generated from the _data/external_dictionary
+REM submodule, which stays pinned to an old commit unless updated explicitly.
+git submodule update --remote --init _data/external_dictionary
+if errorlevel 1 (
+    echo.
+    echo Submodule update FAILED - nothing was built, committed or pushed.
+    pause
+    exit /b 1
+)
+
+echo.
+echo ============================================
 echo  Building site with Jekyll...
 echo ============================================
 echo.
