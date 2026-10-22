@@ -42,6 +42,8 @@ permalink: /
 
 [Invictus](/invictus/) — My French translation of Henley's *Invictus*.
 
+[Scarborough Fair](/scarborough-fair/) — My French translation of the traditional ballad *Scarborough Fair*.
+
 [Short Poems](/short-poems/) — Shorter original verse, from double dactyls to parody.
 
 </section>

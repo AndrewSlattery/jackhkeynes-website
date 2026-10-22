@@ -14867,6 +14867,33 @@
     ]
   },
   {
+    "lx": "carnoval",
+    "senses": [
+      {
+        "ps": "n",
+        "ge": [
+          "Carnival",
+          "Shrovetide",
+          "Mardi Gras",
+          "send-off",
+          "last hurrah",
+          "misrule",
+          "topsy-turvydom",
+          "masquerade",
+          "farce",
+          "shambles"
+        ],
+        "examples": [
+          {
+            "vernacular": "Posc Carnoval vien Caresm.",
+            "english": "After Carnival comes Lent."
+          }
+        ]
+      }
+    ],
+    "et": "a fifteenth-century borrowing from Tuscan carnovale, a variant of carnevale contracted from Old Tuscan carnelevare \"Shrovetide\", literally \"removal of meat\", from Latin carō (stem carn-) \"meat\" and levāre \"lift, remove\" (whence also native leyar \"raise, lift\"). At first used of the festivities of Venis and Rom, it was applied to Borland's own Shrovetide customs by the seventeenth century; the learned folk etymology carne vale \"farewell, meat!\" is current from about the same time. The figurative senses are seen from the eighteenth century, the sense \"farce\" chiefly in political journalism of the nineteenth."
+  },
+  {
     "lx": "carogn",
     "senses": [
       {
@@ -21186,7 +21213,7 @@
         "examples": [
           {
             "vernacular": "Cay descreuçon dy contrdontaçon dy Reyaum ag Danau.",
-            "english": "It describes the downfall of the Danube Kingdom."
+            "english": "It describes the downfall of the Danaw Kingdom."
           }
         ]
       }
@@ -25041,7 +25068,7 @@
         ]
       }
     ],
-    "et": "19C from Cambrick y davarn “the hotel”, in particular a reference to world-famous Hasinick resort town Y Davarn Heul “The Sun Hotel”. This word is an Old Welsh borrowing from Latin taberna “shop, inn”, making it a doublet of Borlish tarn “pub, café”."
+    "et": "19C from Cambrick y davarn “the hotel”, in particular a reference to world-famous Hasinic resort town Y Davarn Heul “The Sun Hotel”. This word is an Old Welsh borrowing from Latin taberna “shop, inn”, making it a doublet of Borlish tarn “pub, café”."
   },
   {
     "lx": "de",
@@ -38091,7 +38118,21 @@
         ]
       }
     ],
-    "et": "Old Borlish"
+    "et": "Old Borlish",
+    "subentries": [
+      {
+        "lx": "forcotte",
+        "senses": [
+          {
+            "ps": "n",
+            "ge": [
+              "forkful"
+            ]
+          }
+        ],
+        "et": "measure noun from forcot \"fork\" with the suffix -e (compare manne \"handful\")"
+      }
+    ]
   },
   {
     "lx": "forcul",
@@ -56946,6 +56987,29 @@
     "et": "Old Borlish"
   },
   {
+    "lx": "mandovy",
+    "senses": [
+      {
+        "ps": "n",
+        "ge": [
+          "peanut",
+          "groundnut",
+          "peanut butter",
+          "nutshell",
+          "stash",
+          "nest egg"
+        ],
+        "examples": [
+          {
+            "vernacular": "My granmaðr aye mandovy sou y paið.",
+            "english": "My gran kept a stash under the floorboards."
+          }
+        ]
+      }
+    ],
+    "et": "originally in the staddenzen Borlish of the Novomund, a borrowing from Yengatow [Tupi] mandubi \"peanut\". The sense \"peanut butter\" is a twentieth-century clipping of saus de mandovy \"peanut sauce\". The sense \"nutshell\" arises in the nineteenth century as an alteration of earlier ne nouç \"in a walnut\", itself after a Classical anecdote due to Pliny of an Iliad copied small enough to fit in a nutshell. The slang sense, from the mid-twentieth century, probably alludes to the plant burying its own pods."
+  },
+  {
     "lx": "mandr",
     "senses": [
       {
@@ -57068,9 +57132,27 @@
       {
         "ps": "n",
         "ge": [
-          "handful"
+          "handful",
+          "fistful",
+          "hand",
+          "round",
+          "deal",
+          "a few",
+          "a scattering",
+          "lot",
+          "fortune"
+        ],
+        "examples": [
+          {
+            "vernacular": "Se fig y manne dað.",
+            "english": "You play the hand you're dealt."
+          }
         ]
       }
+    ],
+    "et": "Middle Borlish, from man \"hand\" (from Latin manus) and -e, a highly productive suffix of quantity or measure whose provenance is uncertain: it may be borrowed from Old French -é (from Latin -ātus), or else continue Latin -ēdō (compare e.g. forcotte \"forkful\", sdroyette \"USB-ful\"). The card-playing senses are seen from the seventeenth century and the figurative \"lot, fortune\" from the eighteenth; extension of the sense \"round\" to board games is from the twentieth.",
+    "mn": [
+      "man"
     ]
   },
   {
@@ -69945,6 +70027,36 @@
       }
     ],
     "et": "Old Borlish < Vulgar Latin"
+  },
+  {
+    "lx": "passar roug",
+    "senses": [
+      {
+        "ps": "ar v",
+        "ge": [
+          "struggle",
+          "flounder",
+          "have a hard time of it",
+          "run at a loss",
+          "be in deficit",
+          "ail",
+          "worsen",
+          "fail",
+          "be marked down"
+        ],
+        "examples": [
+          {
+            "vernacular": "Y varous pas roug cay tre annað.",
+            "english": "The shop has been running at a loss for three years."
+          }
+        ]
+      }
+    ],
+    "et": "idiom first attested in seventeenth-century merchants' correspondence, literally \"to spend (time) red\", from the practice of entering debts and losses in red ink in ledgers. The medical sense, from the eighteenth century, was likely helped along by the flush of fever, and the scholastic sense a century later by teachers' red-ink corrections. The general sense of struggling is from the twentieth century.",
+    "mn": [
+      "passar",
+      "roug"
+    ]
   },
   {
     "lx": "passion",
@@ -86268,7 +86380,21 @@
         ]
       }
     ],
-    "et": "diminutive of noun sdroy \"depot, warehouse, stockpile\", first attested in Middle Borlish isdroȝ \"freight, goods transported by water\". This was borrowed via synoymous zdruog in contemporary Saxon, likely from Polish zdroi \"spring, small stream; origin, source\". The historical and modern senses are presumed to be independent derivations; the latter first appears over a century after the former became practically obsolete."
+    "et": "diminutive of noun sdroy \"depot, warehouse, stockpile\", first attested in Middle Borlish isdroȝ \"freight, goods transported by water\". This was borrowed via synoymous zdruog in contemporary Saxon, likely from Polish zdroi \"spring, small stream; origin, source\". The historical and modern senses are presumed to be independent derivations; the latter first appears over a century after the former became practically obsolete.",
+    "subentries": [
+      {
+        "lx": "sdroyette",
+        "senses": [
+          {
+            "ps": "n",
+            "ge": [
+              "USB-ful"
+            ]
+          }
+        ],
+        "et": "measure noun from sdroyet \"drive, storage device\" with the suffix -e (compare manne \"handful\")"
+      }
+    ]
   },
   {
     "lx": "sdruçol",
@@ -88367,7 +88493,7 @@
         ]
       }
     ],
-    "et": "Attested in Borlish from 1904. The technology having been invented in Hasiny, the word was borrowed indirectly (probably via Vascon) from Hasinick Welsh sobotał \"signal, message\". This in turn comes from Jaughta çobota \"smoke; message\", after the practice of sending signals via smoke."
+    "et": "Attested in Borlish from 1904. The technology having been invented in Hasiny, the word was borrowed indirectly (probably via Vascon) from Hasinic Welsh sobotał \"signal, message\". This in turn comes from Jaughta çobota \"smoke; message\", after the practice of sending signals via smoke."
   },
   {
     "lx": "soçavau",
