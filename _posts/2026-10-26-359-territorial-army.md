@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#359: Territorial Army"
-date: 2026-10-26T11:00:00.000Z
+date: 2026-10-26T12:00:00.000Z
 puzzle_number: 359
 ---
 
