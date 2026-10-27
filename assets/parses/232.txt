@@ -6,7 +6,7 @@ ACROSS
 13. <ships> FLEET = FLEE + T_
 15. CU + BAN = CUBAN <from Caribbean island>
 17. "TITAN" = TIGHTEN <contract>
-19. <county> STAFFORDSHRIE = (.a)ST AFFORDS HI-RE(s.)
+19. <county> STAFFORDSHIRE = (.a)ST AFFORDS HI-RE(s.)
 21. L O + N ELY = LONELY <remote>
 22. <regularly repeated> CYCLIC = "SICK LICK"
 

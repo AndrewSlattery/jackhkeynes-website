@@ -30,4 +30,4 @@ DOWN
 20. <list of characters> STRING = R inside STING
 22. <funeral lament> ELEGY = EG inside ELY
 23. (ME ME) = MEME <viral Internet content>
-24. <red {wine}> CAB <taxi>
+25. <red {wine}> CAB <taxi>

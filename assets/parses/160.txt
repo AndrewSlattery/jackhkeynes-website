@@ -28,4 +28,4 @@ DOWN
 16. PSI inside ELLIS = ELLIPSIS <...>
 19. <run away> ESCAPE = S inside PEACE*
 21. L U N A R = LUNAR <like New Year, perhaps>
-23. <accidental> FLAT = L inside FAT
+22. <accidental> FLAT = L inside FAT

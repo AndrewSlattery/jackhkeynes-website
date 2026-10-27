@@ -22,9 +22,11 @@ DOWN
  4. <novelist> ASIMOV = ←VOMI[-t]S A←
  5. PLAN[-e} = PLAN <blueprint>
  6. <single> UNATTACHED = TAUNT* ACHED
- 8. <well-groomed men> METROSEXUALS = (EXTOL MASSEUR)*
+ 7. <well-groomed men> METROSEXUALS = (EXTOL MASSEUR)*
 10. (.e)MINIST RATION(a.) = MINISTRATION <provision of aid>
 13. (MUST RELIVE)* = MULTIVERSE <different versions of reality>
 15. <rail> BALUSTRADE = BUS TRADE outside A L
 18. HM inside HENCE N = HENCHMEN <minions>
 21. <hostile> AVERSE = AVERS _E
+24. BTS outside I = BITS <pieces>
+26. <island> IONA = _I_ O_N _A_

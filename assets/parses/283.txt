@@ -30,3 +30,4 @@ DOWN
 20. G-MEN inside SET = SEGMENT <division>
 21. JO CK = JOCK <underwear>
 23. <aromatic plant> BASIL = ←IS inside LAB←
+24. <West African language> FULA = (.i)FUL A(n.)

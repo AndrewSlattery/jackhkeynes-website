@@ -29,3 +29,4 @@ DOWN
 20. IN KING = INKING <giving tattoos>
 22. LIES outside EG = LIEGES <lords>
 23. G_U_T _S = GUTS <courage>
+24. ←(.h)ELD I(n.)← = IDLE <not working>

@@ -65,6 +65,56 @@
   }
 
   // ----------------------------------------------------------------
+  // PARSES FILES
+  // ----------------------------------------------------------------
+  // Optional per-puzzle parses live at /assets/parses/<name>.txt. Lines
+  // come in three shapes:
+  //   " 7. <def> ANSWER = WORDPLAY"  under an ACROSS / DOWN header
+  //   "A. ..."                       A-Z jigsaws, keyed by answer letter
+  //   "- ..."                        keyless (looked up by answer only)
+  // Anything else (headers, theme notes, blank lines) is ignored.
+  function parsesUrl(name) {
+    return '/assets/parses/' + encodeURIComponent(String(name).trim()) + '.txt';
+  }
+
+  function parseParsesFile(text) {
+    var result = { byKey: {}, byLetter: {}, entries: [] };
+    var section = null;
+    text.split(/\r?\n/).forEach(function (line) {
+      var trimmed = line.trim();
+      if (/^ACROSS$/i.test(trimmed)) { section = 'across'; return; }
+      if (/^DOWN\.?$/i.test(trimmed)) { section = 'down'; return; }
+
+      var m = /^([0-9]+[ad]?(?:[+\/][0-9]+[ad]?)*|[A-Z])\.\s+(.+)$/.exec(trimmed);
+      if (m) {
+        var entry = { text: m[2] };
+        result.entries.push(entry);
+        if (/^[A-Z]$/.test(m[1])) {
+          result.byLetter[m[1]] = entry;
+        } else {
+          // Linked clues ("10/23.", "1+16d+9.") belong to their first part
+          var first = /^([0-9]+)([ad]?)/.exec(m[1]);
+          var dir   = first[2] === 'a' ? 'across' : first[2] === 'd' ? 'down' : section;
+          if (dir) result.byKey[first[1] + '_' + dir] = entry;
+        }
+        return;
+      }
+
+      var k = /^-\s+(.+)$/.exec(trimmed);
+      if (k) result.entries.push({ text: k[1] });
+    });
+    return result;
+  }
+
+  // Does a parse line spell out this answer? Checks the text between the
+  // "<definition>" markers and "=" signs, accents and punctuation removed.
+  function parseMentionsAnswer(text, answer) {
+    return text.replace(/<[^>]*>/g, '=').split('=').some(function (seg) {
+      return seg.normalize('NFD').replace(/[^A-Za-z]/g, '') === answer;
+    });
+  }
+
+  // ----------------------------------------------------------------
   // PDF EXPORT HELPERS
   // ----------------------------------------------------------------
   // Lazy-load jsPDF + html2canvas from a CDN on first PDF export, then
@@ -311,6 +361,7 @@
     var dirTitles       = opts.directionTitles || {};
     var extraClearItems = opts.extraClearItems  || [];
     var extraActions    = opts.extraActions     || {};
+    var hideParseLabel  = !!opts.hideParseLabel;
 
     // Direction label/title defaults
     if (!dirLabels[dirs[0]]) dirLabels[dirs[0]] = dirs[0] === 'across' ? 'A' : dirs[0][0].toUpperCase();
@@ -336,6 +387,8 @@
     var _saveExtraData        = opts.saveExtraData         || null;
     var _loadExtraData        = opts.loadExtraData         || null;
     var _onInit               = opts.onInit                || null;
+    var _getParseWord         = opts.getParseWord          || null;
+    var _parseLetter          = opts.parseLetter           || null;
 
     // ------- Module state -------
     var puzzle       = null;
@@ -345,6 +398,7 @@
     var puzzleNumber = null;
     var container    = null;
     var hiddenInput  = null;
+    var parses       = null;
 
     var defaultSettings = {
       lightMode:    false,
@@ -415,6 +469,12 @@
 
       loadSettings();
 
+      // Parses are optional: a missing file just leaves the button hidden
+      var parsesPromise = fetch(parsesUrl(puzzleNumber))
+        .then(function (r) { return r.ok ? r.text() : null; })
+        .then(function (text) { return text ? parseParsesFile(text) : null; })
+        .catch(function () { return null; });
+
       var url = _puzzleUrl(puzzleNumber);
       fetch(url)
         .then(function (r) {
@@ -438,6 +498,12 @@
             selectCell(target.row, target.col, first.direction, true);
           }
           if (_onInit) _onInit(engine);
+          return parsesPromise.then(function (p) {
+            if (!p || !p.entries.length) return;
+            parses = p;
+            var btn = container.querySelector('.xw-parse-btn');
+            if (btn) btn.removeAttribute('hidden');
+          });
         })
         .catch(function (e) {
           container.innerHTML = '<p class="xw-error">Failed to load puzzle: ' + e.message + '</p>';
@@ -493,6 +559,7 @@
         renderHiddenInput(),
         puzzle.notes ? renderNotesModal(puzzle.notes) : '',
         renderCompletionModal(),
+        renderParseModal(),
         '<div class="xw-controls-bar">',
           renderControls(),
         '</div>',
@@ -549,6 +616,16 @@
       '</div>';
     }
 
+    function renderParseModal() {
+      return '<div class="xw-parse-backdrop" hidden>' +
+        '<div class="xw-parse-modal" role="dialog" aria-modal="true" aria-label="Clue parse">' +
+          '<div class="xw-parse-clue"></div>' +
+          '<div class="xw-parse-body"></div>' +
+          '<button class="xw-parse-close xw-ctrl-btn" type="button">Got it</button>' +
+        '</div>' +
+      '</div>';
+    }
+
     function renderControls() {
       function dropdown(label, items) {
         var btns = items.map(function (item) {
@@ -579,6 +656,9 @@
       ].concat(extraClearItems);
       var clearDd  = dropdown('Clear', clearItems);
 
+      // Revealed once the puzzle's parses file has loaded (see init)
+      var parseBtn = '<button class="xw-ctrl-btn xw-parse-btn" type="button" data-action="parse" title="Parse current clue" hidden>Parse</button>';
+
       var settingsDd =
         '<div class="xw-dd-group">' +
           '<button class="xw-ctrl-btn xw-dd-trigger" type="button" title="Settings">⚙</button>' +
@@ -598,7 +678,7 @@
         : '';
       var timer = '<div class="xw-timer-group"><div class="xw-timer" role="timer" aria-label="Time elapsed">0:00</div>' + pauseBtn + '</div>';
 
-      return checkDd + revealDd + clearDd + settingsDd + notesBtn + timer + fsBtn + pdfBtn;
+      return checkDd + revealDd + clearDd + parseBtn + settingsDd + notesBtn + timer + fsBtn + pdfBtn;
     }
 
     function renderHuePickerRow() {
@@ -1103,6 +1183,16 @@
         }
       });
 
+      // Parse modal close
+      widget.addEventListener('click', function (e) {
+        var backdrop = e.target.closest('.xw-parse-backdrop');
+        if (!backdrop) return;
+        if (e.target.classList.contains('xw-parse-close') ||
+            e.target.classList.contains('xw-parse-backdrop')) {
+          backdrop.setAttribute('hidden', '');
+        }
+      });
+
       // Prevent page scroll when wheeling inside the widget
       widget.addEventListener('wheel', function (e) {
         var section = e.target.closest('.xw-clue-section');
@@ -1334,6 +1424,7 @@
         case 'fullscreen':  toggleFullscreen();                 break;
         case 'print':       printPDF();                         break;
         case 'notes':       showNotes();                        break;
+        case 'parse':       showParse();                        break;
       }
     }
 
@@ -1460,6 +1551,53 @@
       var widget   = getWidget();
       var backdrop = widget && widget.querySelector('.xw-notes-backdrop');
       if (backdrop) backdrop.removeAttribute('hidden');
+    }
+
+    // ================================================================
+    // PARSES
+    // ================================================================
+    // Find the parse line for a word. Lines keyed by clue number (or by
+    // answer letter, for A-Z jigsaws) win if they spell out the answer;
+    // otherwise any line spelling out the answer, since some files are
+    // numbered differently from the grid. A keyed line with no answer
+    // in it (or a typo) is the last resort.
+    function findParse(word) {
+      var answer = getAllWordCells(word).map(function (wc) {
+        return puzzle.grid[wc.row][wc.col].solution || '';
+      }).join('');
+
+      var keyed = [parses.byKey[word.number + '_' + word.direction]];
+      if (_parseLetter && answer) keyed.push(parses.byLetter[_parseLetter(answer)]);
+      keyed = keyed.filter(Boolean);
+
+      var pool = keyed.concat(parses.entries);
+      for (var i = 0; i < pool.length; i++) {
+        if (answer && parseMentionsAnswer(pool[i].text, answer)) return pool[i].text;
+      }
+      return keyed.length ? keyed[0].text : null;
+    }
+
+    function showParse() {
+      var widget   = getWidget();
+      var backdrop = widget && widget.querySelector('.xw-parse-backdrop');
+      if (!backdrop || !parses) return;
+      var clueEl = backdrop.querySelector('.xw-parse-clue');
+      var bodyEl = backdrop.querySelector('.xw-parse-body');
+
+      // Variants may pick a different word (or none) from the grid's
+      var word = _getParseWord ? _getParseWord(engine) : getDisplayWord(getCurrentWord());
+      if (!word) {
+        clueEl.innerHTML = '';
+        bodyEl.textContent = 'Select a clue in the list to see its parse.';
+      } else {
+        var label = hideParseLabel ? '' : (word.label || word.number) + (dirLabels[word.direction] || '') + '. ';
+        var enumStr = (puzzle.showEnumerations && word.enumeration)
+          ? ' (' + fmtEnum(word.enumeration) + ')'
+          : '';
+        clueEl.innerHTML = escapeHtml(label) + word.clue + escapeHtml(enumStr);
+        bodyEl.textContent = findParse(word) || 'No parse available for this clue.';
+      }
+      backdrop.removeAttribute('hidden');
     }
 
     function toggleFullscreen() {

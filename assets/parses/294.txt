@@ -8,7 +8,7 @@ ACROSS
 15. <merciless> INEXORABLE = (BARON + EXILE)*
 17. <they believe> PANTHEISTS = PANTS outside HEIST
 19. LAS S_ = LASS <child>
-21. <she's written> MARGARET ATWOOD = ←A TERAGRAM← TWO O D
+20. <she's written> MARGARET ATWOOD = ←A TERAGRAM← TWO O D
 23. <strange> PECULIAR = P ECU + LIAR
 24. <bound> GAMBOL = "GAMBLE"
 26. <deceives> BLUFFS <banks>

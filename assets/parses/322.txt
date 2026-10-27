@@ -5,7 +5,7 @@ ACROSS
 12. MOR_ COIN* = MORONIC <foolish>
 13. <unexpected quality> SURPRISAL = S_U_R_ P_R_I_S _A_L
 15. HIDE F_ = HI-DEF <with little pixellation>
-16. <star> PROXIMA CENTAUTI = PRO XI + (TRUE MANIAC)*
+16. <star> PROXIMA CENTAURI = PRO XI + (TRUE MANIAC)*
 19. "HOMBRE" = OMBRÉ <using gradually changing tone>
 21. <prancing> CAVORTING = CA VOTING outside R
 23. MONET* outside DD = ODDMENT <curio>
@@ -20,7 +20,7 @@ DOWN
  4. <deep cuts> B-SIDES = B_S IDES
  5. ←RAY← MULE outside K = YARMULKE <religious headgear>
  6. DR ON ED = DRONED <sounded monotonous>
- 7. ((PIC OF GIL) + GAMES) inside EH = EPIC OF GILGAMES <old story>
+ 7. ((PIC OF GIL) + GAMES) inside EH = EPIC OF GILGAMESH <old story>
 10. <mushroom> EARTHSTAR = HATERS* TAR
 14. (RALLIES HE)* = RAISE HELL <create disturbance>
 17. _A_L_C _A_T_R + AZ = ALCATRAZ <prison>

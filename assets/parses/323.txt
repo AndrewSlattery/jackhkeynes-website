@@ -26,6 +26,7 @@ DOWN
  8. I_N_C _R_E_ + MENTAL = INCREMENTAL <bit by bit>
 12. <officer> VICE ADMIRAL = (DIM CAVALIER)*
 15. (MEAT + BROAD)* = DREAMBOAT <dish>
-18. <emergency workers> FIREMEN = ←IF← + REME _N
+17. <emergency workers> FIREMEN = ←IF← + REME _N
+18. <extract> PASSAGE = ←SAP← SAGE
 21. AD + IOS = ADIOS <so long>
 24. <young man> LAD = [-g]LAD

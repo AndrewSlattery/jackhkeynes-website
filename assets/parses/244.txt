@@ -2,7 +2,7 @@ ACROSS
  1. PARA AIRPLANE* outside H = PARAPHERNALIA <equipment>
  9. _A_B_S _U_R_D_I_ S_M_ = ABSURDISM <existential philosophy>
 10. "COPS" = COPSE <wooded area>
-11 <aim> TARGET = TAR GE + T
+11. <aim> TARGET = TAR GE + T
 12. <party animal> REVELLER = REVEILLE R - I
 14. RIG H TANGLE = RIGHT ANGLE <5400 minutes?>
 16. <provide free> COMP <state school>

@@ -22,7 +22,7 @@ DOWN
  2. <accommodation> HOUSE = H + OUSE
  3. (.z)END(a.) = END <dénouement>
  4. PEN inside ASS = ASPENS <trees>
- 5. FA REALITY* = FAIRY TALE>
+ 5. FA REALITY* = FAIRY TALE <story>
  6. _A _G _E = AGE <time>
  7. EATING* = TAGINE <Moroccan stew>
  8. ←NO outside EV← = OVEN <range>

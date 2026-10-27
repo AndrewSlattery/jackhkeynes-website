@@ -32,7 +32,7 @@ DOWN
  5. <Holland city> HAARLEM = HAM outside _A_ R_L_E_
  6. (BOILER ACT)* outside ←MEDLAR← = LIBERAL DEMOCRAT <politician>
  7. <fashionably green> ECO-CHIC = (CHOC-ICE)*
- 8. S HELSI_ _L VERSE outside T + IN = SHEL SILVESTEIN <author>
+ 8. S HELSI_ _L VERSE outside T + IN = SHEL SILVERSTEIN <author>
  9. <tough> BRUISER = B←C_, CRUISER
 10. MAN (DATE OF HAVEN) outside _E = MANDATE OF HEAVEN <government authority>
 11. SH INDIG[-nation] = SHINDIG <party>
@@ -48,4 +48,4 @@ DOWN
 34. <one lacking faith> INFIDEL = (IN FIELD)*
 35. <internal membranes> SEROSAE = ←SORES← + A+E
 37. <admire> RESPECT = REST outside PEC
-28. <make swollen> ENGORGE = ENG ORG _E
+38. <make swollen> ENGORGE = ENG ORG _E

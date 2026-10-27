@@ -2,7 +2,7 @@ ACROSS
  7. <city> CHICAGO = CHIC A GO
  8. BY outside RAND = BRANDY <!themed>
 10. BUS(-t) = BUS <public transport>
-12. QUIL(-l) inside TEA = TEQUILE <!themed>
+12. QUIL(-l) inside TEA = TEQUILA <!themed>
 13. <comprehensive> IN-DEPTH = (INEPT outside D) H
 14. H AE MOST AT = HAEMOSTAT <surgical equipment>
 17. ↺SIDLE↺ = IDLES <keeps the engine ticking over>
@@ -11,7 +11,7 @@ ACROSS
 23. V __O__D __K_ _A__ = VODKA <!themed>
 24. PRO GAMER* outside M = PROGRAMME <TV show>
 28. (B + UR) inside BOON = BOURBON <!themed>
-29. AL CZAR outside A = ALCAZAE <fortress>
+29. AL CZAR outside A = ALCAZAR <fortress>
 31. GI _N = GIN <!themed>
 32. H inside WINGE[-d] = WHINGE <grouse>
 33. GO + _U_ LASH = GOULASH <stew>

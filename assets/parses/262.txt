@@ -28,3 +28,4 @@ DOWN
 19. MY S TRY outside _E_ = MYSTERY <puzzle>
 21. <opulent> DELUXE = (DEUX outside L) _E
 23. <write> AUTHOR = (RHO + TAU)*
+25. <one might skip this> ROPE = (.e)R OPE(r.)

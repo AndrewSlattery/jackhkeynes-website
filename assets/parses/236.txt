@@ -26,7 +26,7 @@ DOWN
 15. <reason for war> CASUS BELLI = USB inside C ALLIES*
 16. <monarchs> POTENTATES = O TENT inside PATES
 18. <beseeches> IMPLORES = IMPS outside LORE
-10. <cost> PRICE TAG = RI inside CAPET* _G
+20. <cost> PRICE TAG = RI inside CAPET* _G
 22. <plant> ACACIA = CIA after A_ CA
 23. SHAM _AN_ = SHAMAN <magician>
 25. AH outside RC = ARCH <piece of stonemasonry?>

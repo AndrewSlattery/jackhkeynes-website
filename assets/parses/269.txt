@@ -11,6 +11,7 @@ ACROSS
 20. <exploit> UTILISE = U TIE outsde L I_S
 21. <cancel> ANNUL = ANNUAL - _A_
 22. [-n]EARLY = EARLY <ahead of schedule>
+23. TO TALLY = TOTALLY <completely>
 
 DOWN
  1. <simple> BASIC = BA + SIC

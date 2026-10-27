@@ -17,7 +17,7 @@ ACROSS
 DOWN
 1. <talkative> PRATING = P RATING
 2. <major development> SEA-CHANGE = (..e)S EACH ANGE(l..)
-3. <incognito detective> PLANCLOTHESMAN = (A MELANIN SPLOTCH)*
+3. <incognito detective> PLAINCLOTHESMAN = (A MELANIN SPLOTCH)*
 4. TI inside ALT = ATILT <having some pitch?>
 5. <doubt> DUBIETY = B IE inside DUTY
 6. <unexpected appearance> AMBUSCADE = AM BUS CA DE

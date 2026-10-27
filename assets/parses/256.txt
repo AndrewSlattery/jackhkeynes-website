@@ -25,7 +25,7 @@ DOWN
 14. <tavern> INN = IN _N
 15. <being incompetent> INEPTITUDE = I (NEED IT PUT)*
 17. A MARE + ←OTT← = AMARETTO <liqueur>
-16. "BUY" = BYE <free pass>
+18. "BUY" = BYE <free pass>
 19. CHI VARY outside _L = CHIVALRY <gentlemanliness>
 21. <get> OBTAIN = ←(.i)NI AT BO(d.)←
 22. <European> DANISH = DAN IS H

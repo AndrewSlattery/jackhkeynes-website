@@ -164,6 +164,20 @@
       'clear-scratchpad': function (engine) { clearScratchpad(engine); }
     },
 
+    // ---- Parses: only for the clue picked in the list, since the grid
+    //      word alone doesn't say which clue it belongs to. Lettered
+    //      parses files key each clue by its answer's tracked letter. ----
+    hideParseLabel: true,
+
+    getParseWord: function (engine) {
+      if (!highlightedClue) return null;
+      return engine.wordMap[highlightedClue.num + '_' + highlightedClue.dir] || null;
+    },
+
+    parseLetter: function (answer) {
+      return trackLastLetter ? answer[answer.length - 1] : answer[0];
+    },
+
     // ---- Selection: no clue highlighting in jigsaw mode ----
     onSelectCell: function () {
       // intentionally empty — grid navigation does not highlight clues

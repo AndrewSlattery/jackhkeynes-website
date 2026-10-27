@@ -7,13 +7,13 @@ ACROSS
 13. <woodwinds> OBOES = "OWE BOWS"
 14. L U_ DO = LUDO <game>
 15. (EDITIONS* outside J) D = DISJOINTED <lacking cohesion>
-18. <dignified> STAUESQUE = QUEUES* after STAT
+18. <dignified> STATUESQUE = QUEUES* after STAT
 20. <fight> SPAR = SPA + R
 23. <close> TIGHT = TIG H + T
 24. (...o)QUIES CENT(r...) = QUIESCENT <passive>
 25. <opening> ORIFICE = IF inside OR ICE
-25. CORPS, S← + IO = SCORPIO <stars>
-26. <entertain> REGALE = ←LAGER← E
+26. CORPS, S← + IO = SCORPIO <stars>
+27. <entertain> REGALE = ←LAGER← E
 28. <market> PEDDLE = "PEDAL"
 
 DOWN
@@ -27,7 +27,7 @@ DOWN
 9. _C ←E NOD TIRED IS NO← = CONSIDER IT DONE <sure thing!>
 16. J_ I_ U_ J_ ITS U = JIU JITSU <method of self-defence>
 17. <working with some effort> HUSTLING = SUNLIGHT*
-18. EARRING* = ANGRIER <increasingly annoyed>
+19. EARRING* = ANGRIER <increasingly annoyed>
 21. <got ingredients ready> PREPPED = PEPPER* + _D
 22. AS HERO* = ASHORE <on land>
 24. <suppress> QUELL = (...e)QUEL L(o...)

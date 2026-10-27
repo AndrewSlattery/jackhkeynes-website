@@ -10,7 +10,7 @@ ACROSS
 19. <I agree> SAME = (...u)S AME(n...)
 20. KIN after ←COL← = LOCK-IN <event after hours>
 21. (...o)UR IN A TOR(y...) = URINATOR <peer>
-24. (NIECE + AUNT'S)* = ENUNCIATED <voices>
+24. (NIECE + AUNT'S)* = ENUNCIATES <voices>
 26. <diet> KETO = KET + O_
 28. B + A L D = BALD <out of shock?>
 29. ERR + FOLLY* N N = ERROL FLYNN <film star>
@@ -21,8 +21,8 @@ DOWN
 3. LOO SEN = LOOSEN <reduce regulation?>
 4. (INGEST BAGEL + RUSK)* = LIKE GANGBUSTERS <enthusiastically>
 5. THIS* (T_E_D after R) = T-SHIRTED <casually dressed>
-5. <corridors> HALLWAYS = H ALWAYS outside L
-6. <Greek god> EROS = ←SORE←
+ 6. <corridors> HALLWAYS = H ALWAYS outside L
+ 7. <Greek god> EROS = ←SORE←
 13. GO GO after A = À GOGO <in spades>
 15. CAME + O = CAMEO <small film role>
 17. <surviving> MAKING DO = M← in A KINGDOM

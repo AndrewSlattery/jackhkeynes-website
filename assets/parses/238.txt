@@ -8,12 +8,12 @@ ACROSS
 16. <fried pastry> CHURRO = _ROCHUR_*
 17. <one spreading disease> MOSQUITO = MO'S QUITO
 19. "PAY SOH" = PESO <foreign currency>
-21. <bullfighter> BANDILLERO = BAN ←RED← + ILLER O_
+21. <bullfighter> BANDERILLERO = BAN ←RED← + ILLER O_
 
 DOWN
  1. <smart> ACHE = H inside ACE
  2. <standing> UNFALLEN = U + FLANNEL*
- 4. GUY + A NA = GUYANA <country>
+ 3. GUY + A NA = GUYANA <country>
  4. <fish> MAKO = (.u)M A KO(i.)
  5. <singer> YODELLER = Y _O_D_E LL + ER
  7. S + HARP = SHARP <not in tune>

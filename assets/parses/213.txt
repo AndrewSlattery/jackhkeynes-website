@@ -16,7 +16,7 @@ ACROSS
 30. ←IS PEP← = PEPSI <drink>
 31. <post> AFTER = A FT E_R
 32. <speak negatively of> NAYSAY = (NASA outside Y) Y
-23. (RAFT OIKS)* = ASK FOR IT <invite trouble>
+33. (RAFT OIKS)* = ASK FOR IT <invite trouble>
 
 DOWN
  1. <pubs> INNS = _IN _N_ S____

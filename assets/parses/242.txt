@@ -11,7 +11,8 @@ ACROSS
 20. <folk songs> SEA SHANTIES = (.i)SE ASHANTI ES(s.)
 23. <tin-glazed pottery> MAIOLICA = M_C_A outside AIOLI
 24. <perform> COMMIT = COMMI[-e] T
-25. SCREENS HOT = SCREENSHOT <picture on computer>
+25. <handsome man> STUD <knob>
+26. SCREENS HOT = SCREENSHOT <picture on computer>
 
 DOWN
  2. <insurgent> ANARCHICAL = _ANAR_ CHIC _A _L
