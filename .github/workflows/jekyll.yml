@@ -4,6 +4,11 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Jekyll leaves out posts dated in the future, so posts committed ahead of
+  # time only appear once the site is rebuilt after their date. This hourly
+  # run rebuilds whenever a post has recently come due (see the check job).
+  schedule:
+    - cron: "7 * * * *"
 
 permissions:
   contents: read
@@ -15,7 +20,30 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # On scheduled runs, only rebuild if a post's date fell in the last few
+  # hours. The window is wider than the hourly schedule so a delayed or
+  # dropped scheduled run doesn't leave a post unpublished.
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      due: ${{ steps.due.outputs.due }}
+    steps:
+      - name: Checkout
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@v4
+
+      - name: Look for posts that have come due
+        id: due
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "due=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          bash .github/scripts/posts-due.sh 6 >> "$GITHUB_OUTPUT"
+
   build:
+    needs: check
+    if: needs.check.outputs.due == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout with submodules
