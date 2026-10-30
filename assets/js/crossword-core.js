@@ -917,6 +917,10 @@
       }
 
       updateActiveClueBar();
+      focusHiddenInput();
+    }
+
+    function focusHiddenInput() {
       if (hiddenInput && document.activeElement !== hiddenInput) {
         var _sx = window.pageXOffset, _sy = window.pageYOffset;
         hiddenInput.focus({ preventScroll: true });
@@ -1109,7 +1113,10 @@
           if (!_isCellPlayable(puzzle.grid[r][c])) return;
           if (state.cursor.row === r && state.cursor.col === c) {
             var other = (state.direction === dirs[0]) ? dirs[1] : dirs[0];
+            // The click moved focus to the widget; an unchecked cell has no
+            // other direction to toggle to, so selectCell won't restore it.
             if (cellWordMap[r][c][other]) selectCell(r, c, other);
+            else focusHiddenInput();
           } else {
             selectCell(r, c);
           }
