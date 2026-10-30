@@ -784,18 +784,22 @@
     }
 
     // Scroll a clue element into view within its .xw-clue-section only,
-    // without scrolling the page viewport (avoids mobile judder).
+    // without scrolling the page viewport (avoids mobile judder). The
+    // section's sticky title covers its top, so the visible area for
+    // clues starts below it.
     function scrollClueIntoView(clueEl) {
       var section = clueEl.closest('.xw-clue-section');
       if (!section) return;
-      var st = section.scrollTop;
-      var sh = section.clientHeight;
-      var ct = clueEl.offsetTop - section.offsetTop;
-      var ch = clueEl.offsetHeight;
-      if (ct < st) {
-        section.scrollTop = ct;
-      } else if (ct + ch > st + sh) {
-        section.scrollTop = ct + ch - sh;
+      var title    = section.querySelector('.xw-clue-section-title');
+      var sRect    = section.getBoundingClientRect();
+      var cRect    = clueEl.getBoundingClientRect();
+      var viewTop  = sRect.top + section.clientTop + (title ? title.getBoundingClientRect().height : 0);
+      var viewBot  = sRect.top + section.clientTop + section.clientHeight;
+      // scrollTop snaps to whole pixels, so round away from the overlap
+      if (cRect.top < viewTop) {
+        section.scrollTop -= Math.ceil(viewTop - cRect.top);
+      } else if (cRect.bottom > viewBot) {
+        section.scrollTop += Math.ceil(cRect.bottom - viewBot);
       }
     }
 
