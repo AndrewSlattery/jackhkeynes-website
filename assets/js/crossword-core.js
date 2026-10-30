@@ -1403,10 +1403,30 @@
           } else if (!val) {
             // Mobile on-screen keyboard backspace deleted the sentinel
             handleBackspace();
+          } else {
+            return;
           }
+          restartKeyboardWord();
         });
 
+        // Gboard treats everything typed into the hidden input as one long
+        // word (its suggestions pile up, and it may "correct" the lot), as
+        // emptying the input doesn't reset its idea of the current word.
+        // Leaving the input and coming straight back does.
+        var isAndroid  = /Android/i.test(navigator.userAgent);
+        var refocusing = false;
+        function restartKeyboardWord() {
+          if (!isAndroid || document.activeElement !== hiddenInput) return;
+          var sx = window.pageXOffset, sy = window.pageYOffset;
+          refocusing = true;
+          hiddenInput.blur();
+          hiddenInput.focus({ preventScroll: true });
+          refocusing = false;
+          window.scrollTo(sx, sy);
+        }
+
         hiddenInput.addEventListener('focus', function () {
+          if (refocusing) { hiddenInput.value = ' '; return; }
           state.focused = true;
           hiddenInput.value = ' ';
           leaveOnTab = false;
@@ -1416,6 +1436,7 @@
           // Focus moving to a button or the widget itself doesn't end the
           // solving session; leaving the widget, or going to another input
           // (a jigsaw scratchpad), does
+          if (refocusing) return;
           var to = e.relatedTarget;
           if (!widget.contains(to) || to.tagName === 'INPUT') state.focused = false;
         });
