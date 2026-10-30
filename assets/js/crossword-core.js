@@ -6,6 +6,8 @@
   'use strict';
 
   var STORAGE_SETTINGS = 'xw-settings';
+  var MODAL_BACKDROPS  = '.xw-notes-backdrop, .xw-parse-backdrop, ' +
+                         '.xw-completion-backdrop, .xw-confirm-backdrop';
 
   // ================================================================
   // SHARED UTILITIES (stateless)
@@ -399,6 +401,8 @@
     var container    = null;
     var hiddenInput  = null;
     var parses       = null;
+    var jumpedFrom   = null;   // cell typing last carried on from to a new word
+    var confirmFn    = null;   // what the confirm popup's OK button will run
 
     var defaultSettings = {
       lightMode:    false,
@@ -422,6 +426,7 @@
       timer: {
         running:    false,
         elapsed:    0,
+        startedAt:  0,      // Date.now() when elapsed would have read 0
         intervalId: null
       },
       settings: defaultSettings
@@ -560,6 +565,7 @@
         puzzle.notes ? renderNotesModal(puzzle.notes) : '',
         renderCompletionModal(),
         renderParseModal(),
+        renderConfirmModal(),
         '<div class="xw-controls-bar">',
           renderControls(),
         '</div>',
@@ -622,6 +628,18 @@
           '<div class="xw-parse-clue"></div>' +
           '<div class="xw-parse-body"></div>' +
           '<button class="xw-parse-close xw-ctrl-btn" type="button">Got it</button>' +
+        '</div>' +
+      '</div>';
+    }
+
+    function renderConfirmModal() {
+      return '<div class="xw-confirm-backdrop" hidden>' +
+        '<div class="xw-confirm-modal" role="alertdialog" aria-modal="true" aria-label="Are you sure?">' +
+          '<div class="xw-confirm-text"></div>' +
+          '<div class="xw-confirm-btns">' +
+            '<button class="xw-confirm-cancel xw-ctrl-btn" type="button">Cancel</button>' +
+            '<button class="xw-confirm-ok xw-ctrl-btn" type="button"></button>' +
+          '</div>' +
         '</div>' +
       '</div>';
     }
@@ -750,16 +768,22 @@
 
     function applySeparators() {
       words.forEach(function (word) {
-        var seps = word.separators || [];
-        var isLinkedPrimary = !!(word.continuations && word.continuations.length);
-        seps.forEach(function (sep) {
+        if (word.isContinuation) return;
+        // A linked clue's enumeration runs on through all of its parts
+        var parts = getWordParts(word);
+        (word.separators || []).forEach(function (sep) {
           var idx = sep.after - 1;
-          if (idx < 0 || idx >= word.cells.length) return;
-          if (isLinkedPrimary && idx === word.cells.length - 1) return;
-          var wc = word.cells[idx];
+          var p   = 0;
+          while (p < parts.length && idx >= parts[p].cells.length) {
+            idx -= parts[p].cells.length;
+            p++;
+          }
+          // A break at the end of a part is just the jump to the next part
+          if (idx < 0 || p >= parts.length || idx === parts[p].cells.length - 1) return;
+          var wc = parts[p].cells[idx];
           var el = getCellEl(wc.row, wc.col);
           if (!el) return;
-          if (word.direction === dirs[0]) {
+          if (parts[p].direction === dirs[0]) {
             el.classList.add(sep.type === 'hyphen' ? 'xw-sep-right-hyphen' : 'xw-sep-right-space');
           } else {
             el.classList.add(sep.type === 'hyphen' ? 'xw-sep-bottom-hyphen' : 'xw-sep-bottom-space');
@@ -867,6 +891,17 @@
       return cells;
     }
 
+    // A word's linked-clue parts in order (just the word, if unlinked)
+    function getWordParts(word) {
+      var dw = getDisplayWord(word);
+      return dw ? [dw].concat(dw.continuations || []) : [];
+    }
+
+    function lastCellOf(word) {
+      var wc = word.cells[word.cells.length - 1];
+      return { row: wc.row, col: wc.col, direction: word.direction };
+    }
+
     // ================================================================
     // SELECTION & NAVIGATION
     // ================================================================
@@ -881,10 +916,14 @@
       }
 
       clearHighlights();
+      jumpedFrom = null;
 
       state.cursor    = { row: r, col: c };
       state.direction = dir;
-      state.focused   = true;
+      // A silent select (the starting cell, on load) only highlights: the
+      // grid takes the keyboard once the solver clicks into it, so keys
+      // like Space and the arrows still scroll the page until then
+      if (!silent) state.focused = true;
 
       if (!silent && !state.timer.running && !state.completed) startTimer();
 
@@ -921,7 +960,7 @@
       }
 
       updateActiveClueBar();
-      focusHiddenInput();
+      if (!silent) focusHiddenInput();
     }
 
     function focusHiddenInput() {
@@ -1017,14 +1056,19 @@
         nextIdx = idx + 1 < word.cells.length ? idx + 1 : -1;
       }
 
+      // The next part of a linked clue, if this isn't its last
+      var parts = getWordParts(word);
+      var next  = parts[parts.indexOf(word) + 1];
+
       if (nextIdx >= 0) {
         selectCell(word.cells[nextIdx].row, word.cells[nextIdx].col, state.direction);
-      } else if (!word.isContinuation && word.continuations && word.continuations.length) {
-        var cont   = word.continuations[0];
-        var target = firstEmptyInWord(cont) || cont.cells[0];
-        selectCell(target.row, target.col, cont.direction);
+      } else if (next) {
+        var target = firstEmptyInWord(next) || next.cells[0];
+        selectCell(target.row, target.col, next.direction);
       } else if (state.settings.autoNextWord) {
+        var from = { row: state.cursor.row, col: state.cursor.col, direction: state.direction };
         jumpToNextWord();
+        jumpedFrom = from;   // so Backspace can come straight back
       }
     }
 
@@ -1115,10 +1159,12 @@
           var r = parseInt(cellEl.dataset.r, 10);
           var c = parseInt(cellEl.dataset.c, 10);
           if (!_isCellPlayable(puzzle.grid[r][c])) return;
-          if (state.cursor.row === r && state.cursor.col === c) {
+          // Clicking the cursor cell again switches direction, but not when
+          // the click is what puts the grid in use (e.g. the starting cell)
+          if (state.focused && state.cursor.row === r && state.cursor.col === c) {
             var other = (state.direction === dirs[0]) ? dirs[1] : dirs[0];
-            // The click moved focus to the widget; an unchecked cell has no
-            // other direction to toggle to, so selectCell won't restore it.
+            // An unchecked cell has no other direction to toggle to, so
+            // selectCell won't restore focus if the click moved it
             if (cellWordMap[r][c][other]) selectCell(r, c, other);
             else focusHiddenInput();
           } else {
@@ -1165,8 +1211,17 @@
         if (actionEl) {
           handleAction(actionEl.dataset.action);
           closeAllDropdowns(widget);
+          restoreFocus();
           return;
         }
+      });
+
+      // Keep the keyboard on the grid when a cell, the toolbar (menus and
+      // settings included) or a button is pressed: otherwise focus moves
+      // there and typing stops working until the grid is clicked again
+      widget.addEventListener('mousedown', function (e) {
+        if (e.target.closest('.xw-cell, .xw-controls-bar, .xw-active-clue-bar, ' +
+                             '.xw-pause-overlay, button')) e.preventDefault();
       });
 
       // Close dropdowns when clicking outside
@@ -1174,49 +1229,27 @@
         if (!e.target.closest('.xw-dd-group')) closeAllDropdowns(widget);
       });
 
-      // Notes modal close
+      // Popup buttons, and clicks on the dimmed backdrop around a popup
       widget.addEventListener('click', function (e) {
-        var backdrop = e.target.closest('.xw-notes-backdrop');
+        var backdrop = e.target.closest(MODAL_BACKDROPS);
         if (!backdrop) return;
-        if (e.target.classList.contains('xw-notes-close') ||
-            e.target.classList.contains('xw-notes-backdrop')) {
-          backdrop.setAttribute('hidden', '');
+        if (e.target.closest('.xw-confirm-ok')) {
+          var fn = confirmFn;
+          closeModal(backdrop);
+          if (fn) fn();
+        } else if (e.target === backdrop || e.target.closest(
+            '.xw-notes-close, .xw-completion-close, .xw-parse-close, .xw-confirm-cancel')) {
+          closeModal(backdrop);
         }
       });
 
-      // Completion modal close
-      widget.addEventListener('click', function (e) {
-        var backdrop = e.target.closest('.xw-completion-backdrop');
-        if (!backdrop) return;
-        if (e.target.classList.contains('xw-completion-close') ||
-            e.target.classList.contains('xw-completion-backdrop')) {
-          backdrop.setAttribute('hidden', '');
-        }
+      // Escape closes a popup wherever focus is in the widget (the hidden
+      // input handles its own keys, below)
+      widget.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' || e.target === hiddenInput) return;
+        var modal = getOpenModal();
+        if (modal) closeModal(modal);
       });
-
-      // Parse modal close
-      widget.addEventListener('click', function (e) {
-        var backdrop = e.target.closest('.xw-parse-backdrop');
-        if (!backdrop) return;
-        if (e.target.classList.contains('xw-parse-close') ||
-            e.target.classList.contains('xw-parse-backdrop')) {
-          backdrop.setAttribute('hidden', '');
-        }
-      });
-
-      // Prevent page scroll when wheeling inside the widget
-      widget.addEventListener('wheel', function (e) {
-        var section = e.target.closest('.xw-clue-section');
-        if (section) {
-          var atTop    = section.scrollTop <= 0;
-          var atBottom = section.scrollTop + section.clientHeight >= section.scrollHeight - 1;
-          if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
-            e.preventDefault();
-          }
-        } else {
-          e.preventDefault();
-        }
-      }, { passive: false });
 
       // Pause overlay
       widget.addEventListener('click', function (e) {
@@ -1244,6 +1277,25 @@
         hiddenInput.addEventListener('keydown', function (e) {
           if (!state.focused) return;
           var key = e.key;
+          var plain = !e.ctrlKey && !e.metaKey && !e.altKey;
+
+          // Keys go to an open popup, not the grid behind it: Escape closes
+          // any popup, Enter all but the confirm one (Enter also means
+          // "next clue", so it mustn't reveal or clear the grid)
+          var modal = getOpenModal();
+          if (modal) {
+            if (key === 'Escape' ||
+                (key === 'Enter' && !modal.classList.contains('xw-confirm-backdrop'))) {
+              closeModal(modal);
+            }
+            if (plain) e.preventDefault();
+            return;
+          }
+          // Nothing reaches the grid while it's paused
+          if (state.paused) {
+            if (plain) e.preventDefault();
+            return;
+          }
 
           if (key === 'ArrowLeft' || key === 'ArrowRight' ||
               key === 'ArrowUp'   || key === 'ArrowDown') {
@@ -1268,6 +1320,9 @@
           if (!state.focused) return;
           var val = hiddenInput.value;
           hiddenInput.value = ' '; // reset to sentinel
+          // Mobile keyboards type here without a usable keydown, so the
+          // popup and pause checks are repeated
+          if (state.paused || getOpenModal()) return;
           // Extract any typed letters (ignores sentinel space and autocorrect noise)
           var letters = val.replace(/[^A-Za-z]/g, '');
           if (letters) {
@@ -1280,9 +1335,32 @@
 
         hiddenInput.addEventListener('focus', function () { state.focused = true; hiddenInput.value = ' '; });
         hiddenInput.addEventListener('blur',  function (e) {
-          if (widget && !widget.contains(e.relatedTarget)) state.focused = false;
+          // Focus moving to a button or the widget itself doesn't end the
+          // solving session; leaving the widget, or going to another input
+          // (a jigsaw scratchpad), does
+          var to = e.relatedTarget;
+          if (!widget.contains(to) || to.tagName === 'INPUT') state.focused = false;
         });
       }
+
+      // The clock stops while the page is hidden (another tab, a locked
+      // phone), saving the time so far in case the solver never comes back
+      var resumeOnShow = false;
+      function pauseWhileHidden() {
+        if (!state.timer.running) return;
+        stopTimer();
+        saveProgress();
+        resumeOnShow = true;
+      }
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          pauseWhileHidden();
+        } else if (resumeOnShow) {
+          resumeOnShow = false;
+          startTimer();
+        }
+      });
+      window.addEventListener('pagehide', pauseWhileHidden);
 
       // Extra variant events
       if (_bindExtraEvents) _bindExtraEvents(widget, engine);
@@ -1361,44 +1439,50 @@
     function handleBackspace() {
       var r    = state.cursor.row, c = state.cursor.col;
       var cell = puzzle.grid[r][c];
+      var back = jumpedFrom;
 
-      if (getCurrentWordCellIndex() === 0) {
-        if (!cell.revealed && cell.entry) {
-          cell.entry   = '';
-          cell.checked = null;
-          updateCellDisplay(r, c);
-          onCellModified();
-          saveProgress();
-        } else {
-          jumpToPrevWord();
-        }
+      if (back) {
+        // Typing just carried the cursor on to a new word: go back to the
+        // letter that finished the last one, wherever the cursor landed
+        selectCell(back.row, back.col, back.direction);
+      } else if (!cell.revealed && cell.entry) {
+        clearEntry(r, c);
         return;
+      } else if (getCurrentWordCellIndex() > 0) {
+        retreatCursor();
+      } else {
+        // From a word's first cell, into the end of the previous part of a
+        // linked clue, or of the previous clue in the list
+        var parts = getWordParts(getCurrentWord());
+        var pIdx  = parts.indexOf(getCurrentWord());
+        var prev  = pIdx > 0 ? lastCellOf(parts[pIdx - 1]) : lastCellOfPrevClue(parts[0]);
+        if (!prev) return;
+        selectCell(prev.row, prev.col, prev.direction);
       }
 
-      if (!cell.revealed && cell.entry) {
-        cell.entry   = '';
-        cell.checked = null;
-        updateCellDisplay(r, c);
-        onCellModified();
-        saveProgress();
-      } else {
-        retreatCursor();
-        var nr  = state.cursor.row, nc = state.cursor.col;
-        var nc2 = puzzle.grid[nr][nc];
-        if (!nc2.revealed) {
-          nc2.entry   = '';
-          nc2.checked = null;
-          updateCellDisplay(nr, nc);
-          onCellModified();
-          saveProgress();
-        }
+      var nr = state.cursor.row, nc = state.cursor.col;
+      if (!puzzle.grid[nr][nc].revealed) clearEntry(nr, nc);
+    }
+
+    // The last cell of the clue before this one in the list (no wrapping
+    // round from the first clue to the last)
+    function lastCellOfPrevClue(word) {
+      for (var i = words.indexOf(word) - 1; i >= 0; i--) {
+        if (words[i].isContinuation) continue;
+        var parts = getWordParts(words[i]);
+        return lastCellOf(parts[parts.length - 1]);
       }
+      return null;
     }
 
     function handleDelete() {
-      var r    = state.cursor.row, c = state.cursor.col;
+      var r = state.cursor.row, c = state.cursor.col;
+      if (puzzle.grid[r][c].revealed) return;
+      clearEntry(r, c);
+    }
+
+    function clearEntry(r, c) {
       var cell = puzzle.grid[r][c];
-      if (cell.revealed) return;
       cell.entry   = '';
       cell.checked = null;
       updateCellDisplay(r, c);
@@ -1416,6 +1500,7 @@
     // SOLVING ACTIONS (Check / Reveal / Clear)
     // ================================================================
     function handleAction(action) {
+      jumpedFrom = null;
       if (extraActions[action]) {
         extraActions[action](engine);
         return;
@@ -1427,10 +1512,10 @@
         case 'check-grid':  checkCells(getAllCells());           break;
         case 'reveal-cell': revealCells([state.cursor]);        break;
         case 'reveal-word': revealCells(getCurrentWordCells()); break;
-        case 'reveal-grid': revealCells(getAllCells());          break;
+        case 'reveal-grid': askRevealGrid();                    break;
         case 'clear-cell':  clearCells([state.cursor]);         break;
         case 'clear-word':  clearCells(getCurrentWordCells());  break;
-        case 'clear-grid':  clearCells(getAllCells());           break;
+        case 'clear-grid':  askClearGrid();                     break;
         case 'pause':       togglePause();                      break;
         case 'fullscreen':  toggleFullscreen();                 break;
         case 'print':       printPDF();                         break;
@@ -1439,9 +1524,9 @@
       }
     }
 
+    // Every part of a linked clue, as highlighted, not just the cursor's
     function getCurrentWordCells() {
-      var word = getCurrentWord();
-      return word ? word.cells : [];
+      return getAllWordCells(getCurrentWord());
     }
 
     function getAllCells() {
@@ -1482,6 +1567,9 @@
       cells.forEach(function (pos) {
         var cell = puzzle.grid[pos.row][pos.col];
         if (!_isCellPlayable(cell) || !cell.solution) return;
+        // A letter that's already right stays the solver's own, so the
+        // completion message can tell solved letters from revealed ones
+        if (cell.entry === cell.solution) return;
         cell.entry    = cell.solution;
         cell.revealed = true;
         cell.checked  = 'correct';
@@ -1504,6 +1592,39 @@
       saveProgress();
     }
 
+    // Grid-wide reveal and clear are hard to take back, so they ask first
+    function askRevealGrid() {
+      confirmThen('Reveal the whole grid?', 'Reveal grid', function () {
+        revealCells(getAllCells());
+      });
+    }
+
+    function askClearGrid() {
+      confirmThen('Clear the whole grid? Revealed letters go too, and the timer goes back to 0:00.',
+                  'Clear grid', clearGrid);
+    }
+
+    // Clearing the grid starts the puzzle over, so unlike clearing a word
+    // it takes revealed letters, the timer and the completed state too
+    function clearGrid() {
+      getAllCells().forEach(function (pos) {
+        var cell = puzzle.grid[pos.row][pos.col];
+        clearTimeout(cell.checkTimer);
+        cell.entry    = '';
+        cell.revealed = false;
+        cell.checked  = null;
+        updateCellDisplay(pos.row, pos.col);
+      });
+      stopTimer();
+      state.timer.elapsed = 0;
+      state.completed     = false;
+      updateTimerDisplay();
+      var banner = container.querySelector('.xw-completion-banner');
+      if (banner) banner.setAttribute('hidden', '');
+      onCellModified();
+      saveProgress();
+    }
+
     // ================================================================
     // COMPLETION
     // ================================================================
@@ -1519,19 +1640,49 @@
       var wasCompleted = state.completed;
       state.completed = true;
       stopTimer();
-      var banner = container.querySelector('.xw-completion-banner');
-      if (banner) banner.removeAttribute('hidden');
+      showCompletionBanner();
       // Only pop the modal on the moment of completion, not on later
       // re-triggers (e.g. reveal-grid after the puzzle was already done).
       if (!wasCompleted) showCompletionModal();
       saveProgress();
     }
 
+    // The completion message, toned down when letters were revealed
+    function completionText() {
+      var revealed = 0, total = 0;
+      getAllCells().forEach(function (pos) {
+        var cell = puzzle.grid[pos.row][pos.col];
+        if (!cell.solution) return;
+        total++;
+        if (cell.revealed) revealed++;
+      });
+      var time = formatTime(state.timer.elapsed);
+      if (revealed && revealed === total) {
+        return { title: 'Grid revealed', time: 'Time: ' + time };
+      }
+      return {
+        title: '🎉 Puzzle complete!',
+        time:  'Your time: ' + time + (revealed
+          ? ' (' + revealed + ' letter' + (revealed === 1 ? '' : 's') + ' revealed)'
+          : '')
+      };
+    }
+
+    function showCompletionBanner() {
+      var banner = container.querySelector('.xw-completion-banner');
+      if (!banner) return;
+      banner.textContent = completionText().title;
+      banner.removeAttribute('hidden');
+    }
+
     function showCompletionModal() {
       var modal = container.querySelector('.xw-completion-backdrop');
       if (!modal) return;
-      var timeEl = modal.querySelector('.xw-completion-time');
-      if (timeEl) timeEl.textContent = 'Your time: ' + formatTime(state.timer.elapsed);
+      var text    = completionText();
+      var titleEl = modal.querySelector('.xw-completion-title');
+      var timeEl  = modal.querySelector('.xw-completion-time');
+      if (titleEl) titleEl.textContent = text.title;
+      if (timeEl)  timeEl.textContent  = text.time;
       modal.removeAttribute('hidden');
     }
 
@@ -1565,6 +1716,43 @@
     }
 
     // ================================================================
+    // POPUPS
+    // ================================================================
+    function getOpenModal() {
+      var all = container.querySelectorAll(MODAL_BACKDROPS);
+      for (var i = 0; i < all.length; i++) {
+        if (!all[i].hasAttribute('hidden')) return all[i];
+      }
+      return null;
+    }
+
+    function closeModal(backdrop) {
+      backdrop.setAttribute('hidden', '');
+      confirmFn = null;
+      restoreFocus();
+    }
+
+    // Ask before doing fn; it runs if the popup's OK button is pressed
+    function confirmThen(message, okLabel, fn) {
+      var backdrop = container.querySelector('.xw-confirm-backdrop');
+      if (!backdrop) return;
+      backdrop.querySelector('.xw-confirm-text').textContent = message;
+      backdrop.querySelector('.xw-confirm-ok').textContent   = okLabel;
+      confirmFn = fn;
+      backdrop.removeAttribute('hidden');
+    }
+
+    // Buttons cancel mousedown so the grid keeps the keyboard (see
+    // bindEvents); this puts focus back if a browser moved it anyway.
+    // Typing in another input, like a jigsaw scratchpad, is left alone.
+    function restoreFocus() {
+      var active = document.activeElement;
+      if (!state.focused) return;
+      if (active && active.tagName === 'INPUT' && active !== hiddenInput) return;
+      focusHiddenInput();
+    }
+
+    // ================================================================
     // PARSES
     // ================================================================
     // Find the parse line for a word. Lines keyed by clue number (or by
@@ -1588,6 +1776,16 @@
       return keyed.length ? keyed[0].text : null;
     }
 
+    // Is every letter of the word (all parts, for a linked clue) entered
+    // and correct? Cells with no solution can't be checked, so they pass,
+    // as in checkCompletion.
+    function isWordSolved(word) {
+      return getAllWordCells(word).every(function (wc) {
+        var cell = puzzle.grid[wc.row][wc.col];
+        return !cell.solution || cell.entry === cell.solution;
+      });
+    }
+
     function showParse() {
       var widget   = getWidget();
       var backdrop = widget && widget.querySelector('.xw-parse-backdrop');
@@ -1606,7 +1804,10 @@
           ? ' (' + fmtEnum(word.enumeration) + ')'
           : '';
         clueEl.innerHTML = escapeHtml(label) + word.clue + escapeHtml(enumStr);
-        bodyEl.textContent = findParse(word) || 'No parse available for this clue.';
+        // A parse gives the answer away, so wait until the grid has it
+        bodyEl.textContent = !isWordSolved(word)
+          ? '❌ Answer is not complete or not correct.'
+          : findParse(word) || 'No parse available for this clue.';
       }
       backdrop.removeAttribute('hidden');
     }
@@ -1851,13 +2052,19 @@
     function startTimer() {
       if (state.timer.running || state.completed || state.paused) return;
       state.timer.running    = true;
-      state.timer.intervalId = setInterval(function () {
-        state.timer.elapsed++;
-        updateTimerDisplay();
-      }, 1000);
+      // Read the time off the clock rather than counting ticks, which
+      // browsers delay and drop when busy or in the background
+      state.timer.startedAt  = Date.now() - state.timer.elapsed * 1000;
+      state.timer.intervalId = setInterval(tickTimer, 1000);
+    }
+
+    function tickTimer() {
+      state.timer.elapsed = Math.floor((Date.now() - state.timer.startedAt) / 1000);
+      updateTimerDisplay();
     }
 
     function stopTimer() {
+      if (state.timer.running) tickTimer();
       state.timer.running = false;
       if (state.timer.intervalId) {
         clearInterval(state.timer.intervalId);
@@ -1932,10 +2139,7 @@
       updateAllCells();
       updateClueDoneStates();
 
-      if (state.completed) {
-        var banner = container.querySelector('.xw-completion-banner');
-        if (banner) banner.removeAttribute('hidden');
-      }
+      if (state.completed) showCompletionBanner();
     }
 
     function saveSettings() {

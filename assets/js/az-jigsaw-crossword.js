@@ -197,7 +197,8 @@
           var hcEnum = (engine.puzzle.showEnumerations && hcWord.enumeration)
             ? ' (' + fmtEnum(hcWord.enumeration) + ')'
             : '';
-          clueEl.textContent = hcWord.clue + hcEnum;
+          // Clue text is HTML (entities, italics), as in the clue list
+          clueEl.innerHTML = hcWord.clue + hcEnum;
           return;
         }
       }
@@ -249,7 +250,7 @@
             var hcEnum = (engine.puzzle.showEnumerations && hcWord.enumeration)
               ? ' (' + fmtEnum(hcWord.enumeration) + ')'
               : '';
-            acbClue.textContent = hcWord.clue + hcEnum;
+            acbClue.innerHTML = hcWord.clue + hcEnum;
           }
         } else {
           // Restore grid word display
@@ -310,29 +311,12 @@
             var hcEnum = (engine.puzzle.showEnumerations && hcWord.enumeration)
               ? ' (' + fmtEnum(hcWord.enumeration) + ')'
               : '';
-            acbClue.textContent = hcWord.clue + hcEnum;
+            acbClue.innerHTML = hcWord.clue + hcEnum;
           }
         }
       });
-
-      // Ensure the grid's hidden input regains focus when clicking an already-highlighted cell
-      ['mousedown', 'touchstart'].forEach(function(evt) {
-        widget.addEventListener(evt, function (e) {
-          // Ignore interactions inside the clue list or A-Z bar
-          if (e.target.closest('.xw-clue-section') || e.target.closest('.xw-clue-az-row')) {
-            return;
-          }
-          
-          // Find the core engine's hidden input (the only input that isn't a scratchpad)
-          var hiddenInput = widget.querySelector('input:not(.xw-scratchpad)');
-          if (hiddenInput) {
-            // Push focus to the end of the event loop to let the core engine finish its own click handling first
-            setTimeout(function() {
-              hiddenInput.focus();
-            }, 10);
-          }
-        });
-      });
+      // Keeping the grid's keyboard focus across clicks on cells and
+      // buttons is handled by crossword-core.js for every variant
     },
 
     // ---- Persistence: scratchpad data ----

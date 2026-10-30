@@ -98,6 +98,7 @@
     pointer-events: none;
     border: none;
     padding: 0;
+    font-size: 16px;   // iOS zooms the page into inputs smaller than this
   }
 
   // ── Controls bar ─────────────────────────────────────────────────
@@ -271,6 +272,16 @@
     gap: 4px;
   }
 
+  // On phones the clue bar sticks to the top of the screen, so the clue
+  // stays in view while typing in the lower rows under the keyboard
+  > .xw-active-clue-bar {
+    @media (max-width: 700px) {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+  }
+
   .xw-acb-label {
     color: var(--xw-accent);
     font-weight: bold;
@@ -359,6 +370,7 @@
     &.xw-correct   { background: var(--xw-correct)   !important; }
     &.xw-incorrect { background: var(--xw-incorrect) !important; }
     &.xw-revealed  { background: var(--xw-revealed-bg); }
+    &.xw-revealed .xw-letter { color: var(--xw-revealed-text); }
 
     // Word separators — thicker border after the Nth letter
     &.xw-sep-right-space  { border-right:  3px solid var(--xw-border-outer); }
@@ -426,8 +438,6 @@
     color: var(--xw-text-cell);
     pointer-events: none;
     text-transform: uppercase;
-
-    .xw-revealed & { color: var(--xw-revealed-text); }
   }
 
   // ── Clue panel ────────────────────────────────────────────────────
@@ -450,6 +460,7 @@
   .xw-clue-section {
     overflow-y: auto;
     max-height: 510px;
+    overscroll-behavior: contain;   // the page doesn't scroll on past a list's end
 
     @media (max-width: 700px) {
       max-height: 260px;
@@ -541,10 +552,11 @@
     align-self: flex-end;
   }
 
-  // ── Parse modal ───────────────────────────────────────────────────
+  // ── Parse and confirm modals ──────────────────────────────────────
   .xw-parse-btn[hidden] { display: none; }
 
-  .xw-parse-backdrop {
+  .xw-parse-backdrop,
+  .xw-confirm-backdrop {
     position: absolute;
     inset: 0;
     z-index: 500;
@@ -557,7 +569,8 @@
     &[hidden] { display: none; }
   }
 
-  .xw-parse-modal {
+  .xw-parse-modal,
+  .xw-confirm-modal {
     background: var(--xw-bg-dropdown);
     border: 1px solid var(--xw-border);
     border-radius: 6px;
@@ -586,6 +599,18 @@
 
   .xw-parse-close {
     align-self: flex-end;
+  }
+
+  .xw-confirm-text {
+    font-size: 0.92em;
+    line-height: 1.55;
+    color: var(--xw-text);
+  }
+
+  .xw-confirm-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
   }
 
   // ── Completion banner ─────────────────────────────────────────────
@@ -819,6 +844,9 @@
       flex: 1;
       min-width: 0;  // allow the text to shrink inside the flex row
     }
+
+    // Narrow screens: the scratchpad drops below its clue (see below)
+    @media (max-width: 600px) { flex-wrap: wrap; }
   }
 
   // Scratchpad text input — fixed width to the right of the clue text
@@ -838,6 +866,12 @@
     text-transform: uppercase;
     box-sizing: border-box;
     transition: border-color 0.15s;
+
+    // Full width under the clue, or the clue is squeezed into a sliver
+    @media (max-width: 600px) { width: 100%; }
+
+    // iOS zooms the page into inputs smaller than 16px when focused
+    @media (pointer: coarse) { font-size: 16px; }
 
     &::placeholder {
       color: var(--xw-text-muted);
@@ -932,6 +966,7 @@
   .xw-completion-backdrop,
   .xw-notes-backdrop,
   .xw-parse-backdrop,
+  .xw-confirm-backdrop,
   .xw-controls-bar,
   .xw-active-clue-bar { display: none !important; }
 
