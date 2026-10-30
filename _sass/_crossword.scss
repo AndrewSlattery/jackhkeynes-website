@@ -79,6 +79,23 @@
   color: var(--xw-text);
   margin-top: 20px;
 
+  // Phones: borrow 10px of the page's 15px side padding for a wider grid
+  @media (max-width: 700px) {
+    padding: 8px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  // Read by screen readers, not shown
+  .xw-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
   // ── Paused state: blur the content beneath the overlay ───────────
   &.xw-paused {
     .xw-grid-wrap,
@@ -133,6 +150,13 @@
     &:hover {
       background: var(--xw-btn-hover);
       border-color: var(--xw-accent);
+    }
+
+    // A toggle that's on (pencil mode)
+    &[aria-pressed="true"] {
+      background: var(--xw-highlight);
+      border-color: var(--xw-accent);
+      color: var(--xw-accent);
     }
   }
 
@@ -244,6 +268,9 @@
     user-select: none;
   }
 
+  // The clock keeps running (for the finish message), just out of sight
+  &.xw-hide-timer .xw-timer { display: none; }
+
   // Pause button — compact, icon-only
   .xw-pause-btn {
     padding: 5px 7px;
@@ -260,6 +287,7 @@
 
   // ── Active-clue bar ───────────────────────────────────────────────
   .xw-active-clue-bar {
+    position: relative;   // anchors the message overlay (.xw-toast)
     background: var(--xw-bg-cell);
     border: 1px solid var(--xw-border);
     padding: 7px 12px;
@@ -279,6 +307,33 @@
       position: sticky;
       top: 0;
       z-index: 50;
+    }
+  }
+
+  // Short messages (check results and the like) briefly cover the clue
+  // bar, the one part of the widget that's always in view
+  .xw-toast {
+    position: absolute;
+    inset: -1px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border: 1px solid var(--xw-accent);
+    border-radius: 4px;
+    background: var(--xw-bg-dropdown);
+    color: var(--xw-text);
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+
+    &.xw-toast-show {
+      opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -342,6 +397,7 @@
     width: 100%;
     box-sizing: border-box;
     line-height: 1;
+    touch-action: manipulation;   // tapping a cell twice never zooms
   }
 
   .xw-cell {
@@ -371,6 +427,7 @@
     &.xw-incorrect { background: var(--xw-incorrect) !important; }
     &.xw-revealed  { background: var(--xw-revealed-bg); }
     &.xw-revealed .xw-letter { color: var(--xw-revealed-text); }
+    &.xw-pencil   .xw-letter { color: var(--xw-text-muted); font-weight: normal; }
 
     // Word separators — thicker border after the Nth letter
     &.xw-sep-right-space  { border-right:  3px solid var(--xw-border-outer); }
@@ -429,6 +486,12 @@
     line-height: 1;
     color: var(--xw-text-num);
     pointer-events: none;
+
+    // Phones: size by the cell, not the whole grid, so 15×15 numbers are
+    // readable without crowding the smaller cells of 21×21 and 23×23 grids
+    @media (max-width: 700px) {
+      font-size: clamp(5.5px, calc(31cqw / var(--xw-cols, 15)), 11px);
+    }
   }
 
   // Cell letter (centred)
@@ -665,6 +728,13 @@
   .xw-completion-time {
     font-size: 1.05em;
     color: var(--xw-text);
+  }
+
+  .xw-completion-stats {
+    font-size: 0.92em;
+    color: var(--xw-text-muted);
+
+    &:empty { display: none; }
   }
 
   .xw-completion-close {

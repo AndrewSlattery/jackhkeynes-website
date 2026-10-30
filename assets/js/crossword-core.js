@@ -6,6 +6,7 @@
   'use strict';
 
   var STORAGE_SETTINGS = 'xw-settings';
+  var STORAGE_NOTES    = 'xw-notes-seen';   // puzzles whose notes were dismissed
   var MODAL_BACKDROPS  = '.xw-notes-backdrop, .xw-parse-backdrop, ' +
                          '.xw-completion-backdrop, .xw-confirm-backdrop';
 
@@ -403,11 +404,15 @@
     var parses       = null;
     var jumpedFrom   = null;   // cell typing last carried on from to a new word
     var confirmFn    = null;   // what the confirm popup's OK button will run
+    var spokenWord   = null;   // word whose clue was last read to screen readers
+    var toastTimer   = null;
 
     var defaultSettings = {
       lightMode:    false,
       skipFilled:   false,
       autoNextWord: true,
+      keepChecks:   false,
+      hideTimer:    false,
       accentHue:    116
     };
     if (opts.defaultSettings) {
@@ -423,6 +428,8 @@
       focused:   false,
       completed: false,
       paused:    false,
+      pencil:    false,   // new letters are tentative (shown grey)
+      checks:    0,       // checks used before completion, for the finish message
       timer: {
         running:    false,
         elapsed:    0,
@@ -542,7 +549,8 @@
     function render() {
       var widget = document.createElement('div');
       var cls = 'xw-widget' + (widgetClass ? ' ' + widgetClass : '') +
-                (state.settings.lightMode ? ' xw-light' : '');
+                (state.settings.lightMode ? ' xw-light' : '') +
+                (state.settings.hideTimer ? ' xw-hide-timer' : '');
       widget.className = cls;
       widget.style.setProperty('--xw-cols', puzzle.width);
       widget.style.setProperty('--xw-rows', puzzle.height);
@@ -562,7 +570,8 @@
 
       widget.innerHTML = [
         renderHiddenInput(),
-        puzzle.notes ? renderNotesModal(puzzle.notes) : '',
+        renderScreenReaderText(),
+        puzzle.notes ? renderNotesModal(puzzle.notes, !notesSeen()) : '',
         renderCompletionModal(),
         renderParseModal(),
         renderConfirmModal(),
@@ -587,6 +596,9 @@
       ].join('');
 
       container.appendChild(widget);
+      // Messages show over the clue bar, which stays in view on phones
+      var clueBar = widget.querySelector('.xw-active-clue-bar');
+      if (clueBar) clueBar.insertAdjacentHTML('beforeend', '<div class="xw-toast" aria-hidden="true"></div>');
       hiddenInput = widget.querySelector('.xw-hidden-input');
       hiddenInput.value = ' '; // sentinel keeps mobile autocorrect from chaining letters
       bindEvents(widget);
@@ -595,16 +607,29 @@
     function renderHiddenInput() {
       return '<input class="xw-hidden-input" type="text" ' +
         'autocomplete="off" autocorrect="off" autocapitalize="characters" ' +
-        'spellcheck="false" aria-hidden="true">';
+        'spellcheck="false" aria-label="Crossword grid" ' +
+        'aria-describedby="' + containerId + '-help">';
     }
 
-    function renderNotesModal(notes) {
+    // For screen readers only: how to use the grid, and a live region
+    // that reads out clues and messages (see announce)
+    function renderScreenReaderText() {
+      return '<div class="xw-sr-only" id="' + containerId + '-help">' +
+          'Type letters to fill in the grid. Arrow keys move, Space switches ' +
+          'between ' + dirTitles[dirs[0]].toLowerCase() + ' and ' +
+          dirTitles[dirs[1]].toLowerCase() + ', and Tab goes to the next clue. ' +
+          'Press Escape, then Tab, to reach the puzzle controls.' +
+        '</div>' +
+        '<div class="xw-sr-only xw-sr-live" aria-live="polite"></div>';
+    }
+
+    function renderNotesModal(notes, open) {
       var safe = notes
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/\n/g, '<br>');
-      return '<div class="xw-notes-backdrop">' +
+      return '<div class="xw-notes-backdrop"' + (open ? '' : ' hidden') + '>' +
         '<div class="xw-notes-modal" role="dialog" aria-modal="true" aria-label="Puzzle notes">' +
           '<div class="xw-notes-body">' + safe + '</div>' +
           '<button class="xw-notes-close xw-ctrl-btn" type="button">Got it</button>' +
@@ -617,6 +642,7 @@
         '<div class="xw-completion-modal" role="dialog" aria-modal="true" aria-label="Puzzle complete">' +
           '<div class="xw-completion-title">🎉 Puzzle complete!</div>' +
           '<div class="xw-completion-time"></div>' +
+          '<div class="xw-completion-stats"></div>' +
           '<button class="xw-completion-close xw-ctrl-btn" type="button">View grid</button>' +
         '</div>' +
       '</div>';
@@ -650,8 +676,8 @@
           return '<button class="xw-dd-item" data-action="' + item.action + '">' + item.label + '</button>';
         }).join('');
         return '<div class="xw-dd-group">' +
-          '<button class="xw-ctrl-btn xw-dd-trigger" type="button">' +
-            label + ' <span class="xw-caret">▾</span>' +
+          '<button class="xw-ctrl-btn xw-dd-trigger" type="button" aria-haspopup="true" aria-expanded="false">' +
+            label + ' <span class="xw-caret" aria-hidden="true">▾</span>' +
           '</button>' +
           '<div class="xw-dd-panel">' + btns + '</div>' +
         '</div>';
@@ -674,29 +700,41 @@
       ].concat(extraClearItems);
       var clearDd  = dropdown('Clear', clearItems);
 
+      // Pencil mode: new letters are tentative, shown in grey
+      var pencilBtn = '<button class="xw-ctrl-btn xw-pencil-btn" type="button" data-action="pencil" ' +
+        'aria-pressed="false" aria-label="Pencil" title="Pencil: type tentative letters, shown in grey">✎</button>';
+
       // Revealed once the puzzle's parses file has loaded (see init)
       var parseBtn = '<button class="xw-ctrl-btn xw-parse-btn" type="button" data-action="parse" title="Parse current clue" hidden>Parse</button>';
 
       var settingsDd =
         '<div class="xw-dd-group">' +
-          '<button class="xw-ctrl-btn xw-dd-trigger" type="button" title="Settings">⚙</button>' +
+          '<button class="xw-ctrl-btn xw-dd-trigger" type="button" title="Settings" aria-label="Settings" ' +
+            'aria-haspopup="true" aria-expanded="false">⚙</button>' +
           '<div class="xw-dd-panel xw-settings-panel">' +
             settingRow('lightMode',    'Light mode')           +
             settingRow('skipFilled',   'Skip filled letters')  +
             settingRow('autoNextWord', 'Jump to next word')    +
+            settingRow('keepChecks',   'Keep check marks')     +
+            settingRow('hideTimer',    'Hide timer')           +
             renderHuePickerRow()                               +
           '</div>' +
         '</div>';
 
-      var pauseBtn = '<button class="xw-ctrl-btn xw-pause-btn" type="button" data-action="pause" title="Pause / resume">⏸</button>';
-      var fsBtn    = '<button class="xw-ctrl-btn xw-fs-btn"    type="button" data-action="fullscreen" title="Fullscreen">⛶</button>';
+      // Fullscreen needs element fullscreen support, which iPhones lack
+      var canFullscreen = document.fullscreenEnabled || document.webkitFullscreenEnabled;
+
+      var pauseBtn = '<button class="xw-ctrl-btn xw-pause-btn" type="button" data-action="pause" title="Pause / resume" aria-label="Pause or resume timer">⏸</button>';
+      var fsBtn    = canFullscreen
+        ? '<button class="xw-ctrl-btn xw-fs-btn" type="button" data-action="fullscreen" title="Fullscreen" aria-label="Fullscreen">⛶</button>'
+        : '';
       var pdfBtn   = '<button class="xw-ctrl-btn"              type="button" data-action="print" title="Save as PDF">PDF</button>';
       var notesBtn = puzzle.notes
-        ? '<button class="xw-ctrl-btn" type="button" data-action="notes" title="Puzzle notes">ℹ</button>'
+        ? '<button class="xw-ctrl-btn" type="button" data-action="notes" title="Puzzle notes" aria-label="Puzzle notes">ℹ</button>'
         : '';
       var timer = '<div class="xw-timer-group"><div class="xw-timer" role="timer" aria-label="Time elapsed">0:00</div>' + pauseBtn + '</div>';
 
-      return checkDd + revealDd + clearDd + parseBtn + settingsDd + notesBtn + timer + fsBtn + pdfBtn;
+      return checkDd + revealDd + clearDd + pencilBtn + parseBtn + settingsDd + notesBtn + timer + fsBtn + pdfBtn;
     }
 
     function renderHuePickerRow() {
@@ -840,6 +878,7 @@
       if      (cell.revealed)                el.classList.add('xw-revealed');
       else if (cell.checked === 'correct')   el.classList.add('xw-correct');
       else if (cell.checked === 'incorrect') el.classList.add('xw-incorrect');
+      el.classList.toggle('xw-pencil', !!(cell.pencil && cell.entry && !cell.revealed));
     }
 
     function updateAllCells() {
@@ -960,7 +999,10 @@
       }
 
       updateActiveClueBar();
-      if (!silent) focusHiddenInput();
+      if (!silent) {
+        focusHiddenInput();   // first, as focusing resets spokenWord
+        announceWord(displayWord);
+      }
     }
 
     function focusHiddenInput() {
@@ -1200,7 +1242,16 @@
           if (panel) {
             var wasOpen = panel.classList.contains('xw-dd-open');
             closeAllDropdowns(widget);
-            if (!wasOpen) panel.classList.add('xw-dd-open');
+            if (!wasOpen) {
+              panel.classList.add('xw-dd-open');
+              trigger.setAttribute('aria-expanded', 'true');
+              // On a narrow screen, nudge the menu back if it would run
+              // off the right-hand edge
+              panel.style.left = '';
+              var overflow = panel.getBoundingClientRect().right -
+                             (document.documentElement.clientWidth - 8);
+              if (overflow > 0) panel.style.left = -overflow + 'px';
+            }
           }
           e.stopPropagation();
           return;
@@ -1243,12 +1294,13 @@
         }
       });
 
-      // Escape closes a popup wherever focus is in the widget (the hidden
-      // input handles its own keys, below)
+      // Escape closes a popup or menu wherever focus is in the widget (the
+      // hidden input handles its own keys, below)
       widget.addEventListener('keydown', function (e) {
         if (e.key !== 'Escape' || e.target === hiddenInput) return;
         var modal = getOpenModal();
         if (modal) closeModal(modal);
+        else closeAllDropdowns(widget);
       });
 
       // Pause overlay
@@ -1269,10 +1321,17 @@
         var key = input.dataset.setting;
         state.settings[key] = input.checked;
         saveSettings();
-        if (key === 'lightMode') widget.classList.toggle('xw-light', input.checked);
+        if (key === 'lightMode')  widget.classList.toggle('xw-light', input.checked);
+        if (key === 'hideTimer')  widget.classList.toggle('xw-hide-timer', input.checked);
+        if (key === 'keepChecks') refreshCheckFades();
       });
 
       // ---- Keyboard via hidden input ----
+      // Tab means "next clue" in the grid, so Escape first makes the next
+      // Tab leave it for the controls instead (keyboard-only solvers would
+      // otherwise have no way out)
+      var leaveOnTab = false;
+
       if (hiddenInput) {
         hiddenInput.addEventListener('keydown', function (e) {
           if (!state.focused) return;
@@ -1281,16 +1340,30 @@
 
           // Keys go to an open popup, not the grid behind it: Escape closes
           // any popup, Enter all but the confirm one (Enter also means
-          // "next clue", so it mustn't reveal or clear the grid)
+          // "next clue", so it mustn't reveal or clear the grid), and Tab
+          // moves on to the popup's buttons
           var modal = getOpenModal();
           if (modal) {
             if (key === 'Escape' ||
                 (key === 'Enter' && !modal.classList.contains('xw-confirm-backdrop'))) {
               closeModal(modal);
             }
-            if (plain) e.preventDefault();
+            if (plain && key !== 'Tab') e.preventDefault();
             return;
           }
+
+          if (key === 'Escape') {
+            leaveOnTab = true;
+            closeAllDropdowns(widget);
+            announce('Press Tab to move to the puzzle controls.');
+            return;
+          }
+          if (key === 'Tab' && leaveOnTab) {
+            leaveOnTab = false;
+            return;   // let the browser move focus on
+          }
+          if (key !== 'Shift') leaveOnTab = false;
+
           // Nothing reaches the grid while it's paused
           if (state.paused) {
             if (plain) e.preventDefault();
@@ -1333,7 +1406,12 @@
           }
         });
 
-        hiddenInput.addEventListener('focus', function () { state.focused = true; hiddenInput.value = ' '; });
+        hiddenInput.addEventListener('focus', function () {
+          state.focused = true;
+          hiddenInput.value = ' ';
+          leaveOnTab = false;
+          spokenWord = null;   // read the clue again after coming back
+        });
         hiddenInput.addEventListener('blur',  function (e) {
           // Focus moving to a button or the widget itself doesn't end the
           // solving session; leaving the widget, or going to another input
@@ -1369,6 +1447,9 @@
     function closeAllDropdowns(widget) {
       widget.querySelectorAll('.xw-dd-panel.xw-dd-open').forEach(function (p) {
         p.classList.remove('xw-dd-open');
+      });
+      widget.querySelectorAll('.xw-dd-trigger[aria-expanded="true"]').forEach(function (t) {
+        t.setAttribute('aria-expanded', 'false');
       });
     }
 
@@ -1427,12 +1508,15 @@
       var cell = puzzle.grid[r][c];
       if (cell.revealed) { advanceCursor(); return; }
 
+      var wasFull = isGridFull();
       cell.entry   = ch;
       cell.checked = null;
+      cell.pencil  = state.pencil;
       updateCellDisplay(r, c);
       onCellModified();
       saveProgress();
       checkCompletion();
+      noticeFullGrid(wasFull);
       advanceCursor();
     }
 
@@ -1485,6 +1569,7 @@
       var cell = puzzle.grid[r][c];
       cell.entry   = '';
       cell.checked = null;
+      cell.pencil  = false;
       updateCellDisplay(r, c);
       onCellModified();
       saveProgress();
@@ -1516,6 +1601,7 @@
         case 'clear-cell':  clearCells([state.cursor]);         break;
         case 'clear-word':  clearCells(getCurrentWordCells());  break;
         case 'clear-grid':  askClearGrid();                     break;
+        case 'pencil':      togglePencil();                     break;
         case 'pause':       togglePause();                      break;
         case 'fullscreen':  toggleFullscreen();                 break;
         case 'print':       printPDF();                         break;
@@ -1540,21 +1626,40 @@
     }
 
     function checkCells(cells) {
+      var right = 0, wrong = 0;
       cells.forEach(function (pos) {
         var cell = puzzle.grid[pos.row][pos.col];
         if (!_isCellPlayable(cell) || !cell.entry || cell.revealed) return;
         cell.checked = (cell.entry === cell.solution) ? 'correct' : 'incorrect';
+        if (cell.checked === 'correct') right++; else wrong++;
         updateCellDisplay(pos.row, pos.col);
         scheduleCheckFade(pos.row, pos.col);
       });
+
+      // Say what the check found: the marks alone are easy to miss on a
+      // big grid, and an empty square shows nothing at all
+      if (!right && !wrong) {
+        showToast('Nothing to check yet.');
+        return;
+      }
+      if (!state.completed) {
+        state.checks++;
+        saveProgress();
+      }
+      showToast(wrong
+        ? wrong + (wrong === 1 ? ' letter is' : ' letters are') + ' wrong.'
+        : right === 1 ? 'That letter is right.' : 'All ' + right + ' letters checked are right.');
     }
 
-    // Check highlights are transient: clear them after CHECK_FADE_MS
+    // Check highlights are transient unless the solver keeps them: clear
+    // them after CHECK_FADE_MS
     var CHECK_FADE_MS = 10000;
 
     function scheduleCheckFade(r, c) {
       var cell = puzzle.grid[r][c];
       clearTimeout(cell.checkTimer);
+      cell.checkTimer = null;
+      if (state.settings.keepChecks) return;
       cell.checkTimer = setTimeout(function () {
         cell.checkTimer = null;
         if (cell.revealed) return;
@@ -1563,21 +1668,38 @@
       }, CHECK_FADE_MS);
     }
 
+    // Apply a change to the "Keep check marks" setting to marks on show
+    function refreshCheckFades() {
+      getAllCells().forEach(function (pos) {
+        var cell = puzzle.grid[pos.row][pos.col];
+        if (cell.checked && !cell.revealed) scheduleCheckFade(pos.row, pos.col);
+      });
+    }
+
     function revealCells(cells) {
+      var wasFull  = isGridFull();
+      var revealed = 0, alreadyRight = 0;
       cells.forEach(function (pos) {
         var cell = puzzle.grid[pos.row][pos.col];
         if (!_isCellPlayable(cell) || !cell.solution) return;
         // A letter that's already right stays the solver's own, so the
         // completion message can tell solved letters from revealed ones
-        if (cell.entry === cell.solution) return;
+        if (cell.entry === cell.solution) { alreadyRight++; return; }
         cell.entry    = cell.solution;
         cell.revealed = true;
         cell.checked  = 'correct';
+        cell.pencil   = false;
         updateCellDisplay(pos.row, pos.col);
+        revealed++;
       });
+      if (!revealed) {
+        if (alreadyRight) showToast('Already right, so nothing to reveal.');
+        return;
+      }
       onCellModified();
       saveProgress();
       checkCompletion();
+      noticeFullGrid(wasFull);
     }
 
     function clearCells(cells) {
@@ -1586,6 +1708,7 @@
         if (!_isCellPlayable(cell) || cell.revealed) return;
         cell.entry   = '';
         cell.checked = null;
+        cell.pencil  = false;
         updateCellDisplay(pos.row, pos.col);
       });
       onCellModified();
@@ -1613,11 +1736,13 @@
         cell.entry    = '';
         cell.revealed = false;
         cell.checked  = null;
+        cell.pencil   = false;
         updateCellDisplay(pos.row, pos.col);
       });
       stopTimer();
       state.timer.elapsed = 0;
       state.completed     = false;
+      state.checks        = 0;
       updateTimerDisplay();
       var banner = container.querySelector('.xw-completion-banner');
       if (banner) banner.setAttribute('hidden', '');
@@ -1647,7 +1772,22 @@
       saveProgress();
     }
 
-    // The completion message, toned down when letters were revealed
+    function isGridFull() {
+      return getAllCells().every(function (pos) {
+        var cell = puzzle.grid[pos.row][pos.col];
+        return !cell.solution || !!cell.entry;
+      });
+    }
+
+    // Filling the last square of a grid with mistakes in it would
+    // otherwise do nothing at all, so say so
+    function noticeFullGrid(wasFull) {
+      if (!wasFull && !state.completed && isGridFull()) {
+        showToast('The grid is full, but some answers aren\'t right yet.');
+      }
+    }
+
+    // The completion message, with how many checks and reveals were used
     function completionText() {
       var revealed = 0, total = 0;
       getAllCells().forEach(function (pos) {
@@ -1658,13 +1798,15 @@
       });
       var time = formatTime(state.timer.elapsed);
       if (revealed && revealed === total) {
-        return { title: 'Grid revealed', time: 'Time: ' + time };
+        return { title: 'Grid revealed', time: 'Time: ' + time, stats: '' };
       }
+      var used = [];
+      if (state.checks) used.push(state.checks + ' check' + (state.checks === 1 ? '' : 's'));
+      if (revealed)     used.push(revealed + ' letter' + (revealed === 1 ? '' : 's') + ' revealed');
       return {
         title: '🎉 Puzzle complete!',
-        time:  'Your time: ' + time + (revealed
-          ? ' (' + revealed + ' letter' + (revealed === 1 ? '' : 's') + ' revealed)'
-          : '')
+        time:  'Your time: ' + time,
+        stats: used.length ? 'With ' + used.join(' and ') + '.' : 'Solved without checks or reveals.'
       };
     }
 
@@ -1681,9 +1823,12 @@
       var text    = completionText();
       var titleEl = modal.querySelector('.xw-completion-title');
       var timeEl  = modal.querySelector('.xw-completion-time');
+      var statsEl = modal.querySelector('.xw-completion-stats');
       if (titleEl) titleEl.textContent = text.title;
       if (timeEl)  timeEl.textContent  = text.time;
+      if (statsEl) statsEl.textContent = text.stats;
       modal.removeAttribute('hidden');
+      announce(text.title.replace('🎉 ', '') + ' ' + text.time + '. ' + text.stats);
     }
 
     // ================================================================
@@ -1712,7 +1857,35 @@
     function showNotes() {
       var widget   = getWidget();
       var backdrop = widget && widget.querySelector('.xw-notes-backdrop');
-      if (backdrop) backdrop.removeAttribute('hidden');
+      if (!backdrop) return;
+      backdrop.removeAttribute('hidden');
+      announce(backdrop.querySelector('.xw-notes-body').textContent);
+    }
+
+    // The notes open by themselves only until they've been dismissed once
+    // (or progress was saved, from before this was remembered); after
+    // that the ℹ button shows them
+    function notesSeen() {
+      try {
+        if (localStorage.getItem(storagePrefix + puzzleNumber)) return true;
+        var seen = JSON.parse(localStorage.getItem(STORAGE_NOTES)) || {};
+        return !!seen[storagePrefix + puzzleNumber];
+      } catch (e) { return false; }
+    }
+
+    function markNotesSeen() {
+      try {
+        var seen = JSON.parse(localStorage.getItem(STORAGE_NOTES)) || {};
+        seen[storagePrefix + puzzleNumber] = 1;
+        localStorage.setItem(STORAGE_NOTES, JSON.stringify(seen));
+      } catch (e) {}
+    }
+
+    function togglePencil() {
+      state.pencil = !state.pencil;
+      var btn = container.querySelector('.xw-pencil-btn');
+      if (btn) btn.setAttribute('aria-pressed', String(state.pencil));
+      announce(state.pencil ? 'Pencil on: new letters are tentative.' : 'Pencil off.');
     }
 
     // ================================================================
@@ -1729,6 +1902,7 @@
     function closeModal(backdrop) {
       backdrop.setAttribute('hidden', '');
       confirmFn = null;
+      if (backdrop.classList.contains('xw-notes-backdrop')) markNotesSeen();
       restoreFocus();
     }
 
@@ -1740,6 +1914,7 @@
       backdrop.querySelector('.xw-confirm-ok').textContent   = okLabel;
       confirmFn = fn;
       backdrop.removeAttribute('hidden');
+      announce(message + ' Press Tab to reach the buttons, or Escape to cancel.');
     }
 
     // Buttons cancel mousedown so the grid keeps the keyboard (see
@@ -1750,6 +1925,62 @@
       if (!state.focused) return;
       if (active && active.tagName === 'INPUT' && active !== hiddenInput) return;
       focusHiddenInput();
+    }
+
+    // ================================================================
+    // MESSAGES & SCREEN READERS
+    // ================================================================
+    // A short message over the clue bar, also read out by screen readers
+    function showToast(message) {
+      announce(message);
+      var el = container.querySelector('.xw-toast');
+      if (!el) return;
+      el.textContent = message;
+      el.classList.add('xw-toast-show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () { el.classList.remove('xw-toast-show'); }, 3500);
+    }
+
+    // Screen readers read each new line in the live region: clues on
+    // moving to a new word, popups and messages. A line per message keeps
+    // two in quick succession from overwriting each other.
+    function announce(text) {
+      var live = container.querySelector('.xw-sr-live');
+      if (!live || !text) return;
+      var line = document.createElement('div');
+      line.textContent = text.replace(/\s+/g, ' ');
+      live.appendChild(line);
+      while (live.childNodes.length > 3) live.removeChild(live.firstChild);
+    }
+
+    // Read out the clue on moving to a new word, then any letters already
+    // in it, since the grid itself is only visual
+    function announceWord(word) {
+      var dw = getDisplayWord(word);
+      if (!dw || dw === spokenWord) return;
+      spokenWord = dw;
+      var text;
+      if (_updateActiveClueBar) {
+        // Variants with their own clue bar (jigsaws) may keep which clue
+        // goes where a secret, so read out just what the bar shows
+        var labelEl = container.querySelector('.xw-acb-label');
+        var clueEl  = container.querySelector('.xw-acb-clue');
+        text = (labelEl ? labelEl.textContent : '') + ' ' + (clueEl ? clueEl.textContent : '');
+      } else {
+        text = (dw.label || dw.number) + ' ' + dirTitles[dw.direction] + ': ' + plainText(dw.clue) +
+               ((puzzle.showEnumerations && dw.enumeration) ? ' (' + fmtEnum(dw.enumeration) + ')' : '');
+      }
+      var letters = getAllWordCells(dw).map(function (wc) {
+        return puzzle.grid[wc.row][wc.col].entry || 'blank';
+      });
+      if (letters.some(function (l) { return l !== 'blank'; })) text += '. ' + letters.join(' ');
+      announce(text.trim());
+    }
+
+    function plainText(html) {
+      var div = document.createElement('div');
+      div.innerHTML = html;
+      return div.textContent;
     }
 
     // ================================================================
@@ -1810,6 +2041,7 @@
           : findParse(word) || 'No parse available for this clue.';
       }
       backdrop.removeAttribute('hidden');
+      announce(clueEl.textContent + ' ' + bodyEl.textContent.replace('❌ ', ''));
     }
 
     function toggleFullscreen() {
@@ -1995,7 +2227,7 @@
 
       var headerEl = overlay.querySelector('.xw-print-header');
       var rawName  = (headerEl && headerEl.textContent.trim()) || 'crossword';
-      var filename = rawName.replace(/[^a-z0-9_\-\s]/gi, '').trim().slice(0, 80) || 'crossword';
+      var filename = rawName.replace(/[^a-z0-9_\-\s]/gi, '').replace(/\s+/g, ' ').trim().slice(0, 80) || 'crossword';
 
       function fail(err) {
         if (window.console) console.error('PDF generation failed', err);
@@ -2084,6 +2316,7 @@
       if (!puzzleNumber) return;
       var entries  = [];
       var revealed = [];
+      var pencil   = [];
 
       for (var r = 0; r < puzzle.height; r++) {
         for (var c = 0; c < puzzle.width; c++) {
@@ -2091,13 +2324,16 @@
           var i    = r * puzzle.width + c;
           entries.push(cell.entry || '');
           if (cell.revealed) revealed.push(i);
+          if (cell.pencil && cell.entry) pencil.push(i);
         }
       }
 
       var data = {
         entries:   entries,
         revealed:  revealed,
+        pencil:    pencil,
         timer:     state.timer.elapsed,
+        checks:    state.checks,
         completed: state.completed
       };
 
@@ -2124,6 +2360,7 @@
           if (_isCellPlayable(cell)) {
             cell.entry    = (data.entries && data.entries[idx]) || '';
             cell.revealed = !!(data.revealed && data.revealed.indexOf(i) >= 0);
+            cell.pencil   = !!(data.pencil && data.pencil.indexOf(i) >= 0);
             cell.checked  = cell.revealed ? 'correct' : null;
           }
           idx++;
@@ -2133,6 +2370,7 @@
       if (_loadExtraData) _loadExtraData(data, engine);
 
       state.timer.elapsed = data.timer     || 0;
+      state.checks        = data.checks    || 0;
       state.completed     = data.completed || false;
 
       updateTimerDisplay();
