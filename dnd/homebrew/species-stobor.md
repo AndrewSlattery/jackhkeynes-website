@@ -10,7 +10,7 @@ tagline: Mortals descended from awakened facsimiles of people
 
 <div class="hb-flavour" markdown="1">
 
-Stobor (pronounced STOH-bor) are mortals descended from awakened facsimiles of people. Whether their ancestors were clay tomb sentinels raised by priest-kings, wooden puppets animated by fey tricksters, or porcelain dolls infused with life, that animating magic eventually settled into true flesh and blood.
+Stobor (pronounced STOH-boar) are mortals descended from awakened facsimiles of people. Whether their ancestors were clay tomb sentinels raised by priest-kings, wooden puppets animated by fey tricksters, or porcelain dolls infused with life, that animating magic eventually settled into true flesh and blood.
 
 Stobor are born, age, and die like other humanoids, living for up to two centuries, yet their bodies bear the unmistakable hallmarks of their crafted origins. A Stobor's skin might possess the sheen of glazed ceramic or the faint grain of carved wood, wearing over time to a polished finish like a well-handled antique. Their bones and joints are impossibly precise, and their ability to remain unnervingly still for hours at a time reveals their artificial heritage.
 
