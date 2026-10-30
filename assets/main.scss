@@ -23,6 +23,10 @@ $grey-color-dark:  #eeeeee; // Strong borders
 // Default is 800px. 1200px allows much more room for crosswords.
 $content-width:    1200px;
 
+// FONT: Inter sits close to the old system font (Segoe UI / San Francisco)
+// but, with cv08 below, gives capital I serifs so it can't be read as l.
+$base-font-family: InterVariable, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
 // ==========================================
 // 2. IMPORT THE THEME
 // ==========================================
@@ -31,6 +35,11 @@ $content-width:    1200px;
 // ==========================================
 // 3. FORCE OVERRIDES
 // ==========================================
+
+// Inter's serifed capital I (cv08) keeps I and l distinct
+body {
+  font-feature-settings: "kern" 1, "cv08" 1;
+}
 
 // Force all links to use your neon green
 a, a:visited {
