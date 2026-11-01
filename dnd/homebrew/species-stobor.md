@@ -19,7 +19,7 @@ Stobor (STOH-boar) live up to two centuries. Their skin keeps the sheen of glaze
 ## Stobor Traits
 
 <dl class="hb-statline">
-  <dt>Creature Type</dt>
+  <dt>Type</dt>
   <dd>Humanoid</dd>
   <dt>Size</dt>
   <dd>Medium (4–7 feet) or Small (2–4 feet), your choice</dd>
