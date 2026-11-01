@@ -41,7 +41,7 @@ You gain proficiency with one type of Artisan's Tools and one of Arcana, History
 
 ## <span class="hb-tag">Trait</span> Stobor Lineage
 
-Choose a lineage from the Stobor Lineages table, gaining its benefits at the character levels shown, and choose Intelligence, Wisdom, or Charisma as your spellcasting ability for its spells. You always have those spells prepared, and can cast each once per Long Rest without a spell slot, or with spell slots as normal.
+Choose a lineage, and Intelligence, Wisdom, or Charisma as its spellcasting ability. You gain its level 1 benefit now and its spells at character levels 3 and 5, always prepared; you can cast each once per Long Rest without a spell slot, or with spell slots as normal.
 
 </div>
 
@@ -55,53 +55,53 @@ Choose a lineage from the Stobor Lineages table, gaining its benefits at the cha
 
 </div>
 
-<!-- Lore and traits to the left, lineages to the right. The Stobor Lineages
-     table then spans the two right-hand columns rather than the whole page. -->
+<!-- The lineages may break between their paragraphs (hb-feature--flow), which
+     is what lets the last two columns come out level with the first two. -->
 
-<!--split-->
+<div class="hb-feature hb-feature--flow" markdown="1">
 
-<div class="hb-feature hb-feature--wide" markdown="1">
-
-## Stobor Lineages
-
-<div class="hb-table-wrap" markdown="1">
-
-| Lineage    | Level 1                       | Level 3           | Level 5          |
-| ---------- | ----------------------------- | ----------------- | ---------------- |
-| Faience    | *Mending*, Golden Seams       | *Sanctuary*       | *Suggestion*     |
-| Marionette | *Mage Hand*, Borrowed Strings | *Command*         | *Rope Trick*     |
-| Ushabti    | *True Strike*, Here I Am      | *Shield of Faith* | *Enlarge/Reduce* |
-
-</div>
-
-</div>
-
-<div class="hb-feature" markdown="1">
+<div class="hb-lead" markdown="1">
 
 ## <span class="hb-tag">Lineage</span> Faience
 
 Faience (fay-YONCE) Stobor descend from glass figurines and porcelain dolls, and have an uncanny perfection: vivid color on the cheeks, or faint lines like kintsugi.
 
+</div>
+
 ***Golden Seams.*** You know *Mending* and can target yourself with it. Once per Long Rest when you do, you can spend Hit Point Dice (up to your Proficiency Bonus) as on a Short Rest, your wounds closing in seams of gold.
+
+***Spells.*** *Sanctuary* (level 3), *Suggestion* (level 5).
 
 </div>
 
-<div class="hb-feature" markdown="1">
+<div class="hb-feature hb-feature--flow" markdown="1">
+
+<div class="hb-lead" markdown="1">
 
 ## <span class="hb-tag">Lineage</span> Marionette
 
 Marionette Stobor descend from wooden puppets and cloth mannequins, with fine seams at their joints and long, dexterous fingers.
 
+</div>
+
 ***Borrowed Strings.*** You know *Mage Hand*. As a Bonus Action, you can tug the strings of a willing creature you can see within 30 feet, letting it use its Reaction to move up to half its Speed without provoking Opportunity Attacks. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
+
+***Spells.*** *Command* (level 3), *Rope Trick* (level 5).
 
 </div>
 
-<div class="hb-feature" markdown="1">
+<div class="hb-feature hb-feature--flow" markdown="1">
+
+<div class="hb-lead" markdown="1">
 
 ## <span class="hb-tag">Lineage</span> Ushabti
 
 Ushabti (oo-SHAB-tee) Stobor descend from crypt sentinels, clay guardians, and tin soldiers: rigidly built, often etched with glyphs or the outlines of ceremonial armor, and made to answer when called.
 
+</div>
+
 ***Here I Am.*** You know *True Strike*. When an ally you can see within 5 feet of you takes damage from an attack roll, you can use your Reaction to take that damage instead. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
+
+***Spells.*** *Shield of Faith* (level 3), *Enlarge/Reduce* (level 5).
 
 </div>

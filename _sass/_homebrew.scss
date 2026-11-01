@@ -16,7 +16,7 @@
 //
 // .hb-feature--wide spans the whole flow, for a table too wide to sit in a
 // single column. It costs a full-width band, so it is used only where the
-// table really needs it (the four-column Stobor lineages table).
+// table really needs it.
 
 // ── Page width ───────────────────────────────────────────────────────────────
 // These pages break out of the site wrapper ($content-width, 1200px) to take
@@ -103,9 +103,9 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   align-items: start;
 
   // A grid track's automatic minimum is its content's min-content width, which
-  // here is the lineages table — so without this the track refuses to shrink
-  // below 474px and the page scrolls sideways on a phone. The table has its
-  // own scroll container for that.
+  // here is the wide table — so without this the track refuses to shrink to a
+  // phone's width and the page scrolls sideways. The table has its own scroll
+  // container for that.
   > * { min-width: 0; }
 
   // While the halves are stacked they get one column each, so the page reads
@@ -169,11 +169,12 @@ $hb-wide-width: unquote("min(96vw, 1700px)");
   &.hb-feature--flow {
     break-inside: auto;
 
-    // Its paragraphs may split between columns as well, governed by the
-    // orphans and widows above. Holding each one whole is what left a 127px
-    // hole at the foot of the Stobor page's first rules column. A list is
-    // still kept whole: breaking one reads as two lists.
-    > ul, > ol { break-inside: avoid; }
+    // It breaks between its paragraphs, never inside one: a rules paragraph
+    // cut off mid-sentence at the foot of a column is hard to pick up at the
+    // head of the next. Short paragraphs, like the Stobor lineages', still
+    // give the columns enough places to balance. A list is kept whole for the
+    // same reason — breaking one reads as two lists.
+    > p, > ul, > ol { break-inside: avoid; }
   }
 
   .hb-lead {
