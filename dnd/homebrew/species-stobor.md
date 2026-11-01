@@ -84,7 +84,7 @@ Marionette Stobor descend from puppets and cloth mannequins, often finely seamed
 
 </div>
 
-***Borrowed Strings.*** You know *Mage Hand*. Also, you can use a Bonus Action allow a willing creature you can see within 30 feet to use its Reaction to move up to half its Speed without provoking Opportunity Attacks. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
+***Borrowed Strings.*** You know *Mage Hand*. Also, you can use a Bonus Action to allow a willing creature within 30 feet to use its Reaction to move up to half its Speed. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
 
 ***Spells.*** *Command* (level 3), *Rope Trick* (level 5).
 
