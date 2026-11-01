@@ -64,11 +64,11 @@ Choose a lineage, and Intelligence, Wisdom, or Charisma as its spellcasting abil
 
 ## <span class="hb-tag">Lineage</span> Faience
 
-Faience (fay-YONCE) Stobor descend from glass figurines and porcelain dolls, and have an uncanny perfection: vivid color on the cheeks, or faint lines like kintsugi.
+Faience (fay-YONCE) stobor descend from glass figurines and porcelain dolls, often displaying uncanny perfection or faint kintsugi lines.
 
 </div>
 
-***Golden Seams.*** You know *Mending* and can target yourself with it. Once per Long Rest when you do, you can spend Hit Point Dice (up to your Proficiency Bonus) as on a Short Rest, your wounds closing in seams of gold.
+***Golden Seams.*** You know *Mending*. Once per Long Rest you can target yourself with *Mending* to spend Hit Point Dice (up to your Proficiency Bonus) as on a Short Rest.
 
 ***Spells.*** *Sanctuary* (level 3), *Suggestion* (level 5).
 
@@ -80,11 +80,11 @@ Faience (fay-YONCE) Stobor descend from glass figurines and porcelain dolls, and
 
 ## <span class="hb-tag">Lineage</span> Marionette
 
-Marionette Stobor descend from wooden puppets and cloth mannequins, with fine seams at their joints and long, dexterous fingers.
+Marionette Stobor descend from wooden puppets and cloth mannequins, often finely seamed around their joints and fingers.
 
 </div>
 
-***Borrowed Strings.*** You know *Mage Hand*. As a Bonus Action, you can tug the strings of a willing creature you can see within 30 feet, letting it use its Reaction to move up to half its Speed without provoking Opportunity Attacks. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
+***Borrowed Strings.*** You know *Mage Hand*. Also, you can use a Bonus Action to tug the strings of a willing creature you can see within 30 feet, letting it use its Reaction to move up to half its Speed without provoking Opportunity Attacks. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
 
 ***Spells.*** *Command* (level 3), *Rope Trick* (level 5).
 
