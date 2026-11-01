@@ -100,21 +100,25 @@ var BorlishDictionary = (function () {
     return out;
   }
 
+  // Mirrors the Lexique Pro ICU rules (&ae << æ, &c < ç, &d < ð, &i << ï, &oe << œ):
+  // ties on the primary key go to the plain spelling (ae before æ, i before ï),
+  // then lowercase before uppercase.
   function cmpSort(a, b) {
     var ka = sortKey(a.lx), kb = sortKey(b.lx);
-    return ka < kb ? -1 : ka > kb ? 1 : 0;
+    if (ka !== kb) return ka < kb ? -1 : 1;
+    var la = (a.lx || '').toLowerCase(), lb = (b.lx || '').toLowerCase();
+    if (la !== lb) return la < lb ? -1 : 1;
+    return a.lx === b.lx ? 0 : a.lx > b.lx ? -1 : 1;
   }
 
   // Returns the collation "strip character" for the first letter of lx.
-  // ç, æ, œ all need explicit guards: fold() maps ç→'c', æ→'ae', œ→'oe',
-  // which would lose them into the wrong A-Z bucket.
+  // ç needs an explicit guard: fold() maps ç→'c', which would lose it into C.
+  // æ and œ fold to 'ae'/'oe' and so are browsed under A and O, as in Lexique Pro.
   // ð folds to itself so no special case is needed for it.
   function stripChar(lx) {
     if (!lx) return '';
     var ch = lx[0].toLowerCase();
     if (ch === 'ç') return 'ç';
-    if (ch === 'æ') return 'æ';
-    if (ch === 'œ') return 'œ';
     return fold(ch)[0] || ch;
   }
 
@@ -449,9 +453,10 @@ var BorlishDictionary = (function () {
     currentBrowseLetter = '';
     currentDomain = '';
     if (p.browse) {
-      currentBrowseLetter = p.browse;
+      // stripChar() sends old #browse=æ / #browse=œ links to A / O
+      currentBrowseLetter = stripChar(p.browse);
       searchInput.value = '';
-      renderBrowse(p.browse, false);
+      renderBrowse(currentBrowseLetter, false);
       return;
     }
     if (p.domain) {
