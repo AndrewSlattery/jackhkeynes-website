@@ -80,11 +80,11 @@ Faience (fay-YONCE) stobor descend from glass figurines and porcelain dolls, oft
 
 ## <span class="hb-tag">Lineage</span> Marionette
 
-Marionette Stobor descend from wooden puppets and cloth mannequins, often finely seamed around their joints and fingers.
+Marionette Stobor descend from puppets and cloth mannequins, often finely seamed around their joints and fingers.
 
 </div>
 
-***Borrowed Strings.*** You know *Mage Hand*. Also, you can use a Bonus Action to tug the strings of a willing creature you can see within 30 feet, letting it use its Reaction to move up to half its Speed without provoking Opportunity Attacks. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
+***Borrowed Strings.*** You know *Mage Hand*. Also, you can use a Bonus Action allow a willing creature you can see within 30 feet to use its Reaction to move up to half its Speed without provoking Opportunity Attacks. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
 
 ***Spells.*** *Command* (level 3), *Rope Trick* (level 5).
 
@@ -100,7 +100,7 @@ Ushabti (oo-SHAB-tee) Stobor descend from crypt sentinels, clay guardians, and t
 
 </div>
 
-***Here I Am.*** You know *True Strike*. When an ally you can see within 5 feet of you takes damage from an attack roll, you can use your Reaction to take that damage instead. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
+***Here I Am.*** You know *True Strike*. Also, when an ally you can see within 5 feet of you takes damage from an attack roll, you can use your Reaction to take that damage instead. You can do this a number of times equal to your Proficiency Bonus per Long Rest.
 
 ***Spells.*** *Shield of Faith* (level 3), *Enlarge/Reduce* (level 5).
 
