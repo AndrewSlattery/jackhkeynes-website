@@ -1,14 +1,24 @@
 #!/usr/bin/env bash
-# Prints "due=true" if any post or Bluejacket puzzle is dated within the last
-# N hours (default 6), otherwise "due=false". Lists the due files on stderr.
+# Prints "due=true" if any post or Bluejacket puzzle whose date has passed is
+# missing from the live site's published-posts.txt, otherwise "due=false".
+# Lists the missing files on stderr. If the live list can't be fetched, it
+# says due=true, since an unneeded rebuild is harmless.
 # Dates come from the front matter "date:" line, falling back to the filename;
 # a date without a timezone is read as UTC, as Jekyll does on the build runner.
 #
-# Usage: posts-due.sh [hours] [now]   (now is any date string, for testing)
+# Usage: posts-due.sh <published-posts URL or file> [now]
+#   (now is any date string, for testing)
 
-hours=${1:-6}
+source=$1
 now=$(date -u -d "${2:-now}" +%s)
-since=$((now - hours * 3600))
+
+if [ -f "$source" ]; then
+  published=$(tr -d '\r' < "$source")
+elif ! published=$(set -o pipefail; curl -fsSL "$source" | tr -d '\r'); then
+  echo "Couldn't fetch $source" >&2
+  echo "due=true"
+  exit 0
+fi
 
 # One "file<TAB>date" line per post
 list=$(awk '
@@ -33,7 +43,7 @@ times=$(cut -f2 <<< "$list" | TZ=UTC date -f - +%s 2>/dev/null)
 
 due=false
 while IFS=$'\t' read -r f d && read -r t <&3; do
-  if [ "$t" -gt "$since" ] && [ "$t" -le "$now" ]; then
+  if [ "$t" -le "$now" ] && ! grep -qxF "$f" <<< "$published"; then
     echo "Due: $f ($d)" >&2
     due=true
   fi

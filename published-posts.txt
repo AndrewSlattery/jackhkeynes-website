@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /published-posts.txt
+---
+{%- comment -%}
+  Source files of every post this build published. The deploy workflow's
+  check job compares it with the posts whose date has passed, to tell when
+  a scheduled post still needs a rebuild to appear.
+{%- endcomment -%}
+{%- for post in site.posts %}
+{{ post.path }}
+{%- endfor %}
+{%- for doc in site.bluejacket %}
+{{ doc.path }}
+{%- endfor %}
