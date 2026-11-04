@@ -618,6 +618,7 @@
           'Type letters to fill in the grid. Arrow keys move, Space switches ' +
           'between ' + dirTitles[dirs[0]].toLowerCase() + ' and ' +
           dirTitles[dirs[1]].toLowerCase() + ', and Tab goes to the next clue. ' +
+          'Full stop turns pencil mode on and off. ' +
           'Press Escape, then Tab, to reach the puzzle controls.' +
         '</div>' +
         '<div class="xw-sr-only xw-sr-live" aria-live="polite"></div>';
@@ -702,7 +703,8 @@
 
       // Pencil mode: new letters are tentative, shown in grey
       var pencilBtn = '<button class="xw-ctrl-btn xw-pencil-btn" type="button" data-action="pencil" ' +
-        'aria-pressed="false" aria-label="Pencil" title="Pencil: type tentative letters, shown in grey">✎</button>';
+        'aria-pressed="false" aria-label="Pencil" aria-keyshortcuts="." ' +
+        'title="Pencil (.): type tentative letters, shown in grey">✎</button>';
 
       // Revealed once the puzzle's parses file has loaded (see init)
       var parseBtn = '<button class="xw-ctrl-btn xw-parse-btn" type="button" data-action="parse" title="Parse current clue" hidden>Parse</button>';
@@ -1386,6 +1388,11 @@
           } else if (key === ' ') {
             e.preventDefault();
             handleSpaceToggle();
+          } else if (key === '.' && plain) {
+            // Full stop toggles pencil (checked by character, not key
+            // position, so it works on any layout and the number pad)
+            e.preventDefault();
+            togglePencil();
           }
         });
 
