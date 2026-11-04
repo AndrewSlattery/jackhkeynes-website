@@ -9,7 +9,7 @@ ACROSS
 17. MUM B_A + I = MUMBAI <city>
 20. (BEST outside RID) OBE = BRIDES-TO-BE <fiancées>
 22. <novice> NEWB = _N_E_W_B
-23. (US off FIRE MUSEUM)* = FREEMIUM <business model>
+23. US off (FIRE MUSEUM)* = FREEMIUM <business model>
 25. Y J inside FREA[-k] = FREYJA <goddess>
 27. _K P OP = K-POP <Asian musical genre>
 28. TOT HEW IN + _D _S = TO THE WINDS <abandoned>
@@ -26,6 +26,6 @@ DOWN
 15. GLEE outside (UTE + NF R_) = GLUTEN-FREE <like buckwheat, for instance>
 18. <mountain> BEN NEVIS = VIBES* outside N NE
 19. <duckweed> BOGMAT = GM inside BOAT
-21. DIE + PPE = DIEPPE <French port where the Allies lost in the World War II>
+21. DIE + PPE = DIEPPE <French port where the Allies lost in World War II>
 24. KITTY - K = ITTY <really small>
 26. JE + DI = JEDI <knight at the movies?>

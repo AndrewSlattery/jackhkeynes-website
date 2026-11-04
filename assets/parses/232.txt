@@ -12,7 +12,7 @@ ACROSS
 
 DOWN
  1. <baby-faced> CHERUBIC = CHER + U + B IC
- 2. BOAR* away from KOOKABURRA* = KAKURO <logic puzzle>
+ 2. BOAR* off KOOKABURRA* = KAKURO <logic puzzle>
  3. <banter> JOSH = J O S + H
  4. <quibble> PETTIFOG = PET + ←GO FIT←
  5. "COARSE" = COURSE <restaurant food>

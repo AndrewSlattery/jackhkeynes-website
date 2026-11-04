@@ -1,11 +1,11 @@
 ACROSS
-1. <fell> LAY LOW <stayed out of sight>
-5. <a bit hungry> PECKISH = C inside P(-i)E + K(-n)ISH
-9. BLADE RUNNER outside (-j)OCK = BLOCKADE RUNNER <stealthy merchant ship>
+ 1. <fell> LAY LOW <stayed out of sight>
+ 5. <a bit hungry> PECKISH = C inside P_E + K_ISH
+ 9. BLADE RUNNER outside _OCK = BLOCKADE RUNNER <stealthy merchant ship>
 11. <cry> YOWL = OWL after _Y
 12. <tax write-off> DEDUCTIBLE = DE DUCTILE outside B
 14. AC inside AUDI _O_U_S = AUDACIOUS <reckless>
-16. COY PU(-g) = COYPU <large rodent>
+16. COY PU_ = COYPU <large rodent>
 17. TANG O = TANGO <dance>
 19. <waterproof canvas> TARPAULIN = TAR (UP + NAIL)*
 21. <taking back> RECLAIMING = RING outside (ALICE* + M)
@@ -15,17 +15,17 @@ ACROSS
 27. <showed signs of boredom> YAWNED = ←DEN WAY←
 
 DOWN
-2. <let> ALLOWED = (ALL WED) outside O
-3. <spike> LACE <fabric with many holes>
-4. HALE under W = WHALE <strike with violence>
-5. <one who was here before> PRECURSOR = P RECURS + OR
-6. (SCARCE TUNA)* = CRUSTACEAN <lobster, perhaps>
-7. GOBLIN* atop _Y = IGNOBLY <without honour>
-8. _H_A_R_ + L + (AD inside EQUINE) = HARLEQUINADE <part of pantomime>
+ 2. <let> ALLOWED = ALL WED outside O
+ 3. <spike> LACE <fabric with many holes>
+ 4. HALE after W = WHALE <strike with violence>
+ 5. <one who was here before> PRECURSOR = P RECURS + OR
+ 6. (SCARCE TUNA)* = CRUSTACEAN <lobster, perhaps>
+ 7. GOBLIN* + _Y = IGNOBLY <without honour>
+ 8. _H_A_R_ + L_ (AD inside EQUINE) = HARLEQUINADE <part of pantomime>
 10. (CHICORY PLANT)* = LYCANTHROPIC <taking on lupine qualities>
 13. <aerial display> ACROBATICS = ←ORCA← BATS outside _IC_
 15. <assessing pupils> OPTOMETRY = OP + TOME TRY
 18. N + U + CLEAR = NUCLEAR <sort of power>
 20. <gander> LOOK-SEE = LOO ⭯SEEK⭯
-22. <construction worker> NAVVY = S→N, SAVVY
+22. <construction worker> NAVVY = SAVVY, N←S
 24. ←WONK← = KNOW <suspect correctly>

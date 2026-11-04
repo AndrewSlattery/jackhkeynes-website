@@ -1,29 +1,29 @@
 ACROSS
-1. <plant> SNOWDROP = SNOOP outside W(-in)D(-so)R
-6. <alert> NOTIFY = (NOT I) + F(-acilit)Y 
-9. GAINS outside R = GRAINS <cereals>
-10/23. REMAINSIDES* = IN MEDIAS RES <without context>
-11. <device> TUMBLE-DRYER 🡆 DERRY*
+ 1. <plant> SNOWDROP = SNOOP outside W__D__R
+ 6. <alert> NOTIFY = (NOT I) F_Y
+ 9. GAINS outside R = GRAINS <cereals>
+10/23. (REMAIN SIDE'S)* = IN MEDIAS RES <without context>
+11. <device> {Derry} DRYER* ⇐ TUMBLE-DRYER
 14. <cumbersome> UNWIELDY = U NW + ⭯YIELD⭯
-15. <monster> SPHINX = (SPIN outside H) + X
-17. SOLE MN = SOLEMN <august>
+15. <monster> SPHINX = (SPIN outside H) X
+17. SOLE M_N = SOLEMN <august>
 18. <easy> AMENABLE = A M ENABLE
-19. <exemplar> POSTER CHILD = CLOTHSPIDER*
-24. <passage> AVENUE = (-h)AVEN + U(-ndrinkabl)E
-25. (-a)D(-d)E(-d) P(-a)T(-c)H(-e)S = DEPTHS <holes>
+19. <exemplar> POSTER CHILD = (CLOTH SPIDER)*
+24. <passage> AVENUE = [-h]AVEN U_E
+25. _D_E_ P_T_H_S = DEPTHS <holes>
 26. SENATORS* = TREASONS <seditious acts>
 
 DOWN
-2. ←IRON← = NORI <seaweed>
-3. <one belted> WAISTLINE = →"LACED WINE"←
-4. <closeness> RESEMBLANCE = EMBERS* LANCE
-5. R→I, PARSLEY = PAISLEY <fabric>
-6/22. ROGUEMENDER* = NOM DE GUERRE <wartime sign>
-7. <drink> TODDY = ODD inside TY
-8. FLATLY outside GRAN = FLAGRANTLY <without shame>
-12. <advertise> DISSEMINATE = SITESMADEIN*
+ 2. ←IRON← = NORI <seaweed>
+ 3. <one belted> WAISTLINE = →"LACED WINE"←
+ 4. <closeness> RESEMBLANCE = EMBERS* LANCE
+ 5. PARSLEY, R→I = PAISLEY <fabric>
+ 6/22. (ROGUE MENDER)* = NOM DE GUERRE <wartime sign>
+ 7. <drink> TODDY = ODD inside TY
+ 8. FLATLY outside GRAN = FLAGRANTLY <without shame>
+12. <advertise> DISSEMINATE = (SITES MADE IN)*
 13. IN COMP LET E = INCOMPLETE <draft>
-16. ADDRESS under HE = HEADDRESS <turban, perhaps>
-18. <antiquated> ANCIENT = ACTNINE*
+16. ADDRESS after HE = HEADDRESS <turban, perhaps>
+18. <antiquated> ANCIENT = (ACT NINE)*
 20. <bypass> SHUNT = SHUT outside N
 21. <branch> BURN <set on fire>

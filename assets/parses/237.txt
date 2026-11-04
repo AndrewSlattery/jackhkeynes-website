@@ -1,13 +1,13 @@
 ACROSS
  7. (SPORTS TEAM)* = POSTMASTER <person in charge of communications>
- 9. <appearance> LOOK = K after LOO
+ 9. <appearance> LOOK = LOO + K
 10. <kingdom no longer existing> MERCIA = MERCI + A
 11. <Lord> GOODNESS = (DOGE'S SON)*
 12. <coda> TAIL = "TALE"
 14. TEETER outside TRAM = TETRAMETER <lines>
 16. <British summer> TURING = T [-sec]URING
 17. <analysed> PARSED = PD outside ARSE
-20. A after (H inside TRAPDOOR*) = ARTHROPODA <spiders, etc.>
+20. (H inside TRAPDOOR*) + A = ARTHROPODA <spiders, etc.>
 22. <hairstyle> AFRO = (.e)AF RO(y.)
 23. CHARM A outside "I"S = CHARISMA <it>
 25. DEE + PLY = DEEPLY <without being shallow>

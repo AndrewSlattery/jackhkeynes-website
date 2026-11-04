@@ -1,6 +1,6 @@
 ACROSS
-1. MILDRED outside MAN N_E = MILD-MANNERED <pleasant>
-9. <fits> STROPS = SS outside ←PORT←
+ 1. MILDRED outside MAN N_E = MILD-MANNERED <pleasant>
+ 9. <fits> STROPS = SS outside ←PORT←
 10. <better> GAMESTER = G MASTER* outside E
 11. <decorative> ORNAMENTAL = OR NAME N_T A_L
 12. <part of arms> ULNA = _L _N inside UA
@@ -9,21 +9,21 @@ ACROSS
 16. <stop {someone} saying anything> STIFLE = ITSELF*
 18. _E_S_M inside BIRCH = BESMIRCH <tar>
 20. <joint> KNEE = _K _N _E _E
-21. SUMS outside GAR PLU(-s) = SUGARPLUMS <sweets>
+21. SUMS outside GAR PLU[-s] = SUGARPLUMS <sweets>
 23. B_ LOUNGED* = BLUDGEON <club>
-24. <story> LEGEND = END after LEG
-25. <one promoting exports> MERCANTILIST = (...u)MER CAN'T I LIST(e...)
+24. <story> LEGEND = LEG + END
+25. <one promoting exports> MERCANTILIST = (.u)MER CAN'T I LIST(e.)
 
 DOWN
-2. <sometimes> INTERMITTENTLY = _INTER MITTEN _T _L _Y
-3. DIOR _A M A = DIORAMA <model>
-4. <part of shop> AISLE = IS inside ALE
-5. "KNIGHTLY" = NIGHTLY <whenever things look dark?>
-6. <signs of discontent> RUMBLINGS = (BRING SLUM)*
-7. "DISCUSSED" = DISGUST <revolt>
-8. REIN FOR CEMENT'S = REINFORCEMENTS <backup>
+ 2. <sometimes> INTERMITTENTLY = _INTER MITTEN _T _L _Y
+ 3. DIOR _A M A = DIORAMA <model>
+ 4. <part of shop> AISLE = IS inside ALE
+ 5. "KNIGHTLY" = NIGHTLY <whenever things look dark?>
+ 6. <signs of discontent> RUMBLINGS = (BRING SLUM)*
+ 7. "DISCUSSED" = DISGUST <revolt>
+ 8. REIN FOR CEMENT'S = REINFORCEMENTS <backup>
 14. OVERSEER outside T = OVERSTEER <vehicle's faulty turning>
 17. <independence> FREEDOM = F RE ←MODE←
-18. BEGON(-e) IA = BEGONIA <flower>
+18. BEGON[-e] IA = BEGONIA <flower>
 19. <banned> ILLEGAL = E inside ILL GAL
-22. <did kindle again> RELIT = (...o)RE LIT(e...)
+22. <did kindle again> RELIT = (.o)RE LIT(e.)

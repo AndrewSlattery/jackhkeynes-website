@@ -1,7 +1,7 @@
 ACROSS
-1. <stuffy> FROWSTY = F ROW STY
-5. <they're pushed> BARROWS = BAR ROWS
-9. <friendly> ON SPEAKING TERMS = (PRANKS SEEMING TO)*
+ 1. <stuffy> FROWSTY = F ROW STY
+ 5. <they're pushed> BARROWS = BAR ROWS
+ 9. <friendly> ON SPEAKING TERMS = (PRANKS SEEMING TO)*
 10. "DOE" = DOUGH <green>
 11. (PLUG IN THE)* = LIGHTEN UP <relax>
 12. WEE KNIGHTS = WEEKNIGHTS <certain periods>
@@ -15,14 +15,14 @@ ACROSS
 27. <Mass> LITURGY = IT inside LURGY
 
 DOWN
-1. R_ inside FOND = FROND <part of palm>
-2. <mysterious> OBSCURE = O BSC U _R _E
-3. SEE THING = SEETHING <boiling over>
-4. <provinicial> YOKEL = YOKE L_
-5. (GET BEHIND)* = BENIGHTED <ignorant>
-6. <spin> ROTATE = _R _O _T _A _T _E
-7. <he represents the sky> OURANOS = ←SONAR← after OU
-8. <endlessly frustrating> SISYPHEAN = (PAY SHE)* inside SIN
+ 1. R_ inside FOND = FROND <part of palm>
+ 2. <mysterious> OBSCURE = O BSC U _R _E
+ 3. SEE THING = SEETHING <boiling over>
+ 4. <provincial> YOKEL = YOKE L_
+ 5. (GET BEHIND)* = BENIGHTED <ignorant>
+ 6. <spin> ROTATE = _R _O _T _A _T _E
+ 7. <he represents the sky> OURANOS = ←SONAR← after OU
+ 8. <endlessly frustrating> SISYPHEAN = (PAY SHE)* inside SIN
 12. <hawk> WARMONGER = (GONE* after WARM) R
 13. <lord> GORBLIMEY = G ORB + LIMEY
 15. <analysis> BAR CHART = ←CRAB← + HART

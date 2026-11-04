@@ -11,7 +11,7 @@ ACROSS
 20. <ancient city> URUK = U_R UK
 21. (ARCHEOLOGISTS - COLOSSI)* = GATHER <hoard>
 23. <material> RELEVANT = RE LEVANT
-25. <tall tale> PORKY PIE = Y inside (PORK PIE)
+25. <tall tale> PORKY PIE = Y inside PORK PIE
 26. <IT person> TECHIE = TEC H_ IE
 27. <pair> DYAD = Y_ inside DAD
 28. "SAY SHELLS" = SEYCHELLES <somewhere in the Indian Ocean>
@@ -20,7 +20,7 @@ DOWN
  2. <leader of youth group> AKELA = (.n)AKE LA(m.)
  3. DOG outside DOUBLE* = DOODLEBUG <bomb>
  4. <old-fashioned> ARCHAIC = ARCH ←CIA←
- 5. (A NREDY CROSSWORD)* = SWORD AND SORCERY <fantasy subgenre>
+ 5. (A NERDY CROSSWORD)* = SWORD AND SORCERY <fantasy subgenre>
  6. <language> SWAHILI = (LAW IS)* outside HI
  7. <devoted> PIOUS = P + IOUS
  8. COIN T_ R_ EAU = COINTREAU <orange liqueur>

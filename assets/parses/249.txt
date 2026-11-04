@@ -3,7 +3,7 @@ ACROSS
  9. CH (LSE inside EA) = CHELSEA <football club>
 10. <smaller map> INSET = INSERT - R
 11. <choose to ignore> WAIVE = "WAVE"
-12. <betray> = CHE (A TON)
+12. <betray> CHEAT ON = CHE (A TON)
 14. <sheepdog> SHELTIE = SHE L + TIE
 16. ROB inside PE = PROBE <investigation>
 17. L_ inside FAIR = FLAIR <panache>
@@ -16,7 +16,7 @@ DOWN
  3. <mess up> TOUSLE = SEOUL* after T
  4. <corrupt> DEFILE = _D + (E FILE)
  5. ←S + DOG← = GODS <theatre's highest seats>
- 7. <80s attitude> Thatcherism = THAT CHER IS M_
+ 7. <80s attitude> THATCHERISM = THAT CHER IS M_
  8. (.e)DE TEN TE(r.) = DETENTE <diplomatic thaw>
 11. <fondly reminiscing> WISTFUL = W I STFU L_
 13. (I COPE)* inside WET* = TWO-PIECE <suit>

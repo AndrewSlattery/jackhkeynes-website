@@ -4,12 +4,12 @@ ACROSS
 11. A + B + IDE = ABIDE <bear>
 12. <amphibian> TOAD = "TOWED"
 13. <band> JAMIROQUAI = JAM I_ R_ O_ QUAI[-l]
-15. EG G+T I'M ←RE← = EGG TIMER <kitchen counter>
+15. EG G&T I'M ←RE← = EGG TIMER <kitchen counter>
 16. <saving> THRIFT = TH_ RIFT
 19. <worst> BETTER <punter>
 20. <old miss> SPINSTER = PRENTISS*
 22. <access> ADMITTANCE = MITT inside A DANCE
-24. LT after J_ I_  = JILT <to cancel engagement>
+24. LT after J_ I_ = JILT <to cancel engagement>
 26. _N_E_ R_V_E_ = NERVE <insolence>
 27. ONE W ALL after ST = STONEWALL <block>
 28. (PATISSERI_ HANDS)* = DANISH PASTRIES <baked goods>
@@ -27,5 +27,5 @@ DOWN
 17. <complex> INTRICATE = CA inside IN TRITE
 18. <absurd> SPECIOUS = IOUS after SPEC
 21. PA'S SUP = PASS UP <decline>
-23. <sort of wine> = (.h)MIR I N(e.)
+23. <sort of wine> MIRIN = (.h)MIR I N(e.)
 25. <Durham river> WEAR <sport>

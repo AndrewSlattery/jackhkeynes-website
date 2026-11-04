@@ -23,7 +23,7 @@ DOWN
  6. CLOC[-k] HE = CLOCHE <hat>
  9. <British writer> MARY SHELLEY = (ALLEY RHYMES)*
 10. (.n)PROVEN ANCES(t.) = PROVENANCES <origins>
-14. <drunkenness> INSOBRIETY = (NOISY BRIT)* otuside E
+14. <drunkenness> INSOBRIETY = (NOISY BRIT)* outside E
 16. <some toy vehicles> TRAIN SET = ←ART← + INSET
 18. <hero> DO-GOODER = DOG (O inside ODER)
 20. <stiffen> STARCH = ST ARCH

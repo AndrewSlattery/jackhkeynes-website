@@ -2,32 +2,32 @@ CLUES
 3 Letters
 - "FAUX" = FOE <enemy>
 - TM outside U = TUM <corporation>
-- <car> UTE = U + T + E
-- ←MAY← = YAM <crop>
+- <car> UTE = U _T _E
+- ←MAY← = YAM <tuberous crop>
 
 4 Letters
-- <sprinkling> DASH = D + ASH
-- M after LOO = LOOM <tower>
-- <small bundle> WISP = W + ISP
-- <superhero film> X-MEN = ←NE(-w) MX←
+- <sprinkling> DASH = D ASH
+- LOO + M = LOOM <tower>
+- <small bundle> WISP = W ISP
+- <superhero film> X-MEN = ←MX← _E _N
 
 5 Letters
-- PARSON without P = ARSON <criminal act>
+- PARSON - P = ARSON <criminal act>
 - <kind> CLASS = CRASS, R→L
 - <spirit> NAIAD = N AID outside A
 - <service> REFIT = T after FIRE*
 
 6 Letters
 - <holy man> BUDDHA = BUD HAD*
-- GNOME outside E = GENOME <inheritance>
-- <used a particular utensil> KNIFED = K(-itche)N + I FED
+- GNOME outside _E = GENOME <inheritance>
+- <used a particular utensil> KNIFED = K_N + I FED
 - <cocktail> MIMOSA = MI + MO SA
 - <hard stuff> QUARTZ = QUIZ, ART←I
-- ←(-invent)OR CLEV(-erly)← = VELCRO <clothing material>
+- ←(.t)OR CLEV(e.)← = VELCRO <clothing material>
 
 7 Letters
 - <picks> PLECTRA = P + CARTEL*
-- (PAN D) inside SEX = SPANDEX <gym wear>
+- PAN D inside SEX = SPANDEX <gym wear>
 
 9 Letters
 - <inspectors> EXAMINERS = ←AXE← + MINERS
@@ -36,7 +36,7 @@ CLUES
 - (ON UK TRADE)* = OUTRANKED <took priority>
 
 11 Letters
-- J + ABBEY outside (ROCK outside W) = JABBERWOCKY <nonsense writing>
+- J + ABBEY outside (ROCK outside W_) = JABBERWOCKY <poem>
 
 13 Letters
-- ZE BRING outside ACROSS = ZEBRA CROSSING <route for those on foot>
+- Z_E BRING outside ACROSS = ZEBRA CROSSING <route for those on foot>

@@ -6,7 +6,7 @@ ACROSS
 12. PEE V_E = PEEVE <irritation>
 13. <frothy drink> MILKSHAKE = HAKE after M ILKS
 15. <confirmation> ACKNOWLEDGEMENT = (LONG-WEEKEND MATC_)*
-18. (I SEEM DAFT)* = DEFEATISM
+18. (I SEEM DAFT)* = DEFEATISM <giving up easily>
 20. ←MOOR + B← = BROOM <shrub>
 21. <tube> CANNULA = C_ A_ N_ N_ U_ L_ A_
 22. <medic> SURGEON = GROUSE* N

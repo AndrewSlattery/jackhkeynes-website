@@ -1,9 +1,9 @@
 ACROSS
-1. "BANNED" = BAND <gang>
-4. STAR PUT* + S = START-UPS <new companies>
-8. ABS + TRACTION = ABSTRACTION <the general idea>
-9. <seat> THRONE = "THROWN"
-10. (...l)E CHO(i...) = ECHO <E>
+ 1. "BANNED" = BAND <gang>
+ 4. STAR PUT* + S = START-UPS <new companies>
+ 8. ABS + TRACTION = ABSTRACTION <the general idea>
+ 9. <seat> THRONE = "THROWN"
+10. (.l)E CHO(i.) = ECHO <E>
 12. (ORCHESTRA PIT'S)* = STRATOSPHERIC <extremely high>
 14. <injury's result> SCAR = ⭯CARS⭯
 15. <bridge> RIALTO = _RI_ + ALTO
@@ -12,12 +12,12 @@ ACROSS
 20. "SOW LOW" = SOLO <music without accompaniment>
 
 DOWN
-2. A PATHETIC ALLY = APATHETICALLY <showing no enthusiasm>
-3. ←(...g)O CSI D(e...)← = DISCO <nightclub>
-4. <inspector> SURVEYOR = V inside SURE Y O_R
-5. <principal> ARCH <curved structure in building>
-6. T_R_I_ + MERE* = TRIREME <rowboat>
-7. (...i)PANT HEIST I CAL(l...) = PANTHEISTICAL <keeping all idols>
+ 2. A PATHETIC ALLY = APATHETICALLY <showing no enthusiasm>
+ 3. ←(.g)O CSI D(e.)← = DISCO <nightclub>
+ 4. <inspector> SURVEYOR = V inside SURE Y O_R
+ 5. <principal> ARCH <curved structure in building>
+ 6. T_R_I_ + MERE* = TRIREME <rowboat>
+ 7. (.i)PANT HEIST I CAL(l.) = PANTHEISTICAL <keeping all idols>
 11. <fake> SPURIOUS = SPUR IOUS
 13. ←RA← RIVAL = ARRIVAL <showing up>
 16. ←SALT A← = ATLAS <map collection>

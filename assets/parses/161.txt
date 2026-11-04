@@ -1,29 +1,42 @@
-ACROSS
-6. A + SEA(-l) = ASEA <on a boat>
-8. ←(-sle)EPYH(-ead)← = HYPE <promotion>
-10. LIE outside V = LIVE <in real time>
-11. (-authoritaria)N EXT(-remists) = NEXT <following>
-12. "RUE" = ROUX <sauce ingredient>
-13. Y(-o)U L(-eav)E = YULE <holiday period>
-16. ←(-innov)ATIVE← = EVITA <musical>
-18. <broaden> WIDEN = ←IW← + DEN
-20. <baking> DRYING = R inside DYING
-21. GMOS outside (I + Z) = GIZMOS <devices>
-23. DENIED* = INDEED <of course>
-25. ←(LAIN + EX)← = XENIAL <hospitable>
-26. K(-y)R(-g)Y(-z) P(-e)T(-r)O(-l) + N = KRYPTON <gas>
+CLUES
+4 Letters
+- A SEA[-l] = ASEA <on a boat>
+- ←(.e)EPYH(e.)← = HYPE <promotion>
+- LIE outside _V_ = LIVE <in real time>
+- (.a)N EXT(r.) = NEXT <following>
+- "RUE" = ROUX <sauce ingredient>
+- Y_U L_E = YULE <holiday period>
 
-DOWN
-1. ME ←CAVED← = MEDEVAC <rescue>
-2. F UNCTION = FUNCTION <work>
-3. <historical period> JURASSIC = CUIRASS* after J
-4. <fourth> QUADRANT = (A DR) inside QUANT
-5. <wrong> UNLAWFUL = U + ⭯LAWN⭯ + F U L
-7. <batmen> ORDERLIES = SOLDIER* outside ER
-9. <mournful> PLAINTIVE = P + (AIN'T inside LIVE)
-14. <banality> TRITENESS = INTERESTS*
-15. GI inside (Z OO + LOST) = ZOOLOGIST <scientist>
-17. <astronaut> SPACEWOMAN = SPAN outside (ACE WO M)
-19. <one imaging> VISUALIZER = VIRALSIZE* outside U
-22. ¿?when a monarch [butterfly]'s agitation [flapping] leads to apparently-unrelated downfall [bad weather]¿? = BUTTERFLY EFFECT
-24. C + (V COOL ASHKENAZI)* = CZECHOSLOVAKIAN <from former European nation>
+5 Letters
+- ←_ATIVE← = EVITA <musical>
+- <broaden> WIDEN = ←I_W← + DEN
+
+6 Letters
+- <baking> DRYING = _R inside DYING
+- GMOS outside (I + Z) = GIZMOS <devices>
+- DENIED* = INDEED <of course>
+- ←LAIN + EX← = XENIAL <hospitable>
+
+7 Letters
+- K_R_Y_ P_T_O_ N = KRYPTON <gas>
+- ME ←CAVED← = MEDEVAC <rescue>
+
+8 Letters
+- F UNCTION = FUNCTION <work>
+- <historical period> JURASSIC = CUIRASS* after J
+- <fourth> QUADRANT = A DR inside QUANT
+- <wrong> UNLAWFUL = U + ⭯LAWN⭯ F_ U_ L_
+
+9 Letters
+- <batmen> ORDERLIES = SOLDIER* outside ER
+- <mournful> PLAINTIVE = P (AIN'T inside LIVE)
+- <banality> TRITENESS = INTERESTS*
+- GI inside (Z OO + LOST) = ZOOLOGIST <scientist>
+
+10 Letters
+- <astronaut> SPACEWOMAN = SPAN outside ACE WO M
+- <one imaging> VISUALIZER = (VIRAL SIZE)* outside _U_
+
+15 Letters
+- <&cd> BUTTERFLY EFFECT {when a monarch butterfly's flapping leads to apparently-unrelated bad weather}
+- C + (V COOL ASHKENAZI)* = CZECHOSLOVAKIAN <from former European nation>

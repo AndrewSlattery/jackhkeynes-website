@@ -25,5 +25,5 @@ DOWN
 13. U COP IA after CORN = CORNUCOPIA <abundance>
 15. PROSE* I + TORY = REPOSITORY <archive>
 19. <sally> SORTIE = "SORE TEA"
-22. <greek character> ZETA = E_T_ inside ZA
+22. <Greek character> ZETA = E_T_ inside ZA
 24. <list {lean}> CANT <slang>

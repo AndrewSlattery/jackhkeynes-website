@@ -1,22 +1,22 @@
 ACROSS
-1. PORT "RICHER" = PORTRAITURE <painting>
-7. <multicoloured> PIEBALD = BIPEDAL*
-8. <stationery brand> BIC = ←C_I_B_←
-9. <did spring> LEAPT = LEA P T_
+ 1. PORT "RICHER" = PORTRAITURE <painting>
+ 7. <multicoloured> PIEBALD = BIPEDAL*
+ 8. <stationery brand> BIC = ←C_I_B_←
+ 9. <did spring> LEAPT = LEA P T_
 11. ←U FANS← = SNAFU <military omnishambles>
-12. + RAC, ED = RACED <sped>
+12. RAC + ED = RACED <sped>
 14. <dwarf planet> SEDNA = ←ANDES←
 15. "SPAR" = SPA <place intended for relaxation>
 16. <curry> BIRYANI = ←I + NAY RIB←
-18. AG inside DEMO + GUI NG = DEMAGOGUING
+18. AG inside DEMO + GUI NG = DEMAGOGUING <inciting populist anger>
 
 DOWN
-1. (EPIDURAL OPS)* = POPULARISED <made more accessible>
-2. <regret> RUE = "ROO"
-3. <banter> ROAST = (A SORT)*
-4. IN D + US = INDUS <river>
-5. U PB RAID = UPBRAID <reprimand>
-6. <optimistic> ENCOURAGING = NCO ARGUING* after E
+ 1. (EPIDURAL OPS)* = POPULARISED <made more accessible>
+ 2. <regret> RUE = "ROO"
+ 3. <banter> ROAST = (A SORT)*
+ 4. IN D + US = INDUS <river>
+ 5. U PB RAID = UPBRAID <reprimand>
+ 6. <optimistic> ENCOURAGING = NCO ARGUING* after E
 10. <hail> ACCLAIM = A CC LIMA*
 13. T off DEBUT G = DEBUG <fix problems in implementation>
 14. <young person> SPRIG = _S PRIG

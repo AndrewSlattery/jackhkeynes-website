@@ -7,11 +7,11 @@ ACROSS
 15. <rebel> INSURGENT = (GUNNER IS)* _T
 17. <Sports Day event> THREE-LEGGED RACE = _T CHEERLEADER* outside EGG
 19. <continued> PRESSED ON = PR E S ←NODES←
-21. <winter vehicles> SLEDS = S_ LEDS
+21. <snow vehicles> SLEDS = S_ LEDS
 23. <blunders> FOLLIES = F_ OLLIES
 25. _T EARFUL = TEARFUL <weepy>
-27. - M, CONDOM = CONDO <apartment>
-28. <Irish> GALWEGIAN = GAL (WE_ GIAN_)
+27. M off CONDOM = CONDO <apartment>
+28. <Irish> GALWEGIAN = GAL WE_ GIAN_
 
 DOWN
  1. SWAT HE = SWATHE <bind>

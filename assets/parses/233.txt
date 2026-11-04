@@ -17,7 +17,7 @@ DOWN
  1. ←RAG← ROTTING = GARROTTING <murder>
  2. <standard> NORM = (N OR M?)
  3. <wet> SODDEN = SOD + DEN
- 4. <shapeshifter> _WE_ ←FLOWER←
+ 4. <shapeshifter> WEREWOLF = _WE_ ←FLOWER←
  5. <theatricality> STAGECRAFT = STAG ←FARCE← + T
  6. BRIDE outside G = BRIDGE <card game>
  7. <riverbird> SWAN = WAS* N

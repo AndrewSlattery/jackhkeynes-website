@@ -1,33 +1,33 @@
 NINA: The letters of the alphabet appear in alphabetical order around the edge of the grid.
 
 ACROSS
-8. <kiss> OSCULATE = (AT CLOSEU[-p])*
-9. <opportunity> WINDOW = WIN + "DOUGH"
-10. NOSES outside I = NOISES <rackets>
+ 8. <kiss> OSCULATE = (AT CLOSEU[-p])*
+ 9. <opportunity> WINDOW = WIN "DOUGH"
+10. NOSES outside I_ = NOISES <rackets>
 11. PO + NT IF + EX = PONTIFEX <pope in Rome>
 12. INCUR ABILITY = INCURABILITY <hopelessness>
 16. MAN GOES = MANGOES <tropical fruit>
-17. WHEEZI(-n)G* = GEE WHIZ <expression of surprise>
-20. LIVE + PROTEST* + D = LIVER-SPOTTED <showing signs of age>
+17. (N off WHEEZING)* = GEE WHIZ <expression of surprise>
+20. LIVE PROTEST* D = LIVER-SPOTTED <showing signs of age>
 23. <punish> KEELHAUL = →"HEEL CALL"←
 26. <Zoroastrian scriptures> AVESTA = (.h)AVE STA(n.)
-27. <I agree> JUST SO = O→, JOUSTS
+27. <I agree> JUST SO = JOUSTS, O→
 28. FIB outside LASER* = FALSE RIB <bone in chest>
 
 DOWN
-1. <military initiative> PSYOP = SY inside POP
-2. "QUIZ" LING = QUISLING
-3. <pillagers> RANSACKERS = R + (SARACENS* outside K)
-4. <coastal town> SEAPORT = SEAT outside PO(-o)R
-5. <double> TWIN = W inside ←NIT←
-6. (NL outside CIA) after U = UNCIAL <style of writing>
-7. V_ O_ T_ E_ = VOTE <franchise>
-13. HERBALTEA* after B = BREATHABLE <allowing moisture to evaporate>
+ 1. <military initiative> PSYOP = SY inside POP
+ 2. "QUIZ" LING = QUISLING <traitor>
+ 3. <pillagers> RANSACKERS = R + SARACENS* outside K
+ 4. <coastal town> SEAPORT = SEAT outside PO_R
+ 5. <double> TWIN = W inside ←NIT←
+ 6. (NL outside CIA) after U = UNCIAL <style of writing>
+ 7. V_ O_ T_ E_ = VOTE <franchise>
+13. (HERBAL TEA)* after B = BREATHABLE <allowing moisture to evaporate>
 14. <follow> TAIL = "TALE"
 15. <Italian city> BARI = BAR I_
 18. <visibly surprised> WIDE-EYED = "WYE DIED"
-19. <calm down> COOL OFF 🡆 LOCO*
-21. <ancient stone> EOLITH = ←(O inside TILE)← + H
-22. ←(C IOT S)← = STOIC <not complaining>
-24. (-th)E (-an)T(-iq)U(-it)I(-es) = ETUI <case>
+19. <calm down> {loco} COOL* ⇐ COOL OFF
+21. <ancient stone> EOLITH = ←O inside TILE← + H
+22. ←C IOT S← = STOIC <not complaining>
+24. __E __T__U__I__ = ETUI <case>
 25. <eager> AGOG = AG outside GO

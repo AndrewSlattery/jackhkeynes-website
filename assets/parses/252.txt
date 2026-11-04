@@ -1,8 +1,8 @@
 ACROSS
  1. S_E ←SECRETS← = SESTERCES <ancient Roman coins>
- 6. + S Y SOP = SYSOP <network administrator>
+ 6. S Y + SOP = SYSOP <network administrator>
  9. <Russian leader> VOZHD = V OZ + HD
-10. _N AU (MACH 1) + A = NAUMACHIA <sea battle>
+10. _N AU (MACH 1) + A = NAUMACHIA <sea contest>
 11. <siren> LORELEI = LORE + _L_E_I_
 12. <solvent> TOLUENE = TO L_ _U_ ENE
 13. RED INGOT _E = REDINGOTE <overcoat>
@@ -31,5 +31,5 @@ DOWN
 19. _AZ_ _U_ _L_ JOE* = AZULEJO <pottery tile>
 21. (.d)OER ST ED(w.) = OERSTED <amount of magnetic intensity>
 22. CAPE + K_ = CAPEK <robot inventor>
-23. <jack's back> APOOP = ←POO PA←
+23. <Jack's back> APOOP = ←POO PA←
 25. A ←MOB← outside H = ABOHM <resistance unit>

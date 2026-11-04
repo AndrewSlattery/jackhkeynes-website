@@ -19,7 +19,7 @@ DOWN
  2. <part of flight> RISER = _R _I _S _E _R
  3. <infiltrate> PERMEATE = PER TEAM* outside E
  4. ←TIME← = EMIT <issue>
- 5. (.g)NUM BERLIN (e.) = NUMBER LINE <some negatives then some positives>
+ 5. (.g)NUM BERLIN(e.) = NUMBER LINE <some negatives then some positives>
  6. LA C_ + KEY = LACKEY <henchperson>
  7. A PP ALOO'S + A = APPALOOSA <horse>
  8. ⭯TRIPLE⭯ = LET RIP <show no restraint>

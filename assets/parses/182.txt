@@ -1,30 +1,30 @@
 ACROSS
-8. (...b)ORATOR I O(u...) = ORATORIO <work>
-9. N inside FIERY = FINERY <showy clothing>
+ 8. (.b)ORATOR I O(u.) = ORATORIO <work>
+ 9. <regalia> FINERY = N inside FIERY
 10. <clerics> IMAMS = JIMJAMS - JJ
 11. <Protestants> HUGUENOTS = HUG U ←STONE←
 13. <detailed> SPECIFIED = ←DEIFIC EPS←
 14. GLAM outside E = GLEAM <glitter>
-16. (ORGANISE WRITTEN)* = ROARING TWENTIES <decades>
-19. <cheer> ELATE = EE outside (-f)LAT(-s)
+16. (ORGANISE WRITTEN)* = ROARING TWENTIES <decade>
+19. <cheer> ELATE = EE outside [-f]LAT[-s]
 21. <lawyer> LITIGATOR = LIT I GATOR
 23. (TEA MISSED)* = DEMITASSE <small cup>
-24. <rest> LIE-IN = __L__I__ E__I__N_
+24. _L_ I_E_I_N_ = LIE-IN <rise late>
 25. GENTS after A = AGENTS <spies>
 26. CAMO LIME* = CAMOMILE <tea>
 
 DOWN
-1. ROTI ⭯SERIES⭯ = ROTISSERIE <cooker>
-2. HA + BAN ERA = HABANERA <dance>
-3. <tree> BONSAI = AI under ←SNOB←
-4. <singers> NIGHTINGALES = KNIGHTING WALES - K_ W_
-5. <hit man> HIRED GUN = (RUING HED)*
-6. BEG ONE = BEGONE <go away>
-7. "BUYS" = BYES <expedited qualifications?>
+ 1. ROTI ⭯SERIES⭯ = ROTISSERIE <cooker>
+ 2. HA + BAN ERA = HABANERA <dance>
+ 3. <tree> BONSAI = AI after ←SNOB←
+ 4. <singers> NIGHTINGALES = KNIGHTING WALES - K_ W_
+ 5. <hitman> HIRED GUN = (RUING HE'D)*
+ 6. BEG ONE = BEGONE <go away>
+ 7. "BUYS" = BYES <expedited qualifications?>
 12. GOD (W PANTHEON)* = GO DOWN THE PAN <founder>
-15. ←IM← SPRINTED = MISPRINTED <published incorrectly>
+15. ←I'M← SPRINTED = MISPRINTED <published incorrectly>
 17. <legal name> IDENTITY = ID ENTITY
 18. <included> IN THE MIX = I NIX outside THEM
 20. <hosts> ARMIES = ARIES outside M
 22. ←POLL AG← = GALLOP <run>
-23. <trade> DEAL <timber that's easily sawn>
+23. DEA L = DEAL <sell drugs>

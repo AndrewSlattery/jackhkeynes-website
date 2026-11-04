@@ -1,8 +1,8 @@
 ACROSS
-1. SHH outside ILLEGAL* = SHILLELAGH <club>
-6. <to lose one's cool> THAW = "THOR"
-9. "SHOO" = CHOUX <grub>
-10. (...s)MALL ORCA N(e...) = MALLORCAN <on isle in Med>
+ 1. SHH outside ILLEGAL* = SHILLELAGH <club>
+ 6. <to lose one's cool> THAW = "THOR"
+ 9. "SHOO" = CHOUX <grub>
+10. (.s)MALL ORCA N(e.) = MALLORCAN <on isle in Med>
 12. <regardless> INCONSIDERATE = CONTAINERISED*
 14. FIGHTER outside RE = FREIGHTER <cargo ship>
 16. ←LET'S← outside A = STEAL <bargain buy>
@@ -15,17 +15,17 @@ ACROSS
 27. <assembled> AGGREGATED = AG (GAT inside GREED)
 
 DOWN
-1. <lay waste to> SACK = STACK - T_
-2. <admire> IDOLISE = (I DO) + LIES*
-3. (EX-POACHER GIRL)* = LEXICOGRAPHER <meaning-focused role?>
-4. <light unit> LUMEN = L + U MEN
-5. GALLEY outside I F_ R_ = GALLIFREY <Time Lords' home>
-7. (THE RACE)* = HECTARE <tract of land>
-8. W AND RESULT* = WANDERLUST <urge to roam>
+ 1. <lay waste to> SACK = STACK - T_
+ 2. <admire> IDOLISE = (I DO) + LIES*
+ 3. (EX-POACHER GIRL)* = LEXICOGRAPHER <meaning-focused role?>
+ 4. <light unit> LUMEN = L + U MEN
+ 5. GALLEY outside I F_ R_ = GALLIFREY <Time Lords' home>
+ 7. (THE RACE)* = HECTARE <tract of land>
+ 8. W AND RESULT* = WANDERLUST <urge to roam>
 11. <upstaging> OVERSHADOWING = OVERS HAD O WIN G
 13. AFTERS HAVE = AFTERSHAVE <you get it on your face>
 15. <frustrating> THWARTING = THING outside (W + ART)
 18. <high-end sweet> TRUFFLE = (FLUTE + F_R)*
 20. <most painless> EASIEST = ⭯SIESTA⭯ after E
-22. C I ←RAG← = CIGAR <cheroot>
-23. <exploited> USED = (...o)USE D(i...)
+22. C I + ←RAG← = CIGAR <cheroot>
+23. <exploited> USED = (.o)USE D(i.)

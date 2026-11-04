@@ -4,7 +4,7 @@ ACROSS
 10. (.o)ZES TY(p.) = ZESTY <having a sharp flavour>
 11. <shocked> ASTOUNDED = (ODD AUSTEN)*
 12. <give new job to> REASSIGN = ASS inside REIGN
-13. + A DO, ←SIN← = ADONIS <beatiful man>
+13. A DO + ←SIN← = ADONIS <beautiful man>
 15. COURTEOUS* = OUTSOURCE <delegate>
 17. "SUE SHE" = SUSHI <fish dish>
 19. <beam> SMILE = S MILE
@@ -17,7 +17,7 @@ ACROSS
 30. WILLY (_L inside NIL) + Y = WILLY-NILLY <at random>
 
 DOWN
- 1. + HAZ_, (US ROAD)* = HAZARDOUS <risky>
+ 1. HAZ_ + (US ROAD)* = HAZARDOUS <risky>
  2. <new beginning> RESTART = _R _E _S TART
  3. AB SS outside Y = ABYSS <gorge>
  4. RANGER IE inside OS = ORANGERIES <greenhouses>
@@ -30,6 +30,6 @@ DOWN
 18. IN GEN UI ←YT← = INGENUITY <flair>
 20. I_ S_ R_ A_ F_ E_ L_ = ISRAFEL <Poe poem>
 22. I_ NI TI AL = INITIAL <lead>
-23. <interrogative> WHICH = WITCH*
+23. <interrogative> WHICH = "WITCH"
 25. ES SEN = ESSEN <German city>
 26. <New Zealander> KIWI = K IWI

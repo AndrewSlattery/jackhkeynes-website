@@ -1,5 +1,5 @@
 ACROSS
- 7. Q→D, QUALITY = DUALITY <two-facedness>
+ 7. QUALITY, Q→D = DUALITY <two-facedness>
  9. LIE outside MEAD = LIMEADE <non-alcoholic drink>
 11. QUE (IS after BECO_) = QUEBECOIS <Canadian>
 12. SOT* IC = STOIC <unemotional>
@@ -7,7 +7,7 @@ ACROSS
 15. <detect> ESPY = ESP + _Y
 17. EXTRA JULY outside (DI + CIA + L) = EXTRAJUDICIALLY <without following legal procedures>
 20. NO _O _K = NOOK <secluded corner>
-21. <flyer> BUDGERIGAR = BUDGE RIG A_ R
+21. <flyer> BUDGERIGAR = BUDGE RIG + A_ R
 24. C + HILL = CHILL <cold weather>
 25. (WHY I GET TO)* = EIGHTY-TWO <deuce with some scores?>
 27. (TIN CANS)* = STANNIC <containing tin>
@@ -27,6 +27,6 @@ DOWN
 18. R inside TOPICAL = TROPICAL <sort of storm>
 19. YOUTH outside ARM = YARMOUTH <Norfolk town>
 20. NICE ST = NICEST <most pleasant>
-22. <almost go out> GUTTER = G_ STATE
+22. <almost go out> GUTTER = G_ UTTER
 23. <dessert> FLAN = FLAN[-ders]
 26. <chutzpah> GALL = _G ALL

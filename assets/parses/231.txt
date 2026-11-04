@@ -19,7 +19,7 @@ DOWN
  3. (BERRY BUSH)* = SHRUBBERY <part of garden>
  4. ←(.a)LLY DI(s.)← = IDYLL <paradise>
  5. NIGH TIE = NIGHTIE <late shift?>
- 6. <impressive> ADMIRABLE = ADMIRAL outside B + E
+ 6. <impressive> ADMIRABLE = ADMIRAL outside B_ + E
  7. <not working> KAPUT = (K A) PUT
  8. <whimsicality> CAPRICIOUSNESS = US inside CONSPIRACIES*
 14. I'M PRÉCIS + E_ = IMPRECISE <rather vague>

@@ -1,6 +1,6 @@
 ACROSS
-1. <reflects> REMINISCES = RE MINI S_C_E_S
-6. S_ P_ A_ M_ = SPAM <meat>
+ 1. <reflects> REMINISCES = RE MINI S_C_E_S
+ 6. S_ P_ A_ M_ = SPAM <meat>
 10. PENCE outside N_ A_ = PENANCE <recompense>
 11. BAWLER outside R = BRAWLER <fighter>
 12. <most fortunate> JAMMIEST = T after JAMMIES
@@ -17,17 +17,17 @@ ACROSS
 29. <consider yourself> INTROSPECT = IN (C_ inside PROTEST*)
 
 DOWN
-1. <transported> RAPT = "WRAPPED"
-2. MATE outside AND = MANDATE <authority>
-3. <board game> NINE MEN'S MORRIS = *£*(IN ROME'S)*£*
-4. W inside SPEED = SPEWED <gushed forth>
-5. EM_ and BITTER_ = EMBITTER <provoke hostility>
-7. PA + LOOK A = PALOOKA <klutz>
-8. <salespeople> MARKETEERS = TEE inside MARKERS
-9. (...a)WAR SOFT HERO'S ES(c...) = WARS OF THE ROSES <dynastic struggle>
+ 1. <transported> RAPT = "WRAPPED"
+ 2. MATE outside AND = MANDATE <authority>
+ 3. <board game> NINE MEN'S MORRIS = £*IN ROME'S*£
+ 4. W inside SPEED = SPEWED <gushed forth>
+ 5. EM_ + BITTER_ = EMBITTER <provoke hostility>
+ 7. PA + LOOK A = PALOOKA <klutz>
+ 8. <salespeople> MARKETEERS = TEE inside MARKERS
+ 9. (.a)WAR SOFT HERO'S ES(c.) = WARS OF THE ROSES <dynastic struggle>
 14. FORT outside THEBES = FOR THE BEST <eventually worth it>
 17. PEN TAG ON = PENTAGON <form>
-19. COGNA(-c) TE(-a) = COGNATE <from the same place>
+19. COGNA[-c] TE[-a] = COGNATE <from the same place>
 21. <height> STATURE = ST A_T URE
 22. <plant> MADDER <more nuts>
 25. ←T_ FED← = DEFT <handy>
