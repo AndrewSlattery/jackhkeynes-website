@@ -1,5 +1,5 @@
 ACROSS
- 7. <dog> TOY SPANIEL = (A NOEL + YIPS)*
+ 7. <dog> TOY SPANIEL = (AT NOEL + YIPS)*
  9. UR _DU_ = URDU <the talk of Karachi>
 10. <At> ASTATINE = (A + E) outside STATIN
 11. <preparing to rob> CASING = CASINO, O→G
@@ -15,12 +15,12 @@ ACROSS
 30. <surprising change> SWITCHEROO = S_ W ITCHER OO
 
 DOWN
- 1. 🇫🇷WE🇫🇷 =  NOUS <common sense>
- 2. <awards> OSCARS = 0 SCARS
+ 1. 🇫🇷WE🇫🇷 = NOUS <common sense>
+ 2. <awards> OSCARS = O SCARS
  3. (.s)TAN IS TRY(i.) = TANISTRY <electoral succession>
  4. <extract> ELICIT = _E LICIT
- 5. <case for e.g. brazil> NUTSHELL = NUTS HELL
- 6. [-r]ODIN = ODIN <god>
+ 5. <case for e.g. Brazil> NUTSHELL = NUTS HELL
+ 6. [-r]ODIN = ODIN <Norse god>
  8. ICE BOX = ICEBOX <cooler>
 13. <cheer> OVATE = OVA + T_E
 15. C_ LONE = CLONE <double>

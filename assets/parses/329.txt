@@ -10,7 +10,7 @@ ACROSS
 20. <minister> BISHOP = ISH inside BOP
 22. T_I inside REAR II = RETIARII <gladiators>
 24. I ZZ after R = RIZZ <charm>
-25. <miser> CHEAPSKATE = (TO KEEP A CASH)* - 0
+25. <miser> CHEAPSKATE = (TO KEEP A CASH)* - O
 26. ANGLES _E Y = ANGLESEY <Welsh location>
 27. CURTSY, S→L = CURTLY <without ceremony>
 
@@ -19,7 +19,7 @@ DOWN
  3. <mischievous figure> TRICKSTER = (.a)TRICK'S TER(i.)
  4. RIDE outside G = RIDGE <escarpment>
  5. <gun> SHOOTER = S HOOTER
- 6. <dog> GREYHOUND = →"(HAY GROUND)"←
+ 6. <dog> GREYHOUND = →"HAY GROUND"←
  7. ←NO + TIP← = PITON <mountaineering equipment>
  8. S_ TARS HIP = STARSHIP <sci-fi vehicle>
 14. <stores> BACKPACKS = B (P_ inside ACK-ACKS)

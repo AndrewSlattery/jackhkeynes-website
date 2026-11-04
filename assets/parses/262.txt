@@ -16,7 +16,7 @@ ACROSS
 
 DOWN
  1. BADE outside LOCK = BLOCKADE <siege>
- 2. <agreement> UNISON = ON under UNIS
+ 2. <agreement> UNISON = ON after UNIS
  3. <sailor's guide> LIGHTHOUSE = (ISLE THOUGH)*
  4. <mean> IGNOBLE = GOBLIN* _E
  5. H IDE = HIDE <skin>
@@ -25,7 +25,7 @@ DOWN
 13. <good> UPSTANDING = UP STANDING
 16. AD LIED outside BB = AD-LIBBED <made stuff up>
 18. ROOTLES S_ = ROOTLESS <vagabond>
-19. MY S TRY outside _E_ = MYSTERY <puzzle>
+19. MY S (TRY outside _E_) = MYSTERY <puzzle>
 21. <opulent> DELUXE = (DEUX outside L) _E
 23. <write> AUTHOR = (RHO + TAU)*
 25. <one might skip this> ROPE = (.e)R OPE(r.)

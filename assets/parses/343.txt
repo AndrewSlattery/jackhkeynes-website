@@ -17,7 +17,7 @@ DOWN
  1. <push> PROPEL = PRO P L outside E
  2. P inside DUE = DUPE <con>
  3. <quality of the muscular> SINEWINESS = WINES inside SINES
- 4. <mushroom> DEATH CAP = (PATE HAD)* outside
+ 4. <mushroom> DEATH CAP = (PATE HAD)* outside C
  5. <dance> GYRATE = ←(.r)ETARY-G(e.)←
  6. F EAR = FEAR <dread>
  7. <lunatic> MOONSTRUCK = →"STREWN MUCK"←

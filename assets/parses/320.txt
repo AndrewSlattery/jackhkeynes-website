@@ -4,13 +4,13 @@ ACROSS
 11. <likely to get> IN FOR = INFO R
 12. <call> DUB = ←BUD←
 13. (ADORABLE OLD)* = LABRADOODLE <dog>
-16. <flier> AVIATOR A_ VIA TOR
+16. <flier> AVIATOR = A_ VIA TOR
 17. <tangle> ENTWINE = TEN* + WINE
-19. <heavy> HENCHPERSON HEN + (PERCH)* + SON
+19. <heavy> HENCHPERSON = HEN + PERCH* + SON
 21. <I'm frightened> EEK = [-r]EEK
 23. ←LAGER← = REGAL <fit for a king>
 25. (ELK AT)* + A HOE = LAKE TAHOE <attraction in America>
-27. SANDSTONE* <=< STAND ONE'S GROUND <remain firm>
+27. {sandstone} (STAND ONE'S)* ⇐ STAND ONE'S GROUND <remain firm>
 
 DOWN
  1. AD outside MUSE = AMUSED <was entertaining>

@@ -5,7 +5,7 @@ ACROSS
 11. <lizard> MONITOR = NIT inside MOOR
 12. <calls> NAMES = ←SE[-a]MAN←
 14. V_Y B_E inside NAANS = NAVY BEANS <dried legumes>
-16. S_ O_ L_ = SOL <day on Mars
+16. S_ O_ L_ = SOL <day on Mars>
 17. ALL outside COHO = ALCOHOL <the sauce>
 19. ←EH← X = HEX <magic>
 20. "RAZE CANE" = RAISE CAIN <to cause commotion>
@@ -20,7 +20,7 @@ DOWN
  2. <figure> LEMNISCATE = _LEMN IS C A _TE_
  3. ANAGRAM* + C_ = ARMAGNAC <spirit>
  4. <novelist> ASIMOV = ←VOMI[-t]S A←
- 5. PLAN[-e} = PLAN <blueprint>
+ 5. PLAN[-e] = PLAN <blueprint>
  6. <single> UNATTACHED = TAUNT* ACHED
  7. <well-groomed men> METROSEXUALS = (EXTOL MASSEUR)*
 10. (.e)MINIST RATION(a.) = MINISTRATION <provision of aid>

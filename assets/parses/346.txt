@@ -12,7 +12,7 @@ ACROSS
 23. PLAN outside _Y_ PE = PLAYPEN <where kids can have fun>
 24. LAMBDA outside A = LAMBADA <Brazilian dance>
 26. <kebab> DONER = DONE R
-27. SHY outside RUBBER = SHRUBBERY <flora>
+27. SHY outside RUBBER = SHRUBBERY <flora?>
 
 DOWN
  1. <better> RECOVERED = REED outside COVER

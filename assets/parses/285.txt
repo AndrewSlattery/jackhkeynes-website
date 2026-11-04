@@ -21,7 +21,7 @@ DOWN
  3. LO I RE = LOIRE <French river>
  4. <runs> DIARRHOEA = D I ARR HOE + A_
  5. <come back in> RE-ENTER = E inside RENT ER
- 6. I NB 0 X = INBOX <pile of papers>
+ 6. I NB O X = INBOX <pile of papers>
  7. G_ CRITERIA* = GERIATRIC <for the elderly>
  8. <classifying> CATEGORISATION = CAT EG ORATION outside IS
 14. <one inflexible> HARDLINER = ←DR← inside INHALER*

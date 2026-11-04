@@ -11,7 +11,7 @@ ACROSS
 22. TERRAIN outside P = TERRAPIN <shelled reptile>
 23. MORAL outside T = MORTAL <deadly>
 26. <soldier on> PERSEVERE = PER SEVERE
-27. <how ashes may be> URNED = "EARNED"
+27. <how Ashes may be> URNED = "EARNED"
 28. NEW SPA PERM + A N = NEWSPAPERMAN <hack?>
 
 DOWN

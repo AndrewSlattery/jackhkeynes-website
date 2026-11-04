@@ -32,4 +32,4 @@ DOWN
 20. <floral arrangement> ROSETTE = (.t)RO SETTE(e.)
 21. COR PUS[-s] = CORPUS <body>
 23. <Atlas perhaps> TITAN = _T _I _T _A _N
-25. <confess> O inside A VW
+25. <confess> <confess> AVOW = O inside A VW

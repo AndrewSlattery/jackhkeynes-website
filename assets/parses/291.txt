@@ -4,8 +4,8 @@ ACROSS
 11. <design> ART DECO = RATED* + CO
 12. S ALES = SALES <discounts>
 14. <sneaky> DISHONEST = DISH ON SET*
-16. <cricket club> NO TT + [-g]INGHAMS HIRE
-18. <the King was associated with this> ROCK 'N' ROLL = ROC (N inside KNOLL)
+16. <cricket club> NOTTINGHAMSHIRE = NO TT + [-g]INGHAMS HIRE
+18. <the King was associated with this> ROCK 'N' ROLL = ROC (R inside KNOLL)
 20. <make fresh> RENEW = ←WIENER← - _I
 22. ←MO'S← A TIC = SOMATIC <in the body>
 24. TARIFF* C = TRAFFIC <trade>
@@ -21,7 +21,7 @@ DOWN
  7. <islander> ST HELENIAN = S THE (A inside LENIN)
 13. <fashionable partygoers, perhaps> LATECOMERS = (MALE ESCORT)*
 15. (BANS CORVEE)* = OBSERVANCE <custom>
-17. <excited> = AFL UTTER
+17. <excited> AFLUTTER = AFL UTTER
 19. OR (HID after _C) = ORCHID <plant>
 23. TEA T = TEAT <drink supplier>
 25. F AIL = FAIL <not succeed>

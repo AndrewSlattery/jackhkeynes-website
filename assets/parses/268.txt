@@ -4,7 +4,7 @@ ACROSS
 10. <antique carriage> BROUGHAM = BROUGH[-t] A M
 11. <cop> BLUEBOTTLE = BLUE BOTTLE
 12. <spill the beans> LEAK = "LEEK"
-13. P LAY + F AIR = PLAY FAIR <fiddle not at all>
+13. P LAY + F AIR = PLAY FAIR <fiddle? Not at all!>
 16. <crisp> QUAVER <note>
 17. T inside ACING = ACTING <stagecraft>
 19. RHEA inside DOVE* = OVERHEAD <up above>
@@ -26,6 +26,6 @@ DOWN
 15. AN GUI + SHED = ANGUISHED <displaying grief>
 18. <chance to score> INNINGS = WINNINGS - W
 19. <Greek> OEDIPUS = OED I PUS[-h]
-20. <gather e.g. rye> HARVEST = W out of WHARVES + T
+20. <gather e.g. rye> HARVEST = W off WHARVES + T
 23. <cylinder> SPOOL = ←LOOPS←
-24. <came to> AWOKE = A+E outside WOK
+24. <came to> AWOKE = (A + E) outside WOK

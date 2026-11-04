@@ -6,7 +6,7 @@ ACROSS
 11. <best> ACME = ACE outside _M
 13. <diver> KINGFISHER = (GF IS + HER) after KIN
 14. <average> MEDIOCRE = MEDIC RE outside O
-16. _OSSI_ + AN = OSSIAN <alleged Gaelic poet>
+16. ←IS SO← + AN = OSSIAN <alleged Gaelic poet>
 18. PE NUT outside A_ = PEANUT <pulse>
 19. (DID ACT) _I_C_ = DIDACTIC <preachy>
 20. A CROP _HO_ BIC = ACROPHOBIC <afraid of heights>

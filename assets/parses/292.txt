@@ -7,12 +7,12 @@ ACROSS
 14. (THIS MINOR)* = IRONSMITH <forger>
 15. <cafeteria> BUTTERY = BY outside UTTER
 17. <awful> HEINOUS = HE I_ NOUS
-18. AD isnide ROB LOCK = ROADBLOCK <checkpoint>
+18. AD inside ROB LOCK = ROADBLOCK <checkpoint>
 20. <tree> ASPEN = A SPEN[-t]
-22. S out of SALE = ALE <beer>
+22. S off SALE = ALE <beer>
 23. EXTRA _DITION_ = EXTRADITION <delivery abroad>
 25. <flower> LOTUS = LOTS outside U
-26. <repetitive> REDUNDANT = RANT outside E_D _U_N_D
+26. <wordy> REDUNDANT = RANT outside E_D _U_N_D
 
 DOWN
  1. <approved> OKED = K inside OED

@@ -12,7 +12,7 @@ ACROSS
 25. <racecourse> EPSOM = EP SOM_
 26. (LORD OF THE RINGS)* = LONGSHORE DRIFT <geological process>
 28. <truant> AWOL = _O_ inside AWL
-29. TEMPER ANC E_ = TEMPERANCE <anti-alcohol ideology>
+29. TEMPER ANC E_ = TEMPERANCE <anti-alcohol movement>
 
 DOWN
  1. <collection of stories> DECAMERON = DE CAMERON
@@ -29,6 +29,6 @@ DOWN
 17. (RENAME TON)* = NANOMETRE <metric unit>
 19. <current> AIRFLOW = ⭯FAIR⭯ LOW
 20. <e.g. first> ORDINAL = O RD IN A_L
-22. <writings seen here> E-READER = ERE A DER
+22. <words displayed here> E-READER = ERE A DER
 24. SUP outside YR = SYRUP <sweet liquid>
 27. U inside HE = HUE <tone>

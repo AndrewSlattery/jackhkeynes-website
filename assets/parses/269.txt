@@ -8,7 +8,7 @@ ACROSS
 13. <overseas> INTERNATIONAL = INTERN ATONAL outside I_
 15. <parrot> COPY = COP + Y
 17. <novice> NEWCOMER = CREWMEN* outside _O_
-20. <exploit> UTILISE = U TIE outsde L I_S
+20. <exploit> UTILISE = U TIE outside L I_S
 21. <cancel> ANNUL = ANNUAL - _A_
 22. [-n]EARLY = EARLY <ahead of schedule>
 23. TO TALLY = TOTALLY <completely>

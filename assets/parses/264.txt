@@ -17,7 +17,7 @@ DOWN
  1. + G, I'VE = GIVE <yield>
  2. <bad-tempered> CHURLISH = C HURL IS H
  3. <daycare> CRECHE = C + REC _HE_
- 4. <way ...> COLLISION COURSE {route where we'll definitely collide}
+ 4. <&cd> COLLISION COURSE {route where we'll definitely collide}
  5. SERGEANT* = ESTRANGE <to cause resentment>
  6. _D _U_N_N_ _E _R = DUNNER <bailiff, perhaps>
  7. "SCENT" = CENT <penny>

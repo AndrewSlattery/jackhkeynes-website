@@ -18,7 +18,7 @@ DOWN
  2. BOO outside L = BOLO <machete>
  3. <mean> STAND FOR <bear>
  4. _H_ A_S_ S_L_E_ = HASSLE <problem>
- 5. {SARGE} GEARS* <=< SHIFT GEARS <to try a new strategy>
+ 5. {Sarge} GEARS* ⇐ SHIFT GEARS <to try a new strategy>
  6. <drop> TEAR <rent>
  7. ←(.s)TAR COMED(y.)← = DEMOCRAT <politician>
  9. <overlook> DISREGARD = ←RAGERS I'D← D

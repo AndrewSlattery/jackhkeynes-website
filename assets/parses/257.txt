@@ -30,6 +30,6 @@ DOWN
 16. BROKER AGE = BROKERAGE <financial business>
 17. AG LITTER = AGLITTER <brilliant>
 20. BIRO outside S_T = BISTRO <café>
-22. <fish> TENCH = R out of TRENCH
+22. <fish> TENCH = R off TRENCH
 24. MAT HS = MATHS <subject>
 25. <short video> CLIP <fast pace>

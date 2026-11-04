@@ -1,7 +1,7 @@
 ACROSS
  9. <London thoroughfare> WHITECHAPEL ROAD = W HI-TECH APE LOAD outside _R
 10. <peers> DUKES = D_ UKES
-11. HISTORY* in F_A = FORSYTHIA <bush>
+11. HISTORY* inside F_A = FORSYTHIA <bush>
 12. M_ YOLO GIST = MYOLOGIST <one working on muscles>
 13. <cut> MOWED = "MODE"
 14. DEMO TIC = DEMOTIC <vulgar>
@@ -9,7 +9,7 @@ ACROSS
 18. <Brit> LIMEY = "LIE ME"
 20. (.i)MON'S TROUS(e.) = MONSTROUS <awfully huge>
 22. (MIT FROSH)* outside X = SIXTH FORM <college>
-24. <oaf> = A N out of ANTWERP
+24. <oaf> TWERP = A N off ANTWERP
 26. M + (EX I CAN STAND) OFF = MEXICAN STANDOFF <impasse>
 
 DOWN

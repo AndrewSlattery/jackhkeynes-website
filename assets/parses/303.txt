@@ -12,7 +12,7 @@ ACROSS
 23. <leaves boxes> TEA-CHESTS = TEACHES + T_S
 25. <dictionary headword> LEMMA = L_ EMMA
 26. <make weaker> NERF = (.o)NER F(o.)
-27. <bespoke> TAILOR-MADE = (LEOTARD I AM)* 
+27. <bespoke> TAILOR-MADE = (LEOTARD I AM)*
 
 DOWN
  1. <believes> SWALLOWS <fliers>

@@ -26,7 +26,7 @@ DOWN
 12. <question> INTERROGATE = (TREATING ORE)*
 13. <turnout> ATTENDANCE = (AT TEN) DANCE
 16. →"ROCK COACH"← = COCKROACH <pest>
-17. PR (ANT out of INCESSANT) = PRINCESS <royal daughter>
+17. PR (ANT off INCESSANT) = PRINCESS <royal daughter>
 20. <list of characters> STRING = R inside STING
 22. <funeral lament> ELEGY = EG inside ELY
 23. (ME ME) = MEME <viral Internet content>

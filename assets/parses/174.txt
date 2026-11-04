@@ -4,7 +4,7 @@ ACROSS
  8. <stationery brand> BIC = ←C_I_B_←
  9. <did spring> LEAPT = LEA P T_
 11. ←U FANS← = SNAFU <military omnishambles>
-12. RAC + ED = RACED <sped>
+12. + RAC, ED = RACED <sped>
 14. <dwarf planet> SEDNA = ←ANDES←
 15. "SPAR" = SPA <place intended for relaxation>
 16. <curry> BIRYANI = ←I + NAY RIB←

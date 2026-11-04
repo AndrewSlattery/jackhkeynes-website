@@ -2,7 +2,7 @@ ACROSS
  1. ←ASSAM← CH USE TT = MASSACHUSETT <American>
  8. <seaside attraction> PIER = IE inside PR
  9. DE_ LIBERATE = DELIBERATE <planned>
-10. <beat> RHYTHM = _R _H _Y_ T_ _H _M
+10. <beat> RHYTHM = _R _H _Y _T _H _M
 11. NICE* P + HER = ENCIPHER <disguise>
 13. (MAN TRIES)* outside X = AXMINSTER <carpet>
 15. I + R_ ON = IRON <smoother>
@@ -12,7 +12,7 @@ ACROSS
 22. <swallow> ACCEPT = CEP inside ACT
 24. <lusty> LIBIDINOUS = LIB IOUS outside DIN
 26. <splinter group> SECT = SEC T_
-27. <very small> TEENSY-WEENSY = TEENS + YY outisde WEENS
+27. <very small> TEENSY-WEENSY = TEENS + YY outside WEENS
 
 DOWN
  1. <excellence> MERIT = ER inside MIT

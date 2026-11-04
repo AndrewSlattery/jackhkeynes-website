@@ -1,7 +1,7 @@
 ACROSS
  1. <leave in> STAYCATION = →"K STATION"←
  6. <pole> MAST = MA + ST
- 8. I DIM outside 0 = IDIOM <artistic style>
+ 8. I DIM outside O = IDIOM <artistic style>
  9. <concerning smell> OLFACTORY = O_L FACTORY
 11. (HELD PERSIA)* = LEADERSHIP <skill in governance>
 13. A_ S_ I_ A_ = ASIA <land>
@@ -20,7 +20,7 @@ DOWN
  1. SLIP* + LOVER = SPILLOVER <consequence>
  2. A GI (NATO IT)* = AGITATION <rabble-rousing>
  3. COME outside PER = COMPERE <host>
- 4. <what e.g. cobbler applies> TOOLS = TOO + L_S_
+ 4. <what e.g. cobbler applies> TOOLS = TOO + L_S
  5. <cancelled> OFF = OF outside F
  6. <fuel> METHANE = M_E + THANE
  7. SAR_ DINE = SARDINE <fish>
@@ -32,5 +32,5 @@ DOWN
 20. <example> EPITOME = I inside EP TOME
 21. <heavy weight> MEGATON = ←NOT A GEM←
 23. O PE + RAIN* = OPEN-AIR <outside>
-26. R inside DUE X = DUREX <condom manufacter>
+26. R inside DUE X = DUREX <condom manufacturer>
 28. ←NIT← = TIN <container>

@@ -11,7 +11,7 @@ ACROSS
 21. <exacerbate> WORSEN = ←ROW← SEN
 24. <crook> CHEAT = C_ HEAT
 25. SPOUT outside ACE = SPACE OUT <daydream>
-27. ←A LOG RE P_← PERGOLA <archway>
+27. ←A LOG RE P_← = PERGOLA <archway>
 28. <cocktail> SIDECAR = (AS CIDER)*
 30. D + ISH = DISH <hot guy>
 31. MADE LEES outside IN = MADELEINES <cakes>

@@ -1,6 +1,6 @@
 ACROSS
  1. S_E ←SECRETS← = SESTERCES <ancient Roman coins>
- 6. S Y + SOP = SYSOP <network administrator>
+ 6. + S Y, SOP = SYSOP <network administrator>
  9. <Russian leader> VOZHD = V OZ + HD
 10. _N AU (MACH 1) + A = NAUMACHIA <sea contest>
 11. <siren> LORELEI = LORE + _L_E_I_

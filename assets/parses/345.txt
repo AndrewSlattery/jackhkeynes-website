@@ -1,7 +1,7 @@
 ACROSS
  7. WEST ROENTGEN EAST NITROGEN {the letters around the outside of the solved grid} = WREN <bird>
  8. <encounter> HAPPEN UPON = HAPP[-y] + (ONE PUN)*
-10. <&cd> SPEEDING TICKET = {police officer making record of illegal speediness on this}
+10. <&cd> SPEEDING TICKET {police officer making record of illegal speediness on this}
 11. NO (P_R inside BELIZE) = NOBEL PRIZE <award>
 13. <Northerner's gander {glance}> SKEG = (.i)SK EG(g.)
 14. PEACES* = ESCAPE <jailbreak?>

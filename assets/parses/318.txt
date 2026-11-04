@@ -1,7 +1,7 @@
 ACROSS
  1. S QUIRE ARCH = SQUIREARCH <gentleman>
  6. <stinker> ATOC = (.t)ATO C(h.)
- 9. CHO_ LENT = CHOLENT <food on Saturday>
+ 9. CHO_ LENT = CHOLENT <food on Saturdays>
 10. <displaying old form> ATAVISM = VISA* inside ATM
 12. <ring> TINTINNABULATE = TINTIN NAB U LATE
 14. <bony> MALLEOLAR = MOLAR outside ALL _E
@@ -18,7 +18,7 @@ DOWN
  1. SIC _E = SICE <die roll>
  2. _UXO_ _RI_ _AL_ = UXORIAL <wifely>
  3. <X-ray> ROENTGENOGRAM = ROE GENT* + NOG + RAM
- 4. A C ←NIT← = ACTIN <protein for muscles>
+ 4. A C ←NIT← = ACTIN <protein for muscle>
  5. CHAP ARR + A L = CHAPARRAL <shrubland>
  7. TRIBE outside AD = TRIBADE <lesbian>
  8. (SCRAP METAL)* = CAMPESTRAL <in the countryside>

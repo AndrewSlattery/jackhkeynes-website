@@ -1,5 +1,5 @@
 ACROSS
- 1. H (PROS WERE)* outside 0 = HORSEPOWER <hp>
+ 1. H (PROS WERE)* outside O = HORSEPOWER <hp>
  7. <advertise> PLUG = L inside PUG
  9. "REAL" = REEL <section of film>
 10. <cosmetic> NAIL POLISH = A inside NIL POLISH

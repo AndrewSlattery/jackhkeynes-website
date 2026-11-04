@@ -4,7 +4,7 @@ ACROSS
 10. DL inside CURE = CURDLE <clot>
 11. ←AID← TRIBE = DIATRIBE <angry speech>
 12. <fleets> NAVIES = NA VIES
-14. CL out of CLOVERLEAF = OVERLEAF <on the other side>
+14. CL off CLOVERLEAF = OVERLEAF <on the other side>
 15. _E PEE = EPEE <brand>
 17. HIM inside CE = CHIME <bell>
 18. <forfeit> LOSE = "LOOS"
@@ -16,7 +16,7 @@ ACROSS
 27. (STAR'S NEVER)* = TRANSVERSE <crossing over>
 
 DOWN
- 1. <terrible shock> TRAUMA = [-s]UMATRA*
+ 1. <terrible shock> TRAUMA = _UMATRA*
  2. <uncompromising> HARDLINE = _H IRELAND*
  3. (.r)ED GE(n.) = EDGE <advantage>
  4. <secret agent> BOND <security>

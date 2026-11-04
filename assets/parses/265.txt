@@ -23,11 +23,11 @@ DOWN
  7. I'VE inside RT = RIVET <pin>
  8. S_ TRAPPED = STRAPPED <carrying gun>
  9. ALTO outside L EGRET = ALLEGRETTO <instruction to players>
-12. (+ C) LO THESPIAN - A = CLOTHES PIN <grip on lines>
+12. + C, LO THESPIAN - A = CLOTHES PIN <grip on lines>
 14. <officer> AIDE-DE-CAMP = ←ACED inside P_ MEDIA←
 17. <queen> NEFERTITI = (ENTIRE FIT)*
 18. C inside CHOICES = CHOC-ICES <afters>
 21. EG ←GONG← = EGGNOG <tipple>
-23. (0 PINE) = OPINE <to volunteer>
+23. (O PINE) = OPINE <to volunteer>
 25. "KEE WEE" = KIWI <bird>
 27. <cool> A-OK = _A_O_K_
