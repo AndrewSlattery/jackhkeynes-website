@@ -8,7 +8,7 @@ ACROSS
 14. <he may fight> SERVICEMAN = (RACISM EVEN)*
 16. <uncle> PAWNBROKER = PAWN BROKER
 18. "ROE TEA" = ROTI <bread>
-19. (RATHER HOT)* B_ = HEARTTHROB <&lit>
+19. <&lit> HEARTTHROB = (RATHER HOT)* B_
 22. ←BROS← = SORB <someone from East Germany>
 23. <flawless> AIRTIGHT = AI RIGHT outside T
 24. AD ROT outside I = ADROIT <expert>
