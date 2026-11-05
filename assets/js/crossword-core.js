@@ -704,7 +704,7 @@
       // Pencil mode: new letters are tentative, shown in grey
       var pencilBtn = '<button class="xw-ctrl-btn xw-pencil-btn" type="button" data-action="pencil" ' +
         'aria-pressed="false" aria-label="Pencil" aria-keyshortcuts="." ' +
-        'title="Pencil (.): type tentative letters, shown in grey">✎</button>';
+        'title="Pencil (.)">✎</button>';
 
       // Revealed once the puzzle's parses file has loaded (see init)
       var parseBtn = '<button class="xw-ctrl-btn xw-parse-btn" type="button" data-action="parse" title="Parse current clue" hidden>Parse</button>';
