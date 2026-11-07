@@ -793,7 +793,7 @@
       }).map(function (word) {
         var numLabel = word.label || word.number;
         var enumStr = (puzzle.showEnumerations && word.enumeration)
-          ? ' <span class="xw-clue-enum">(' + fmtEnum(word.enumeration) + ')</span>'
+          ? '&nbsp;<span class="xw-clue-enum">(' + fmtEnum(word.enumeration) + ')</span>'
           : '';
         return '<div class="xw-clue" data-num="' + word.number + '" data-dir="' + dir + '">' +
           '<span class="xw-clue-num">' + numLabel + '</span>' +
@@ -1056,7 +1056,7 @@
       labelEl.textContent = (word.label || word.number) + dirChar + '. ';
 
       var enumStr = (puzzle.showEnumerations && word.enumeration)
-        ? ' <span class="xw-clue-enum">(' + fmtEnum(word.enumeration) + ')</span>'
+        ? '&nbsp;<span class="xw-clue-enum">(' + fmtEnum(word.enumeration) + ')</span>'
         : '';
       clueEl.innerHTML = word.clue + enumStr;
     }
@@ -2060,9 +2060,9 @@
       } else {
         var label = hideParseLabel ? '' : (word.label || word.number) + (dirLabels[word.direction] || '') + '. ';
         var enumStr = (puzzle.showEnumerations && word.enumeration)
-          ? ' (' + fmtEnum(word.enumeration) + ')'
+          ? '&nbsp;' + escapeHtml('(' + fmtEnum(word.enumeration) + ')')
           : '';
-        clueEl.innerHTML = escapeHtml(label) + word.clue + escapeHtml(enumStr);
+        clueEl.innerHTML = escapeHtml(label) + word.clue + enumStr;
         // A parse gives the answer away, so wait until the grid has it
         bodyEl.textContent = !isWordSolved(word)
           ? '❌ Answer is not complete or not correct.'
@@ -2148,7 +2148,7 @@
         items.forEach(function (word) {
           var numLabel = word.label || word.number;
           var enumStr  = (puzzle.showEnumerations && word.enumeration)
-            ? ' <span class="xw-print-clue-enum">(' + escapeHtml(fmtEnum(word.enumeration)) + ')</span>'
+            ? '&nbsp;<span class="xw-print-clue-enum">(' + escapeHtml(fmtEnum(word.enumeration)) + ')</span>'
             : '';
           clueHTML += '<div class="xw-print-clue">' +
             '<span class="xw-print-clue-num">' + escapeHtml(String(numLabel)) + '</span>' +

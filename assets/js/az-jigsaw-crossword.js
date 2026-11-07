@@ -138,7 +138,7 @@
       var sortedClues = getSortedDisplayClues(engine);
       var items = sortedClues.map(function (w) {
         var enumStr = (engine.puzzle.showEnumerations && w.enumeration)
-          ? ' <span class="xw-clue-enum">(' + fmtEnum(w.enumeration) + ')</span>'
+          ? '&nbsp;<span class="xw-clue-enum">(' + fmtEnum(w.enumeration) + ')</span>'
           : '';
         var key   = w.number + '_' + w.direction;
         var spVal = escapeAttr(scratchpad[key] || '');
@@ -195,7 +195,7 @@
         if (hcWord) {
           labelEl.textContent = '';
           var hcEnum = (engine.puzzle.showEnumerations && hcWord.enumeration)
-            ? ' (' + fmtEnum(hcWord.enumeration) + ')'
+            ? '&nbsp;(' + fmtEnum(hcWord.enumeration) + ')'
             : '';
           // Clue text is HTML (entities, italics), as in the clue list
           clueEl.innerHTML = hcWord.clue + hcEnum;
@@ -248,7 +248,7 @@
           if (hcWord) {
             labelEl.textContent = '';
             var hcEnum = (engine.puzzle.showEnumerations && hcWord.enumeration)
-              ? ' (' + fmtEnum(hcWord.enumeration) + ')'
+              ? '&nbsp;(' + fmtEnum(hcWord.enumeration) + ')'
               : '';
             acbClue.innerHTML = hcWord.clue + hcEnum;
           }
@@ -309,7 +309,7 @@
           if (hcWord) {
             labelEl.textContent = '';
             var hcEnum = (engine.puzzle.showEnumerations && hcWord.enumeration)
-              ? ' (' + fmtEnum(hcWord.enumeration) + ')'
+              ? '&nbsp;(' + fmtEnum(hcWord.enumeration) + ')'
               : '';
             acbClue.innerHTML = hcWord.clue + hcEnum;
           }
