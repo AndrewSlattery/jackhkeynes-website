@@ -52,7 +52,7 @@ Silv'ry Tay!*, is a
 ## Limericks
 
 Written on Discord, April to June 2025, for the weekly rhyming challenge on
-[r/limericks](https://www.reddit.com/r/limericks/), which sets a word for
+[r/limericks](https://www.reddit.com/r/limericks/){: style="white-space: nowrap"}, which sets a word for
 each week's limericks to rhyme on.
 {: .poem-note}
 
