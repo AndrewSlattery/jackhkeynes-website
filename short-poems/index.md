@@ -90,7 +90,7 @@ each week's limericks to rhyme on.
 Written on Discord, 13 March 2025, after a friend forgot the shitpost they had
 come to make. After William Carlos Williams's
 [*This Is Just To Say*](https://en.wikipedia.org/wiki/This_Is_Just_To_Say)
-(1934), following its three quatrains line for line.
+(1934), matching the metre of its three quatrains.
 {: .poem-note}
 
 {% capture p %}{% include_relative this-is-just-to-post.txt %}{% endcapture %}
