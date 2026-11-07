@@ -102,3 +102,22 @@
   color: $color-text-dim;
   max-width: 40em;
 }
+
+// ── Poem list ────────────────────────────────────────────────────────────────
+//
+// The Short Poems page wraps each poem (heading, verse, note) in a
+// .poem-entry inside a .poem-list. On wide screens the list flows into as
+// many columns as fit; an entry never splits across a column break.
+.poem-list {
+  column-width: 26em;
+  column-gap: 3.5em;
+}
+
+.poem-entry {
+  break-inside: avoid;
+  // Block-level padding rather than margin: margins at the top of a column
+  // are dropped inconsistently between browsers.
+  padding-bottom: 1.5em;
+
+  > h2:first-child { margin-top: 0; }
+}
