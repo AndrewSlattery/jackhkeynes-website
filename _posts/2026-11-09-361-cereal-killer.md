@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#361: Cereal Killer"
-date: 2026-11-09T11:00:00.000Z
+date: 2026-11-09T12:00:00.000Z
 puzzle_number: 361
 ---
 
